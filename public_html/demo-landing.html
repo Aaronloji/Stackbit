@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html lang="es-CR">
+<head>
+  <meta charset="UTF-8">
+<!-- ══ ANALÍTICA — Stackbit CR (GA4 + Meta Pixel) ══ -->
+<script>
+/* Google Analytics 4 */
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-312SR4PJLV');
+/* Meta Pixel — stub inmediato, descarga diferida.
+   fbq() existe desde el primer instante y ENCOLA los eventos; el archivo real
+   (fbevents.js + su config, ~755 KB) se descarga recien al primer scroll/clic
+   o 3 s despues de load, lo que pase primero. Al llegar, procesa la cola, asi
+   que no se pierde el PageView ni los eventos de WhatsApp/formulario. */
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[]}(window,document,'script');
+fbq('init','876485647272894');fbq('track','PageView');
+(function(){
+  var pedido=false;
+  var gatillos=['scroll','pointerdown','keydown','touchstart'];
+  function cargarPixel(){
+    if(pedido)return; pedido=true;
+    gatillos.forEach(function(ev){window.removeEventListener(ev,cargarPixel);});
+    var t=document.createElement('script');
+    t.async=!0; t.src='https://connect.facebook.net/en_US/fbevents.js';
+    var s=document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(t,s);
+  }
+  gatillos.forEach(function(ev){window.addEventListener(ev,cargarPixel,{passive:!0});});
+  window.addEventListener('load',function(){setTimeout(cargarPixel,3000);});
+})();
+/* Eventos propios: WhatsApp, teléfono, demos y formularios */
+document.addEventListener('DOMContentLoaded',function(){
+  var ev=function(g,f,p){try{gtag('event',g,p||{});}catch(e){}
+                         try{f&&fbq('track',f,p||{});}catch(e){}};
+  document.addEventListener('click',function(e){
+    var a=e.target&&e.target.closest?e.target.closest('a'):null;
+    if(!a||!a.href)return;
+    var h=a.href;
+    if(h.indexOf('wa.me')>-1||h.indexOf('api.whatsapp')>-1) ev('clic_whatsapp','Contact',{method:'whatsapp'});
+    else if(h.indexOf('tel:')===0) ev('clic_telefono','Contact',{method:'telefono'});
+    else if(h.indexOf('mailto:')===0) ev('clic_correo','Contact',{method:'correo'});
+    else if(/\/demo-/.test(h)) ev('ver_demo',null,{demo:h.split('/').pop()});
+  },true);
+  document.addEventListener('submit',function(e){
+    if(e.target&&e.target.tagName==='FORM') ev('generate_lead','Lead',{});
+  },true);
+});
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-312SR4PJLV"></script>
+<noscript><img height="1" width="1" style="display:none" alt=""
+src="https://www.facebook.com/tr?id=876485647272894&ev=PageView&noscript=1"></noscript>
+<!-- ══ FIN ANALÍTICA ══ -->
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- ══ SEO ══ -->
+  <title>Demo Landing Page de Producto · Página Web Profesional | Stackbit</title>
+  <meta name="description" content="Demo de landing page de producto optimizada para conversión. Ejemplo real de página informativa diseñada por Stackbit Costa Rica.">
+  <meta name="keywords" content="landing page Costa Rica, página de aterrizaje, página informativa, demo landing, página de producto, página web pyme">
+  <meta name="author" content="Stackbit">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="geo.region" content="CR-SJ">
+  <meta name="geo.placename" content="San José, Costa Rica">
+
+  <link rel="canonical" href="https://stackbitcr.com/demo-landing">
+  <link rel="alternate" hreflang="es-CR" href="https://stackbitcr.com/demo-landing">
+  <link rel="alternate" hreflang="es" href="https://stackbitcr.com/demo-landing">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Stackbit">
+  <meta property="og:locale" content="es_CR">
+  <meta property="og:title" content="Demo Landing Page de Producto | Stackbit">
+  <meta property="og:description" content="Ejemplo real de landing page optimizada para conversión. Diseñado por Stackbit Costa Rica.">
+  <meta property="og:url" content="https://stackbitcr.com/demo-landing">
+  <meta property="og:image" content="https://stackbitcr.com/assets/img/mockup-web.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Demo Landing Page | Stackbit">
+  <meta name="twitter:description" content="Ejemplo real de landing page de producto en Costa Rica.">
+  <meta name="twitter:image" content="https://stackbitcr.com/assets/img/mockup-web.jpg">
+
+  <meta name="theme-color" content="#0a0a0a">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap"></noscript>
+
+  <!-- ══ STRUCTURED DATA ══ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://stackbitcr.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Demos", "item": "https://stackbitcr.com/demos" },
+          { "@type": "ListItem", "position": 3, "name": "Demo Landing", "item": "https://stackbitcr.com/demo-landing" }
+        ]
+      },
+      {
+        "@type": "WebPage",
+        "name": "Demo Landing Page de Producto | Stackbit",
+        "url": "https://stackbitcr.com/demo-landing",
+        "description": "Demo de landing page de producto.",
+        "inLanguage": "es-CR",
+        "isPartOf": { "@type": "WebSite", "url": "https://stackbitcr.com/", "name": "Stackbit" }
+      }
+    ]
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:     #08080d;
+      --surface:#101018;
+      --border: #1e1e2e;
+      --text:   #f0f0f8;
+      --muted:  #6868a0;
+      --dim:    #3a3a5a;
+      --red:    #e63946;
+      --red-dk: #b51c28;
+      --cube:   280px;
+      --half:   140px;
+    }
+
+    html { scroll-behavior: auto; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg); color: var(--text);
+      line-height: 1.6; overflow-x: hidden;
+    }
+    a { text-decoration: none; color: inherit; }
+
+    /* ── PROGRESS ── */
+    #prog {
+      position: fixed; top: 0; left: 0; width: 0%; height: 3px;
+      background: linear-gradient(90deg,#e63946,#f96f2e,#ffd166,#4cc76f,#4895ef);
+      z-index: 9999;
+    }
+
+    /* ── BACK BUTTON ── */
+    .back-btn {
+      display: flex; align-items: center; gap: .45rem;
+      padding: .4rem .9rem;
+      background: rgba(255,255,255,.06);
+      border: 1px solid var(--border); border-radius: 99px;
+      font-size: .8rem; font-weight: 500; color: var(--muted);
+      transition: border-color .2s, color .2s, background .2s;
+      white-space: nowrap;
+    }
+    .back-btn:hover { border-color: var(--red); color: var(--text); background: rgba(230,57,70,.08); }
+
+    /* ── NAV ── */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; height: 64px;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 2rem; gap: 1.25rem; z-index: 200;
+      background: rgba(8,8,13,.75); backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-left { display: flex; align-items: center; gap: 1.25rem; }
+    .nav-logo {
+      display: flex; align-items: center; gap: .55rem;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.55rem; letter-spacing: .05em;
+    }
+    .logo-sq {
+      width: 28px; height: 28px;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 2px;
+      padding: 3px; background: #111; border-radius: 5px;
+    }
+    .logo-sq span { border-radius: 2px; }
+    .lc1{background:#e63946;} .lc2{background:#4895ef;}
+    .lc3{background:#ffd166;} .lc4{background:#4cc76f;}
+
+    .nav-cta {
+      padding: .5rem 1.4rem; background: var(--red); color: #fff;
+      border-radius: 6px; font-size: .875rem; font-weight: 600;
+      transition: background .2s, transform .15s;
+    }
+    .nav-cta:hover { background: var(--red-dk); transform: translateY(-1px); }
+
+    /* ════════════════════════════════
+       CUBE HERO SECTION  (350vh tall)
+    ════════════════════════════════ */
+    .cube-section { height: 350vh; position: relative; }
+
+    .cube-pin {
+      position: sticky; top: 0; height: 100vh;
+      display: grid; grid-template-columns: 1fr 1fr;
+      overflow: hidden;
+    }
+
+    /* LEFT: copy */
+    .cube-left {
+      display: flex; flex-direction: column; justify-content: center;
+      padding: 6rem 3rem 4rem 4.5rem; position: relative;
+    }
+
+    .cube-messages { position: relative; min-height: 360px; }
+
+    .cube-msg {
+      position: absolute; top: 0; left: 0;
+      opacity: 0; transform: translateY(24px);
+      transition: opacity .65s ease, transform .65s ease;
+      pointer-events: none;
+    }
+    .cube-msg.active { opacity: 1; transform: translateY(0); pointer-events: auto; }
+
+    .kicker {
+      display: block; font-size: .76rem; font-weight: 600;
+      letter-spacing: .18em; text-transform: uppercase;
+      color: var(--red); margin-bottom: 1.4rem;
+    }
+
+    .cube-msg h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(3.8rem, 6.5vw, 6rem);
+      line-height: .96; letter-spacing: .02em; margin-bottom: 1.4rem;
+    }
+    .cube-msg h1 em { font-style: normal; color: var(--red); }
+
+    .cube-msg p {
+      font-size: 1.0625rem; color: var(--muted);
+      max-width: 36ch; line-height: 1.8; margin-bottom: 2.2rem;
+    }
+
+    .msg-cta {
+      display: inline-flex; align-items: center; gap: .5rem;
+      padding: .8rem 2rem; background: var(--red); color: #fff;
+      border-radius: 8px; font-weight: 600; font-size: .9375rem;
+      transition: background .2s, transform .15s;
+    }
+    .msg-cta:hover { background: var(--red-dk); transform: translateY(-2px); }
+
+    .msg-cta-ghost {
+      display: inline-flex; align-items: center; gap: .5rem;
+      padding: .8rem 2rem; background: transparent; color: var(--text);
+      border: 1px solid var(--border); border-radius: 8px;
+      font-weight: 500; font-size: .9375rem;
+      transition: border-color .2s, background .2s;
+      margin-left: .75rem;
+    }
+    .msg-cta-ghost:hover { border-color: var(--red); background: rgba(230,57,70,.06); }
+
+    /* scroll hint */
+    .scroll-hint {
+      position: absolute; bottom: 2.5rem; left: 4.5rem;
+      display: flex; align-items: center; gap: .75rem;
+      font-size: .78rem; color: var(--dim);
+    }
+    .sh-line {
+      width: 48px; height: 1px; background: var(--dim);
+      animation: shAnim 2s ease-in-out infinite;
+    }
+    @keyframes shAnim {
+      0%,100%{width:48px;opacity:.4;} 50%{width:80px;opacity:1;}
+    }
+
+    /* phase dots */
+    .phase-dots {
+      position: absolute; right: 2rem;
+      top: 50%; transform: translateY(-50%);
+      display: flex; flex-direction: column; gap: .55rem;
+    }
+    .pd {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--border);
+      transition: background .4s, transform .4s;
+    }
+    .pd.on { background: var(--red); transform: scale(1.6); }
+
+    /* RIGHT: cube */
+    .cube-right {
+      display: flex; align-items: center; justify-content: center;
+      position: relative;
+      background: radial-gradient(ellipse at center, #0d0d1e 0%, var(--bg) 72%);
+    }
+    .cube-right::before {
+      content:''; position:absolute; inset:0;
+      background-image:
+        linear-gradient(var(--border) 1px, transparent 1px),
+        linear-gradient(90deg, var(--border) 1px, transparent 1px);
+      background-size: 44px 44px; opacity: .22; pointer-events:none;
+    }
+    .cube-glow {
+      position: absolute; width: 460px; height: 460px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(230,57,70,.13) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    /* ── 3D CUBE ── */
+    .cube-scene { perspective: 820px; perspective-origin: 50% 44%; position: relative; z-index: 1; }
+
+    .cube {
+      width: var(--cube); height: var(--cube);
+      transform-style: preserve-3d;
+      transform: rotateX(-20deg) rotateY(30deg);
+      will-change: transform;
+    }
+
+    .cube-face {
+      position: absolute; width: var(--cube); height: var(--cube);
+      background: #0b0b10; border: 3px solid #18181f;
+      box-sizing: border-box;
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      grid-template-rows: repeat(3,1fr);
+      gap: 7px; padding: 11px; border-radius: 3px;
+    }
+
+    .cf-front  { transform: translateZ(var(--half)); }
+    .cf-back   { transform: rotateY(180deg)  translateZ(var(--half)); }
+    .cf-right  { transform: rotateY(90deg)   translateZ(var(--half)); }
+    .cf-left   { transform: rotateY(-90deg)  translateZ(var(--half)); }
+    .cf-top    { transform: rotateX(90deg)   translateZ(var(--half)); }
+    .cf-bottom { transform: rotateX(-90deg)  translateZ(var(--half)); }
+
+    .st {
+      border-radius: 4px;
+      box-shadow: inset 0 -3px 6px rgba(0,0,0,.45), inset 0 1px 2px rgba(255,255,255,.12);
+    }
+    .st-r { background: linear-gradient(145deg,#ff4757,#c0392b); }
+    .st-o { background: linear-gradient(145deg,#ff793f,#c55220); }
+    .st-b { background: linear-gradient(145deg,#5dade2,#2171b5); }
+    .st-g { background: linear-gradient(145deg,#58d68d,#1e8449); }
+    .st-y { background: linear-gradient(145deg,#f7dc6f,#d4ac0d); }
+    .st-w { background: linear-gradient(145deg,#f0f0f0,#bdc3c7); }
+
+    /* ════════════════════
+       FEATURES
+    ════════════════════ */
+    .features {
+      padding: 5rem 0;
+      border-top: 1px solid var(--border);
+      background: var(--surface);
+    }
+    .container { max-width: 1140px; margin: 0 auto; padding: 0 2rem; }
+
+    .feat-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+      gap: 2.5rem;
+    }
+    .feat-item { display: flex; align-items: flex-start; gap: 1.1rem; }
+    .feat-icon {
+      width: 52px; height: 52px; border-radius: 12px; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.5rem;
+    }
+    .feat-text h4 { font-size: 1rem; font-weight: 600; margin-bottom: .3rem; }
+    .feat-text p  { font-size: .875rem; color: var(--muted); line-height: 1.6; }
+
+    /* ════════════════════
+       STATS
+    ════════════════════ */
+    .stats { padding: 5rem 0; background: var(--bg); }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px,1fr));
+      border: 1px solid var(--border); border-radius: 18px;
+      overflow: hidden; background: var(--border); gap: 1px;
+    }
+    .stat-item {
+      background: #0f0f1a;
+      padding: 2.75rem 2rem; text-align: center;
+    }
+    .stat-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 4rem; line-height: 1; margin-bottom: .4rem;
+    }
+    .stat-num b { color: var(--red); font-weight: normal; }
+    .stat-lbl { font-size: .875rem; color: var(--muted); }
+
+    /* ════════════════════
+       CTA BAND
+    ════════════════════ */
+    .cta-band {
+      padding: 7rem 0; text-align: center;
+      background: linear-gradient(135deg, #0e0e1a 0%, #1a0a0e 100%);
+      position: relative; overflow: hidden;
+    }
+    .cta-band::before {
+      content:''; position:absolute; top:50%; left:50%;
+      transform:translate(-50%,-50%);
+      width:700px; height:700px; border-radius:50%;
+      background:radial-gradient(circle,rgba(230,57,70,.1) 0%,transparent 70%);
+      pointer-events:none;
+    }
+    .cta-band .container { position:relative; z-index:1; }
+
+    .cta-band h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(3.2rem,6.5vw,5.5rem);
+      line-height: .95; letter-spacing: .02em; margin-bottom: 1rem;
+    }
+    .cta-band h2 em { font-style:normal; color:var(--red); }
+
+    .cta-band p {
+      font-size: 1.1rem; color: var(--muted);
+      max-width: 44ch; margin: 0 auto 2.75rem;
+    }
+
+    .cta-btns { display:flex; align-items:center; justify-content:center; gap:1rem; flex-wrap:wrap; }
+
+    .btn-red {
+      padding: .9rem 2.25rem; background: var(--red); color: #fff;
+      border-radius: 8px; font-weight: 700; font-size: 1rem;
+      transition: background .2s, transform .15s;
+    }
+    .btn-red:hover { background:var(--red-dk); transform:translateY(-2px); }
+
+    .btn-wa {
+      padding: .9rem 2.25rem; background: #25d366; color: #fff;
+      border-radius: 8px; font-weight: 700; font-size: 1rem;
+      display:inline-flex; align-items:center; gap:.5rem;
+      transition: background .2s, transform .15s;
+    }
+    .btn-wa:hover { background:#1db954; transform:translateY(-2px); }
+
+    /* ════════════════════
+       FOOTER
+    ════════════════════ */
+    .footer {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      padding: 2rem;
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 1rem;
+    }
+    .footer p { font-size: .8rem; color: var(--dim); }
+    .footer-credit a { color: var(--red); font-weight: 500; }
+
+    /* ── REVEAL ── */
+    .reveal {
+      opacity:0; transform:translateY(30px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+    .reveal.visible { opacity:1; transform:translateY(0); }
+
+    /* ── REDUCED MOTION ── */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation:none!important; transition:none!important; }
+    }
+
+    /* ════════════════════════════════
+       RESPONSIVE — Tablet
+    ════════════════════════════════ */
+    @media (max-width: 1024px) {
+      .cube-left { padding: 5rem 2rem 3rem 2.5rem; }
+      .scroll-hint { left: 2.5rem; }
+      :root { --cube: 240px; --half: 120px; }
+    }
+
+    /* ════════════════════════════════
+       RESPONSIVE — Mobile (≤768px)
+       Abandona el scroll-jacking del cubo
+       y muestra todo el contenido apilado.
+    ════════════════════════════════ */
+    @media (max-width: 768px) {
+      /* NAV compacto */
+      .nav { padding: 0 1rem; height: 60px; gap: .5rem; }
+      .nav-logo { font-size: 1.2rem; gap: .4rem; }
+      .logo-sq { width: 22px; height: 22px; padding: 2px; gap: 1px; }
+      .back-btn { padding: .35rem .7rem; font-size: .72rem; }
+      .back-btn svg { width: 12px; height: 12px; }
+      .nav-cta { padding: .42rem 1rem; font-size: .8rem; }
+
+      /* Hero: sin sticky, sin scroll-jacking */
+      .cube-section { height: auto; }
+      .cube-pin {
+        position: relative;
+        top: auto;
+        height: auto;
+        grid-template-columns: 1fr;
+        min-height: 100vh;
+      }
+
+      /* Cubo arriba como decoración */
+      .cube-right {
+        order: 1;
+        width: 100%;
+        height: 42vh;
+        min-height: 280px;
+        padding: 5rem 1rem 1rem;
+      }
+      .cube-right::before { background-size: 32px 32px; opacity: .15; }
+      .cube-glow { width: 280px; height: 280px; }
+      :root { --cube: 170px; --half: 85px; }
+
+      /* Texto debajo, todas las messages visibles apiladas */
+      .cube-left {
+        display: flex !important;
+        order: 2;
+        padding: 2rem 1.25rem 3rem;
+        text-align: center;
+        align-items: center;
+      }
+      .cube-messages { min-height: auto; width: 100%; }
+      .cube-msg {
+        position: relative !important;
+        opacity: 1 !important;
+        transform: none !important;
+        pointer-events: auto !important;
+        margin-bottom: 3rem;
+        padding-bottom: 2rem;
+        border-bottom: 1px solid var(--border);
+      }
+      .cube-msg:last-child { margin-bottom: 0; border-bottom: none; }
+      .cube-msg h1 {
+        font-size: clamp(2.4rem, 11vw, 3.6rem) !important;
+        line-height: 1;
+        margin-bottom: 1rem;
+      }
+      .cube-msg p {
+        font-size: .95rem;
+        max-width: 100%;
+        margin-left: auto; margin-right: auto;
+        margin-bottom: 1.5rem;
+      }
+      .kicker { font-size: .68rem; margin-bottom: 1rem; letter-spacing: .14em; }
+      .msg-cta, .msg-cta-ghost {
+        display: inline-flex;
+        padding: .75rem 1.5rem;
+        font-size: .875rem;
+        margin: .35rem;
+      }
+      .msg-cta-ghost { margin-left: .35rem; }
+
+      /* Ocultar elementos del scroll-jacking */
+      .scroll-hint,
+      .phase-dots { display: none !important; }
+
+      /* Features: una columna */
+      .features { padding: 3.5rem 0; }
+      .container { padding: 0 1.25rem; }
+      .feat-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+      .feat-item { gap: .85rem; }
+      .feat-icon { width: 44px; height: 44px; font-size: 1.25rem; border-radius: 10px; }
+      .feat-text h4 { font-size: .95rem; }
+      .feat-text p { font-size: .825rem; }
+
+      /* Stats: 2 columnas (no 4 ni 1) */
+      .stats { padding: 3.5rem 0; }
+      .stats-grid { grid-template-columns: 1fr 1fr; border-radius: 14px; }
+      .stat-item { padding: 1.75rem 1rem; }
+      .stat-num { font-size: 2.8rem; }
+      .stat-lbl { font-size: .78rem; }
+
+      /* CTA band */
+      .cta-band { padding: 4.5rem 1rem; }
+      .cta-band h2 { font-size: clamp(2.4rem, 10vw, 3.6rem) !important; }
+      .cta-band p { font-size: .95rem; margin-bottom: 2rem; }
+      .cta-band::before { width: 400px; height: 400px; }
+      .cta-btns { gap: .65rem; }
+      .btn-red, .btn-wa {
+        padding: .8rem 1.5rem;
+        font-size: .9rem;
+        width: 100%;
+        max-width: 280px;
+        justify-content: center;
+      }
+
+      /* Footer */
+      .footer {
+        flex-direction: column;
+        text-align: center;
+        gap: .6rem;
+        padding: 1.75rem 1.25rem;
+      }
+      .footer p { font-size: .75rem; }
+    }
+
+    /* ════════════════════════════════
+       RESPONSIVE — Mobile chico (≤480px)
+    ════════════════════════════════ */
+    @media (max-width: 480px) {
+      :root { --cube: 140px; --half: 70px; }
+      .cube-right { height: 38vh; min-height: 240px; padding-top: 4.5rem; }
+      .cube-glow { width: 220px; height: 220px; }
+      .cube-msg h1 { font-size: clamp(2.1rem, 12vw, 3rem) !important; }
+      .stats-grid { grid-template-columns: 1fr; }
+      .stat-num { font-size: 2.4rem; }
+      .nav-logo { font-size: 1.05rem; }
+    }
+
+    @media (max-width: 380px) {
+      .back-btn { padding: .32rem .55rem; font-size: 0; }  /* solo flecha visible */
+      .back-btn svg { width: 14px; height: 14px; }
+      .nav-logo { font-size: .98rem; }
+      .nav-cta { padding: .4rem .8rem; font-size: .75rem; }
+    }
+
+    /* ════════════════════════════════
+       RESPONSIVE — Landscape mobile
+    ════════════════════════════════ */
+    @media (max-width: 900px) and (orientation: landscape) and (max-height: 500px) {
+      .cube-right { height: 50vh; min-height: 200px; }
+      :root { --cube: 130px; --half: 65px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div id="prog"></div>
+
+  <!-- NAV -->
+  <header class="nav">
+    <div class="nav-left">
+      <a href="/demos" class="back-btn">
+        <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" width="14" height="14">
+          <path d="M13 5l-5 5 5 5"/>
+        </svg>
+        Demos
+      </a>
+      <a href="#" class="nav-logo">
+        <div class="logo-sq" aria-hidden="true">
+          <span class="lc1"></span><span class="lc2"></span>
+          <span class="lc3"></span><span class="lc4"></span>
+        </div>
+        CubeWorld
+      </a>
+    </div>
+    <a href="https://wa.me/50672849920" class="nav-cta" target="_blank" rel="noopener">Pedir ahora →</a>
+  </header>
+
+  <!-- ══════════ HERO + CUBE ══════════ -->
+  <section class="cube-section" id="cube-section">
+    <div class="cube-pin">
+
+      <!-- texto -->
+      <div class="cube-left">
+        <div class="cube-messages">
+
+          <div class="cube-msg active">
+            <span class="kicker">— Speedcubes Costa Rica</span>
+            <h1>Gira.<br>Resuelve.<br><em>Domina.</em></h1>
+            <p>Los mejores cubos Rubik y puzzles del mercado, directo a tu puerta.</p>
+            <a href="https://wa.me/50672849920" class="msg-cta" target="_blank" rel="noopener">Pedir por WhatsApp →</a>
+            <a href="#beneficios" class="msg-cta-ghost">Ver beneficios</a>
+          </div>
+
+          <div class="cube-msg">
+            <span class="kicker">— Calidad de competencia</span>
+            <h1>Más de<br><em>50</em><br>modelos.</h1>
+            <p>Desde tu primer 3×3 hasta el Megaminx profesional. Siempre el cubo ideal para ti.</p>
+            <a href="https://wa.me/50672849920" class="msg-cta" target="_blank" rel="noopener">Consultar catálogo →</a>
+          </div>
+
+          <div class="cube-msg">
+            <span class="kicker">— Envío a toda Costa Rica</span>
+            <h1>Entrega<br>en <em>24–48</em><br>horas.</h1>
+            <p>Recibe tu cubo donde estés. Empaque seguro y garantía de satisfacción incluida.</p>
+            <a href="https://wa.me/50672849920" class="msg-cta" target="_blank" rel="noopener">Hacer mi pedido →</a>
+          </div>
+
+        </div>
+
+        <div class="scroll-hint">
+          <div class="sh-line"></div>
+          Scroll para girar el cubo
+        </div>
+
+        <div class="phase-dots">
+          <div class="pd on" id="pd0"></div>
+          <div class="pd" id="pd1"></div>
+          <div class="pd" id="pd2"></div>
+        </div>
+      </div>
+
+      <!-- cubo 3D -->
+      <div class="cube-right">
+        <div class="cube-glow"></div>
+        <div class="cube-scene">
+          <div class="cube" id="main-cube">
+
+            <div class="cube-face cf-front">
+              <div class="st st-r"></div><div class="st st-r"></div><div class="st st-r"></div>
+              <div class="st st-r"></div><div class="st st-r"></div><div class="st st-r"></div>
+              <div class="st st-r"></div><div class="st st-r"></div><div class="st st-r"></div>
+            </div>
+            <div class="cube-face cf-back">
+              <div class="st st-o"></div><div class="st st-o"></div><div class="st st-o"></div>
+              <div class="st st-o"></div><div class="st st-o"></div><div class="st st-o"></div>
+              <div class="st st-o"></div><div class="st st-o"></div><div class="st st-o"></div>
+            </div>
+            <div class="cube-face cf-right">
+              <div class="st st-g"></div><div class="st st-g"></div><div class="st st-g"></div>
+              <div class="st st-g"></div><div class="st st-g"></div><div class="st st-g"></div>
+              <div class="st st-g"></div><div class="st st-g"></div><div class="st st-g"></div>
+            </div>
+            <div class="cube-face cf-left">
+              <div class="st st-b"></div><div class="st st-b"></div><div class="st st-b"></div>
+              <div class="st st-b"></div><div class="st st-b"></div><div class="st st-b"></div>
+              <div class="st st-b"></div><div class="st st-b"></div><div class="st st-b"></div>
+            </div>
+            <div class="cube-face cf-top">
+              <div class="st st-y"></div><div class="st st-y"></div><div class="st st-y"></div>
+              <div class="st st-y"></div><div class="st st-y"></div><div class="st st-y"></div>
+              <div class="st st-y"></div><div class="st st-y"></div><div class="st st-y"></div>
+            </div>
+            <div class="cube-face cf-bottom">
+              <div class="st st-w"></div><div class="st st-w"></div><div class="st st-w"></div>
+              <div class="st st-w"></div><div class="st st-w"></div><div class="st st-w"></div>
+              <div class="st st-w"></div><div class="st st-w"></div><div class="st st-w"></div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════ BENEFICIOS ══════════ -->
+  <section class="features" id="beneficios">
+    <div class="container">
+      <div class="feat-grid">
+
+        <div class="feat-item reveal">
+          <div class="feat-icon" style="background:rgba(230,57,70,.1)">🚚</div>
+          <div class="feat-text">
+            <h4>Envío en 24–48h</h4>
+            <p>Despacho desde San José a todo el país. Seguimiento en tiempo real.</p>
+          </div>
+        </div>
+
+        <div class="feat-item reveal">
+          <div class="feat-icon" style="background:rgba(72,149,239,.1)">🛡️</div>
+          <div class="feat-text">
+            <h4>Garantía 30 días</h4>
+            <p>Reemplazo o reembolso sin preguntas. Tu satisfacción primero.</p>
+          </div>
+        </div>
+
+        <div class="feat-item reveal">
+          <div class="feat-icon" style="background:rgba(76,199,111,.1)">🧲</div>
+          <div class="feat-text">
+            <h4>Magnéticos de fábrica</h4>
+            <p>Listos para competir desde el primer giro. Sin ajustes extras.</p>
+          </div>
+        </div>
+
+        <div class="feat-item reveal">
+          <div class="feat-icon" style="background:rgba(247,220,111,.1)">💬</div>
+          <div class="feat-text">
+            <h4>Asesoría personalizada</h4>
+            <p>Te ayudamos a elegir el cubo perfecto para tu nivel y estilo.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ STATS ══════════ -->
+  <section class="stats">
+    <div class="container">
+      <div class="stats-grid reveal">
+        <div class="stat-item">
+          <div class="stat-num"><span id="s1">0</span><b>+</b></div>
+          <div class="stat-lbl">Cubos entregados</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num"><span id="s2">0</span><b>+</b></div>
+          <div class="stat-lbl">Clientes felices</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num"><span id="s3">0</span></div>
+          <div class="stat-lbl">Modelos disponibles</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num"><span id="s4">0</span><b>h</b></div>
+          <div class="stat-lbl">Tiempo de entrega</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ CTA ══════════ -->
+  <section class="cta-band">
+    <div class="container">
+      <h2>Tu próximo<br><em>cubo</em> te espera.</h2>
+      <p>Escríbenos por WhatsApp y recibe asesoría gratuita. Pedido en minutos, cubo en tu puerta en 48h.</p>
+      <div class="cta-btns">
+        <a href="https://wa.me/50672849920" class="btn-wa" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18" aria-hidden="true">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+          </svg>
+          Escribir por WhatsApp
+        </a>
+        <a href="mailto:contacto@stackbitcr.com" class="btn-red">Enviar correo →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p>&copy; 2026 CubeWorld CR. Todos los derechos reservados.</p>
+    <p class="footer-credit">Demo por <a href="/demos">Stackbit</a></p>
+  </footer>
+
+  <script>
+    /* PROGRESS */
+    var prog = document.getElementById('prog');
+    window.addEventListener('scroll', function() {
+      var max = document.documentElement.scrollHeight - window.innerHeight;
+      prog.style.width = (max > 0 ? (window.scrollY / max) * 100 : 0) + '%';
+    }, { passive: true });
+
+    /* SCROLL-DRIVEN CUBE */
+    var cube    = document.getElementById('main-cube');
+    var sec     = document.getElementById('cube-section');
+    var msgs    = document.querySelectorAll('.cube-msg');
+    var dots    = [document.getElementById('pd0'), document.getElementById('pd1'), document.getElementById('pd2')];
+    var curY = 30, curX = -20, tgtY = 30, tgtX = -20;
+    var isMobile = window.matchMedia('(max-width: 768px)').matches;
+
+    window.addEventListener('scroll', function() {
+      var range = sec.offsetHeight - window.innerHeight;
+      if (range <= 0) {
+        /* En mobile la sección colapsa a altura natural → rotación suave por scroll global */
+        var docRange = document.documentElement.scrollHeight - window.innerHeight;
+        var gp = docRange > 0 ? window.scrollY / docRange : 0;
+        tgtY = 30 + gp * 540;
+        tgtX = -20 + gp * 20;
+        return;
+      }
+      var p = Math.max(0, Math.min(1, -sec.getBoundingClientRect().top / range));
+      tgtY = 30 + p * 720;
+      tgtX = -20 + p * 38;
+      if (!isMobile) {
+        var phase = p < 0.33 ? 0 : p < 0.66 ? 1 : 2;
+        msgs.forEach(function(m, i) { m.classList.toggle('active', i === phase); });
+        dots.forEach(function(d, i) { d.classList.toggle('on',     i === phase); });
+      }
+    }, { passive: true });
+
+    /* En mobile asegurar que todas las messages están "active" desde el inicio */
+    if (isMobile) {
+      msgs.forEach(function(m) { m.classList.add('active'); });
+    }
+
+    (function loop() {
+      curY += (tgtY - curY) * 0.08;
+      curX += (tgtX - curX) * 0.08;
+      cube.style.transform = 'rotateX(' + curX.toFixed(3) + 'deg) rotateY(' + curY.toFixed(3) + 'deg)';
+      requestAnimationFrame(loop);
+    })();
+
+    /* REVEAL */
+    var obs = new IntersectionObserver(function(e) {
+      e.forEach(function(x) { if (x.isIntersecting) { x.target.classList.add('visible'); obs.unobserve(x.target); } });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(function(el) { obs.observe(el); });
+
+    /* COUNT-UP */
+    var counters = [
+      { el: document.getElementById('s1'), to: 1500 },
+      { el: document.getElementById('s2'), to: 850  },
+      { el: document.getElementById('s3'), to: 50   },
+      { el: document.getElementById('s4'), to: 48   }
+    ];
+    var sObs = new IntersectionObserver(function(e) {
+      if (!e[0].isIntersecting) return;
+      counters.forEach(function(c) {
+        var t0 = performance.now(), dur = 1800;
+        (function tick(now) {
+          var ease = 1 - Math.pow(1 - Math.min(1, (now - t0) / dur), 3);
+          c.el.textContent = Math.round(c.to * ease).toLocaleString('es-CR');
+          if (ease < 1) requestAnimationFrame(tick);
+        })(performance.now());
+      });
+      sObs.disconnect();
+    }, { threshold: 0.3 });
+    var sg = document.querySelector('.stats-grid');
+    if (sg) sObs.observe(sg);
+  </script>
+
+<!-- ══ BARRA STACKBIT — conversión desde la demo ══ -->
+<div class="sb-demobar" id="sbDemobar" role="complementary" aria-label="Esta es una demo de Stackbit">
+  <span class="sb-demobar__txt">Esta es una <strong>demo de Stackbit</strong> — así podría verse tu landing page.</span>
+  <a class="sb-demobar__cta" href="https://wa.me/50672849920?text=Hola%2C%20vi%20la%20demo%20en%20Stackbit%20y%20quiero%20cotizar%20una%20landing%20page." target="_blank" rel="noopener noreferrer">Cotizar la mía →</a>
+  <a class="sb-demobar__cta" href="https://stackbitcr.com/demos" style="background:transparent;color:#fff;border:1px solid rgba(255,255,255,.28)">Ver más demos</a>
+  <button class="sb-demobar__close" type="button" aria-label="Cerrar aviso" onclick="var b=document.getElementById('sbDemobar');b.parentNode.removeChild(b);document.body.style.paddingBottom='';">&times;</button>
+</div>
+<style>
+.sb-demobar{position:fixed;left:0;right:0;bottom:0;z-index:2147483000;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:.5rem .9rem;padding:.7rem 2.4rem .7rem 1rem;background:#0b0b0b;color:#fff;border-top:1px solid rgba(255,255,255,.14);font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;font-size:.875rem;line-height:1.4;text-align:center;box-shadow:0 -8px 30px rgba(0,0,0,.28);box-sizing:border-box}
+.sb-demobar *{box-sizing:border-box}
+.sb-demobar__txt{opacity:.85;color:#fff}
+.sb-demobar__txt strong{color:#fff;font-weight:700}
+.sb-demobar__cta{display:inline-flex;align-items:center;gap:.4rem;background:#fff;color:#0b0b0b;font-weight:700;font-size:.8125rem;padding:.5rem .95rem;border-radius:999px;text-decoration:none;white-space:nowrap;transition:transform .25s ease,opacity .25s ease}
+.sb-demobar__cta:hover{transform:translateY(-1px);opacity:.9}
+.sb-demobar__close{position:absolute;right:.5rem;top:50%;transform:translateY(-50%);background:none;border:0;color:rgba(255,255,255,.5);font-size:1.35rem;line-height:1;cursor:pointer;padding:.2rem .4rem}
+.sb-demobar__close:hover{color:#fff}
+@media (max-width:560px){.sb-demobar{font-size:.8125rem;padding:.6rem 2.2rem .6rem .9rem}}
+</style>
+<script>document.body.style.paddingBottom='72px';</script>
+
+</body>
+</html>

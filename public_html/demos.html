@@ -1,0 +1,907 @@
+﻿<!DOCTYPE html>
+<html lang="es-CR">
+<head>
+  <meta charset="UTF-8">
+<!-- ══ ANALÍTICA — Stackbit CR (GA4 + Meta Pixel) ══ -->
+<script>
+/* Google Analytics 4 */
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-312SR4PJLV');
+/* Meta Pixel — stub inmediato, descarga diferida.
+   fbq() existe desde el primer instante y ENCOLA los eventos; el archivo real
+   (fbevents.js + su config, ~755 KB) se descarga recien al primer scroll/clic
+   o 3 s despues de load, lo que pase primero. Al llegar, procesa la cola, asi
+   que no se pierde el PageView ni los eventos de WhatsApp/formulario. */
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[]}(window,document,'script');
+fbq('init','876485647272894');fbq('track','PageView');
+(function(){
+  var pedido=false;
+  var gatillos=['scroll','pointerdown','keydown','touchstart'];
+  function cargarPixel(){
+    if(pedido)return; pedido=true;
+    gatillos.forEach(function(ev){window.removeEventListener(ev,cargarPixel);});
+    var t=document.createElement('script');
+    t.async=!0; t.src='https://connect.facebook.net/en_US/fbevents.js';
+    var s=document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(t,s);
+  }
+  gatillos.forEach(function(ev){window.addEventListener(ev,cargarPixel,{passive:!0});});
+  window.addEventListener('load',function(){setTimeout(cargarPixel,3000);});
+})();
+/* Eventos propios: WhatsApp, teléfono, demos y formularios */
+document.addEventListener('DOMContentLoaded',function(){
+  var ev=function(g,f,p){try{gtag('event',g,p||{});}catch(e){}
+                         try{f&&fbq('track',f,p||{});}catch(e){}};
+  document.addEventListener('click',function(e){
+    var a=e.target&&e.target.closest?e.target.closest('a'):null;
+    if(!a||!a.href)return;
+    var h=a.href;
+    if(h.indexOf('wa.me')>-1||h.indexOf('api.whatsapp')>-1) ev('clic_whatsapp','Contact',{method:'whatsapp'});
+    else if(h.indexOf('tel:')===0) ev('clic_telefono','Contact',{method:'telefono'});
+    else if(h.indexOf('mailto:')===0) ev('clic_correo','Contact',{method:'correo'});
+    else if(/\/demo-/.test(h)) ev('ver_demo',null,{demo:h.split('/').pop()});
+  },true);
+  document.addEventListener('submit',function(e){
+    if(e.target&&e.target.tagName==='FORM') ev('generate_lead','Lead',{});
+  },true);
+});
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-312SR4PJLV"></script>
+<noscript><img height="1" width="1" style="display:none" alt=""
+src="https://www.facebook.com/tr?id=876485647272894&ev=PageView&noscript=1"></noscript>
+<!-- ══ FIN ANALÍTICA ══ -->
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- ══ SEO PRIMARIO ══ -->
+  <title>Ejemplos Páginas Web Costa Rica · Demos en Vivo por Negocio | Stackbit</title>
+  <meta name="description" content="Mirá demos reales de páginas web para negocios en Costa Rica: restaurante con menú digital, barbería con agenda, tienda en línea con PayPal, nail studio y landing page. Interactivos y desde el celular.">
+  <meta name="keywords" content="ejemplos páginas web Costa Rica, demos páginas web Costa Rica, cómo queda una página web Costa Rica, ejemplo página web restaurante Costa Rica, ejemplo página web barbería Costa Rica, demo tienda en línea Costa Rica, diseño web Costa Rica ejemplos, ver páginas web antes de contratar">
+  <meta name="author" content="Stackbit">
+  <meta name="publisher" content="Stackbit">
+  <meta name="language" content="Spanish">
+  <meta http-equiv="content-language" content="es-CR">
+
+  <!-- ══ ROBOTS ══ -->
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <meta name="googlebot" content="index, follow, max-image-preview:large">
+  <meta name="bingbot" content="index, follow">
+
+  <!-- ══ GEO ══ -->
+  <meta name="geo.region" content="CR-SJ">
+  <meta name="geo.placename" content="San José, Costa Rica">
+  <meta name="geo.position" content="9.9281;-84.0907">
+  <meta name="ICBM" content="9.9281, -84.0907">
+
+  <!-- ══ CANONICAL & HREFLANG ══ -->
+  <link rel="canonical" href="https://stackbitcr.com/demos">
+  <link rel="alternate" hreflang="es-CR" href="https://stackbitcr.com/demos">
+  <link rel="alternate" hreflang="es" href="https://stackbitcr.com/demos">
+  <link rel="alternate" hreflang="x-default" href="https://stackbitcr.com/demos">
+
+  <!-- ══ OPEN GRAPH ══ -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Stackbit">
+  <meta property="og:locale" content="es_CR">
+  <meta property="og:title" content="Ejemplos Páginas Web Costa Rica · Demos en Vivo | Stackbit">
+  <meta property="og:description" content="Demos reales de páginas web para negocios en Costa Rica: restaurante, barbería, tienda en línea, nail studio y landing page. Interactivos, navegables desde el celular. Sin compromiso.">
+  <meta property="og:url" content="https://stackbitcr.com/demos">
+  <meta property="og:image" content="https://stackbitcr.com/assets/img/hero-tech.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Demos de páginas web profesionales — Stackbit">
+
+  <!-- ══ TWITTER CARD ══ -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@stackbit_cr">
+  <meta name="twitter:title" content="Demos de Páginas Web · Stackbit Costa Rica">
+  <meta name="twitter:description" content="Mirá demos reales por tipo de negocio antes de decidir nada. Restaurante, barbería, e-commerce y más.">
+  <meta name="twitter:image" content="https://stackbitcr.com/assets/img/hero-tech.jpg">
+
+  <!-- ══ THEME, ICONS ══ -->
+  <meta name="theme-color" content="#080808">
+  <meta name="msapplication-TileColor" content="#080808">
+  <meta name="apple-mobile-web-app-title" content="Stackbit">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="apple-touch-icon" href="favicon.svg">
+  <link rel="manifest" href="manifest.webmanifest">
+
+  <script>(function(){var t=localStorage.getItem("sb-theme")||(window.matchMedia("(prefers-color-scheme:dark)").matches?"dark":"light");document.documentElement.setAttribute("data-theme",t)}())</script>
+
+  <!-- ══ PERFORMANCE ══ -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
+  <link rel="stylesheet" href="styles.min.css?v=20260921">
+
+  <!-- ══ STRUCTURED DATA ══ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://stackbitcr.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Demos", "item": "https://stackbitcr.com/demos" }
+        ]
+      },
+      {
+        "@type": "CollectionPage",
+        "name": "Demos de Páginas Web | Stackbit",
+        "url": "https://stackbitcr.com/demos",
+        "description": "Demos interactivos de páginas web profesionales por tipo de negocio.",
+        "inLanguage": "es-CR",
+        "isPartOf": { "@type": "WebSite", "url": "https://stackbitcr.com/", "name": "Stackbit" },
+        "mainEntity": {
+          "@type": "ItemList",
+          "itemListElement": [
+            {
+              "@type": "ListItem", "position": 1,
+              "item": { "@type": "WebSite", "name": "Demo Restaurante — La Brasa", "url": "https://stackbitcr.com/demo-restaurante", "description": "Página web para restaurante con menú digital, carrito y pedidos por WhatsApp." }
+            },
+            {
+              "@type": "ListItem", "position": 2,
+              "item": { "@type": "WebSite", "name": "Demo Barbería — Blvd. Barber Co.", "url": "https://stackbitcr.com/demo-barberia", "description": "Página web para barbería con galería, servicios y agenda en línea." }
+            },
+            {
+              "@type": "ListItem", "position": 3,
+              "item": { "@type": "WebSite", "name": "Demo Tienda de Ropa — VENU", "url": "https://stackbitcr.com/demo-tienda-ropa", "description": "Tienda en línea con catálogo visual, carrito y pagos PayPal." }
+            },
+            {
+              "@type": "ListItem", "position": 4,
+              "item": { "@type": "WebSite", "name": "Demo Landing — CubeWorld CR", "url": "https://stackbitcr.com/demo-landing", "description": "Landing page de producto, optimizada para conversión." }
+            },
+            {
+              "@type": "ListItem", "position": 5,
+              "item": { "@type": "WebSite", "name": "Demo Nail Studio — Glam Nails", "url": "https://stackbitcr.com/demo-unas", "description": "Página web para nail studio con galería de diseños y reserva de citas en línea." }
+            }
+          ]
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "¿Cuánto tiempo toma tener mi página web lista?",
+            "acceptedAnswer": { "@type": "Answer", "text": "El plazo se define al inicio de cada proyecto según su alcance y complejidad. Antes de empezar te confirmamos exactamente cuándo estará lista tu web." }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Cómo funciona el cobro?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Son dos partes: un pago inicial para crear y desarrollar tu sitio web, y luego una mensualidad de mantenimiento para mantenerlo en línea, con hosting, copias de seguridad y soporte." }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Cuánto cuesta una página web?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Depende del tipo de proyecto. Escribinos y te cotizamos sin costo ni compromiso." }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Puedo pedir cambios después de la entrega?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Sí. Cualquier cambio nos lo solicitás y lo gestionamos por vos como parte del mantenimiento mensual." }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Las páginas se ven bien en celular?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Sí, todas nuestras páginas son mobile-first y responsive. Se ven perfectas en celular, tablet y escritorio." }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    /* ── Demos page overrides ── */
+
+    /* Grid: 5 cards → 2 arriba + 3 abajo en desktop */
+    @media (min-width: 1100px) {
+      .demos-grid { grid-template-columns: repeat(6, 1fr); }
+      .demo-card:nth-child(1),
+      .demo-card:nth-child(2) { grid-column: span 3; }
+      .demo-card:nth-child(3),
+      .demo-card:nth-child(4),
+      .demo-card:nth-child(5) { grid-column: span 2; }
+    }
+
+    /* "Popular" chip on a card */
+    .popular-chip {
+      display: inline-flex; align-items: center; gap: .35rem;
+      font-family: var(--mono);
+      font-size: .68rem; font-weight: 700;
+      letter-spacing: .08em; text-transform: uppercase;
+      padding: .28rem .7rem;
+      background: rgba(79,143,255,0.12);
+      border: 1px solid rgba(79,143,255,0.3);
+      color: var(--accent);
+      border-radius: 99px;
+      width: fit-content;
+    }
+
+    /* Steps section */
+    .steps-section {
+      padding-block: clamp(4rem, 9vw, 7rem);
+      background: var(--bg-2);
+      border-top: 1px solid var(--line);
+      transition: background .4s;
+    }
+    .steps-header {
+      text-align: center;
+      margin-bottom: clamp(2.5rem, 5vw, 4rem);
+    }
+    .steps-header h2 {
+      font-size: clamp(1.75rem, 4vw, 2.75rem);
+      font-weight: 900;
+      letter-spacing: -.04em;
+      margin-top: .5rem;
+    }
+    .steps-grid {
+      display: grid;
+      gap: 1.5rem;
+      grid-template-columns: 1fr;
+    }
+    @media (min-width: 640px) { .steps-grid { grid-template-columns: repeat(3, 1fr); } }
+
+    .step-card {
+      background: var(--bg-card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-xl);
+      padding: clamp(1.5rem, 3vw, 2rem);
+      position: relative;
+      transition: border-color .3s, transform .3s, box-shadow .3s, background .4s;
+    }
+    .step-card:hover {
+      border-color: rgba(79,143,255,0.28);
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+    }
+    .step-num {
+      font-family: var(--mono);
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      color: var(--accent);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: .6rem;
+    }
+    .step-num::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--line);
+    }
+    .step-icon {
+      width: 44px; height: 44px;
+      border-radius: 12px;
+      background: var(--accent-glow);
+      border: 1px solid rgba(79,143,255,0.2);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+    .step-card h3 {
+      font-size: 1.0625rem;
+      font-weight: 700;
+      letter-spacing: -.025em;
+      margin-bottom: .5rem;
+    }
+    .step-card p {
+      font-size: .875rem;
+      color: var(--ink-soft);
+      line-height: 1.65;
+    }
+
+    /* FAQ section */
+    .faq-section {
+      padding-block: clamp(4rem, 9vw, 7rem);
+    }
+    .faq-header {
+      text-align: center;
+      margin-bottom: clamp(2.5rem, 5vw, 4rem);
+    }
+    .faq-header h2 {
+      font-size: clamp(1.75rem, 4vw, 2.75rem);
+      font-weight: 900;
+      letter-spacing: -.04em;
+      margin-top: .5rem;
+    }
+    .faq-list {
+      max-width: 760px;
+      margin-inline: auto;
+      display: flex;
+      flex-direction: column;
+      gap: .75rem;
+    }
+    .faq-item {
+      background: var(--bg-card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      transition: border-color .2s, background .4s;
+    }
+    .faq-item:hover { border-color: rgba(79,143,255,0.22); }
+    .faq-item summary {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 1.1rem 1.5rem;
+      font-size: .9375rem;
+      font-weight: 600;
+      cursor: pointer;
+      list-style: none;
+      user-select: none;
+    }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-chevron {
+      width: 20px; height: 20px;
+      border-radius: 6px;
+      border: 1px solid var(--line-strong);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--ink-soft);
+      flex-shrink: 0;
+      transition: transform .25s, border-color .2s, color .2s;
+    }
+    .faq-item[open] .faq-chevron {
+      transform: rotate(180deg);
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+    .faq-body {
+      padding: 0 1.5rem 1.25rem;
+      font-size: .875rem;
+      color: var(--ink-soft);
+      line-height: 1.7;
+    }
+
+    /* Section title separator */
+    .section-divider {
+      display: flex;
+      align-items: center;
+      gap: .75rem;
+      margin-bottom: .5rem;
+      justify-content: center;
+    }
+    .section-divider::before,
+    .section-divider::after {
+      content: '';
+      flex: 1;
+      max-width: 60px;
+      height: 1px;
+      background: var(--line);
+    }
+
+    /* E-commerce highlight in tienda card */
+    .ecommerce-flag {
+      display: inline-flex;
+      align-items: center;
+      gap: .35rem;
+      font-size: .75rem;
+      font-weight: 600;
+      color: #22c55e;
+      background: rgba(34,197,94,0.08);
+      border: 1px solid rgba(34,197,94,0.2);
+      border-radius: 99px;
+      padding: .2rem .6rem;
+      margin-top: .1rem;
+    }
+  </style>
+
+  <script defer src="main.js?v=20260921"></script>
+  <style>
+    .demo-portal {
+      position: fixed;
+      z-index: 9998;
+      overflow: hidden;
+      pointer-events: none;
+      border-radius: 12px;
+    }
+    .demo-portal.is-expanding {
+      border-radius: 0 !important;
+      left: 0 !important;
+      top: 0 !important;
+      width: 100vw !important;
+      height: 100vh !important;
+      transition:
+        left .65s cubic-bezier(.76,0,.24,1),
+        top .65s cubic-bezier(.76,0,.24,1),
+        width .65s cubic-bezier(.76,0,.24,1),
+        height .65s cubic-bezier(.76,0,.24,1),
+        border-radius .65s cubic-bezier(.76,0,.24,1);
+    }
+    .demo-portal .demo-preview {
+      position: absolute;
+      inset: 0;
+      width: 100% !important;
+      height: 100% !important;
+      margin: 0;
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+  <a href="#main" class="skip-link">Saltar al contenido</a>
+
+  <nav class="nav" id="nav" role="navigation" aria-label="Navegación principal">
+    <a href="/" class="nav-logo" aria-label="Stackbit — inicio">
+      <span class="logo-text">Stackbit</span>
+      <span class="logo-dot" aria-hidden="true"></span>
+    </a>
+    <ul class="nav-links" role="list">
+      <li><a href="/software" class="nav-link">Software</a></li>
+      <li><a href="/servicios" class="nav-link">Servicios</a></li>
+      <li><a href="/demos" class="nav-link">Demos</a></li>
+      <li><a href="/contacto" class="nav-link">Contacto</a></li>
+    </ul>
+    <button class="theme-toggle" aria-label="Alternar modo de color">
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" width="18" height="18" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" width="18" height="18" aria-hidden="true"><path d="M21 12.79A9 9 0 1111.21 3a7 7 0 009.79 9.79z"/></svg>
+    </button>
+    <a href="/contacto" class="btn btn-nav">Solicitar proyecto</a>
+    <button class="nav-hamburger" aria-label="Abrir menú" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="mobile-menu" role="dialog" aria-label="Menú de navegación" hidden>
+    <ul role="list">
+      <li><a href="/software">Software</a></li>
+      <li><a href="/servicios">Servicios</a></li>
+      <li><a href="/demos">Demos</a></li>
+      <li><a href="/contacto">Contacto</a></li>
+    </ul>
+    <a href="/contacto" class="btn btn-primary">Solicitar proyecto →</a>
+  </div>
+
+  <main id="main">
+
+    <!-- ════════════ PAGE HERO ════════════ -->
+    <section class="page-hero section-padded" aria-label="Demos en vivo">
+      <div class="page-hero-bg" aria-hidden="true"></div>
+      <div class="container">
+        <div class="page-hero-content">
+          <p class="section-kicker reveal">— Demos en vivo</p>
+          <h1 class="reveal">Demos de páginas web<br><span class="hero-accent">para negocios en Costa Rica.</span></h1>
+          <p class="reveal" style="margin-top:1.25rem;color:var(--ink-soft);font-size:1.125rem;max-width:52ch;line-height:1.7">
+            Demos reales e interactivos por tipo de negocio. Abrís en el celular, navegás como cliente y decidís con confianza. Sin compromiso.
+          </p>
+          <p class="reveal" style="margin-top:1rem;color:var(--ink-mute);font-size:.9375rem;max-width:52ch;line-height:1.7">
+            ¿Buscabas sistemas internos? Los proyectos de <a href="/software" style="color:var(--accent);font-weight:600">software a medida</a> son privados de cada empresa, así que no se publican — en el diagnóstico te mostramos casos y pantallas equivalentes.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════ DEMOS GRID ════════════ -->
+    <section class="section-padded" aria-label="Demos por tipo de negocio">
+      <div class="container">
+
+        <div style="text-align:center;margin-bottom:clamp(2rem,4vw,3.5rem)">
+          <div class="section-divider">
+            <p class="section-kicker reveal">— Explorá los demos</p>
+          </div>
+          <h2 class="reveal" style="font-size:clamp(1.75rem,4vw,2.75rem);font-weight:900;letter-spacing:-.04em;margin-top:.5rem">
+            Elegí el que va con tu negocio
+          </h2>
+          <p class="reveal" style="margin-top:.75rem;color:var(--ink-soft);font-size:1rem;max-width:44ch;margin-inline:auto;line-height:1.65">
+            Clic en cualquier demo y probalo como si fuera tu propio sitio.
+          </p>
+        </div>
+
+        <div class="demos-grid">
+
+          <!-- ── 1. Landing Page ── -->
+          <article class="demo-card reveal" aria-label="Demo Landing Page profesional">
+            <div class="demo-browser" aria-hidden="true">
+              <div class="demo-dots"><span></span><span></span><span></span></div>
+              <div class="demo-url">demo.stackbitcr.com/landing</div>
+            </div>
+            <div class="demo-preview" aria-hidden="true">
+              <picture>
+                <source srcset="assets/img/preview-landing.webp" type="image/webp">
+                <img src="assets/img/preview-landing.jpg" alt="Preview Landing Page" width="1280" height="900"
+                     loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;object-position:top center;display:block;">
+              </picture>
+            </div>
+            <div class="demo-info">
+              <span class="demo-badge demo-badge--blue">Landing Page</span>
+              <h2>Presencia profesional<br>desde el primer día</h2>
+              <p>Captá clientes mientras dormís. Página que carga en segundos, se ve perfecta en celular y convierte visitas en contactos reales.</p>
+              <div class="portfolio-tech">
+                <span class="tech-badge">Emprendedores</span>
+                <span class="tech-badge">Profesionales</span>
+                <span class="tech-badge">Startups</span>
+              </div>
+              <a href="/demo-landing" class="btn btn-outline demo-cta">Ver demo en vivo <span class="btn-arrow">→</span></a>
+            </div>
+          </article>
+
+          <!-- ── 2. Restaurante ── -->
+          <article class="demo-card reveal" aria-label="Demo sitio web para restaurante">
+            <div class="demo-browser" aria-hidden="true">
+              <div class="demo-dots"><span></span><span></span><span></span></div>
+              <div class="demo-url">demo.stackbitcr.com/restaurante</div>
+            </div>
+            <div class="demo-preview" aria-hidden="true">
+              <picture>
+                <source srcset="assets/img/preview-restaurante.webp" type="image/webp">
+                <img src="assets/img/preview-restaurante.jpg" alt="Preview Restaurante" width="1280" height="900"
+                     loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;object-position:top center;display:block;">
+              </picture>
+            </div>
+            <div class="demo-info">
+              <span class="demo-badge demo-badge--orange">Restaurante / Soda</span>
+              <h2>Menú digital y pedidos<br>por WhatsApp</h2>
+              <p>Tu menú siempre actualizado, con fotos y precios. Los clientes ven los platos, eligen y te escriben directo sin llamadas.</p>
+              <div class="portfolio-tech">
+                <span class="tech-badge">Restaurantes</span>
+                <span class="tech-badge">Cafés</span>
+                <span class="tech-badge">Sodas</span>
+                <span class="tech-badge">Food trucks</span>
+              </div>
+              <a href="/demo-restaurante" class="btn btn-outline demo-cta">Ver demo en vivo <span class="btn-arrow">→</span></a>
+            </div>
+          </article>
+
+          <!-- ── 3. Barbería ── -->
+          <article class="demo-card reveal" aria-label="Demo sitio web para barbería">
+            <div class="demo-browser" aria-hidden="true">
+              <div class="demo-dots"><span></span><span></span><span></span></div>
+              <div class="demo-url">demo.stackbitcr.com/barberia</div>
+            </div>
+            <div class="demo-preview" aria-hidden="true">
+              <picture>
+                <source srcset="assets/img/preview-barberia.webp" type="image/webp">
+                <img src="assets/img/preview-barberia.jpg" alt="Preview Barbería" width="1280" height="900"
+                     loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;object-position:top center;display:block;">
+              </picture>
+            </div>
+            <div class="demo-info">
+              <span class="demo-badge demo-badge--gold">Barbería / Salón</span>
+              <h2>Galería, servicios<br>y citas por WhatsApp</h2>
+              <p>Llenás la agenda sin llamadas. Mostrás tu galería de trabajos, precios y servicios. Los clientes agendan directo desde el celular.</p>
+              <div class="portfolio-tech">
+                <span class="tech-badge">Barberías</span>
+                <span class="tech-badge">Salones</span>
+                <span class="tech-badge">Spas</span>
+                <span class="tech-badge">Estéticas</span>
+              </div>
+              <a href="/demo-barberia" class="btn btn-outline demo-cta">Ver demo en vivo <span class="btn-arrow">→</span></a>
+            </div>
+          </article>
+
+          <!-- ── 4. Tienda de Ropa — E-commerce completo ── -->
+          <article class="demo-card reveal" aria-label="Demo tienda de ropa con e-commerce">
+            <div class="demo-browser" aria-hidden="true">
+              <div class="demo-dots"><span></span><span></span><span></span></div>
+              <div class="demo-url">demo.stackbitcr.com/tienda-ropa</div>
+            </div>
+            <div class="demo-preview" aria-hidden="true">
+              <picture>
+                <source srcset="assets/img/preview-tienda.webp" type="image/webp">
+                <img src="assets/img/preview-tienda.jpg" alt="Preview Tienda" width="1280" height="900"
+                     loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;object-position:top center;display:block;">
+              </picture>
+            </div>
+            <div class="demo-info">
+              <div style="display:flex;align-items:center;gap:.5rem;flex-wrap:wrap">
+                <span class="demo-badge demo-badge--pink">Tienda Online</span>
+                <span class="ecommerce-flag">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="11" height="11"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                  E-commerce real
+                </span>
+              </div>
+              <h2>Catálogo en vivo, carrito<br>y pagos con PayPal</h2>
+              <p>Tienda completa con catálogo gestionado desde panel de administrador, carrito de compras, selector de tallas y cobro seguro vía PayPal.</p>
+              <div class="portfolio-tech">
+                <span class="tech-badge">Boutiques</span>
+                <span class="tech-badge">Ropa</span>
+                <span class="tech-badge">Accesorios</span>
+                <span class="tech-badge">PayPal</span>
+              </div>
+              <a href="/demo-tienda-ropa" class="btn btn-outline demo-cta">Ver demo en vivo <span class="btn-arrow">→</span></a>
+            </div>
+          </article>
+
+          <article class="demo-card reveal" aria-label="Demo sitio web para nail studio">
+            <div class="demo-browser" aria-hidden="true">
+              <div class="demo-dots"><span></span><span></span><span></span></div>
+              <div class="demo-url">demo.stackbitcr.com/unas</div>
+            </div>
+            <div class="demo-preview" aria-hidden="true">
+              <picture>
+                <source srcset="assets/img/preview-unas.webp" type="image/webp">
+                <img src="assets/img/preview-unas.jpg" alt="Preview Nail Studio" width="1280" height="900"
+                     loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;object-position:top center;display:block;">
+              </picture>
+            </div>
+            <div class="demo-info">
+              <div style="display:flex;align-items:center;gap:.5rem;flex-wrap:wrap">
+                <span class="demo-badge demo-badge--pink">Nail Studio</span>
+              </div>
+              <h2>Galería de diseños<br>y reserva de citas</h2>
+              <p>Sitio para nail studio con galería ampliable de diseños, lista de servicios, equipo y reserva de cita en línea desde el celular.</p>
+              <div class="portfolio-tech">
+                <span class="tech-badge">Uñas</span>
+                <span class="tech-badge">Estética</span>
+                <span class="tech-badge">Spas</span>
+              </div>
+              <a href="/demo-unas" class="btn btn-outline demo-cta">Ver demo en vivo <span class="btn-arrow">→</span></a>
+            </div>
+          </article>
+
+        </div><!-- /demos-grid -->
+
+        <!-- Demo personalizado CTA -->
+        <div class="reveal" style="
+          margin-top: 2.5rem;
+          padding: 1.75rem 2rem;
+          background: var(--bg-card);
+          border: 1px solid var(--line);
+          border-radius: var(--radius-xl);
+          display: flex;
+          flex-wrap: wrap;
+          align-items: center;
+          justify-content: space-between;
+          gap: 1.25rem;
+        ">
+          <div style="display:flex;align-items:flex-start;gap:1rem">
+            <div style="
+              width:40px;height:40px;flex-shrink:0;
+              border-radius:10px;
+              background:var(--accent-glow);
+              border:1px solid rgba(79,143,255,0.2);
+              display:flex;align-items:center;justify-content:center;
+              color:var(--accent);
+              margin-top:.1rem;
+            " aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" width="18" height="18"><path d="M15 10l4.553-2.069A1 1 0 0121 8.87V15.13a1 1 0 01-1.447.9L15 14M3 8a2 2 0 012-2h10a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2V8z"/></svg>
+            </div>
+            <div>
+              <p style="font-size:.9375rem;font-weight:700;letter-spacing:-.02em;margin-bottom:.25rem;color:var(--ink)">
+                ¿Querés ver cómo funciona por dentro?
+              </p>
+              <p style="font-size:.875rem;color:var(--ink-soft);line-height:1.6;max-width:52ch">
+                Contactanos y te guiamos en vivo a través de los demos — te mostramos el panel de administrador, el carrito de compras, el proceso de pago y todo lo que incluye cada sitio.
+              </p>
+            </div>
+          </div>
+          <a href="https://wa.me/50672849920?text=Hola%2C%20me%20gustar%C3%ADa%20que%20me%20mostraran%20c%C3%B3mo%20funciona%20el%20panel%20de%20administrador%20y%20el%20proceso%20de%20compra%20del%20demo." class="btn btn-primary" target="_blank" rel="noopener noreferrer" style="flex-shrink:0;white-space:nowrap">
+            Que me lo muestren <span class="btn-arrow">→</span>
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ════════════ CÓMO FUNCIONA ════════════ -->
+    <section class="steps-section" aria-label="Cómo funciona el proceso">
+      <div class="container">
+        <div class="steps-header">
+          <div class="section-divider">
+            <p class="section-kicker reveal">— Proceso</p>
+          </div>
+          <h2 class="reveal">Tu web lista en 3 pasos</h2>
+          <p class="reveal" style="margin-top:.75rem;color:var(--ink-soft);font-size:1rem;max-width:42ch;margin-inline:auto;line-height:1.65">
+            Sin tecnicismos, sin vueltas. Vos nos dás la info, nosotros armamos todo.
+          </p>
+        </div>
+
+        <div class="steps-grid">
+          <div class="step-card reveal">
+            <div class="step-num">01</div>
+            <div class="step-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" width="22" height="22"><path d="M1 6v16l7-4 8 4 7-4V2l-7 4-8-4-7 4z"/><path d="M8 2v16M16 6v16"/></svg>
+            </div>
+            <h3>Elegís tu demo favorito</h3>
+            <p>Explorás los demos, elegís el estilo que va con tu negocio y nos escribís. Te respondemos el mismo día.</p>
+          </div>
+          <div class="step-card reveal">
+            <div class="step-num">02</div>
+            <div class="step-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" width="22" height="22"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+            </div>
+            <h3>Nos enviás tu información</h3>
+            <p>Logo, colores, fotos y texto de tu negocio. Nosotros diseñamos, adaptamos y armamos todo. Sin que tengás que saber de tecnología.</p>
+          </div>
+          <div class="step-card reveal">
+            <div class="step-num">03</div>
+            <div class="step-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" width="22" height="22"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            </div>
+            <h3>Recibís tu web en el plazo acordado</h3>
+            <p>Tu sitio publicado, funcionando en celulares y optimizado para aparecer en Google. Incluye ajustes sin costo los primeros 30 días.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ════════════ FAQ ════════════ -->
+    <section class="faq-section" aria-label="Preguntas frecuentes">
+      <div class="container">
+        <div class="faq-header">
+          <div class="section-divider">
+            <p class="section-kicker reveal">— Preguntas frecuentes</p>
+          </div>
+          <h2 class="reveal">Lo que todo el mundo pregunta</h2>
+        </div>
+
+        <div class="faq-list" role="list">
+
+          <details class="faq-item reveal">
+            <summary>
+              ¿Cuánto cuesta un sitio web?
+              <span class="faq-chevron" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="12" height="12"><polyline points="6 9 12 15 18 9"/></svg>
+              </span>
+            </summary>
+            <p class="faq-body">
+              Los precios varían según el tipo y complejidad del proyecto. Escribinos y te cotizamos sin costo ni compromiso.
+            </p>
+          </details>
+
+          <details class="faq-item reveal">
+            <summary>
+              ¿Cómo funciona el cobro?
+              <span class="faq-chevron" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="12" height="12"><polyline points="6 9 12 15 18 9"/></svg>
+              </span>
+            </summary>
+            <p class="faq-body">
+              Son dos partes: un <strong>pago inicial</strong> para crear y desarrollar tu sitio web, y luego una <strong>mensualidad de mantenimiento</strong> para mantenerlo en línea, actualizado y funcionando. El monto varía según el tipo de proyecto y lo que necesités. Contactanos y te explicamos todo con detalle.
+            </p>
+          </details>
+
+          <details class="faq-item reveal">
+            <summary>
+              ¿Puedo pedir cambios después de entregar?
+              <span class="faq-chevron" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="12" height="12"><polyline points="6 9 12 15 18 9"/></svg>
+              </span>
+            </summary>
+            <p class="faq-body">
+              Sí. Durante el diseño incluimos <strong>2 rondas de revisión</strong>, y después de la entrega tenés <strong>1 ronda de ajustes sin costo durante los primeros 30 días</strong>. Pasado ese plazo, los cambios entran en el plan de mantenimiento mensual o se cotizan aparte.
+            </p>
+          </details>
+
+          <details class="faq-item reveal">
+            <summary>
+              ¿Puedo actualizar el contenido yo mismo?
+              <span class="faq-chevron" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="12" height="12"><polyline points="6 9 12 15 18 9"/></svg>
+              </span>
+            </summary>
+            <p class="faq-body">
+              En proyectos con panel de administrador (como la tienda de ropa) podés actualizar productos, precios e inventario vos mismo desde cualquier dispositivo. Para cualquier otro cambio, nos lo solicitás a nosotros y lo gestionamos por vos.
+            </p>
+          </details>
+
+          <details class="faq-item reveal">
+            <summary>
+              ¿Qué necesito tener listo antes de comenzar?
+              <span class="faq-chevron" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="12" height="12"><polyline points="6 9 12 15 18 9"/></svg>
+              </span>
+            </summary>
+            <p class="faq-body">
+              Idealmente: logo de tu negocio, fotos de tus productos o servicios, una descripción de lo que ofrecés, y tu número de WhatsApp o correo de contacto. Si no tenés todo, igual escribinos y empezamos desde donde estés.
+            </p>
+          </details>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════ CTA BAND ════════════ -->
+    <section class="cta-band" aria-label="Llamada a la acción">
+      <div class="cta-band-gradient" aria-hidden="true"></div>
+      <div class="container">
+        <div class="cta-band-inner reveal">
+          <h2>¿Tu negocio todavía<br>no está en línea?</h2>
+          <p>Cada día sin web es un cliente que se va a la competencia. Escribinos hoy y en 24 horas te damos una cotización gratis.</p>
+          <div class="cta-band-actions">
+            <a href="/contacto" class="btn btn-primary">Quiero mi sitio web <span class="btn-arrow">→</span></a>
+            <a href="https://wa.me/50672849920?text=Hola%2C%20vi%20los%20demos%20en%20Stackbit%20y%20me%20interesa%20cotizar%20mi%20sitio%20web." class="btn btn-ghost" target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              Escribir por WhatsApp
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <a href="/" class="nav-logo" aria-label="Stackbit — inicio">
+            <span class="logo-text">Stackbit</span>
+            <span class="logo-dot" aria-hidden="true"></span>
+          </a>
+          <p><a href="/software" style="color:var(--accent)">Software a medida</a>, aplicaciones y páginas web para empresas en Costa Rica.</p>
+        </div>
+        <nav class="footer-nav" aria-label="Páginas">
+          <h4>Páginas</h4>
+          <ul role="list">
+            <li><a href="/">Inicio</a></li>
+            <li><a href="/software">Software</a></li>
+            <li><a href="/servicios">Servicios</a></li>
+            <li><a href="/demos">Demos</a></li>
+            <li><a href="/contacto">Contacto</a></li>
+          </ul>
+        </nav>
+        <div class="footer-contact">
+          <h4>Contacto</h4>
+          <p><a href="mailto:contacto@stackbitcr.com">contacto@stackbitcr.com</a></p>
+          <p><a href="https://wa.me/50672849920" target="_blank" rel="noopener noreferrer">+506 7284-9920</a></p>
+          <p>Costa Rica</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Stackbit. Todos los derechos reservados.</p>
+        <p style="font-size:.8125rem;color:var(--ink-mute)">Diseñado y desarrollado con <span aria-label="amor">♥</span></p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+  document.querySelectorAll('a.demo-cta').forEach(function(link) {
+    link.addEventListener('click', function(e) {
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      e.preventDefault();
+      var href = this.getAttribute('href');
+      var preview = this.closest('.demo-card').querySelector('.demo-preview');
+      var rect = preview.getBoundingClientRect();
+
+      var portal = document.createElement('div');
+      portal.className = 'demo-portal';
+      portal.style.left   = rect.left + 'px';
+      portal.style.top    = rect.top  + 'px';
+      portal.style.width  = rect.width  + 'px';
+      portal.style.height = rect.height + 'px';
+
+      var inner = preview.cloneNode(true);
+      portal.appendChild(inner);
+      document.body.appendChild(portal);
+
+      requestAnimationFrame(function() {
+        requestAnimationFrame(function() {
+          portal.classList.add('is-expanding');
+        });
+      });
+
+      setTimeout(function() { window.location.href = href; }, 680);
+    });
+  });
+
+  window.addEventListener('pageshow', function() {
+    document.querySelectorAll('.demo-portal').forEach(function(el) {
+      el.style.transition = 'opacity .3s ease';
+      el.style.opacity = '0';
+      setTimeout(function() { el.remove(); }, 300);
+    });
+  });
+  </script>
+
+  <a href="https://wa.me/50672849920?text=Hola%2C%20vi%20los%20demos%20en%20Stackbit%20y%20me%20interesa%20cotizar%20mi%20sitio%20web." class="whatsapp-float" target="_blank" rel="noopener noreferrer"
+     aria-label="Contactar por WhatsApp al +506 7284-9920">
+    <svg viewBox="0 0 24 24" fill="currentColor" width="28" height="28" aria-hidden="true">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+  </a>
+
+</body>
+</html>

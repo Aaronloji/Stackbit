@@ -1,0 +1,36 @@
+# ══════════════════════════════════════════════════════════════════
+#  Stackbit — robots.txt
+#  https://stackbitcr.com/
+# ══════════════════════════════════════════════════════════════════
+
+User-agent: *
+Allow: /
+Disallow: /assets/credits.json
+Disallow: /.htaccess
+
+# Bloquear bots agresivos / IA scrapers (opcional — descomentar si querés)
+# User-agent: GPTBot
+# Disallow: /
+# User-agent: CCBot
+# Disallow: /
+# User-agent: ClaudeBot
+# Disallow: /
+
+# Permitir explícitamente a Google, Bing, DuckDuckGo
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /assets/img/
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+# Sitemap
+Sitemap: https://stackbitcr.com/sitemap.xml
+
+# Host preferido
+Host: https://stackbitcr.com

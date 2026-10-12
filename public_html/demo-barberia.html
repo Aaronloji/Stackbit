@@ -1,0 +1,2460 @@
+<!DOCTYPE html>
+<html lang="es-CR">
+<head>
+  <meta charset="UTF-8">
+<!-- ══ ANALÍTICA — Stackbit CR (GA4 + Meta Pixel) ══ -->
+<script>
+/* Google Analytics 4 */
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-312SR4PJLV');
+/* Meta Pixel — stub inmediato, descarga diferida.
+   fbq() existe desde el primer instante y ENCOLA los eventos; el archivo real
+   (fbevents.js + su config, ~755 KB) se descarga recien al primer scroll/clic
+   o 3 s despues de load, lo que pase primero. Al llegar, procesa la cola, asi
+   que no se pierde el PageView ni los eventos de WhatsApp/formulario. */
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[]}(window,document,'script');
+fbq('init','876485647272894');fbq('track','PageView');
+(function(){
+  var pedido=false;
+  var gatillos=['scroll','pointerdown','keydown','touchstart'];
+  function cargarPixel(){
+    if(pedido)return; pedido=true;
+    gatillos.forEach(function(ev){window.removeEventListener(ev,cargarPixel);});
+    var t=document.createElement('script');
+    t.async=!0; t.src='https://connect.facebook.net/en_US/fbevents.js';
+    var s=document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(t,s);
+  }
+  gatillos.forEach(function(ev){window.addEventListener(ev,cargarPixel,{passive:!0});});
+  window.addEventListener('load',function(){setTimeout(cargarPixel,3000);});
+})();
+/* Eventos propios: WhatsApp, teléfono, demos y formularios */
+document.addEventListener('DOMContentLoaded',function(){
+  var ev=function(g,f,p){try{gtag('event',g,p||{});}catch(e){}
+                         try{f&&fbq('track',f,p||{});}catch(e){}};
+  document.addEventListener('click',function(e){
+    var a=e.target&&e.target.closest?e.target.closest('a'):null;
+    if(!a||!a.href)return;
+    var h=a.href;
+    if(h.indexOf('wa.me')>-1||h.indexOf('api.whatsapp')>-1) ev('clic_whatsapp','Contact',{method:'whatsapp'});
+    else if(h.indexOf('tel:')===0) ev('clic_telefono','Contact',{method:'telefono'});
+    else if(h.indexOf('mailto:')===0) ev('clic_correo','Contact',{method:'correo'});
+    else if(/\/demo-/.test(h)) ev('ver_demo',null,{demo:h.split('/').pop()});
+  },true);
+  document.addEventListener('submit',function(e){
+    if(e.target&&e.target.tagName==='FORM') ev('generate_lead','Lead',{});
+  },true);
+});
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-312SR4PJLV"></script>
+<noscript><img height="1" width="1" style="display:none" alt=""
+src="https://www.facebook.com/tr?id=876485647272894&ev=PageView&noscript=1"></noscript>
+<!-- ══ FIN ANALÍTICA ══ -->
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- ══ SEO ══ -->
+  <title>Demo Página Web para Barbería · Agenda en Línea | Stackbit Costa Rica</title>
+  <meta name="description" content="Demo de página web para barbería con galería de cortes, servicios, precios y agenda en línea con Firebase. Ejemplo real diseñado por Stackbit Costa Rica.">
+  <meta name="keywords" content="página web para barbería, agenda en línea barbería, reserva citas barbería, demo barbería Costa Rica, sitio web salón San José, Firebase reservas">
+  <meta name="author" content="Stackbit">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="geo.region" content="CR-SJ">
+  <meta name="geo.placename" content="San José, Costa Rica">
+
+  <link rel="canonical" href="https://stackbitcr.com/demo-barberia">
+  <link rel="alternate" hreflang="es-CR" href="https://stackbitcr.com/demo-barberia">
+  <link rel="alternate" hreflang="es" href="https://stackbitcr.com/demo-barberia">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Stackbit">
+  <meta property="og:locale" content="es_CR">
+  <meta property="og:title" content="Demo Página Web para Barbería · Agenda en Línea | Stackbit">
+  <meta property="og:description" content="Demo real con galería, servicios, precios y agenda en línea. Diseñado por Stackbit Costa Rica.">
+  <meta property="og:url" content="https://stackbitcr.com/demo-barberia">
+  <meta property="og:image" content="https://stackbitcr.com/assets/img/mockup-web.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Demo Barbería · Agenda en Línea | Stackbit">
+  <meta name="twitter:description" content="Ejemplo real de página web para barbería con reserva de citas en línea.">
+  <meta name="twitter:image" content="https://stackbitcr.com/assets/img/mockup-web.jpg">
+
+  <meta name="theme-color" content="#0a0a0a">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap"></noscript>
+
+  <!-- ══ STRUCTURED DATA ══ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://stackbitcr.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Demos", "item": "https://stackbitcr.com/demos" },
+          { "@type": "ListItem", "position": 3, "name": "Demo Barbería", "item": "https://stackbitcr.com/demo-barberia" }
+        ]
+      },
+      {
+        "@type": "WebPage",
+        "name": "Demo Página Web para Barbería | Stackbit",
+        "url": "https://stackbitcr.com/demo-barberia",
+        "description": "Demo de página web para barbería con agenda en línea.",
+        "inLanguage": "es-CR",
+        "isPartOf": { "@type": "WebSite", "url": "https://stackbitcr.com/", "name": "Stackbit" }
+      }
+    ]
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg:      #090908;
+      --surface: #111110;
+      --card:    #1a1917;
+      --border:  #252320;
+      --text:    #f2ede6;
+      --muted:   #7a706a;
+      --dim:     #3a3330;
+      --gold:    #c49a3a;
+      --gold-lt: #e0b55a;
+      --green:   #34d399;
+      --red:     #f87171;
+      --amber:   #f59e0b;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; overflow-x: hidden; }
+    a { text-decoration: none; color: inherit; }
+    button { font-family: inherit; cursor: pointer; border: none; background: none; }
+    img { display: block; }
+    input, select, textarea { font-family: inherit; color: var(--text); }
+    input[type="date"]::-webkit-calendar-picker-indicator { filter: invert(.45); cursor: pointer; }
+
+    /* ── PROGRESS ── */
+    #prog { position: fixed; top: 0; left: 0; height: 2px; width: 0%; background: linear-gradient(90deg, var(--gold), var(--gold-lt)); z-index: 9999; }
+
+    /* ══ NAV ══ */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; height: 68px;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 2rem; z-index: 300;
+      background: rgba(9,9,8,.93); backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-left  { display: flex; align-items: center; gap: 1.25rem; }
+    .nav-right { display: flex; align-items: center; gap: .75rem; }
+    .back-btn {
+      display: flex; align-items: center; gap: .4rem; padding: .38rem .85rem;
+      background: rgba(255,255,255,.04); border: 1px solid var(--border); border-radius: 99px;
+      font-size: .78rem; font-weight: 500; color: var(--muted); transition: border-color .2s, color .2s;
+    }
+    .back-btn:hover { border-color: var(--gold); color: var(--text); }
+    .nav-brand { font-family: 'Bebas Neue', sans-serif; font-size: 1.5rem; letter-spacing: .08em; color: var(--gold-lt); }
+    .nav-book {
+      padding: .5rem 1.25rem; background: var(--gold); color: #0a0906;
+      border-radius: 6px; font-size: .875rem; font-weight: 600;
+      transition: background .2s, transform .15s;
+    }
+    .nav-book:hover { background: var(--gold-lt); transform: translateY(-1px); }
+
+    /* Nav: botón iniciar sesión */
+    .nav-signin {
+      padding: .45rem 1rem; border: 1px solid var(--border); border-radius: 6px;
+      font-size: .82rem; color: var(--muted); transition: border-color .2s, color .2s;
+    }
+    .nav-signin:hover { border-color: var(--gold); color: var(--text); }
+
+    /* Nav: usuario autenticado */
+    .nav-user { position: relative; display: none; align-items: center; gap: .6rem; }
+    .nav-user.visible { display: flex; }
+    .nav-avatar {
+      width: 34px; height: 34px; border-radius: 50%; background: var(--gold);
+      color: #0a0906; font-weight: 700; font-size: .875rem;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; transition: background .2s;
+    }
+    .nav-avatar:hover { background: var(--gold-lt); }
+    .nav-user-popup {
+      position: absolute; top: calc(100% + .75rem); right: 0;
+      background: var(--card); border: 1px solid var(--border); border-radius: 12px;
+      padding: 1rem; min-width: 220px; z-index: 400;
+      box-shadow: 0 16px 40px rgba(0,0,0,.6);
+      display: none; flex-direction: column; gap: .5rem;
+    }
+    .nav-user-popup.open { display: flex; }
+    .nup-email { font-size: .78rem; color: var(--muted); padding-bottom: .65rem; border-bottom: 1px solid var(--border); word-break: break-all; }
+    .nup-admin-btn {
+      width: 100%; padding: .55rem .75rem; text-align: left;
+      background: rgba(196,154,58,.1); border: 1px solid rgba(196,154,58,.22); border-radius: 6px;
+      font-size: .8rem; font-weight: 600; color: var(--gold);
+      transition: background .2s;
+    }
+    .nup-admin-btn:hover { background: rgba(196,154,58,.2); }
+    .nup-logout {
+      width: 100%; padding: .5rem .75rem; text-align: left;
+      border: 1px solid var(--border); border-radius: 6px;
+      font-size: .8rem; color: var(--muted); transition: border-color .2s, color .2s;
+    }
+    .nup-logout:hover { border-color: var(--red); color: var(--red); }
+
+    /* ══ HERO ══ */
+    .hero { height: 100vh; min-height: 620px; position: relative; display: flex; align-items: center; overflow: hidden; }
+    .hero-bg { position: absolute; inset: 0; z-index: 0; background: linear-gradient(135deg, #100e0b 0%, #1c160e 50%, #0a0806 100%); }
+    .hero-bg img { width: 100%; height: 100%; object-fit: cover; opacity: .32; }
+    .hero-overlay { position: absolute; inset: 0; z-index: 1; background: linear-gradient(105deg, rgba(9,9,8,.97) 38%, rgba(9,9,8,.35) 100%); }
+    .hero-content { position: relative; z-index: 2; padding: 0 2rem; max-width: 780px; margin-left: max(2rem, calc((100vw - 1180px) / 2)); }
+    .hero-eyebrow { font-size: .7rem; font-weight: 600; letter-spacing: .28em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.5rem; display: flex; align-items: center; gap: .75rem; }
+    .hero-eyebrow::before { content: ''; width: 32px; height: 1px; background: var(--gold); opacity: .6; }
+    .hero-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(5rem, 12vw, 10.5rem); line-height: .88; letter-spacing: .02em; margin-bottom: 1.5rem; }
+    .hero-title em { color: var(--gold-lt); font-style: normal; }
+    .hero-sub { font-size: 1rem; color: var(--muted); max-width: 42ch; line-height: 1.75; margin-bottom: 2.5rem; }
+    .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn-gold { padding: .85rem 2.25rem; background: var(--gold); color: #0a0906; border-radius: 6px; font-weight: 700; font-size: .9375rem; transition: background .2s, transform .15s; display: inline-flex; align-items: center; gap: .5rem; }
+    .btn-gold:hover { background: var(--gold-lt); transform: translateY(-2px); }
+    .btn-ghost { padding: .85rem 2.25rem; border: 1px solid rgba(196,154,58,.35); border-radius: 6px; color: var(--text); font-size: .9375rem; font-weight: 500; transition: border-color .2s, background .2s; }
+    .btn-ghost:hover { border-color: var(--gold); background: rgba(196,154,58,.08); }
+    .hero-scroll { position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: .5rem; font-size: .68rem; letter-spacing: .14em; text-transform: uppercase; color: var(--dim); z-index: 2; }
+    .scroll-dot { width: 20px; height: 32px; border: 1px solid var(--dim); border-radius: 10px; position: relative; }
+    .scroll-dot::before { content: ''; position: absolute; top: 5px; left: 50%; transform: translateX(-50%); width: 2px; height: 5px; background: var(--gold); border-radius: 2px; animation: scrollBob 1.8s ease-in-out infinite; }
+    @keyframes scrollBob { 0%,100%{top:5px;opacity:1;} 80%{top:18px;opacity:0;} }
+
+    /* ══ MARQUEE ══ */
+    .marquee-wrap { overflow: hidden; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); background: var(--surface); padding: .85rem 0; }
+    .marquee-track { display: flex; animation: ticker 32s linear infinite; white-space: nowrap; }
+    .marquee-wrap:hover .marquee-track { animation-play-state: paused; }
+    @keyframes ticker { from{transform:translateX(0);}to{transform:translateX(-50%);} }
+    .m-item { display: inline-flex; align-items: center; gap: .65rem; padding: 0 2rem; font-family: 'Bebas Neue', sans-serif; font-size: 1.05rem; letter-spacing: .1em; color: var(--muted); }
+    .m-dot  { width: 4px; height: 4px; border-radius: 50%; background: var(--gold); flex-shrink: 0; }
+
+    /* ══ SHARED ══ */
+    .section-pad { padding: 5.5rem 0; }
+    .container { max-width: 1180px; margin: 0 auto; padding: 0 2rem; }
+    .sec-label { font-size: .7rem; font-weight: 600; letter-spacing: .24em; text-transform: uppercase; color: var(--gold); margin-bottom: .85rem; display: block; }
+    .sec-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.5rem, 5vw, 4.2rem); letter-spacing: .03em; line-height: 1; margin-bottom: .75rem; }
+    .sec-title em { color: var(--gold-lt); font-style: normal; }
+    .sec-sub { font-size: .9375rem; color: var(--muted); max-width: 50ch; line-height: 1.75; }
+    .sec-header { display: flex; align-items: flex-end; justify-content: space-between; gap: 2rem; margin-bottom: 3rem; flex-wrap: wrap; }
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity .7s ease, transform .7s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* ══ SERVICIOS ══ */
+    .services-bg { background: var(--surface); }
+    .services-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.25rem; }
+    .svc-card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 1.75rem; position: relative; overflow: hidden; transition: transform .3s, border-color .3s, box-shadow .3s; }
+    .svc-card::before { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(196,154,58,.04) 0%, transparent 55%); pointer-events: none; }
+    .svc-card:hover { transform: translateY(-4px); border-color: rgba(196,154,58,.28); box-shadow: 0 20px 50px rgba(0,0,0,.5); }
+    .svc-num  { font-family: 'Bebas Neue', sans-serif; font-size: 2.8rem; color: var(--dim); line-height: 1; margin-bottom: 1rem; }
+    .svc-name { font-family: 'Bebas Neue', sans-serif; font-size: 1.45rem; letter-spacing: .04em; margin-bottom: .5rem; }
+    .svc-desc { font-size: .84rem; color: var(--muted); line-height: 1.65; margin-bottom: 1.5rem; }
+    .svc-footer { display: flex; align-items: center; justify-content: space-between; }
+    .svc-price { font-size: 1.2rem; font-weight: 700; color: var(--gold-lt); display: block; }
+    .svc-dur   { font-size: .75rem; color: var(--dim); }
+    .svc-btn   { padding: .5rem 1.1rem; border: 1px solid rgba(196,154,58,.35); border-radius: 6px; font-size: .8rem; font-weight: 600; color: var(--gold); transition: background .2s, border-color .2s; }
+    .svc-btn:hover { background: rgba(196,154,58,.12); border-color: var(--gold); }
+
+    /* ══ GALERÍA ══ */
+    .gallery-columns { columns: 3; gap: 1rem; }
+    .g-item { break-inside: avoid; margin-bottom: 1rem; border-radius: 10px; overflow: hidden; cursor: pointer; position: relative; background: var(--card); }
+    .g-item img { width: 100%; display: block; transition: transform .5s ease; }
+    .g-item:hover img { transform: scale(1.06); }
+    .g-item-overlay { position: absolute; inset: 0; background: rgba(9,9,8,.5); display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity .3s; }
+    .g-item:hover .g-item-overlay { opacity: 1; }
+    .g-item-overlay svg { color: var(--gold-lt); filter: drop-shadow(0 0 8px rgba(196,154,58,.5)); }
+    .g-ph { width: 100%; display: flex; align-items: center; justify-content: center; }
+
+    /* ══ LIGHTBOX ══ */
+    .lightbox { position: fixed; inset: 0; background: rgba(0,0,0,.93); z-index: 1000; display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity .3s; }
+    .lightbox.open { opacity: 1; pointer-events: auto; }
+    #lb-img { max-width: 88vw; max-height: 85vh; border-radius: 8px; object-fit: contain; display: block; }
+    .lb-close,.lb-prev,.lb-next { position: absolute; width: 44px; height: 44px; border-radius: 50%; border: 1px solid rgba(255,255,255,.15); background: rgba(255,255,255,.06); display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,.75); transition: background .2s, color .2s; }
+    .lb-close:hover,.lb-prev:hover,.lb-next:hover { background: rgba(255,255,255,.14); color: #fff; }
+    .lb-close { top: 1.5rem; right: 1.5rem; }
+    .lb-prev  { left: 1.5rem; top: 50%; transform: translateY(-50%); }
+    .lb-next  { right: 1.5rem; top: 50%; transform: translateY(-50%); }
+
+    /* ══ EQUIPO ══ */
+    .team-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 1.25rem; }
+    .team-card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; transition: transform .3s, border-color .3s; }
+    .team-card:hover { transform: translateY(-4px); border-color: rgba(196,154,58,.25); }
+    .team-photo { height: 220px; overflow: hidden; background: var(--surface); }
+    .team-photo img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s; }
+    .team-card:hover .team-photo img { transform: scale(1.05); }
+    .team-initial { display: flex; align-items: center; justify-content: center; width: 90px; height: 90px; border-radius: 50%; background: rgba(196,154,58,.18); border: 2px solid rgba(196,154,58,.45); font-family: 'Bebas Neue', sans-serif; font-size: 2.6rem; color: var(--gold); letter-spacing: .04em; }
+    .team-info { padding: 1.25rem; }
+    .team-name { font-family: 'Bebas Neue', sans-serif; font-size: 1.3rem; letter-spacing: .04em; margin-bottom: .25rem; }
+    .team-role { font-size: .78rem; color: var(--gold); font-weight: 600; letter-spacing: .1em; text-transform: uppercase; margin-bottom: .5rem; }
+    .team-spec { font-size: .82rem; color: var(--muted); }
+
+    /* ══ BOOKING ══ */
+    .booking-bg { background: var(--surface); }
+    .booking-layout { display: grid; grid-template-columns: 1fr 1.45fr; gap: 5rem; align-items: start; }
+    .booking-aside { position: sticky; top: 88px; }
+    .booking-info-card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 2rem; margin-top: 2rem; }
+    .bic-row { display: flex; align-items: flex-start; gap: 1rem; padding: .9rem 0; border-bottom: 1px solid var(--border); }
+    .bic-row:last-child { border-bottom: none; padding-bottom: 0; }
+    .bic-icon { width: 40px; height: 40px; border-radius: 8px; background: rgba(196,154,58,.1); border: 1px solid rgba(196,154,58,.18); display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 1.1rem; }
+    .bic-text h4 { font-size: .875rem; font-weight: 600; margin-bottom: .18rem; }
+    .bic-text p  { font-size: .82rem; color: var(--muted); line-height: 1.5; }
+
+    /* Formulario */
+    .booking-form-box { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 2.5rem; }
+    .form-title { font-family: 'Bebas Neue', sans-serif; font-size: 1.9rem; letter-spacing: .04em; margin-bottom: .4rem; }
+    .form-sub   { font-size: .84rem; color: var(--muted); margin-bottom: 1.5rem; }
+    .form-row   { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .fgroup     { margin-bottom: 1.2rem; }
+    .fgroup label { display: block; font-size: .75rem; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: .1em; margin-bottom: .5rem; }
+    .fgroup input,.fgroup select,.fgroup textarea { width: 100%; padding: .72rem 1rem; background: var(--surface); border: 1px solid var(--border); border-radius: 8px; font-size: .9375rem; transition: border-color .2s, box-shadow .2s; }
+    .fgroup input:focus,.fgroup select:focus,.fgroup textarea:focus { outline: none; border-color: var(--gold); box-shadow: 0 0 0 3px rgba(196,154,58,.1); }
+    .fgroup select { cursor: pointer; }
+    .fgroup textarea { resize: vertical; min-height: 85px; }
+
+    /* Auth wall dentro del formulario */
+    .form-auth-wall {
+      background: rgba(196,154,58,.06); border: 1px solid rgba(196,154,58,.2); border-radius: 10px;
+      padding: 1.5rem; text-align: center; margin-bottom: 1.5rem;
+    }
+    .faw-icon { font-size: 2rem; margin-bottom: .75rem; }
+    .faw-title { font-family: 'Bebas Neue', sans-serif; font-size: 1.4rem; letter-spacing: .04em; margin-bottom: .4rem; }
+    .faw-sub   { font-size: .84rem; color: var(--muted); margin-bottom: 1.25rem; }
+    .faw-btns  { display: flex; gap: .6rem; justify-content: center; flex-wrap: wrap; }
+    .faw-btn-primary { padding: .6rem 1.5rem; background: var(--gold); color: #0a0906; border-radius: 6px; font-weight: 700; font-size: .875rem; transition: background .2s; }
+    .faw-btn-primary:hover { background: var(--gold-lt); }
+    .faw-btn-ghost { padding: .6rem 1.5rem; border: 1px solid rgba(196,154,58,.35); border-radius: 6px; color: var(--text); font-size: .875rem; transition: border-color .2s; }
+    .faw-btn-ghost:hover { border-color: var(--gold); }
+
+    /* Slots */
+    .slots-lbl { font-size: .75rem; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: .1em; margin-bottom: .7rem; display: block; }
+    .slots-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: .45rem; margin-bottom: .6rem; }
+    .slot { padding: .55rem .2rem; text-align: center; font-size: .8rem; font-weight: 500; border: 1px solid var(--border); border-radius: 6px; background: var(--surface); color: var(--muted); cursor: pointer; transition: all .18s; user-select: none; }
+    .slot:hover:not(.booked) { border-color: var(--gold); color: var(--gold-lt); background: rgba(196,154,58,.06); }
+    .slot.selected { background: var(--gold); border-color: var(--gold); color: #0a0906; font-weight: 700; }
+    .slot.booked   { opacity: .28; cursor: not-allowed; text-decoration: line-through; pointer-events: none; }
+    .slots-hint    { font-size: .73rem; color: var(--dim); margin-bottom: 1.5rem; }
+
+    .btn-submit { width: 100%; padding: 1rem; background: var(--gold); color: #0a0906; border-radius: 8px; font-size: 1rem; font-weight: 700; display: flex; align-items: center; justify-content: center; gap: .55rem; transition: background .2s, transform .15s; }
+    .btn-submit:hover:not(:disabled) { background: var(--gold-lt); transform: translateY(-1px); }
+    .btn-submit:disabled { opacity: .45; cursor: not-allowed; transform: none; }
+
+    /* ══ AUTH MODAL ══ */
+    .auth-overlay { position: fixed; inset: 0; background: rgba(0,0,0,.82); z-index: 800; display: flex; align-items: center; justify-content: center; padding: 1rem; opacity: 0; pointer-events: none; transition: opacity .3s; }
+    .auth-overlay.open { opacity: 1; pointer-events: auto; }
+    .auth-card { background: var(--card); border: 1px solid var(--border); border-radius: 20px; padding: 2.5rem; max-width: 420px; width: 100%; transform: translateY(16px); transition: transform .35s; }
+    .auth-overlay.open .auth-card { transform: translateY(0); }
+
+    .auth-tabs-row { display: flex; gap: .4rem; margin-bottom: 2rem; background: var(--surface); border-radius: 8px; padding: .3rem; }
+    .auth-tab { flex: 1; padding: .55rem; border-radius: 6px; font-size: .875rem; font-weight: 600; color: var(--muted); transition: background .2s, color .2s; }
+    .auth-tab.active { background: var(--gold); color: #0a0906; }
+
+    .auth-panel { display: none; }
+    .auth-panel.active { display: block; }
+
+    .auth-title { font-family: 'Bebas Neue', sans-serif; font-size: 1.8rem; letter-spacing: .04em; margin-bottom: .35rem; }
+    .auth-sub   { font-size: .84rem; color: var(--muted); margin-bottom: 1.75rem; line-height: 1.5; }
+    .auth-btn   { width: 100%; padding: .85rem; background: var(--gold); color: #0a0906; border-radius: 8px; font-weight: 700; font-size: .9375rem; transition: background .2s; margin-top: .5rem; }
+    .auth-btn:hover { background: var(--gold-lt); }
+    .auth-err   { font-size: .8rem; color: var(--red); margin-top: .75rem; min-height: 1.1em; text-align: center; }
+    .auth-cancel { width: 100%; margin-top: .6rem; padding: .5rem; color: var(--muted); font-size: .875rem; transition: color .2s; }
+    .auth-cancel:hover { color: var(--text); }
+    .auth-divider { display: flex; align-items: center; gap: .75rem; margin: 1.25rem 0; }
+    .auth-divider::before,.auth-divider::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+    .auth-divider span { font-size: .75rem; color: var(--dim); }
+    .auth-switch { font-size: .82rem; color: var(--muted); text-align: center; }
+    .auth-switch button { color: var(--gold); font-weight: 600; text-decoration: underline; background: none; border: none; cursor: pointer; font-size: .82rem; }
+
+    /* Forgot password */
+    .auth-forgot { font-size: .78rem; color: var(--gold); background: none; border: none; cursor: pointer; margin-top: .5rem; }
+    .auth-forgot:hover { text-decoration: underline; }
+
+    /* ══ SUCCESS MODAL ══ */
+    .modal-bg { position: fixed; inset: 0; background: rgba(0,0,0,.78); z-index: 800; display: flex; align-items: center; justify-content: center; padding: 1rem; opacity: 0; pointer-events: none; transition: opacity .3s; }
+    .modal-bg.open { opacity: 1; pointer-events: auto; }
+    .modal-card { background: var(--card); border: 1px solid var(--border); border-radius: 20px; padding: 3rem 2.5rem; max-width: 480px; width: 100%; text-align: center; transform: translateY(18px); transition: transform .35s; }
+    .modal-bg.open .modal-card { transform: translateY(0); }
+    .modal-icon { font-size: 3.5rem; margin-bottom: 1.25rem; }
+    .modal-ttl  { font-family: 'Bebas Neue', sans-serif; font-size: 2.1rem; letter-spacing: .04em; margin-bottom: .75rem; }
+    .modal-body { font-size: .9rem; color: var(--muted); line-height: 1.7; margin-bottom: 2rem; }
+    .modal-ok   { padding: .85rem 2rem; background: var(--gold); color: #0a0906; border-radius: 8px; font-weight: 700; font-size: .9375rem; transition: background .2s; }
+    .modal-ok:hover { background: var(--gold-lt); }
+
+    /* ══ INFO STRIP ══ */
+    .info-strip { padding: 4rem 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .info-grid  { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2.5rem; }
+    .info-item  { display: flex; align-items: flex-start; gap: 1rem; }
+    .info-icon  { width: 44px; height: 44px; border-radius: 10px; background: rgba(196,154,58,.1); border: 1px solid rgba(196,154,58,.18); display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 1.2rem; }
+    .info-text h4 { font-size: .9rem; font-weight: 600; margin-bottom: .25rem; }
+    .info-text p  { font-size: .82rem; color: var(--muted); line-height: 1.55; }
+    .info-text a  { color: var(--gold); }
+
+    /* ══ CTA ══ */
+    .cta-sec { padding: 7rem 0; text-align: center; background: linear-gradient(135deg, #0d0b08 0%, #130f08 100%); position: relative; overflow: hidden; }
+    .cta-sec::before { content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 700px; height: 700px; background: radial-gradient(circle, rgba(196,154,58,.08) 0%, transparent 70%); pointer-events: none; }
+    .cta-sec .container { position: relative; z-index: 1; }
+    .cta-sec h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.8rem, 7vw, 5.5rem); letter-spacing: .03em; line-height: 1; margin-bottom: 1rem; }
+    .cta-sec p  { font-size: 1rem; color: var(--muted); max-width: 42ch; margin: 0 auto 2.75rem; }
+
+    /* ══ FOOTER ══ */
+    .footer { background: var(--surface); border-top: 1px solid var(--border); padding: 1.75rem 2rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+    .footer-brand { font-family: 'Bebas Neue', sans-serif; font-size: 1.25rem; letter-spacing: .08em; color: var(--gold-lt); }
+    .footer p { font-size: .8rem; color: var(--dim); }
+    .footer a { color: var(--gold); }
+
+    /* ══ ADMIN PANEL ══ */
+    .admin-panel { position: fixed; inset: 0; background: var(--bg); z-index: 700; overflow-y: auto; transform: translateX(100%); transition: transform .4s cubic-bezier(.4,0,.2,1); }
+    .admin-panel.open { transform: translateX(0); }
+    .adm-header { position: sticky; top: 0; background: var(--surface); border-bottom: 1px solid var(--border); padding: 1rem 2rem; display: flex; align-items: center; justify-content: space-between; z-index: 10; gap: 1rem; flex-wrap: wrap; }
+    .adm-header-left { display: flex; align-items: center; gap: .85rem; }
+    .adm-logo { font-family: 'Bebas Neue', sans-serif; font-size: 1.5rem; letter-spacing: .06em; color: var(--gold-lt); }
+    .adm-sub  { font-size: .75rem; color: var(--muted); }
+    .adm-header-right { display: flex; align-items: center; gap: .6rem; }
+    .adm-logout { padding: .42rem .9rem; border: 1px solid var(--border); border-radius: 6px; font-size: .78rem; color: var(--muted); transition: border-color .2s, color .2s; }
+    .adm-logout:hover { border-color: var(--red); color: var(--red); }
+    .adm-exit  { padding: .42rem .9rem; background: var(--gold); color: #0a0906; border-radius: 6px; font-size: .78rem; font-weight: 600; transition: background .2s; }
+    .adm-exit:hover { background: var(--gold-lt); }
+    .adm-body  { padding: 2rem; max-width: 1200px; margin: 0 auto; }
+    .adm-stats { display: grid; grid-template-columns: repeat(4,1fr); gap: 1rem; margin-bottom: 2rem; }
+    .adm-stat  { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.25rem 1.5rem; }
+    .adm-stat-num { font-family: 'Bebas Neue', sans-serif; font-size: 2.6rem; line-height: 1; margin-bottom: .2rem; }
+    .adm-stat-lbl { font-size: .75rem; color: var(--muted); }
+    .adm-stat.s-total     .adm-stat-num { color: var(--text); }
+    .adm-stat.s-pending   .adm-stat-num { color: var(--amber); }
+    .adm-stat.s-confirmed .adm-stat-num { color: var(--green); }
+    .adm-stat.s-today     .adm-stat-num { color: var(--gold-lt); }
+    .adm-tabs { display: flex; gap: .5rem; margin-bottom: 1.75rem; flex-wrap: wrap; }
+    .adm-tab  { padding: .42rem 1.1rem; border: 1px solid var(--border); border-radius: 99px; font-size: .83rem; color: var(--muted); transition: all .2s; }
+    .adm-tab:hover { border-color: var(--gold); color: var(--text); }
+    .adm-tab.active { background: var(--gold); border-color: var(--gold); color: #0a0906; font-weight: 600; }
+    .adm-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px,1fr)); gap: 1rem; }
+    .appt { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.4rem; display: flex; flex-direction: column; gap: .9rem; animation: fadeUp .3s ease; }
+    @keyframes fadeUp { from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:translateY(0);} }
+    .appt.confirmed { border-color: rgba(52,211,153,.22); }
+    .appt.cancelled { opacity: .55; }
+    .appt-top { display: flex; align-items: flex-start; justify-content: space-between; gap: .6rem; }
+    .appt-name    { font-weight: 600; font-size: 1rem; margin-bottom: .15rem; }
+    .appt-service { font-size: .78rem; color: var(--gold); font-weight: 500; }
+    .sbadge { padding: .2rem .6rem; border-radius: 4px; font-size: .67rem; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; flex-shrink: 0; }
+    .sbadge.pending   { background: rgba(245,158,11,.14); color: var(--amber); }
+    .sbadge.confirmed { background: rgba(52,211,153,.14); color: var(--green); }
+    .sbadge.cancelled { background: rgba(248,113,113,.12); color: var(--red); }
+    .appt-meta { display: grid; grid-template-columns: 1fr 1fr; gap: .45rem .75rem; }
+    .appt-m    { display: flex; flex-direction: column; gap: .08rem; }
+    .appt-ml   { font-size: .67rem; color: var(--dim); text-transform: uppercase; letter-spacing: .08em; }
+    .appt-mv   { font-size: .83rem; }
+    .appt-actions { display: flex; gap: .5rem; }
+    .abtn { flex: 1; padding: .5rem; border-radius: 6px; font-size: .78rem; font-weight: 600; display: flex; align-items: center; justify-content: center; gap: .3rem; transition: all .18s; }
+    .abtn-ok { background: rgba(52,211,153,.1); border: 1px solid rgba(52,211,153,.28); color: var(--green); }
+    .abtn-ok:hover:not(:disabled) { background: rgba(52,211,153,.22); }
+    .abtn-no { background: rgba(248,113,113,.08); border: 1px solid rgba(248,113,113,.22); color: var(--red); }
+    .abtn-no:hover:not(:disabled) { background: rgba(248,113,113,.18); }
+    .abtn:disabled { opacity: .35; cursor: not-allowed; }
+    .adm-empty { text-align: center; padding: 4rem 2rem; color: var(--muted); }
+    .adm-empty-ic { font-size: 3rem; opacity: .25; margin-bottom: 1rem; }
+
+    /* ══ TOAST ══ */
+    .toast-wrap { position:fixed; top:82px; right:1.5rem; z-index:1500; display:flex; flex-direction:column; gap:.5rem; pointer-events:none; }
+    .toast { padding:.85rem 1.2rem; border-radius:10px; font-size:.875rem; font-weight:500; display:flex; align-items:center; gap:.65rem; min-width:260px; max-width:360px; pointer-events:all; animation:toastIn .3s ease; box-shadow:0 8px 30px rgba(0,0,0,.4); }
+    @keyframes toastIn { from{opacity:0;transform:translateX(20px);}to{opacity:1;transform:translateX(0);} }
+    @keyframes toastOut { from{opacity:1;transform:translateX(0);}to{opacity:0;transform:translateX(20px);} }
+    .toast-ok   { background:rgba(52,211,153,.15); border:1px solid rgba(52,211,153,.3); color:var(--green); }
+    .toast-err  { background:rgba(248,113,113,.12); border:1px solid rgba(248,113,113,.28); color:var(--red); }
+    .toast-info { background:rgba(196,154,58,.1); border:1px solid rgba(196,154,58,.3); color:var(--gold-lt); }
+
+    /* Admin nav badge */
+    .adm-nav-btn { padding:.45rem 1rem; background:rgba(196,154,58,.12); border:1px solid rgba(196,154,58,.3); border-radius:6px; font-size:.78rem; font-weight:700; color:var(--gold); display:none; align-items:center; gap:.4rem; transition:background .2s; cursor:pointer; }
+    .adm-nav-btn:hover { background:rgba(196,154,58,.24); }
+    .adm-nav-btn.visible { display:flex; }
+
+    /* Mis citas (usuario regular) */
+    .my-appts-wrap { margin-top:2rem; display:none; }
+    .my-appts-wrap.visible { display:block; }
+    .my-appts-title { font-family:'Bebas Neue',sans-serif; font-size:1.35rem; letter-spacing:.04em; color:var(--gold-lt); margin-bottom:.85rem; padding-top:1.5rem; border-top:1px solid var(--border); }
+    .my-appt-item { background:var(--surface); border:1px solid var(--border); border-radius:10px; padding:1rem 1.25rem; margin-bottom:.65rem; display:flex; align-items:center; justify-content:space-between; gap:1rem; flex-wrap:wrap; }
+    .my-appt-item.confirmed { border-color:rgba(52,211,153,.22); }
+    .my-appt-item.cancelled { opacity:.5; }
+    .my-appt-svc { font-weight:600; font-size:.9rem; margin-bottom:.18rem; }
+    .my-appt-when { font-size:.78rem; color:var(--muted); }
+    .my-appts-empty { font-size:.84rem; color:var(--dim); padding:.75rem 0; }
+
+    /* Admin setup prompt dentro del panel */
+    .adm-setup { background:rgba(196,154,58,.07); border:1px dashed rgba(196,154,58,.3); border-radius:10px; padding:1.1rem 1.5rem; margin-bottom:1.5rem; display:flex; align-items:center; justify-content:space-between; gap:1rem; flex-wrap:wrap; }
+    .adm-setup p { font-size:.84rem; color:var(--muted); }
+    .adm-setup strong { color:var(--gold-lt); }
+    .adm-setup-btn { padding:.45rem 1rem; background:var(--gold); border:none; border-radius:6px; font-size:.8rem; font-weight:700; color:#0a0906; cursor:pointer; transition:background .2s; flex-shrink:0; }
+    .adm-setup-btn:hover { background:var(--gold-lt); }
+
+    /* Admin panel — tabs de sección (Citas / Usuarios) */
+    .adm-section-tabs { display:flex; gap:.4rem; margin-bottom:1.75rem; background:var(--surface); border-radius:8px; padding:.3rem; width:fit-content; }
+    .adm-sec-tab { padding:.5rem 1.25rem; border-radius:6px; font-size:.875rem; font-weight:600; color:var(--muted); transition:background .2s, color .2s; cursor:pointer; border:none; background:none; }
+    .adm-sec-tab.active { background:var(--gold); color:#0a0906; }
+
+    /* Usuarios grid */
+    .users-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:1rem; }
+    .user-card { background:var(--card); border:1px solid var(--border); border-radius:12px; padding:1.25rem; display:flex; align-items:center; gap:1rem; }
+    .user-avatar-lg { width:44px; height:44px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:1.1rem; color:#0a0906; flex-shrink:0; }
+    .user-avatar-lg.admin  { background:var(--gold); }
+    .user-avatar-lg.client { background:var(--dim); color:var(--muted); }
+    .user-info { flex:1; min-width:0; }
+    .user-name  { font-weight:600; font-size:.9rem; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+    .user-email { font-size:.75rem; color:var(--muted); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+    .user-role-badge { font-size:.67rem; font-weight:700; text-transform:uppercase; letter-spacing:.08em; margin-top:.3rem; }
+    .user-role-badge.admin  { color:var(--gold); }
+    .user-role-badge.client { color:var(--dim); }
+    .user-toggle { padding:.38rem .75rem; border-radius:6px; font-size:.75rem; font-weight:600; cursor:pointer; transition:all .18s; flex-shrink:0; }
+    .user-toggle.make-admin { background:rgba(196,154,58,.1); border:1px solid rgba(196,154,58,.25); color:var(--gold); }
+    .user-toggle.make-admin:hover { background:rgba(196,154,58,.22); }
+    .user-toggle.make-client { background:rgba(248,113,113,.08); border:1px solid rgba(248,113,113,.22); color:var(--red); }
+    .user-toggle.make-client:hover { background:rgba(248,113,113,.16); }
+    .user-toggle:disabled { opacity:.35; cursor:not-allowed; }
+
+    /* Rol barbero */
+    .user-avatar-lg.barber { background:var(--amber); color:#0a0906; }
+    .user-role-badge.barber { color:var(--amber); }
+    /* Select de rol en user card */
+    .user-role-select { padding:.38rem .65rem; border-radius:6px; border:1px solid var(--border); background:var(--surface); color:var(--text); font-size:.78rem; cursor:pointer; }
+    .user-role-select:focus { outline:none; border-color:var(--gold); }
+    /* Cabecera de grupo en users grid */
+    .users-group-hd { font-family:'Bebas Neue',sans-serif; font-size:1rem; letter-spacing:.06em; color:var(--muted); padding:.5rem 0 .35rem; border-bottom:1px solid var(--border); grid-column:1/-1; margin-top:.6rem; }
+    .users-group-hd:first-child { margin-top:0; }
+    /* Cita atendida (pasada + confirmada) */
+    .sbadge.attended { background:rgba(196,154,58,.12); color:var(--gold-lt); }
+    .appt.attended   { opacity:.6; }
+    /* Panel de barbero — reemplaza al formulario para usuarios con rol barbero */
+    .barber-wall { background:rgba(196,154,58,.06); border:1px solid rgba(196,154,58,.22); border-radius:12px; padding:1.75rem; margin-bottom:1.5rem; }
+    .barber-wall-title { font-family:'Bebas Neue',sans-serif; font-size:1.55rem; letter-spacing:.04em; color:var(--gold-lt); margin-bottom:.3rem; }
+    .barber-wall-sub   { font-size:.83rem; color:var(--muted); margin-bottom:1.35rem; line-height:1.6; }
+    .bp-preview { width:72px; height:72px; border-radius:50%; object-fit:cover; border:2px solid rgba(196,154,58,.3); background:var(--card); display:block; margin-bottom:1rem; }
+    /* Fila de foto en user card del panel admin (solo barberos) */
+    .user-card.barber-card { flex-direction:column; align-items:stretch; }
+    .user-card-toprow { display:flex; align-items:center; gap:1rem; }
+    .barber-photo-row { display:flex; align-items:center; gap:.55rem; margin-top:.85rem; padding-top:.85rem; border-top:1px solid var(--border); }
+    .barber-photo-thumb { width:38px; height:38px; border-radius:50%; object-fit:cover; border:1px solid rgba(196,154,58,.35); background:var(--surface); flex-shrink:0; overflow:hidden; }
+    .barber-photo-inp { flex:1; padding:.42rem .7rem; background:var(--surface); border:1px solid var(--border); border-radius:6px; font-size:.75rem; color:var(--text); min-width:0; font-family:inherit; }
+    .barber-photo-inp:focus { outline:none; border-color:var(--gold); }
+    .barber-photo-inp::placeholder { color:var(--dim); }
+    .barber-photo-btn { padding:.4rem .85rem; background:var(--gold); color:#0a0906; border-radius:6px; font-size:.74rem; font-weight:700; cursor:pointer; flex-shrink:0; transition:background .2s; border:none; font-family:inherit; }
+    .barber-photo-btn:hover { background:var(--gold-lt); }
+    /* Botón subir archivo foto */
+    .barber-file-btn { padding:.4rem .65rem; background:rgba(196,154,58,.1); border:1px solid rgba(196,154,58,.25); border-radius:6px; font-size:.8rem; cursor:pointer; flex-shrink:0; transition:background .2s; display:inline-flex; align-items:center; gap:.3rem; color:var(--gold); }
+    .barber-file-btn:hover { background:rgba(196,154,58,.22); }
+    /* Igual pero más grande para la sección del barbero */
+    .barber-file-btn-lg { padding:.6rem 1.25rem; background:rgba(196,154,58,.1); border:1px solid rgba(196,154,58,.25); border-radius:8px; font-size:.875rem; cursor:pointer; transition:background .2s; display:inline-flex; align-items:center; gap:.45rem; color:var(--gold); font-weight:600; margin-bottom:1rem; }
+    .barber-file-btn-lg:hover { background:rgba(196,154,58,.22); }
+
+    /* ══ Vista Por Día (barberos) ══ */
+    .byday-header { display:flex; align-items:center; justify-content:space-between; padding:.75rem 1rem; border-radius:8px; margin-bottom:.5rem; margin-top:1.25rem; }
+    .byday-header:first-child { margin-top:0; }
+    .byday-header.future  { background:rgba(196,154,58,.08); border:1px solid rgba(196,154,58,.18); }
+    .byday-header.today   { background:rgba(196,154,58,.18); border:1px solid rgba(196,154,58,.45); }
+    .byday-header.past    { background:rgba(255,255,255,.03); border:1px solid var(--border); opacity:.65; }
+    .byday-date  { font-family:'Bebas Neue',sans-serif; font-size:1.1rem; letter-spacing:.05em; color:var(--gold-lt); }
+    .byday-header.past .byday-date { color:var(--muted); }
+    .byday-count { font-size:.75rem; font-weight:700; color:var(--muted); text-transform:uppercase; letter-spacing:.08em; background:var(--surface); border:1px solid var(--border); border-radius:999px; padding:.2rem .65rem; }
+    .byday-appts { display:flex; flex-direction:column; gap:.5rem; margin-bottom:.5rem; }
+    .byday-card  { display:grid; grid-template-columns:64px 1fr auto; align-items:center; gap:.75rem; padding:.75rem 1rem; background:var(--card); border:1px solid var(--border); border-radius:10px; transition:border-color .2s; }
+    .byday-card.attended { opacity:.55; }
+    .byday-card.cancelled { opacity:.45; }
+    .byday-card:hover { border-color:rgba(196,154,58,.22); }
+    .byday-time  { font-family:'Bebas Neue',sans-serif; font-size:1.45rem; letter-spacing:.04em; color:var(--gold); text-align:center; line-height:1; }
+    .byday-name  { font-weight:600; font-size:.88rem; margin-bottom:.15rem; }
+    .byday-service { font-size:.76rem; color:var(--muted); }
+    .byday-right { display:flex; flex-direction:column; align-items:flex-end; gap:.4rem; }
+    .byday-phone { font-size:.72rem; color:var(--gold); text-decoration:none; }
+    .byday-phone:hover { text-decoration:underline; }
+    .byday-empty { color:var(--muted); font-size:.83rem; padding:.4rem .2rem; font-style:italic; }
+
+    /* ══ Vista Por Barbero / Estadísticas (admin) ══ */
+    .barber-stats-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(210px,1fr)); gap:1rem; }
+    .barber-stats-card { background:var(--card); border:1px solid var(--border); border-radius:14px; padding:1.25rem; display:flex; flex-direction:column; gap:.9rem; }
+    /* Encabezado: nombre + total */
+    .bs-header { display:flex; align-items:center; justify-content:space-between; gap:.75rem; padding-bottom:.9rem; border-bottom:1px solid var(--border); }
+    .bs-name { font-family:'Bebas Neue',sans-serif; font-size:1.2rem; letter-spacing:.04em; color:var(--gold-lt); flex:1; min-width:0; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+    .bs-total-pill { display:flex; flex-direction:column; align-items:center; background:rgba(255,255,255,.05); border:1px solid var(--border); border-radius:10px; padding:.35rem .8rem; flex-shrink:0; }
+    .bs-total-pill .bs-num { font-family:'Bebas Neue',sans-serif; font-size:1.65rem; letter-spacing:.02em; color:var(--text); line-height:1; }
+    .bs-total-pill .bs-lbl { font-size:.58rem; font-weight:700; text-transform:uppercase; letter-spacing:.07em; color:var(--muted); margin-top:.1rem; }
+    /* Grid 2×2 de estados */
+    .bs-totals { display:grid; grid-template-columns:1fr 1fr; gap:.45rem; }
+    .bs-stat { display:flex; flex-direction:column; align-items:center; justify-content:center; gap:.3rem; padding:.7rem .4rem; border-radius:9px; border:1px solid var(--border); text-align:center; min-width:0; overflow:hidden; }
+    .bs-stat.pending   { background:rgba(251,191,36,.07);  border-color:rgba(251,191,36,.22); }
+    .bs-stat.confirmed { background:rgba(74,222,128,.07);  border-color:rgba(74,222,128,.22); }
+    .bs-stat.attended  { background:rgba(196,154,58,.07);  border-color:rgba(196,154,58,.25); }
+    .bs-stat.cancelled { background:rgba(248,113,113,.06); border-color:rgba(248,113,113,.2); }
+    .bs-num { font-family:'Bebas Neue',sans-serif; font-size:2rem; letter-spacing:.02em; line-height:1; }
+    .bs-lbl { font-size:.6rem; font-weight:700; text-transform:uppercase; letter-spacing:.05em; color:var(--muted); line-height:1; white-space:nowrap; }
+    .bs-stat.pending   .bs-num { color:#fbbf24; }
+    .bs-stat.confirmed .bs-num { color:#4ade80; }
+    .bs-stat.attended  .bs-num { color:var(--gold); }
+    .bs-stat.cancelled .bs-num { color:var(--red); }
+    .stats-refresh-btn { margin-bottom:1.25rem; padding:.45rem 1rem; background:rgba(196,154,58,.1); border:1px solid rgba(196,154,58,.25); border-radius:7px; font-size:.8rem; font-weight:600; color:var(--gold); cursor:pointer; transition:background .2s; }
+    .stats-refresh-btn:hover { background:rgba(196,154,58,.22); }
+
+    /* ══ RESPONSIVE ══ */
+    @media (max-width:900px) {
+      .booking-layout{grid-template-columns:1fr;gap:2.5rem;}
+      .booking-aside{position:static;}
+      .gallery-columns{columns:2;}
+      .adm-stats{grid-template-columns:1fr 1fr;}
+      /* Nav tablet */
+      .nav{padding:0 1.25rem;gap:.5rem;}
+      .nav-left{gap:.85rem;}
+      .nav-right{gap:.5rem;}
+      .nav-brand{font-size:1.3rem;}
+    }
+
+    @media (max-width:680px) {
+      /* Nav mobile — compactación agresiva */
+      .nav{height:60px;padding:0 .75rem;gap:.4rem;}
+      .nav-left{gap:.5rem;min-width:0;flex:1;}
+      .nav-right{gap:.4rem;flex-shrink:0;}
+      .back-btn{padding:.3rem .55rem;font-size:0;flex-shrink:0;}
+      .back-btn svg{width:14px;height:14px;}
+      .nav-brand{font-size:1.05rem;letter-spacing:.04em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0;}
+      .nav-book{padding:.42rem .85rem;font-size:.78rem;white-space:nowrap;}
+      .nav-signin{padding:.38rem .75rem;font-size:.72rem;white-space:nowrap;}
+      .nav-avatar{width:30px;height:30px;font-size:.78rem;}
+      .nav-user-popup{right:-.5rem;min-width:200px;}
+      .adm-nav-btn{padding:.42rem .65rem !important;font-size:0 !important;}
+      .adm-nav-btn svg{width:16px !important;height:16px !important;margin:0 !important;}
+    }
+
+    @media (max-width:480px) {
+      .nav{padding:0 .55rem;}
+      .nav-brand{font-size:.92rem;}
+      .nav-book{padding:.4rem .7rem;font-size:.72rem;}
+      .nav-signin{padding:.36rem .6rem;font-size:.7rem;}
+    }
+
+    @media (max-width:380px) {
+      /* En pantallas muy chicas: el nav-brand "Blvd. Barber Co." se trunca con ellipsis */
+      .nav-brand{max-width:90px;}
+      .nav-book{padding:.4rem .6rem;font-size:.68rem;}
+      /* Si hay usuario logueado, el botón "Iniciar sesión" ya no se ve.
+         En no-logueado, mantener "Login" como texto más corto. */
+    }
+
+    @media (max-width:600px) {
+      .hero-title{font-size:clamp(4.2rem,18vw,6rem);}
+      .gallery-columns{columns:1;}
+      .form-row{grid-template-columns:1fr;}
+      .slots-grid{grid-template-columns:repeat(3,1fr);}
+      .adm-stats{grid-template-columns:1fr 1fr;}
+      .adm-grid{grid-template-columns:1fr;}
+    }
+    @media (prefers-reduced-motion:reduce) { *,*::before,*::after{animation:none!important;transition:none!important;} }
+    @keyframes spin { from{transform:rotate(0deg);}to{transform:rotate(360deg);} }
+  </style>
+</head>
+<body>
+
+<div id="prog"></div>
+<div class="toast-wrap" id="toast-wrap" aria-live="polite"></div>
+
+<!-- ════ NAV ════ -->
+<header class="nav">
+  <div class="nav-left">
+    <a href="/demos" class="back-btn">
+      <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" width="13" height="13"><path d="M13 5l-5 5 5 5"/></svg>
+      Demos
+    </a>
+    <span class="nav-brand">Blvd. Barber Co.</span>
+  </div>
+  <div class="nav-right">
+    <a href="#agendar" class="nav-book">Reservar cita</a>
+
+    <!-- Botón admin — visible solo para admin autenticado -->
+    <button class="adm-nav-btn" id="adm-nav-btn" onclick="openAdminPanel()" title="Abrir panel de administración">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93A10 10 0 115 18.07M12 2v2M12 20v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M2 12h2M20 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+      Admin
+    </button>
+
+    <!-- No autenticado -->
+    <button class="nav-signin" id="nav-signin-btn" onclick="openAuthModal('login')">Iniciar sesión</button>
+
+    <!-- Autenticado -->
+    <div class="nav-user" id="nav-user">
+      <div class="nav-avatar" id="nav-avatar" onclick="toggleUserMenu()">?</div>
+      <div class="nav-user-popup" id="nav-user-popup">
+        <div class="nup-email" id="nup-email">usuario@correo.com</div>
+        <button class="nup-admin-btn" id="nup-admin-btn" onclick="openAdminPanel()" style="display:none">
+          &#9881; Panel de administrador
+        </button>
+        <button class="nup-logout" onclick="doLogout()">Cerrar sesión</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ════ HERO ════ -->
+<section class="hero" id="inicio">
+  <div class="hero-bg">
+    <img src="https://images.unsplash.com/photo-1503951458645-643d5616e5b6?auto=format&fit=crop&w=1600&q=80" alt="Interior barbería" loading="eager" onerror="this.style.display='none'">
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">Barbería Premium — San José, CR</p>
+    <h1 class="hero-title">Blvd.<br><em>Barber</em><br>Co.</h1>
+    <p class="hero-sub">Cortes clásicos y modernos, barba impecable, ambiente auténtico. Reservá tu cita en minutos y pagá al llegar.</p>
+    <div class="hero-btns">
+      <a href="#agendar" class="btn-gold">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="17" height="17"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        Reservar cita
+      </a>
+      <a href="#galeria" class="btn-ghost">Ver trabajos</a>
+    </div>
+  </div>
+  <div class="hero-scroll"><div class="scroll-dot"></div>Scroll</div>
+</section>
+
+<!-- ════ MARQUEE ════ -->
+<div class="marquee-wrap" aria-hidden="true">
+  <div class="marquee-track">
+    <span class="m-item"><span class="m-dot"></span>Corte Clásico</span>
+    <span class="m-item"><span class="m-dot"></span>Fade Premium</span>
+    <span class="m-item"><span class="m-dot"></span>Barba Artística</span>
+    <span class="m-item"><span class="m-dot"></span>Afeitado con Navaja</span>
+    <span class="m-item"><span class="m-dot"></span>Diseño de Cejas</span>
+    <span class="m-item"><span class="m-dot"></span>Tratamiento Capilar</span>
+    <span class="m-item"><span class="m-dot"></span>Corte Clásico</span>
+    <span class="m-item"><span class="m-dot"></span>Fade Premium</span>
+    <span class="m-item"><span class="m-dot"></span>Barba Artística</span>
+    <span class="m-item"><span class="m-dot"></span>Afeitado con Navaja</span>
+    <span class="m-item"><span class="m-dot"></span>Diseño de Cejas</span>
+    <span class="m-item"><span class="m-dot"></span>Tratamiento Capilar</span>
+  </div>
+</div>
+
+<!-- ════ SERVICIOS ════ -->
+<section class="section-pad services-bg" id="servicios">
+  <div class="container">
+    <div class="sec-header">
+      <div><span class="sec-label reveal">— Nuestros servicios</span><h2 class="sec-title reveal">Lo que <em>hacemos</em></h2></div>
+      <p class="sec-sub reveal">Todos los servicios incluyen consulta personalizada y productos de primera calidad.</p>
+    </div>
+    <div class="services-grid">
+      <div class="svc-card reveal"><div class="svc-num">01</div><div class="svc-name">Corte Clásico</div><p class="svc-desc">Corte con tijera o máquina según tu estilo. Incluye lavado, secado y producto de finalización.</p><div class="svc-footer"><div><span class="svc-price">₡5,000</span><span class="svc-dur">30 minutos</span></div><button class="svc-btn" onclick="bookService('Corte Clásico')">Agendar</button></div></div>
+      <div class="svc-card reveal"><div class="svc-num">02</div><div class="svc-name">Corte + Barba</div><p class="svc-desc">El combo más solicitado. Corte a tu medida más perfilado y arreglo artístico de barba.</p><div class="svc-footer"><div><span class="svc-price">₡8,500</span><span class="svc-dur">50 minutos</span></div><button class="svc-btn" onclick="bookService('Corte + Barba')">Agendar</button></div></div>
+      <div class="svc-card reveal"><div class="svc-num">03</div><div class="svc-name">Fade Premium</div><p class="svc-desc">Degradado de precisión: skin fade, mid fade o high fade. Transición perfecta y líneas limpias.</p><div class="svc-footer"><div><span class="svc-price">₡7,500</span><span class="svc-dur">45 minutos</span></div><button class="svc-btn" onclick="bookService('Fade Premium')">Agendar</button></div></div>
+      <div class="svc-card reveal"><div class="svc-num">04</div><div class="svc-name">Afeitado con Navaja</div><p class="svc-desc">Afeitado clásico con navaja de filo, vapor caliente, crema premium y bálsamo post-afeitado.</p><div class="svc-footer"><div><span class="svc-price">₡6,500</span><span class="svc-dur">35 minutos</span></div><button class="svc-btn" onclick="bookService('Afeitado con Navaja')">Agendar</button></div></div>
+      <div class="svc-card reveal"><div class="svc-num">05</div><div class="svc-name">Paquete Completo</div><p class="svc-desc">La experiencia completa: corte + barba + afeitado de nuca + tratamiento hidratante capilar.</p><div class="svc-footer"><div><span class="svc-price">₡13,000</span><span class="svc-dur">70 minutos</span></div><button class="svc-btn" onclick="bookService('Paquete Completo')">Agendar</button></div></div>
+      <div class="svc-card reveal"><div class="svc-num">06</div><div class="svc-name">Diseño de Barba</div><p class="svc-desc">Arreglo artístico solo de barba. Perfilado, simetría, degradado y forma personalizada.</p><div class="svc-footer"><div><span class="svc-price">₡5,500</span><span class="svc-dur">30 minutos</span></div><button class="svc-btn" onclick="bookService('Diseño de Barba')">Agendar</button></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ GALERÍA ════ -->
+<section class="section-pad" id="galeria">
+  <div class="container">
+    <div class="sec-header">
+      <div><span class="sec-label reveal">— Nuestro trabajo</span><h2 class="sec-title reveal">La <em>galería</em></h2></div>
+      <p class="sec-sub reveal">Cada corte es una obra. Mirá algunos de los trabajos de nuestro equipo.</p>
+    </div>
+    <div class="gallery-columns">
+      <div class="g-item reveal" style="aspect-ratio:3/4" onclick="openLb(0)"><div class="g-ph" style="background:linear-gradient(145deg,#1c1710,#0d0b08);height:100%"><img src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?auto=format&fit=crop&w=600&q=80" alt="Arreglo de barba" loading="lazy" onerror="this.style.display='none'"></div><div class="g-item-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="32" height="32"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div></div>
+      <div class="g-item reveal" style="aspect-ratio:4/3" onclick="openLb(1)"><div class="g-ph" style="background:linear-gradient(145deg,#171310,#0a0806);height:100%"><img src="https://images.unsplash.com/photo-1622286342621-4bd786c2447c?auto=format&fit=crop&w=600&q=80" alt="Corte fade" loading="lazy" onerror="this.style.display='none'"></div><div class="g-item-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="32" height="32"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div></div>
+      <div class="g-item reveal" style="aspect-ratio:1/1" onclick="openLb(2)"><div class="g-ph" style="background:linear-gradient(145deg,#14120e,#0b0908);height:100%"><img src="https://images.unsplash.com/photo-1517832606299-7ae9b720a186?auto=format&fit=crop&w=600&q=80" alt="Interior barbería" loading="lazy" onerror="this.style.display='none'"></div><div class="g-item-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="32" height="32"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div></div>
+      <div class="g-item reveal" style="aspect-ratio:4/3" onclick="openLb(3)"><div class="g-ph" style="background:linear-gradient(145deg,#191510,#0e0b07);height:100%"><img src="https://images.unsplash.com/photo-1622296089863-eb7fc530daa8?auto=format&fit=crop&w=600&q=80" alt="Barbero con tijeras" loading="lazy" onerror="this.style.display='none'"></div><div class="g-item-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="32" height="32"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div></div>
+      <div class="g-item reveal" style="aspect-ratio:3/4" onclick="openLb(4)"><div class="g-ph" style="background:linear-gradient(145deg,#120f0b,#090706);height:100%"><img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=600&q=80" alt="Corte clásico" loading="lazy" onerror="this.style.display='none'"></div><div class="g-item-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="32" height="32"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div></div>
+      <div class="g-item reveal" style="aspect-ratio:1/1" onclick="openLb(5)"><div class="g-ph" style="background:linear-gradient(145deg,#1a1612,#0c0a07);height:100%"><img src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?auto=format&fit=crop&w=600&q=80" alt="Tijeras de barbero" loading="lazy" onerror="this.style.display='none'"></div><div class="g-item-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="32" height="32"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div></div>
+      <div class="g-item reveal" style="aspect-ratio:4/3" onclick="openLb(6)"><div class="g-ph" style="background:linear-gradient(145deg,#111009,#0a0806);height:100%"><img src="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&fit=crop&w=600&q=80" alt="Barbero trabajando" loading="lazy" onerror="this.style.display='none'"></div><div class="g-item-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="32" height="32"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div></div>
+      <div class="g-item reveal" style="aspect-ratio:3/4" onclick="openLb(7)"><div class="g-ph" style="background:linear-gradient(145deg,#160f0c,#0b0807);height:100%"><img src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?auto=format&fit=crop&w=600&q=80" alt="Fade" loading="lazy" onerror="this.style.display='none'"></div><div class="g-item-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="32" height="32"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div></div>
+      <div class="g-item reveal" style="aspect-ratio:4/3" onclick="openLb(8)"><div class="g-ph" style="background:linear-gradient(145deg,#131110,#090807);height:100%"><img src="https://images.unsplash.com/photo-1622287162716-f311baa1a2b8?auto=format&fit=crop&w=600&q=80" alt="Detalle corte" loading="lazy" onerror="this.style.display='none'"></div><div class="g-item-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="32" height="32"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ EQUIPO ════ -->
+<section class="section-pad services-bg" id="equipo">
+  <div class="container">
+    <div class="sec-header">
+      <div><span class="sec-label reveal">— Nuestro equipo</span><h2 class="sec-title reveal">Los <em>barberos</em></h2></div>
+      <p class="sec-sub reveal">Elegí a tu barbero favorito al reservar tu cita.</p>
+    </div>
+    <!-- Equipo cargado dinámicamente desde la colección 'barbers' en Firestore -->
+    <div class="team-grid" id="team-grid">
+      <div style="grid-column:1/-1;color:var(--muted);font-size:.84rem;padding:.5rem 0">Cargando equipo...</div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ BOOKING ════ -->
+<section class="section-pad booking-bg" id="agendar">
+  <div class="container">
+    <div class="booking-layout">
+      <div class="booking-aside">
+        <span class="sec-label reveal">— Agenda en línea</span>
+        <h2 class="sec-title reveal">Reservá<br><em>tu cita</em></h2>
+        <p class="sec-sub reveal" style="margin-bottom:0">Sin esperas. Elegí servicio, barbero, fecha y hora. Pagás al llegar.</p>
+        <div class="booking-info-card reveal">
+          <div class="bic-row"><div class="bic-icon">&#128336;</div><div class="bic-text"><h4>Horario</h4><p>Lunes a Sábado: 8:00 am – 7:00 pm<br>Domingos: cerrado</p></div></div>
+          <div class="bic-row"><div class="bic-icon">&#128205;</div><div class="bic-text"><h4>Ubicación</h4><p>Barrio Amón, San José<br>100m norte del Correo Central</p></div></div>
+          <div class="bic-row"><div class="bic-icon">&#128242;</div><div class="bic-text"><h4>Confirmación</h4><p>Recibirás un correo al agendar. El barbero confirma en máx. 1 hora.</p></div></div>
+          <div class="bic-row"><div class="bic-icon">&#128176;</div><div class="bic-text"><h4>Pago</h4><p>Efectivo o SINPE Móvil al llegar. Sin cobros anticipados.</p></div></div>
+        </div>
+      </div>
+
+      <div class="booking-form-box reveal">
+        <div class="form-title">Nueva cita</div>
+        <p class="form-sub">Completá el formulario y te confirmamos en minutos.</p>
+
+        <!-- Auth wall: visible solo si no hay sesión -->
+        <div class="form-auth-wall" id="form-auth-wall">
+          <div class="faw-icon">&#128274;</div>
+          <div class="faw-title">Necesitás una cuenta</div>
+          <p class="faw-sub">Creá tu cuenta gratis o iniciá sesión para poder reservar tu cita.</p>
+          <div class="faw-btns">
+            <button class="faw-btn-primary" onclick="openAuthModal('register')">Crear cuenta gratis</button>
+            <button class="faw-btn-ghost"   onclick="openAuthModal('login')">Ya tengo cuenta</button>
+          </div>
+        </div>
+
+        <form id="booking-form" onsubmit="submitBooking(event)" novalidate>
+          <div class="form-row">
+            <div class="fgroup"><label for="f-name">Nombre completo *</label><input type="text" id="f-name" placeholder="Ej: Juan Pérez" required></div>
+            <div class="fgroup"><label for="f-phone">Teléfono *</label><input type="tel" id="f-phone" placeholder="8888-8888" required></div>
+          </div>
+          <div class="fgroup"><label for="f-email">Correo electrónico</label><input type="email" id="f-email" placeholder="tu@correo.com" readonly style="opacity:.65"></div>
+          <div class="form-row">
+            <div class="fgroup">
+              <label for="f-service">Servicio *</label>
+              <select id="f-service" required>
+                <option value="">— Seleccionar —</option>
+                <option>Corte Clásico — ₡5,000</option>
+                <option>Corte + Barba — ₡8,500</option>
+                <option>Fade Premium — ₡7,500</option>
+                <option>Afeitado con Navaja — ₡6,500</option>
+                <option>Paquete Completo — ₡13,000</option>
+                <option>Diseño de Barba — ₡5,500</option>
+              </select>
+            </div>
+            <div class="fgroup">
+              <label for="f-barber">Barbero</label>
+              <select id="f-barber" onchange="loadSlots()">
+                <option value="Sin preferencia">Sin preferencia</option>
+                <option>Marco Solís</option>
+                <option>Diego Vargas</option>
+                <option>Carlos Jiménez</option>
+              </select>
+            </div>
+          </div>
+          <div class="fgroup"><label for="f-date">Fecha *</label><input type="date" id="f-date" required onchange="loadSlots()"></div>
+          <span class="slots-lbl">Hora disponible *</span>
+          <div class="slots-grid" id="slots-grid">
+            <div style="grid-column:1/-1;font-size:.82rem;color:var(--dim);padding:.5rem 0">Seleccioná una fecha para ver los horarios disponibles.</div>
+          </div>
+          <p class="slots-hint" id="slots-hint"></p>
+          <input type="hidden" id="f-time">
+          <div class="fgroup"><label for="f-notes">Notas adicionales</label><textarea id="f-notes" placeholder="Ej: quiero fade bajo, me gusta el pelo texturizado..."></textarea></div>
+          <button type="submit" class="btn-submit" id="submit-btn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            Confirmar reserva
+          </button>
+        </form>
+
+        <!-- Panel de barbero — solo visible para usuarios con rol 'barbero' -->
+        <div class="barber-wall" id="barber-wall" style="display:none">
+          <div class="barber-wall-title">Tu perfil de barbero</div>
+          <p class="barber-wall-sub">Actualizá tu foto y especialidad. Aparecerán en la sección del equipo del sitio.</p>
+          <img id="bp-preview" class="bp-preview" src="" alt="Foto de perfil" onerror="this.src='https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=200&q=80'">
+          <!-- Subir desde dispositivo (descargá la foto de WhatsApp a la galería primero) -->
+          <label class="barber-file-btn-lg">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="17" height="17"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+            Subir foto desde el dispositivo
+            <input type="file" accept="image/*" capture="user" style="display:none" onchange="handleBarberSelfPhotoFile(this.files[0])">
+          </label>
+          <div class="fgroup">
+            <label for="bp-photo">O pegá una URL de foto</label>
+            <input type="url" id="bp-photo" placeholder="https://..." oninput="previewBpPhoto(this.value)">
+          </div>
+          <div class="fgroup">
+            <label for="bp-specialty">Especialidad</label>
+            <input type="text" id="bp-specialty" placeholder="Ej: Fade &amp; Diseños — 5 años">
+          </div>
+          <button class="btn-submit" type="button" onclick="saveBarberProfile()">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="17" height="17"><path d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
+            Guardar perfil
+          </button>
+        </div>
+
+        <!-- Mis citas — visible para usuarios logueados (no admin) -->
+        <div class="my-appts-wrap" id="my-appts-wrap">
+          <div class="my-appts-title">Tus citas</div>
+          <div id="my-appts-list"><p class="my-appts-empty">Cargando...</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ INFO ════ -->
+<section class="info-strip">
+  <div class="container">
+    <div class="info-grid">
+      <div class="info-item reveal"><div class="info-icon">&#128336;</div><div class="info-text"><h4>Horario</h4><p>Lun–Sab: 8am – 7pm<br>Domingos: cerrado</p></div></div>
+      <div class="info-item reveal"><div class="info-icon">&#128205;</div><div class="info-text"><h4>Ubicación</h4><p>Barrio Amón, San José<br>Costa Rica</p></div></div>
+      <div class="info-item reveal"><div class="info-icon">&#128222;</div><div class="info-text"><h4>Teléfono</h4><p><a href="tel:+50672849920">+506 7284-9920</a><br>WhatsApp disponible</p></div></div>
+      <div class="info-item reveal"><div class="info-icon">&#11088;</div><div class="info-text"><h4>Calificación</h4><p>4.9 / 5 en Google<br>+380 reseñas</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ CTA ════ -->
+<section class="cta-sec">
+  <div class="container">
+    <h2>Tu mejor versión<br>te <em>espera</em></h2>
+    <p>Agendá en línea en menos de 2 minutos. Sin llamadas, sin esperas.</p>
+    <a href="#agendar" class="btn-gold" style="display:inline-flex;font-size:1.0625rem;padding:1rem 2.5rem">Reservar cita ahora</a>
+  </div>
+</section>
+
+<!-- ════ FOOTER ════ -->
+<footer class="footer">
+  <span class="footer-brand">Blvd. Barber Co.</span>
+  <p>&copy; 2026 Blvd. Barber Co. Demo diseñado por <a href="/demos">Stackbit</a></p>
+  <button onclick="handleAdminEntry()" style="background:none;border:none;color:var(--dim);font-size:.75rem;cursor:pointer;padding:.3rem .6rem;border-radius:4px;transition:color .2s" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--dim)'">
+    &#9881; Acceso propietario
+  </button>
+</footer>
+
+<!-- ════ LIGHTBOX ════ -->
+<div class="lightbox" id="lightbox">
+  <img id="lb-img" src="" alt="">
+  <button class="lb-close" onclick="closeLb()">&#10005;</button>
+  <button class="lb-prev"  onclick="moveLb(-1)">&#8592;</button>
+  <button class="lb-next"  onclick="moveLb(1)">&#8594;</button>
+</div>
+
+<!-- ════ AUTH MODAL (login + registro) ════ -->
+<div class="auth-overlay" id="auth-overlay">
+  <div class="auth-card">
+    <!-- Tabs -->
+    <div class="auth-tabs-row">
+      <button class="auth-tab active" id="tab-login"    onclick="switchAuthTab('login')">Iniciar sesión</button>
+      <button class="auth-tab"        id="tab-register" onclick="switchAuthTab('register')">Crear cuenta</button>
+    </div>
+
+    <!-- Login -->
+    <div class="auth-panel active" id="panel-login">
+      <div class="auth-title">Bienvenido</div>
+      <p class="auth-sub">Iniciá sesión para reservar y gestionar tus citas.</p>
+      <div class="fgroup"><label>Correo electrónico</label><input type="email" id="li-email" placeholder="tu@correo.com" onkeydown="if(event.key==='Enter')doLogin()"></div>
+      <div class="fgroup"><label>Contraseña</label><input type="password" id="li-pass" placeholder="••••••••" onkeydown="if(event.key==='Enter')doLogin()"></div>
+      <button class="auth-btn" onclick="doLogin()">Ingresar</button>
+      <button class="auth-forgot" onclick="doForgot()">Olvidaste tu contraseña?</button>
+      <p class="auth-err" id="li-err"></p>
+      <div class="auth-divider"><span>o</span></div>
+      <p class="auth-switch">No tenés cuenta? <button onclick="switchAuthTab('register')">Crear cuenta gratis</button></p>
+    </div>
+
+    <!-- Registro -->
+    <div class="auth-panel" id="panel-register">
+      <div class="auth-title">Crear cuenta</div>
+      <p class="auth-sub">Registrate para poder agendar citas en Blvd. Barber Co.</p>
+      <div class="fgroup"><label>Nombre completo</label><input type="text" id="reg-name" placeholder="Juan Pérez"></div>
+      <div class="fgroup"><label>Correo electrónico</label><input type="email" id="reg-email" placeholder="tu@correo.com"></div>
+      <div class="fgroup"><label>Contraseña (min. 6 caracteres)</label><input type="password" id="reg-pass" placeholder="••••••••" onkeydown="if(event.key==='Enter')doRegister()"></div>
+      <button class="auth-btn" onclick="doRegister()">Crear cuenta</button>
+      <p class="auth-err" id="reg-err"></p>
+      <div class="auth-divider"><span>o</span></div>
+      <p class="auth-switch">Ya tenés cuenta? <button onclick="switchAuthTab('login')">Iniciar sesión</button></p>
+    </div>
+
+    <button class="auth-cancel" onclick="closeAuthModal()">Cancelar</button>
+  </div>
+</div>
+
+<!-- ════ SUCCESS MODAL ════ -->
+<div class="modal-bg" id="success-modal">
+  <div class="modal-card">
+    <div class="modal-icon">&#10003;</div>
+    <div class="modal-ttl">Cita registrada</div>
+    <p class="modal-body" id="success-msg">Tu reserva fue registrada. Recibirás confirmación por correo en breve.</p>
+    <button class="modal-ok" onclick="closeSuccessModal()">Perfecto, gracias</button>
+  </div>
+</div>
+
+<!-- ════ ADMIN PANEL ════ -->
+<div class="admin-panel" id="admin-panel">
+  <div class="adm-header">
+    <div class="adm-header-left">
+      <div>
+        <div class="adm-logo">Blvd. Barber — Admin</div>
+        <div class="adm-sub" id="adm-user-label">Panel de administración</div>
+      </div>
+    </div>
+    <div class="adm-header-right">
+      <button class="adm-logout" onclick="doLogout()">Cerrar sesión</button>
+      <button class="adm-exit"   onclick="closeAdminPanel()">&#8592; Volver al sitio</button>
+    </div>
+  </div>
+
+  <div class="adm-body">
+
+    <!-- Stats -->
+    <div class="adm-stats">
+      <div class="adm-stat s-total">    <div class="adm-stat-num" id="stat-total">0</div><div class="adm-stat-lbl">Total citas</div></div>
+      <div class="adm-stat s-pending">  <div class="adm-stat-num" id="stat-pend">0</div><div class="adm-stat-lbl">Pendientes</div></div>
+      <div class="adm-stat s-confirmed"><div class="adm-stat-num" id="stat-conf">0</div><div class="adm-stat-lbl">Confirmadas</div></div>
+      <div class="adm-stat s-today">    <div class="adm-stat-num" id="stat-today">0</div><div class="adm-stat-lbl">Hoy</div></div>
+    </div>
+
+    <!-- Sección tabs: Citas | Por Día | Por Barbero | Usuarios -->
+    <div class="adm-section-tabs">
+      <button class="adm-sec-tab active" id="sec-tab-appts" onclick="switchAdmSection('appts')">
+        📅 Citas
+      </button>
+      <button class="adm-sec-tab" id="sec-tab-byday" onclick="switchAdmSection('byday')" style="display:none">
+        📆 Por Día
+      </button>
+      <button class="adm-sec-tab" id="sec-tab-stats" onclick="switchAdmSection('stats')" style="display:none">
+        📊 Por Barbero
+      </button>
+      <button class="adm-sec-tab" id="sec-tab-users" onclick="switchAdmSection('users')">
+        👥 Usuarios
+      </button>
+    </div>
+
+    <!-- ── Sección: CITAS ── -->
+    <div id="adm-section-appts">
+      <div class="adm-tabs">
+        <button class="adm-tab active" data-filter="all"       onclick="filterAppts(this)">Todas</button>
+        <button class="adm-tab"        data-filter="pending"   onclick="filterAppts(this)">Pendientes</button>
+        <button class="adm-tab"        data-filter="confirmed" onclick="filterAppts(this)">Confirmadas</button>
+        <button class="adm-tab"        data-filter="cancelled" onclick="filterAppts(this)">Canceladas</button>
+        <button class="adm-tab"        data-filter="attended"  onclick="filterAppts(this)">Atendidas</button>
+      </div>
+      <div class="adm-grid" id="adm-grid">
+        <div class="adm-empty"><div class="adm-empty-ic">&#128197;</div><p>No hay citas todavía.</p></div>
+      </div>
+    </div>
+
+    <!-- ── Sección: POR DÍA (barberos) ── -->
+    <div id="adm-section-byday" style="display:none">
+      <div id="byday-container">
+        <div class="adm-empty"><div class="adm-empty-ic">&#128198;</div><p>Cargando citas...</p></div>
+      </div>
+    </div>
+
+    <!-- ── Sección: POR BARBERO / ESTADÍSTICAS (admin) ── -->
+    <div id="adm-section-stats" style="display:none">
+      <button class="stats-refresh-btn" onclick="loadBarberStats()">↻ Actualizar</button>
+      <div id="stats-container">
+        <div class="adm-empty"><div class="adm-empty-ic">&#9986;</div><p>Cargando estadísticas...</p></div>
+      </div>
+    </div>
+
+    <!-- ── Sección: USUARIOS ── -->
+    <div id="adm-section-users" style="display:none">
+      <div class="users-grid" id="adm-users-grid">
+        <div class="adm-empty"><div class="adm-empty-ic">👥</div><p>Cargando usuarios...</p></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Firebase -->
+<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
+
+<script>
+/* ══════════════════════════════════════════════════════════════
+   FIREBASE CONFIG
+══════════════════════════════════════════════════════════════ */
+var FIREBASE_CONFIG = {
+  apiKey:            "AIzaSyDowYxAUD0PhcKDXSzEmijVyQDfChVG9Gg",
+  authDomain:        "blvd-barber-prueba.firebaseapp.com",
+  projectId:         "blvd-barber-prueba",
+  storageBucket:     "blvd-barber-prueba.firebasestorage.app",
+  messagingSenderId: "163197582092",
+  appId:             "1:163197582092:web:fc8eb0b74c3ae84b3c2729"
+};
+
+/*
+  ┌──────────────────────────────────────────────────────────────────┐
+  │  REGLAS DE FIRESTORE — pegar en Firebase Console > Rules          │
+  │                                                                   │
+  │  rules_version = '2';                                             │
+  │  service cloud.firestore {                                        │
+  │    match /databases/{database}/documents {                        │
+  │                                                                   │
+  │      // Verifica si el usuario logueado tiene role == 'admin'     │
+  │      // exists() evita error cuando el doc todavía no existe      │
+  │      function isAdmin() {                                         │
+  │        return request.auth != null &&                             │
+  │          exists(/databases/$(database)/documents/                 │
+  │                 users/$(request.auth.uid)) &&                     │
+  │          get(/databases/$(database)/documents/                    │
+  │              users/$(request.auth.uid)).data.role == 'admin';     │
+  │      }                                                            │
+  │                                                                   │
+  │      // Perfiles de usuario                                       │
+  │      match /users/{uid} {                                         │
+  │        allow read:   if request.auth != null &&                   │
+  │                         (request.auth.uid == uid || isAdmin());   │
+  │        allow create: if request.auth != null &&                   │
+  │                         request.auth.uid == uid;                  │
+  │        allow update: if isAdmin();                                │
+  │      }                                                            │
+  │                                                                   │
+  │      // Citas: cualquier usuario auth puede leer                  │
+  │      // (necesario para verificar slots disponibles)              │
+  │      match /appointments/{id} {                                   │
+  │        allow read:   if request.auth != null;                     │
+  │        allow create: if request.auth != null;                     │
+  │        allow update: if isAdmin();                                │
+  │      }                                                            │
+  │                                                                   │
+  │      // Config: lectura pública; escritura solo admin             │
+  │      // EXCEPCIÓN: si el doc no existe aún (primer arranque)      │
+  │      // cualquier usuario auth puede crearlo                      │
+  │      match /config/{doc} {                                        │
+  │        allow read:  if true;                                      │
+  │        allow write: if isAdmin() ||                               │
+  │                        (request.auth != null &&                   │
+  │                         !exists(/databases/$(database)/           │
+  │                                 documents/config/$(doc)));        │
+  │      }                                                            │
+  │                                                                   │
+  │      // Perfiles públicos de barberos (lectura pública)           │
+  │      function isBarberRole() {                                    │
+  │        return request.auth != null &&                             │
+  │          exists(/databases/$(database)/documents/                 │
+  │                 users/$(request.auth.uid)) &&                     │
+  │          get(/databases/$(database)/documents/                    │
+  │              users/$(request.auth.uid)).data.role == 'barber';    │
+  │      }                                                            │
+  │      match /barbers/{uid} {                                       │
+  │        allow read:  if true;                                      │
+  │        allow write: if isAdmin() ||                               │
+  │                        (request.auth != null &&                   │
+  │                         request.auth.uid == uid &&                │
+  │                         isBarberRole());                          │
+  │      }                                                            │
+  │                                                                   │
+  │    }                                                              │
+  │  }                                                                │
+  └──────────────────────────────────────────────────────────────────┘
+*/
+
+/* ══════════════════════════════════════════════════════════════
+   INIT
+══════════════════════════════════════════════════════════════ */
+firebase.initializeApp(FIREBASE_CONFIG);
+var db   = firebase.firestore();
+var auth = firebase.auth();
+
+var currentUser       = null;
+var currentUserRole   = null;  // 'admin' | 'barber' | 'client' | null — desde Firestore
+var currentBarberName = null;  // nombre del barbero logueado (para filtrar sus citas)
+var allAppts          = [];
+var currentFilter   = 'all';
+var unsubscribeDb   = null;
+var unsubMyAppts    = null;
+
+/* Rol en Firestore: users/{uid}.role */
+function isAdmin()  { return currentUserRole === 'admin'; }
+function isBarber() { return currentUserRole === 'barber'; }
+
+function fetchUserRole(uid) {
+  return db.collection('users').doc(uid).get()
+    .then(function(snap) {
+      if (!snap.exists) return 'client';
+      var data = snap.data();
+      if (data.role === 'barber') currentBarberName = data.name || '';
+      else currentBarberName = null;
+      return data.role || 'client';
+    })
+    .catch(function() { return 'client'; });
+}
+
+/* Retorna true si es el primer usuario (aún no hay admin) */
+function checkFirstUser() {
+  return db.collection('config').doc('barberia').get()
+    .then(function(snap) { return !snap.exists || !snap.data().initialized; })
+    .catch(function()    { return false; });
+}
+
+/* ══════════════════════════════════════════════════════════════
+   TOAST
+══════════════════════════════════════════════════════════════ */
+function showToast(msg, type, dur) {
+  var wrap = document.getElementById('toast-wrap');
+  var t = document.createElement('div');
+  t.className = 'toast toast-' + (type || 'info');
+  var icon = type === 'ok' ? '✓' : type === 'err' ? '✕' : 'ℹ';
+  t.innerHTML = '<span style="font-size:1rem;line-height:1">' + icon + '</span><span>' + msg + '</span>';
+  wrap.appendChild(t);
+  setTimeout(function() {
+    t.style.animation = 'toastOut .3s ease forwards';
+    setTimeout(function() { t.remove(); }, 320);
+  }, dur || 3800);
+}
+
+/* ══════════════════════════════════════════════════════════════
+   AUTH STATE
+══════════════════════════════════════════════════════════════ */
+auth.onAuthStateChanged(function(user) {
+  currentUser = user;
+  if (user) {
+    fetchUserRole(user.uid).then(function(role) {
+      currentUserRole = role;
+      updateNavForAuth(user);
+      updateBookingFormForAuth(user);
+      if ((role === 'admin' || role === 'barber') && window.location.hash === '#admin') {
+        setTimeout(openAdminPanel, 400);
+      }
+    });
+  } else {
+    currentUserRole = null;
+    updateNavForAuth(null);
+    updateBookingFormForAuth(null);
+  }
+});
+
+function updateNavForAuth(user) {
+  var signinBtn   = document.getElementById('nav-signin-btn');
+  var navUser     = document.getElementById('nav-user');
+  var navAvatar   = document.getElementById('nav-avatar');
+  var nupEmail    = document.getElementById('nup-email');
+  var nupAdminBtn = document.getElementById('nup-admin-btn');
+  var admNavBtn   = document.getElementById('adm-nav-btn');
+
+  if (user) {
+    signinBtn.style.display = 'none';
+    navUser.classList.add('visible');
+    var initial = (user.displayName || user.email).charAt(0).toUpperCase();
+    navAvatar.textContent = initial;
+    nupEmail.textContent  = user.displayName ? user.displayName + ' — ' + user.email : user.email;
+
+    var adminAccess = isAdmin() || isBarber();
+    nupAdminBtn.style.display = adminAccess ? '' : 'none';
+    admNavBtn.classList.toggle('visible', adminAccess);
+    if (document.getElementById('adm-user-label'))
+      document.getElementById('adm-user-label').textContent = user.displayName || user.email;
+  } else {
+    signinBtn.style.display = '';
+    navUser.classList.remove('visible');
+    admNavBtn.classList.remove('visible');
+    document.getElementById('nav-user-popup').classList.remove('open');
+  }
+}
+
+function updateBookingFormForAuth(user) {
+  var wall       = document.getElementById('form-auth-wall');
+  var form       = document.getElementById('booking-form');
+  var myAppsWrap = document.getElementById('my-appts-wrap');
+  var barberWall = document.getElementById('barber-wall');
+
+  if (user) {
+    if (isBarber()) {
+      // Barbero: no puede agendar — ver panel de perfil
+      wall.style.display       = 'none';
+      form.style.display       = 'none';
+      barberWall.style.display = '';
+      myAppsWrap.classList.remove('visible');
+      if (unsubMyAppts) { unsubMyAppts(); unsubMyAppts = null; }
+      loadBarberProfile(user.uid);
+    } else {
+      // Admin o cliente: ver formulario
+      wall.style.display       = 'none';
+      form.style.display       = '';
+      barberWall.style.display = 'none';
+      document.getElementById('f-email').value = user.email;
+      if (user.displayName && !document.getElementById('f-name').value)
+        document.getElementById('f-name').value = user.displayName;
+      if (!isAdmin()) {
+        // Solo clientes ven "Mis citas" (admins usan el panel)
+        myAppsWrap.classList.add('visible');
+        loadMyAppts(user.uid);
+      } else {
+        myAppsWrap.classList.remove('visible');
+        if (unsubMyAppts) { unsubMyAppts(); unsubMyAppts = null; }
+      }
+    }
+  } else {
+    wall.style.display       = '';
+    form.style.display       = 'none';
+    barberWall.style.display = 'none';
+    myAppsWrap.classList.remove('visible');
+    if (unsubMyAppts) { unsubMyAppts(); unsubMyAppts = null; }
+  }
+}
+
+/* ══════════════════════════════════════════════════════════════
+   MIS CITAS (usuario regular)
+══════════════════════════════════════════════════════════════ */
+function loadMyAppts(uid) {
+  if (unsubMyAppts) unsubMyAppts();
+  unsubMyAppts = db.collection('appointments')
+    .where('uid', '==', uid)
+    .orderBy('date', 'asc')
+    .onSnapshot(function(snap) {
+      renderMyAppts(snap.docs.map(function(d) {
+        var data = d.data(); data._docId = d.id; return data;
+      }));
+    }, function() {
+      // Si falla (sin permiso Firestore), consulta sin onSnapshot
+      db.collection('appointments').where('uid','==',uid).get()
+        .then(function(snap) {
+          renderMyAppts(snap.docs.map(function(d) {
+            var data = d.data(); data._docId = d.id; return data;
+          }));
+        }).catch(function() {
+          document.getElementById('my-appts-list').innerHTML =
+            '<p class="my-appts-empty">No se pudo cargar. Verificá las reglas de Firestore.</p>';
+        });
+    });
+}
+
+function renderMyAppts(appts) {
+  var el = document.getElementById('my-appts-list');
+  if (!appts.length) {
+    el.innerHTML = '<p class="my-appts-empty">Todavía no tenés citas agendadas.</p>';
+    return;
+  }
+  // Ordenar por fecha asc
+  appts.sort(function(a,b) { return (a.date + a.time) > (b.date + b.time) ? 1 : -1; });
+  el.innerHTML = appts.map(function(a) {
+    var badgeColor = a.status === 'confirmed' ? 'var(--green)' : a.status === 'cancelled' ? 'var(--red)' : 'var(--amber)';
+    var badgeBg    = a.status === 'confirmed' ? 'rgba(52,211,153,.12)' : a.status === 'cancelled' ? 'rgba(248,113,113,.1)' : 'rgba(245,158,11,.12)';
+    return '<div class="my-appt-item ' + a.status + '">'
+      + '<div class="my-appt-info">'
+      + '<div class="my-appt-svc">' + esc(a.service) + '</div>'
+      + '<div class="my-appt-when">'
+      + formatDate(a.date) + ' · ' + a.time
+      + (a.barber && a.barber !== 'Sin preferencia' ? ' · ' + esc(a.barber) : '')
+      + '</div>'
+      + '</div>'
+      + '<span class="sbadge" style="background:' + badgeBg + ';color:' + badgeColor + '">' + statusLabel(a.status) + '</span>'
+      + '</div>';
+  }).join('');
+}
+
+/* nav user popup */
+function toggleUserMenu() {
+  document.getElementById('nav-user-popup').classList.toggle('open');
+}
+document.addEventListener('click', function(e) {
+  if (!e.target.closest('#nav-user')) {
+    document.getElementById('nav-user-popup').classList.remove('open');
+  }
+});
+
+/* ══════════════════════════════════════════════════════════════
+   AUTH MODAL
+══════════════════════════════════════════════════════════════ */
+function openAuthModal(tab) {
+  switchAuthTab(tab || 'login');
+  document.getElementById('auth-overlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeAuthModal() {
+  document.getElementById('auth-overlay').classList.remove('open');
+  document.body.style.overflow = '';
+  document.getElementById('li-err').textContent  = '';
+  document.getElementById('reg-err').textContent = '';
+}
+function switchAuthTab(tab) {
+  ['login','register'].forEach(function(t) {
+    document.getElementById('tab-'  +t).classList.toggle('active', t===tab);
+    document.getElementById('panel-'+t).classList.toggle('active', t===tab);
+  });
+}
+
+/* Login */
+function doLogin() {
+  var email = document.getElementById('li-email').value.trim();
+  var pass  = document.getElementById('li-pass').value;
+  document.getElementById('li-err').textContent = '';
+  if (!email || !pass) { document.getElementById('li-err').textContent = 'Completá todos los campos.'; return; }
+
+  auth.signInWithEmailAndPassword(email, pass)
+    .then(function(cred) {
+      var user = cred.user;
+      return fetchUserRole(user.uid).then(function(role) {
+        currentUserRole = role;
+        closeAuthModal();
+        updateNavForAuth(user);
+        var displayName = user.displayName || user.email.split('@')[0];
+        if (role === 'admin') {
+          showToast('Bienvenido, ' + displayName + '. Abriendo panel admin...', 'ok');
+          setTimeout(openAdminPanel, 700);
+        } else if (role === 'barber') {
+          showToast('Bienvenido, ' + displayName + '. Podés gestionar citas desde el panel.', 'ok');
+        } else {
+          showToast('Sesión iniciada. Ya podés reservar tu cita.', 'ok');
+        }
+      });
+    })
+    .catch(function(err) {
+      var msg = err.code === 'auth/wrong-password' || err.code === 'auth/user-not-found' || err.code === 'auth/invalid-credential'
+        ? 'Correo o contraseña incorrectos.'
+        : err.code === 'auth/too-many-requests'
+        ? 'Demasiados intentos. Intentá más tarde.'
+        : err.message;
+      document.getElementById('li-err').textContent = msg;
+    });
+}
+
+/* Registro */
+function doRegister() {
+  var name  = document.getElementById('reg-name').value.trim();
+  var email = document.getElementById('reg-email').value.trim();
+  var pass  = document.getElementById('reg-pass').value;
+  document.getElementById('reg-err').textContent = '';
+
+  if (!name || !email || !pass) { document.getElementById('reg-err').textContent = 'Completá todos los campos.'; return; }
+  if (pass.length < 6)          { document.getElementById('reg-err').textContent = 'La contraseña debe tener al menos 6 caracteres.'; return; }
+
+  var createdUser = null;
+
+  auth.createUserWithEmailAndPassword(email, pass)
+    .then(function(cred) {
+      createdUser = cred.user;
+      return cred.user.updateProfile({ displayName: name });
+    })
+    .then(function() {
+      // Verificar si es el primer usuario → será admin
+      return checkFirstUser();
+    })
+    .then(function(isFirst) {
+      var role = isFirst ? 'admin' : 'client';
+      // Guardar en users/{uid}
+      return db.collection('users').doc(createdUser.uid).set({
+        name:      name,
+        email:     email,
+        role:      role,
+        createdAt: new Date().toISOString()
+      }).then(function() {
+        if (isFirst) {
+          // Marcar sistema como inicializado
+          return db.collection('config').doc('barberia').set({
+            initialized: true,
+            updatedAt: new Date().toISOString()
+          }, { merge: true });
+        }
+      }).then(function() { return role; });
+    })
+    .then(function(role) {
+      currentUserRole = role;
+      closeAuthModal();
+      updateNavForAuth(createdUser);
+      if (role === 'admin') {
+        showToast('¡Bienvenido, ' + name + '! Sos el administrador del sistema.', 'ok', 5000);
+        setTimeout(openAdminPanel, 900);
+      } else {
+        showToast('¡Cuenta creada, ' + name + '! Ya podés reservar tu cita.', 'ok');
+      }
+    })
+    .catch(function(err) {
+      var msg = err.code === 'auth/email-already-in-use'
+        ? 'Este correo ya tiene una cuenta. Iniciá sesión.'
+        : err.code === 'auth/invalid-email'
+        ? 'Correo no válido.'
+        : err.message;
+      document.getElementById('reg-err').textContent = msg;
+    });
+}
+
+/* Logout */
+function doLogout() {
+  closeAdminPanel();
+  auth.signOut();
+}
+
+/* Forgot password */
+function doForgot() {
+  var email = document.getElementById('li-email').value.trim();
+  if (!email) { document.getElementById('li-err').textContent = 'Ingresá tu correo primero.'; return; }
+  auth.sendPasswordResetEmail(email)
+    .then(function() { document.getElementById('li-err').textContent = 'Revisá tu correo para restablecer la contraseña.'; document.getElementById('li-err').style.color='var(--green)'; })
+    .catch(function(err) { document.getElementById('li-err').textContent = err.message; });
+}
+
+/* ══════════════════════════════════════════════════════════════
+   PROGRESS / REVEAL
+══════════════════════════════════════════════════════════════ */
+window.addEventListener('scroll', function() {
+  var max = document.documentElement.scrollHeight - window.innerHeight;
+  document.getElementById('prog').style.width = (max > 0 ? window.scrollY / max * 100 : 0) + '%';
+}, { passive: true });
+
+new IntersectionObserver(function(entries) {
+  entries.forEach(function(e) { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+}, { threshold: 0.08 })
+.observe && document.querySelectorAll('.reveal').forEach(function(el) {
+  new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+  }, { threshold: 0.08 }).observe(el);
+});
+
+// Cargar equipo de barberos y opciones del formulario desde Firestore
+loadTeam();
+loadBarberOptions();
+
+/* ══════════════════════════════════════════════════════════════
+   LIGHTBOX
+══════════════════════════════════════════════════════════════ */
+var galleryImgs = [];
+document.querySelectorAll('.g-item').forEach(function(item) {
+  var img = item.querySelector('img');
+  galleryImgs.push({ src: img ? img.src : '', alt: img ? img.alt : '' });
+});
+var lbCurrent = 0;
+
+function openLb(idx) {
+  lbCurrent = idx;
+  document.getElementById('lb-img').src = galleryImgs[idx].src;
+  document.getElementById('lb-img').alt = galleryImgs[idx].alt;
+  document.getElementById('lightbox').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeLb() { document.getElementById('lightbox').classList.remove('open'); document.body.style.overflow = ''; }
+function moveLb(dir) {
+  lbCurrent = (lbCurrent + dir + galleryImgs.length) % galleryImgs.length;
+  document.getElementById('lb-img').src = galleryImgs[lbCurrent].src;
+  document.getElementById('lb-img').alt = galleryImgs[lbCurrent].alt;
+}
+document.getElementById('lightbox').addEventListener('click', function(e) { if (e.target === this) closeLb(); });
+document.addEventListener('keydown', function(e) {
+  // Lightbox navigation
+  if (document.getElementById('lightbox').classList.contains('open')) {
+    if (e.key === 'Escape')      closeLb();
+    if (e.key === 'ArrowLeft')   moveLb(-1);
+    if (e.key === 'ArrowRight')  moveLb(1);
+    return;
+  }
+  // Admin panel: Escape para cerrar
+  if (e.key === 'Escape' && document.getElementById('admin-panel').classList.contains('open')) {
+    closeAdminPanel(); return;
+  }
+  // Ctrl+Shift+A → abrir panel admin (atajo para propietario)
+  if ((e.ctrlKey || e.metaKey) && e.shiftKey && e.key === 'A') {
+    e.preventDefault();
+    if (currentUser) openAdminPanel();
+    else openAuthModal('login');
+  }
+});
+
+/* ══════════════════════════════════════════════════════════════
+   BOOKING
+══════════════════════════════════════════════════════════════ */
+// Init form — hidden until auth
+document.getElementById('booking-form').style.display = 'none';
+
+// Date picker: min = hoy, bloquear domingos
+(function() {
+  var inp   = document.getElementById('f-date');
+  var today = new Date();
+  if (today.getDay() === 0) today.setDate(today.getDate() + 1);
+  inp.min = today.toISOString().split('T')[0];
+  inp.addEventListener('change', function() {
+    var d = new Date(this.value + 'T12:00:00');
+    if (d.getDay() === 0) {
+      this.value = '';
+      document.getElementById('slots-hint').textContent = 'Los domingos estamos cerrados. Elegí otro día.';
+      document.getElementById('slots-hint').style.color = 'var(--red)';
+      document.getElementById('slots-grid').innerHTML = '';
+      document.getElementById('f-time').value = '';
+    }
+  });
+})();
+
+function bookService(name) {
+  if (!currentUser) { openAuthModal('login'); return; }
+  var sel = document.getElementById('f-service');
+  for (var i = 0; i < sel.options.length; i++) {
+    if (sel.options[i].text.indexOf(name) === 0) { sel.selectedIndex = i; break; }
+  }
+  document.getElementById('agendar').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  setTimeout(function() { document.getElementById('f-name').focus(); }, 600);
+}
+
+var ALL_SLOTS = ['8:00','9:00','10:00','11:00','12:00','13:00','14:00','15:00','16:00','17:00','18:00'];
+
+function loadSlots() {
+  var date   = document.getElementById('f-date').value;
+  var barber = document.getElementById('f-barber').value;
+  if (!date) return;
+  if (new Date(date + 'T12:00:00').getDay() === 0) return;
+  document.getElementById('f-time').value = '';
+
+  db.collection('appointments').where('date', '==', date).get()
+    .then(function(snap) {
+      var confirmed = snap.docs
+        .filter(function(d) { return d.data().status === 'confirmed'; })
+        .map(function(d)    { return d.data(); });
+
+      var booked;
+      if (barber && barber !== 'Sin preferencia') {
+        // Bloquear solo los horarios confirmados de ese barbero
+        booked = confirmed
+          .filter(function(a) { return a.barber === barber; })
+          .map(function(a)    { return a.time; });
+      } else {
+        // Sin preferencia: no bloquear (el admin asigna al confirmar)
+        booked = [];
+      }
+      renderSlots(date, booked);
+    })
+    .catch(function() { renderSlots(date, []); });
+}
+
+function renderSlots(date, booked) {
+  var html = '';
+  ALL_SLOTS.forEach(function(t) {
+    var isBk = booked.indexOf(t) !== -1;
+    html += '<div class="slot'+(isBk?' booked':'')+'"'+(isBk?'':' onclick="selectSlot(this,\''+t+'\')"')+'>'+t+'</div>';
+  });
+  document.getElementById('slots-grid').innerHTML = html;
+  var avail = ALL_SLOTS.length - booked.length;
+  document.getElementById('slots-hint').textContent = avail + ' horarios disponibles para ' + formatDate(date) + '.';
+  document.getElementById('slots-hint').style.color = 'var(--dim)';
+}
+
+function selectSlot(el, time) {
+  document.querySelectorAll('.slot').forEach(function(s) { s.classList.remove('selected'); });
+  el.classList.add('selected');
+  document.getElementById('f-time').value = time;
+}
+
+function submitBooking(e) {
+  e.preventDefault();
+  if (!currentUser) { openAuthModal('login'); return; }
+
+  var name    = document.getElementById('f-name').value.trim();
+  var phone   = document.getElementById('f-phone').value.trim();
+  var email   = currentUser.email;
+  var service = document.getElementById('f-service').value;
+  var barber  = document.getElementById('f-barber').value;
+  var date    = document.getElementById('f-date').value;
+  var time    = document.getElementById('f-time').value;
+  var notes   = document.getElementById('f-notes').value.trim();
+
+  if (!name || !phone || !service || !date || !time) {
+    alert('Por favor completá todos los campos obligatorios y seleccioná un horario.');
+    return;
+  }
+
+  var btn = document.getElementById('submit-btn');
+  btn.disabled = true;
+  btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18" style="animation:spin .8s linear infinite"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg> Guardando...';
+
+  // No incluimos 'id' en el documento — Firestore genera el ID automáticamente
+  var appt = {
+    uid:    currentUser.uid,
+    name:   name,
+    phone:  phone,
+    email:  email,
+    service: service,
+    barber:  barber,
+    date:    date,
+    time:    time,
+    notes:   notes,
+    status:  'pending',
+    createdAt: new Date().toISOString()
+  };
+
+  db.collection('appointments').add(appt)
+    .then(function() {
+      showSuccess(name, date, time);
+      resetForm();
+    })
+    .catch(function(err) {
+      alert('Error al guardar la cita: ' + err.message);
+    })
+    .finally(function() {
+      btn.disabled = false;
+      btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg> Confirmar reserva';
+    });
+}
+
+function showSuccess(name, date, time) {
+  var msg = name + ', tu cita para el ' + formatDate(date) + ' a las ' + time + ' fue registrada. Te confirmamos en breve.';
+  document.getElementById('success-msg').textContent = msg;
+  document.getElementById('success-modal').classList.add('open');
+  showToast('Cita registrada para el ' + formatDate(date) + ' a las ' + time, 'ok', 5000);
+}
+function closeSuccessModal() { document.getElementById('success-modal').classList.remove('open'); }
+
+function resetForm() {
+  document.getElementById('booking-form').reset();
+  document.getElementById('f-email').value = currentUser ? currentUser.email : '';
+  document.getElementById('slots-grid').innerHTML = '<div style="grid-column:1/-1;font-size:.82rem;color:var(--dim);padding:.5rem 0">Seleccioná una fecha para ver los horarios disponibles.</div>';
+  document.getElementById('slots-hint').textContent = '';
+  document.getElementById('f-time').value = '';
+}
+
+/* ══════════════════════════════════════════════════════════════
+   ADMIN PANEL
+══════════════════════════════════════════════════════════════ */
+function openAdminPanel() {
+  if (!currentUser) { openAuthModal('login'); return; }
+  if (!isAdmin() && !isBarber()) {
+    showToast('Tu cuenta no tiene permisos para el panel.', 'err', 5000);
+    return;
+  }
+
+  document.getElementById('admin-panel').classList.add('open');
+  document.body.style.overflow = 'hidden';
+  window.location.hash = 'admin';
+  document.getElementById('adm-user-label').textContent = currentUser.displayName || currentUser.email;
+
+  // Tabs visibles según rol:
+  // Admin: Citas + Por Barbero + Usuarios (sin Por Día)
+  // Barber: Citas (solo las suyas) + Por Día (sin Usuarios, sin Por Barbero)
+  document.getElementById('sec-tab-byday').style.display = isBarber() ? '' : 'none';
+  document.getElementById('sec-tab-stats').style.display = isAdmin() ? '' : 'none';
+  document.getElementById('sec-tab-users').style.display = isAdmin() ? '' : 'none';
+
+  // Cambiar el label del tab de citas
+  document.getElementById('sec-tab-appts').innerHTML = isBarber() ? '📅 Mis Citas' : '📅 Citas';
+
+  switchAdmSection('appts');
+}
+function closeAdminPanel() {
+  document.getElementById('admin-panel').classList.remove('open');
+  document.body.style.overflow = '';
+  history.replaceState(null, '', window.location.pathname);
+  if (unsubscribeDb) { unsubscribeDb(); unsubscribeDb = null; }
+}
+
+function loadAppts() {
+  if (unsubscribeDb) unsubscribeDb();
+  unsubscribeDb = db.collection('appointments')
+    .orderBy('createdAt', 'desc')
+    .onSnapshot(function(snap) {
+      // Usamos d.id (ID real de Firestore) y lo forzamos al final para que no sea pisado
+      allAppts = snap.docs.map(function(d) {
+        var data = d.data();
+        data._docId = d.id; // guardamos el Firestore doc ID por separado
+        return data;
+      });
+      renderAdminGrid();
+    }, function(err) {
+      console.error('Firestore error:', err);
+    });
+}
+
+function filterAppts(btn) {
+  document.querySelectorAll('.adm-tab').forEach(function(t) { t.classList.remove('active'); });
+  btn.classList.add('active');
+  currentFilter = btn.dataset.filter;
+  renderAdminGrid();
+}
+
+function renderAdminGrid() {
+  var today = new Date().toISOString().split('T')[0];
+
+  // Barberos solo ven sus propias citas; admins ven todas
+  var source = (isBarber() && currentBarberName)
+    ? allAppts.filter(function(a) { return a.barber === currentBarberName; })
+    : allAppts;
+
+  var pending   = source.filter(function(a) { return a.status === 'pending'; }).length;
+  var confirmed = source.filter(function(a) { return a.status === 'confirmed'; }).length;
+  var todayCnt  = source.filter(function(a) { return a.date === today && a.status !== 'cancelled'; }).length;
+
+  document.getElementById('stat-total').textContent = source.length;
+  document.getElementById('stat-pend').textContent  = pending;
+  document.getElementById('stat-conf').textContent  = confirmed;
+  document.getElementById('stat-today').textContent = todayCnt;
+
+  var filtered = currentFilter === 'all'
+    ? source
+    : currentFilter === 'attended'
+    ? source.filter(function(a) { return a.status === 'confirmed' && a.date < today; })
+    : currentFilter === 'confirmed'
+    ? source.filter(function(a) { return a.status === 'confirmed' && a.date >= today; })
+    : source.filter(function(a) { return a.status === currentFilter; });
+
+  var grid = document.getElementById('adm-grid');
+  if (filtered.length === 0) {
+    grid.innerHTML = '<div class="adm-empty"><div class="adm-empty-ic">&#128197;</div><p>No hay citas en esta categoría.</p></div>';
+    return;
+  }
+
+  grid.innerHTML = filtered.map(function(a) {
+    var docId      = a._docId;
+    var attended   = (a.status === 'confirmed' && a.date < today);
+    var displaySt  = attended ? 'attended' : a.status;
+    var isPending   = a.status === 'pending';
+    var isConfirmed = a.status === 'confirmed' && !attended;
+    var isCancelled = a.status === 'cancelled';
+    // Botones según estado
+    var actions = '';
+    if (attended) {
+      actions = '<button class="abtn" disabled style="opacity:.45;border:1px solid var(--border)">&#10003; Atendida</button>';
+    } else if (isPending) {
+      actions =
+        '<button class="abtn abtn-ok" onclick="changeStatus(\''+docId+'\',\'confirmed\')">&#10003; Confirmar</button>'
+       +'<button class="abtn abtn-no" onclick="changeStatus(\''+docId+'\',\'cancelled\')">&#10005; Cancelar</button>';
+    } else if (isConfirmed) {
+      actions =
+        '<button class="abtn abtn-no" onclick="changeStatus(\''+docId+'\',\'cancelled\')">&#10005; Cancelar</button>'
+       +'<button class="abtn" style="background:rgba(196,154,58,.08);border:1px solid rgba(196,154,58,.2);color:var(--gold)" onclick="changeStatus(\''+docId+'\',\'pending\')">↩ Revertir</button>';
+    } else if (isCancelled) {
+      actions =
+        '<button class="abtn abtn-ok" onclick="changeStatus(\''+docId+'\',\'pending\')">↩ Restaurar</button>'
+       +'<button class="abtn" disabled style="opacity:.3;border:1px solid var(--border)">&#10005; Cancelada</button>';
+    }
+    // Horario formateado
+    var fechaHora = formatDate(a.date) + ' · ' + a.time;
+    return '<div class="appt '+displaySt+'">'
+      +'<div class="appt-top">'
+      +  '<div><div class="appt-name">'+esc(a.name)+'</div><div class="appt-service">'+esc(a.service)+'</div></div>'
+      +  '<span class="sbadge '+displaySt+'">'+statusLabel(displaySt)+'</span>'
+      +'</div>'
+      +'<div class="appt-meta">'
+      +  '<div class="appt-m"><span class="appt-ml">Fecha & Hora</span><span class="appt-mv">'+fechaHora+'</span></div>'
+      +  '<div class="appt-m"><span class="appt-ml">Barbero</span><span class="appt-mv">'+esc(a.barber||'Sin pref.')+'</span></div>'
+      +  '<div class="appt-m"><span class="appt-ml">Teléfono</span><span class="appt-mv"><a href="tel:'+esc(a.phone)+'" style="color:var(--gold)">'+esc(a.phone)+'</a></span></div>'
+      +  '<div class="appt-m"><span class="appt-ml">Correo</span><span class="appt-mv" style="font-size:.78rem">'+esc(a.email)+'</span></div>'
+      +  (a.notes ? '<div class="appt-m" style="grid-column:1/-1"><span class="appt-ml">Notas</span><span class="appt-mv" style="color:var(--muted)">'+esc(a.notes)+'</span></div>' : '')
+      +'</div>'
+      +'<div class="appt-actions">'+actions+'</div>'
+      +'</div>';
+  }).join('');
+}
+
+/* ══════════════════════════════════════════════════════════════
+   VISTA POR DÍA (Barberos)
+══════════════════════════════════════════════════════════════ */
+function loadByDay() {
+  var container = document.getElementById('byday-container');
+  container.innerHTML = '<div class="adm-empty"><div class="adm-empty-ic" style="font-size:2rem;opacity:.25">⏳</div><p>Cargando citas...</p></div>';
+
+  // Barberos ven solo las suyas; admins no deberían llegar aquí pero por seguridad cargamos todas
+  var query = (isBarber() && currentBarberName)
+    ? db.collection('appointments').where('barber', '==', currentBarberName)
+    : db.collection('appointments');
+
+  query.get()
+    .then(function(snap) {
+      var appts = snap.docs.map(function(d) { var data = d.data(); data._docId = d.id; return data; });
+      // Ordenar por fecha asc, luego por hora asc
+      appts.sort(function(a, b) {
+        var ka = (a.date || '') + (a.time || '');
+        var kb = (b.date || '') + (b.time || '');
+        return ka < kb ? -1 : ka > kb ? 1 : 0;
+      });
+      renderByDay(appts);
+    })
+    .catch(function(err) {
+      container.innerHTML = '<div class="adm-empty"><p style="color:var(--red);font-size:.875rem">Error: ' + esc(err.message) + '</p></div>';
+    });
+}
+
+function renderByDay(appts) {
+  var container = document.getElementById('byday-container');
+  var today = new Date().toISOString().split('T')[0];
+
+  if (!appts.length) {
+    container.innerHTML = '<div class="adm-empty"><div class="adm-empty-ic">📅</div><p>No tenés citas agendadas.</p></div>';
+    return;
+  }
+
+  // Agrupar por fecha
+  var byDate = {};
+  appts.forEach(function(a) {
+    var d = a.date || 'Sin fecha';
+    if (!byDate[d]) byDate[d] = [];
+    byDate[d].push(a);
+  });
+
+  var dates = Object.keys(byDate).sort();
+  var html = '';
+
+  dates.forEach(function(date) {
+    var dayAppts = byDate[date];
+    var isToday  = date === today;
+    var isPast   = date < today;
+    var dayClass = isToday ? 'byday-header today' : isPast ? 'byday-header past' : 'byday-header future';
+    var label    = isToday ? '🔔 Hoy — ' + formatDate(date) : formatDate(date);
+
+    html += '<div class="' + dayClass + '">'
+      + '<span class="byday-date">' + esc(label) + '</span>'
+      + '<span class="byday-count">' + dayAppts.length + ' cita' + (dayAppts.length !== 1 ? 's' : '') + '</span>'
+      + '</div>';
+
+    html += '<div class="byday-appts">';
+    dayAppts.forEach(function(a) {
+      var attended  = a.status === 'confirmed' && a.date < today;
+      var displaySt = attended ? 'attended' : a.status;
+      html += '<div class="byday-card ' + displaySt + '">'
+        + '<div class="byday-time">' + esc(a.time || '–') + '</div>'
+        + '<div class="byday-info">'
+        +   '<div class="byday-name">'    + esc(a.name    || '–') + '</div>'
+        +   '<div class="byday-service">' + esc(a.service || '–') + (a.notes ? ' · <em style="color:var(--dim)">' + esc(a.notes) + '</em>' : '') + '</div>'
+        + '</div>'
+        + '<div class="byday-right">'
+        +   '<span class="sbadge ' + displaySt + '">' + statusLabel(displaySt) + '</span>'
+        +   (a.phone ? '<a class="byday-phone" href="tel:' + esc(a.phone) + '">' + esc(a.phone) + '</a>' : '')
+        + '</div>'
+        + '</div>';
+    });
+    html += '</div>';
+  });
+
+  container.innerHTML = html;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   ESTADÍSTICAS POR BARBERO (Admin)
+══════════════════════════════════════════════════════════════ */
+function loadBarberStats() {
+  var container = document.getElementById('stats-container');
+  container.innerHTML = '<div class="adm-empty"><div class="adm-empty-ic" style="font-size:2rem;opacity:.25">⏳</div><p>Calculando estadísticas...</p></div>';
+
+  db.collection('appointments').get()
+    .then(function(snap) {
+      var today  = new Date().toISOString().split('T')[0];
+      var appts  = snap.docs.map(function(d) { return d.data(); });
+
+      // Agrupar por barbero
+      var byBarber = {};
+      appts.forEach(function(a) {
+        var name = (a.barber && a.barber !== 'Sin preferencia') ? a.barber : '★ Sin preferencia';
+        if (!byBarber[name]) byBarber[name] = { pending:0, confirmed:0, attended:0, cancelled:0, total:0 };
+        byBarber[name].total++;
+        var isAttended = a.status === 'confirmed' && a.date < today;
+        if      (isAttended)              byBarber[name].attended++;
+        else if (a.status === 'pending')  byBarber[name].pending++;
+        else if (a.status === 'confirmed')byBarber[name].confirmed++;
+        else if (a.status === 'cancelled')byBarber[name].cancelled++;
+      });
+
+      renderBarberStats(byBarber);
+    })
+    .catch(function(err) {
+      container.innerHTML = '<div class="adm-empty"><p style="color:var(--red);font-size:.875rem">Error: ' + esc(err.message) + '</p></div>';
+    });
+}
+
+function renderBarberStats(byBarber) {
+  var container = document.getElementById('stats-container');
+  var names = Object.keys(byBarber);
+
+  if (!names.length) {
+    container.innerHTML = '<div class="adm-empty"><div class="adm-empty-ic">✂</div><p>Aún no hay citas registradas.</p></div>';
+    return;
+  }
+
+  // Ordenar: primero los reales (no "Sin preferencia"), luego por total desc
+  names.sort(function(a, b) {
+    if (a.startsWith('★') && !b.startsWith('★')) return 1;
+    if (!a.startsWith('★') && b.startsWith('★')) return -1;
+    return byBarber[b].total - byBarber[a].total;
+  });
+
+  var html = '<div class="barber-stats-grid">';
+  names.forEach(function(name) {
+    var s = byBarber[name];
+    var displayName = name.replace(/^★ /, '');
+    html += '<div class="barber-stats-card">'
+      /* ── encabezado: nombre + total ── */
+      + '<div class="bs-header">'
+      +   '<div class="bs-name">✂ ' + esc(displayName) + '</div>'
+      +   '<div class="bs-total-pill">'
+      +     '<span class="bs-num">' + s.total + '</span>'
+      +     '<span class="bs-lbl">Total</span>'
+      +   '</div>'
+      + '</div>'
+      /* ── grid 2×2 de estados ── */
+      + '<div class="bs-totals">'
+      +   '<div class="bs-stat pending">'
+      +     '<span class="bs-num">' + s.pending   + '</span>'
+      +     '<span class="bs-lbl">Pendientes</span>'
+      +   '</div>'
+      +   '<div class="bs-stat confirmed">'
+      +     '<span class="bs-num">' + s.confirmed + '</span>'
+      +     '<span class="bs-lbl">Confirmadas</span>'
+      +   '</div>'
+      +   '<div class="bs-stat attended">'
+      +     '<span class="bs-num">' + s.attended  + '</span>'
+      +     '<span class="bs-lbl">Atendidas</span>'
+      +   '</div>'
+      +   '<div class="bs-stat cancelled">'
+      +     '<span class="bs-num">' + s.cancelled + '</span>'
+      +     '<span class="bs-lbl">Canceladas</span>'
+      +   '</div>'
+      + '</div>'
+      + '</div>';
+  });
+  html += '</div>';
+  container.innerHTML = html;
+}
+
+function changeStatus(docId, newStatus) {
+  db.collection('appointments').doc(docId)
+    .update({ status: newStatus, updatedAt: new Date().toISOString() })
+    .then(function() {
+      var msgs = { confirmed:'Cita confirmada ✓', cancelled:'Cita cancelada', pending:'Cita revertida a pendiente' };
+      var types = { confirmed:'ok', cancelled:'err', pending:'info' };
+      showToast(msgs[newStatus] || 'Estado actualizado', types[newStatus] || 'info');
+    })
+    .catch(function(err) {
+      if (err.code === 'permission-denied') {
+        showToast('Sin permiso. Configurá las reglas de Firestore para permitir escritura al admin.', 'err', 6000);
+      } else {
+        showToast('Error: ' + err.message, 'err');
+      }
+    });
+  // onSnapshot re-renderiza automáticamente si las reglas lo permiten
+}
+
+/* ══════════════════════════════════════════════════════════════
+   HANDLE ADMIN ENTRY (botón footer)
+══════════════════════════════════════════════════════════════ */
+function handleAdminEntry() {
+  if (!currentUser) {
+    openAuthModal('login');
+    showToast('Iniciá sesión con tu cuenta de administrador.', 'info');
+  } else if (isAdmin() || isBarber()) {
+    openAdminPanel();
+  } else {
+    showToast('Tu cuenta no tiene permisos de administrador.', 'err', 5000);
+  }
+}
+
+/* ══════════════════════════════════════════════════════════════
+   SECCIONES ADMIN (Citas / Usuarios)
+══════════════════════════════════════════════════════════════ */
+function switchAdmSection(section) {
+  if (section === 'users' && !isAdmin()) { showToast('Solo administradores pueden gestionar usuarios.', 'err'); return; }
+  if (section === 'stats' && !isAdmin()) { showToast('Solo administradores pueden ver estadísticas por barbero.', 'err'); return; }
+  if (section === 'byday' && !isBarber()) { showToast('Esta vista es solo para barberos.', 'err'); return; }
+
+  ['appts','byday','stats','users'].forEach(function(s) {
+    var tab = document.getElementById('sec-tab-'+s);
+    var sec = document.getElementById('adm-section-'+s);
+    if (tab) tab.classList.toggle('active', s === section);
+    if (sec) sec.style.display = (s === section) ? '' : 'none';
+  });
+
+  if (section === 'appts')      loadAppts();
+  else if (section === 'byday') loadByDay();
+  else if (section === 'stats') loadBarberStats();
+  else if (section === 'users') loadUsers();
+}
+
+/* ══════════════════════════════════════════════════════════════
+   GESTIÓN DE USUARIOS
+══════════════════════════════════════════════════════════════ */
+function loadUsers() {
+  var grid = document.getElementById('adm-users-grid');
+  grid.innerHTML = '<div class="adm-empty"><div class="adm-empty-ic" style="font-size:2rem;opacity:.25">⏳</div><p>Cargando usuarios...</p></div>';
+
+  // Cargar usuarios y perfiles de barberos en paralelo para tener fotos disponibles
+  Promise.all([
+    db.collection('users').orderBy('createdAt', 'asc').get(),
+    db.collection('barbers').get()
+  ])
+  .then(function(results) {
+    var usersSnap   = results[0];
+    var barbersSnap = results[1];
+
+    // Mapa uid → datos del barbero (para foto/especialidad)
+    var barberMap = {};
+    barbersSnap.docs.forEach(function(d) { barberMap[d.id] = d.data(); });
+
+    var users = usersSnap.docs.map(function(d) {
+      var data = d.data();
+      data._uid = d.id;
+      if (barberMap[d.id]) {
+        data.photoUrl  = barberMap[d.id].photoUrl  || '';
+        data.specialty = barberMap[d.id].specialty || '';
+      }
+      return data;
+    });
+    renderUsersGrid(users);
+  })
+  .catch(function(err) {
+    var msg = err.code === 'permission-denied'
+      ? 'Sin permiso para listar usuarios. Verificá las reglas de Firestore.'
+      : 'Error: ' + err.message;
+    grid.innerHTML = '<div class="adm-empty"><p style="color:var(--red);font-size:.875rem">' + esc(msg) + '</p></div>';
+  });
+}
+
+function renderUsersGrid(users) {
+  var grid = document.getElementById('adm-users-grid');
+  if (!users.length) {
+    grid.innerHTML = '<div class="adm-empty"><div class="adm-empty-ic">👥</div><p>No hay usuarios registrados.</p></div>';
+    return;
+  }
+  var groups = { admin: [], barber: [], client: [] };
+  users.forEach(function(u) {
+    var r = u.role || 'client';
+    (groups[r] || groups.client).push(u);
+  });
+  var groupDefs = [
+    { key:'admin',  label:'★ Administradores' },
+    { key:'barber', label:'✂ Barberos'         },
+    { key:'client', label:'○ Clientes'          }
+  ];
+  var html = '';
+  groupDefs.forEach(function(g) {
+    if (!groups[g.key].length) return;
+    html += '<div class="users-group-hd">' + g.label + ' (' + groups[g.key].length + ')</div>';
+    html += groups[g.key].map(renderUserCard).join('');
+  });
+  grid.innerHTML = html;
+}
+
+function renderUserCard(u) {
+  var uid       = u._uid;
+  var role      = u.role || 'client';
+  var initial   = (u.name || u.email || '?').charAt(0).toUpperCase();
+  var isSelf    = currentUser && uid === currentUser.uid;
+  var isBarberU = role === 'barber';
+  var badges    = { admin:'★ Admin', barber:'✂ Barbero', client:'○ Cliente' };
+  var photoUrl  = u.photoUrl || '';
+
+  var topRow = '<div class="user-card-toprow">'
+    + '<div class="user-avatar-lg ' + role + '">' + esc(initial) + '</div>'
+    + '<div class="user-info">'
+    +   '<div class="user-name">'  + esc(u.name  || '—')  + '</div>'
+    +   '<div class="user-email">' + esc(u.email || uid)   + '</div>'
+    +   '<div class="user-role-badge ' + role + '">' + (badges[role] || '○ Cliente') + '</div>'
+    + '</div>'
+    + (isSelf
+      ? '<span style="font-size:.72rem;color:var(--dim);padding:.35rem .6rem;margin-left:auto">Tú</span>'
+      : '<select class="user-role-select" style="margin-left:auto" onchange="changeUserRole(\'' + uid + '\',this.value)">'
+        + '<option value="admin"'  + (role==='admin'  ?' selected':'') + '>Admin</option>'
+        + '<option value="barber"' + (role==='barber' ?' selected':'') + '>Barbero</option>'
+        + '<option value="client"' + (role==='client' ?' selected':'') + '>Cliente</option>'
+        + '</select>'
+    )
+    + '</div>';
+
+  // Fila de foto — solo visible para barberos
+  var photoRow = isBarberU
+    ? '<div class="barber-photo-row">'
+      + '<div class="barber-photo-thumb">'
+      +   (photoUrl
+          ? '<img src="' + esc(photoUrl) + '" alt="" style="width:100%;height:100%;object-fit:cover;border-radius:50%" onerror="this.parentElement.textContent=\'📷\'">'
+          : '📷')
+      + '</div>'
+      + '<input type="url" id="bpinp-' + uid + '" class="barber-photo-inp" value="' + esc(photoUrl) + '" placeholder="URL o subí archivo...">'
+      + '<label class="barber-file-btn" title="Subir foto desde el dispositivo">'
+      +   '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>'
+      +   '<input type="file" accept="image/*" style="display:none" onchange="handleBarberPhotoFile(\'' + uid + '\',this.files[0])">'
+      + '</label>'
+      + '<button class="barber-photo-btn" onclick="saveBarberPhotoAdmin(\'' + uid + '\')">Guardar</button>'
+      + '</div>'
+    : '';
+
+  return '<div class="user-card' + (isBarberU ? ' barber-card' : '') + '">'
+    + topRow + photoRow
+    + '</div>';
+}
+
+function saveBarberPhotoAdmin(uid) {
+  var inp = document.getElementById('bpinp-' + uid);
+  if (!inp) return;
+  var photoUrl = inp.value.trim();
+  db.collection('barbers').doc(uid).set(
+    { photoUrl: photoUrl, updatedAt: new Date().toISOString() },
+    { merge: true }
+  )
+  .then(function() {
+    showToast('Foto actualizada ✓', 'ok');
+    loadUsers();          // re-renderiza la lista con la foto actualizada
+    loadTeam();           // actualiza la sección del equipo
+    loadBarberOptions();
+  })
+  .catch(function(err) { showToast('Error al guardar foto: ' + err.message, 'err'); });
+}
+
+function changeUserRole(uid, newRole) {
+  var labels = { admin:'Administrador', barber:'Barbero', client:'Cliente' };
+
+  db.collection('users').doc(uid).update({ role: newRole, updatedAt: new Date().toISOString() })
+    .then(function() {
+      showToast('Rol → ' + (labels[newRole] || newRole) + ' ✓', 'ok');
+      loadUsers();
+      loadTeam();
+      loadBarberOptions();
+
+      // Sincronizar colección 'barbers' (no crítico — si falla el rol YA fue guardado)
+      var syncPromise;
+      if (newRole === 'barber') {
+        syncPromise = db.collection('users').doc(uid).get()
+          .then(function(snap) {
+            if (!snap.exists) return;
+            var d = snap.data();
+            return db.collection('barbers').doc(uid).set({
+              name:      d.name      || '—',
+              email:     d.email     || '',
+              role:      'Barbero',
+              specialty: d.specialty || '',
+              photoUrl:  d.photoUrl  || '',
+              uid:       uid,
+              active:    true,
+              updatedAt: new Date().toISOString()
+            }, { merge: true });
+          });
+      } else {
+        syncPromise = db.collection('barbers').doc(uid)
+          .set({ active: false, updatedAt: new Date().toISOString() }, { merge: true });
+      }
+      syncPromise.catch(function(err) {
+        if (err.code === 'permission-denied') {
+          showToast('Agregá la colección "barbers" a las reglas de Firestore.', 'info', 7000);
+        }
+        // No relanzar: el cambio de rol ya fue guardado
+      });
+    })
+    .catch(function(err) {
+      if (err.code === 'permission-denied') {
+        showToast('Sin permiso para cambiar roles. Verificá las reglas de Firestore.', 'err', 6000);
+      } else {
+        showToast('Error: ' + err.message, 'err');
+      }
+    });
+}
+
+/* ══════════════════════════════════════════════════════════════
+   PERFIL DE BARBERO
+══════════════════════════════════════════════════════════════ */
+/* Redimensiona una imagen a max 420px y devuelve base64 JPEG (~30-80 KB) */
+function resizeImageToBase64(file, callback) {
+  var reader = new FileReader();
+  reader.onload = function(e) {
+    var img = new Image();
+    img.onload = function() {
+      var MAX = 420;
+      var ratio = Math.min(MAX / img.width, MAX / img.height, 1);
+      var w = Math.round(img.width  * ratio);
+      var h = Math.round(img.height * ratio);
+      var canvas = document.createElement('canvas');
+      canvas.width = w; canvas.height = h;
+      canvas.getContext('2d').drawImage(img, 0, 0, w, h);
+      callback(canvas.toDataURL('image/jpeg', 0.82));
+    };
+    img.src = e.target.result;
+  };
+  reader.readAsDataURL(file);
+}
+
+/* Foto subida por el admin para un barbero específico */
+function handleBarberPhotoFile(uid, file) {
+  if (!file) return;
+  resizeImageToBase64(file, function(dataUrl) {
+    var inp = document.getElementById('bpinp-' + uid);
+    if (inp) inp.value = dataUrl;
+    // Actualizar miniatura inmediatamente
+    var row   = inp ? inp.closest('.barber-photo-row') : null;
+    var thumb = row  ? row.querySelector('.barber-photo-thumb') : null;
+    if (thumb) thumb.innerHTML = '<img src="' + dataUrl + '" style="width:100%;height:100%;object-fit:cover;border-radius:50%">';
+    showToast('Foto lista — presioná Guardar para confirmar.', 'info', 3500);
+  });
+}
+
+/* Foto subida por el propio barbero desde su panel de perfil */
+function handleBarberSelfPhotoFile(file) {
+  if (!file) return;
+  resizeImageToBase64(file, function(dataUrl) {
+    document.getElementById('bp-photo').value = dataUrl;
+    previewBpPhoto(dataUrl);
+    showToast('Foto cargada — presioná Guardar perfil para confirmar.', 'info', 3500);
+  });
+}
+
+function loadBarberProfile(uid) {
+  db.collection('barbers').doc(uid).get()
+    .then(function(snap) {
+      if (!snap.exists) return;
+      var d = snap.data();
+      document.getElementById('bp-photo').value     = d.photoUrl  || '';
+      document.getElementById('bp-specialty').value = d.specialty || '';
+      previewBpPhoto(d.photoUrl || '');
+    })
+    .catch(function() {});
+}
+
+function previewBpPhoto(url) {
+  var img = document.getElementById('bp-preview');
+  // Acepta URLs http/https y base64 (data:image/...)
+  img.src = (url && (url.match(/^https?:\/\//) || url.startsWith('data:image')))
+    ? url
+    : 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=200&q=80';
+}
+
+function saveBarberProfile() {
+  if (!currentUser || !isBarber()) return;
+  var photoUrl  = document.getElementById('bp-photo').value.trim();
+  var specialty = document.getElementById('bp-specialty').value.trim();
+  db.collection('barbers').doc(currentUser.uid).set({
+    name:      currentUser.displayName || currentUser.email,
+    email:     currentUser.email,
+    role:      'Barbero',
+    photoUrl:  photoUrl,
+    specialty: specialty,
+    uid:       currentUser.uid,
+    active:    true,
+    updatedAt: new Date().toISOString()
+  }, { merge: true })
+  .then(function() {
+    showToast('Perfil actualizado ✓', 'ok');
+    previewBpPhoto(photoUrl);
+    loadTeam();
+  })
+  .catch(function(err) { showToast('Error: ' + err.message, 'err'); });
+}
+
+/* ══════════════════════════════════════════════════════════════
+   EQUIPO DINÁMICO (colección 'barbers')
+══════════════════════════════════════════════════════════════ */
+var FALLBACK_TEAM = [
+  { name:'Marco Solís',    role:'Master Barber',    specialty:'Fade & Diseños — 7 años de experiencia',    photoUrl:'https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?auto=format&fit=crop&w=400&q=80' },
+  { name:'Diego Vargas',   role:'Senior Barber',    specialty:'Clásico & Barba — 4 años de experiencia',   photoUrl:'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=400&q=80' },
+  { name:'Carlos Jiménez', role:'Barber & Stylist', specialty:'Todo estilo — 5 años de experiencia',       photoUrl:'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=400&q=80' }
+];
+
+function loadTeam() {
+  db.collection('barbers').where('active', '==', true).get()
+    .then(function(snap) {
+      if (snap.size > 0) {
+        renderTeam(snap.docs.map(function(d) { return d.data(); }));
+      } else {
+        // Colección 'barbers' vacía → sincronizar desde 'users' si el admin está logueado
+        syncBarbersAndRender();
+      }
+    })
+    .catch(function() { syncBarbersAndRender(); });
+}
+
+/* Si 'barbers' está vacío: lee users con role=barber (requiere estar logueado como admin)
+   y crea los docs faltantes en 'barbers' para que la próxima carga funcione para todos */
+function syncBarbersAndRender() {
+  if (!currentUser) { renderTeam([]); return; }
+
+  db.collection('users').where('role', '==', 'barber').get()
+    .then(function(snap) {
+      if (!snap.size) { renderTeam([]); return; }
+
+      var list = snap.docs.map(function(d) {
+        return {
+          name:      d.data().name      || '—',
+          email:     d.data().email     || '',
+          role:      'Barbero',
+          specialty: d.data().specialty || '',
+          photoUrl:  d.data().photoUrl  || '',
+          uid:       d.id,
+          active:    true,
+          updatedAt: new Date().toISOString()
+        };
+      });
+
+      // Crear los docs en 'barbers' para que sean visibles públicamente
+      if (isAdmin()) {
+        list.forEach(function(b) {
+          db.collection('barbers').doc(b.uid).set(b, { merge: true }).catch(function() {});
+        });
+      }
+
+      renderTeam(list);
+    })
+    .catch(function() { renderTeam([]); });
+}
+
+function renderTeam(barbers) {
+  var grid = document.getElementById('team-grid');
+  if (!barbers.length) {
+    grid.innerHTML = '<p style="color:var(--muted);font-size:.875rem;padding:.5rem 0;grid-column:1/-1">Aún no hay barberos activos. El administrador puede asignar el rol desde el panel.</p>';
+    return;
+  }
+  grid.innerHTML = barbers.map(function(b) {
+    var photo   = b.photoUrl || '';
+    var spec    = b.specialty || b.spec || '';
+    var initial = (b.name || '?').charAt(0).toUpperCase();
+    var photoHtml = photo
+      ? '<img src="' + esc(photo) + '" alt="' + esc(b.name) + '" loading="lazy"'
+        + ' style="width:100%;height:100%;object-fit:cover;border-radius:50%"'
+        + ' onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'flex\'">'
+        + '<span class="team-initial" style="display:none">' + initial + '</span>'
+      : '<span class="team-initial">' + initial + '</span>';
+    return '<div class="team-card reveal">'
+      + '<div class="team-photo" style="background:linear-gradient(145deg,#1a1410,#0e0b08);display:flex;align-items:center;justify-content:center">'
+      +   photoHtml
+      + '</div>'
+      + '<div class="team-info">'
+      +   '<div class="team-name">' + esc(b.name || '—')       + '</div>'
+      +   '<div class="team-role">' + esc(b.role || 'Barbero') + '</div>'
+      +   '<div class="team-spec">' + esc(spec)                + '</div>'
+      + '</div>'
+      + '</div>';
+  }).join('');
+  // Re-observar nuevas tarjetas para la animación reveal
+  grid.querySelectorAll('.reveal:not(.visible)').forEach(function(el) {
+    new IntersectionObserver(function(entries) {
+      entries.forEach(function(e) { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.08 }).observe(el);
+  });
+}
+
+/* ══════════════════════════════════════════════════════════════
+   OPCIONES DE BARBERO EN FORMULARIO (dinámicas)
+══════════════════════════════════════════════════════════════ */
+function loadBarberOptions() {
+  db.collection('barbers').where('active', '==', true).get()
+    .then(function(snap) {
+      if (!snap.size) return; // mantener hardcodeados si no hay datos
+      var current = document.getElementById('f-barber').value;
+      var sel = document.getElementById('f-barber');
+      sel.innerHTML = '<option value="Sin preferencia">Sin preferencia</option>';
+      snap.docs.forEach(function(d) {
+        var opt = document.createElement('option');
+        opt.value = d.data().name;
+        opt.textContent = d.data().name;
+        sel.appendChild(opt);
+      });
+      if (current) sel.value = current;
+    })
+    .catch(function() {});
+}
+
+/* ══ Utils ══ */
+function formatDate(str) {
+  if (!str) return '';
+  var p = str.split('-');
+  return p[2]+'/'+p[1]+'/'+p[0];
+}
+function statusLabel(s) { return s==='pending'?'Pendiente':s==='confirmed'?'Confirmada':s==='attended'?'Atendida':'Cancelada'; }
+function esc(str) { return String(str||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+</script>
+
+<!-- ══ BARRA STACKBIT — conversión desde la demo ══ -->
+<div class="sb-demobar" id="sbDemobar" role="complementary" aria-label="Esta es una demo de Stackbit">
+  <span class="sb-demobar__txt">Esta es una <strong>demo de Stackbit</strong> — así podría verse tu barbería.</span>
+  <a class="sb-demobar__cta" href="https://wa.me/50672849920?text=Hola%2C%20vi%20la%20demo%20en%20Stackbit%20y%20quiero%20cotizar%20una%20p%C3%A1gina%20para%20mi%20barber%C3%ADa%20o%20sal%C3%B3n." target="_blank" rel="noopener noreferrer">Cotizar la mía →</a>
+  <a class="sb-demobar__cta" href="https://stackbitcr.com/demos" style="background:transparent;color:#fff;border:1px solid rgba(255,255,255,.28)">Ver más demos</a>
+  <button class="sb-demobar__close" type="button" aria-label="Cerrar aviso" onclick="var b=document.getElementById('sbDemobar');b.parentNode.removeChild(b);document.body.style.paddingBottom='';">&times;</button>
+</div>
+<style>
+.sb-demobar{position:fixed;left:0;right:0;bottom:0;z-index:2147483000;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:.5rem .9rem;padding:.7rem 2.4rem .7rem 1rem;background:#0b0b0b;color:#fff;border-top:1px solid rgba(255,255,255,.14);font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;font-size:.875rem;line-height:1.4;text-align:center;box-shadow:0 -8px 30px rgba(0,0,0,.28);box-sizing:border-box}
+.sb-demobar *{box-sizing:border-box}
+.sb-demobar__txt{opacity:.85;color:#fff}
+.sb-demobar__txt strong{color:#fff;font-weight:700}
+.sb-demobar__cta{display:inline-flex;align-items:center;gap:.4rem;background:#fff;color:#0b0b0b;font-weight:700;font-size:.8125rem;padding:.5rem .95rem;border-radius:999px;text-decoration:none;white-space:nowrap;transition:transform .25s ease,opacity .25s ease}
+.sb-demobar__cta:hover{transform:translateY(-1px);opacity:.9}
+.sb-demobar__close{position:absolute;right:.5rem;top:50%;transform:translateY(-50%);background:none;border:0;color:rgba(255,255,255,.5);font-size:1.35rem;line-height:1;cursor:pointer;padding:.2rem .4rem}
+.sb-demobar__close:hover{color:#fff}
+@media (max-width:560px){.sb-demobar{font-size:.8125rem;padding:.6rem 2.2rem .6rem .9rem}}
+</style>
+<script>document.body.style.paddingBottom='72px';</script>
+
+</body>
+</html>

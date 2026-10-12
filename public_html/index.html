@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html lang="es-CR">
+<head>
+  <meta charset="UTF-8">
+<!-- ══ ANALÍTICA — Stackbit CR (GA4 + Meta Pixel) ══ -->
+<script>
+/* Google Analytics 4 */
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-312SR4PJLV');
+/* Meta Pixel — stub inmediato, descarga diferida.
+   fbq() existe desde el primer instante y ENCOLA los eventos; el archivo real
+   (fbevents.js + su config, ~755 KB) se descarga recien al primer scroll/clic
+   o 3 s despues de load, lo que pase primero. Al llegar, procesa la cola, asi
+   que no se pierde el PageView ni los eventos de WhatsApp/formulario. */
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[]}(window,document,'script');
+fbq('init','876485647272894');fbq('track','PageView');
+(function(){
+  var pedido=false;
+  var gatillos=['scroll','pointerdown','keydown','touchstart'];
+  function cargarPixel(){
+    if(pedido)return; pedido=true;
+    gatillos.forEach(function(ev){window.removeEventListener(ev,cargarPixel);});
+    var t=document.createElement('script');
+    t.async=!0; t.src='https://connect.facebook.net/en_US/fbevents.js';
+    var s=document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(t,s);
+  }
+  gatillos.forEach(function(ev){window.addEventListener(ev,cargarPixel,{passive:!0});});
+  window.addEventListener('load',function(){setTimeout(cargarPixel,3000);});
+})();
+/* Eventos propios: WhatsApp, teléfono, demos y formularios */
+document.addEventListener('DOMContentLoaded',function(){
+  var ev=function(g,f,p){try{gtag('event',g,p||{});}catch(e){}
+                         try{f&&fbq('track',f,p||{});}catch(e){}};
+  document.addEventListener('click',function(e){
+    var a=e.target&&e.target.closest?e.target.closest('a'):null;
+    if(!a||!a.href)return;
+    var h=a.href;
+    if(h.indexOf('wa.me')>-1||h.indexOf('api.whatsapp')>-1) ev('clic_whatsapp','Contact',{method:'whatsapp'});
+    else if(h.indexOf('tel:')===0) ev('clic_telefono','Contact',{method:'telefono'});
+    else if(h.indexOf('mailto:')===0) ev('clic_correo','Contact',{method:'correo'});
+    else if(/\/demo-/.test(h)) ev('ver_demo',null,{demo:h.split('/').pop()});
+  },true);
+  document.addEventListener('submit',function(e){
+    if(e.target&&e.target.tagName==='FORM') ev('generate_lead','Lead',{});
+  },true);
+});
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-312SR4PJLV"></script>
+<noscript><img height="1" width="1" style="display:none" alt=""
+src="https://www.facebook.com/tr?id=876485647272894&ev=PageView&noscript=1"></noscript>
+<!-- ══ FIN ANALÍTICA ══ -->
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- ══════════════ SEO PRIMARIO ══════════════ -->
+  <title>Software a Medida y Páginas Web para Empresas en Costa Rica | Stackbit · StackbitCR</title>
+  <meta name="description" content="Stackbit (StackbitCR) — desarrollamos software a medida, apps, automatización con IA y páginas web para empresas en Costa Rica. Sistemas de gestión, dashboards y presencia digital. Diagnóstico gratis en 24 h.">
+  <meta name="keywords" content="software a medida Costa Rica, desarrollo de software Costa Rica, sistema de gestión para empresas Costa Rica, software para empresas Costa Rica, aplicaciones móviles Costa Rica, desarrollo de apps Costa Rica, automatización de procesos Costa Rica, inteligencia artificial para empresas Costa Rica, bot de WhatsApp Costa Rica, dashboard de datos Costa Rica, integración de sistemas Costa Rica, punto de venta POS Costa Rica, empresa de tecnología Costa Rica, Stackbit, StackbitCR, stackbit costa rica, crear página web para mi empresa Costa Rica, páginas web para empresas Costa Rica, diseño web Costa Rica, desarrollo web Costa Rica, tienda en línea Costa Rica, programador Costa Rica">
+  <meta name="author" content="Stackbit">
+  <meta name="publisher" content="Stackbit">
+  <meta name="copyright" content="Stackbit">
+  <meta name="rating" content="general">
+  <meta name="distribution" content="global">
+  <meta name="revisit-after" content="7 days">
+  <meta name="language" content="Spanish">
+  <meta http-equiv="content-language" content="es-CR">
+
+  <!-- ══════════════ ROBOTS ══════════════ -->
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1">
+  <meta name="bingbot" content="index, follow">
+
+  <!-- ══════════════ GEO — Costa Rica ══════════════ -->
+  <meta name="geo.region" content="CR-SJ">
+  <meta name="geo.placename" content="San José, Costa Rica">
+  <meta name="geo.position" content="9.9281;-84.0907">
+  <meta name="ICBM" content="9.9281, -84.0907">
+
+  <!-- ══════════════ CANONICAL & HREFLANG ══════════════ -->
+  <link rel="canonical" href="https://stackbitcr.com/">
+  <link rel="alternate" hreflang="es-CR" href="https://stackbitcr.com/">
+  <link rel="alternate" hreflang="es" href="https://stackbitcr.com/">
+  <link rel="alternate" hreflang="x-default" href="https://stackbitcr.com/">
+
+  <!-- ══════════════ OPEN GRAPH ══════════════ -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Stackbit">
+  <meta property="og:locale" content="es_CR">
+  <meta property="og:locale:alternate" content="es_ES">
+  <meta property="og:locale:alternate" content="es_MX">
+  <meta property="og:title" content="Software a Medida y Páginas Web para Empresas en Costa Rica | Stackbit · StackbitCR">
+  <meta property="og:description" content="Software a medida, apps, automatización con IA y páginas web para empresas en Costa Rica. Construimos la herramienta que tu operación necesita. Diagnóstico gratis en 24 h.">
+  <meta property="og:url" content="https://stackbitcr.com/">
+  <meta property="og:image" content="https://stackbitcr.com/assets/img/hero-tech.jpg">
+  <meta property="og:image:secure_url" content="https://stackbitcr.com/assets/img/hero-tech.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:alt" content="Stackbit — desarrollo de software y web para empresas en Costa Rica">
+
+  <!-- ══════════════ TWITTER CARD ══════════════ -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@stackbit_cr">
+  <meta name="twitter:creator" content="@stackbit_cr">
+  <meta name="twitter:title" content="Software a Medida y Páginas Web para Empresas en Costa Rica | Stackbit">
+  <meta name="twitter:description" content="Stackbit (StackbitCR) — sistemas de gestión, apps, automatización con IA y páginas web para empresas en Costa Rica. Diagnóstico gratis en 24 h.">
+  <meta name="twitter:image" content="https://stackbitcr.com/assets/img/hero-tech.jpg">
+  <meta name="twitter:image:alt" content="Stackbit — desarrollo de software y web para empresas en Costa Rica">
+
+  <!-- ══════════════ THEME, ICONS, MANIFEST ══════════════ -->
+  <meta name="theme-color" content="#080808">
+  <meta name="msapplication-TileColor" content="#080808">
+  <meta name="apple-mobile-web-app-title" content="Stackbit">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="application-name" content="Stackbit">
+  <meta name="format-detection" content="telephone=no">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="apple-touch-icon" href="favicon.svg">
+  <link rel="manifest" href="manifest.webmanifest">
+
+  <script>(function(){var t=localStorage.getItem("sb-theme")||(window.matchMedia("(prefers-color-scheme:dark)").matches?"dark":"light");document.documentElement.setAttribute("data-theme",t)}())</script>
+
+  <!-- ══════════════ PERFORMANCE: PRECONNECT & DNS-PREFETCH ══════════════ -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
+  <link rel="stylesheet" href="styles.min.css?v=20260921">
+  <style>
+    @media (max-width: 768px) {
+      #empresa .container > div { grid-template-columns: 1fr !important; }
+    }
+  </style>
+
+  <script defer src="main.js?v=20260921"></script>
+
+  <!-- ══════════════ STRUCTURED DATA (Schema.org JSON-LD) ══════════════ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://stackbitcr.com/#organization",
+        "name": "Stackbit",
+        "alternateName": ["Stackbit Costa Rica", "StackbitCR", "Stackbit CR"],
+        "url": "https://stackbitcr.com/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://stackbitcr.com/favicon.svg",
+          "width": 512,
+          "height": 512
+        },
+        "image": "https://stackbitcr.com/assets/img/hero-tech.jpg",
+        "description": "Stackbit es un estudio de software y tecnología con sede en San José, Costa Rica. Desarrollamos software a medida para empresas — sistemas de gestión, inventarios, facturación, aplicaciones móviles y web, automatización de procesos con inteligencia artificial, dashboards de datos, integraciones y puntos de venta — además de páginas web profesionales y tiendas en línea. Diagnóstico gratis en 24 horas.",
+        "foundingDate": "2024",
+        "founders": [{ "@type": "Person", "name": "Aarón López" }],
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "San José",
+          "addressRegion": "San José",
+          "addressCountry": "CR"
+        },
+        "contactPoint": [{
+          "@type": "ContactPoint",
+          "telephone": "+506-7284-9920",
+          "contactType": "customer service",
+          "email": "contacto@stackbitcr.com",
+          "availableLanguage": ["Spanish", "English"],
+          "areaServed": ["CR", "MX", "GT", "SV", "HN", "NI", "PA", "CO", "EC", "PE", "CL", "AR", "ES", "US"]
+        }],
+        "sameAs": [
+          "https://www.facebook.com/profile.php?id=61593318867486",
+          "https://www.instagram.com/stackbitcr/",
+          "https://wa.me/50672849920"
+        ]
+      },
+      {
+        "@type": "ProfessionalService",
+        "@id": "https://stackbitcr.com/#localbusiness",
+        "name": "Stackbit — Desarrollo de Software y Web",
+        "image": "https://stackbitcr.com/assets/img/hero-tech.jpg",
+        "url": "https://stackbitcr.com/",
+        "telephone": "+506-7284-9920",
+        "email": "contacto@stackbitcr.com",
+        "priceRange": "$$",
+        "currenciesAccepted": "CRC, USD",
+        "paymentAccepted": "Cash, Credit Card, SINPE Móvil, PayPal, Transferencia bancaria",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "San José",
+          "addressRegion": "San José",
+          "addressCountry": "CR"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 9.9281,
+          "longitude": -84.0907
+        },
+        "areaServed": [
+          { "@type": "Country", "name": "Costa Rica" },
+          { "@type": "Country", "name": "México" },
+          { "@type": "Country", "name": "Guatemala" },
+          { "@type": "Country", "name": "El Salvador" },
+          { "@type": "Country", "name": "Honduras" },
+          { "@type": "Country", "name": "Nicaragua" },
+          { "@type": "Country", "name": "Panamá" },
+          { "@type": "Country", "name": "Colombia" },
+          { "@type": "Country", "name": "España" },
+          { "@type": "Country", "name": "Estados Unidos" }
+        ],
+        "openingHoursSpecification": [{
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+          "opens": "08:00",
+          "closes": "20:00"
+        }],
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Servicios de software, tecnología y desarrollo web",
+          "itemListElement": [
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Software a Medida para Empresas" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Sistemas de Gestión: Inventario, Facturación y Clientes" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Aplicaciones Móviles y Web Apps" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Automatización de Procesos e Inteligencia Artificial" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Dashboards de Datos e Integración de Sistemas" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Punto de Venta (POS) a Medida" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Diseño de Landing Page" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Página Web para Restaurante con Menú Digital" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Página Web para Barbería con Agenda en Línea" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Tienda en Línea / E-commerce con PayPal" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Mantenimiento, Soporte y Hosting" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "SEO y Posicionamiento en Google" } }
+          ]
+        }
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://stackbitcr.com/#website",
+        "url": "https://stackbitcr.com/",
+        "name": "Stackbit",
+        "alternateName": "StackbitCR",
+        "description": "Software a medida y páginas web para empresas en Costa Rica — Stackbit (StackbitCR)",
+        "publisher": { "@id": "https://stackbitcr.com/#organization" },
+        "inLanguage": "es-CR"
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://stackbitcr.com/#webpage",
+        "url": "https://stackbitcr.com/",
+        "name": "Software a Medida y Páginas Web para Empresas en Costa Rica | Stackbit · StackbitCR",
+        "description": "Stackbit (StackbitCR) — desarrollamos software a medida, aplicaciones, automatización con inteligencia artificial y páginas web para empresas en Costa Rica. Diagnóstico gratis en 24 horas.",
+        "inLanguage": "es-CR",
+        "isPartOf": { "@id": "https://stackbitcr.com/#website" },
+        "about": { "@id": "https://stackbitcr.com/#organization" },
+        "primaryImageOfPage": {
+          "@type": "ImageObject",
+          "url": "https://stackbitcr.com/assets/img/hero-tech.jpg"
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://stackbitcr.com/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "¿Qué es Stackbit o StackbitCR?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Stackbit, también conocido como StackbitCR o Stackbit Costa Rica, es un estudio de software y tecnología con sede en Costa Rica. Desarrollamos software a medida para empresas — sistemas de gestión, aplicaciones móviles y web, automatización con inteligencia artificial, dashboards e integraciones — y también páginas web profesionales y tiendas en línea. Sitio web: stackbitcr.com. WhatsApp: +506 7284-9920." }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Desarrollan software a medida para empresas en Costa Rica?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Sí. Construimos sistemas de gestión (inventarios, facturación, clientes, órdenes de trabajo, planillas), aplicaciones móviles y web, automatización de procesos con inteligencia artificial, dashboards de datos, integraciones entre sistemas y puntos de venta. El software se construye alrededor de cómo ya opera tu empresa, no al revés. Empezamos con un diagnóstico sin costo." }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Qué diferencia hay entre software a medida y un sistema enlatado?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Un sistema enlatado te obliga a cambiar tu forma de trabajar para encajar en el programa. El software a medida se construye alrededor de tu operación: no pagás módulos que nunca vas a usar, no hay licencias por usuario que suben cada año, y las funciones propias de tu negocio sí se pueden hacer. Además el código queda a nombre de tu empresa." }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Pueden automatizar procesos con inteligencia artificial?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Sí. Implementamos agentes con IA y automatizaciones para tareas concretas y medibles: atender y clasificar consultas de WhatsApp 24/7, leer facturas y documentos para extraer datos sin digitarlos, generar reportes automáticamente, responder preguntas sobre la información interna de la empresa y disparar acciones en otros sistemas." }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Hacen aplicaciones móviles para iOS y Android?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Sí. Desarrollamos aplicaciones móviles para iOS y Android y aplicaciones web con login seguro, roles y permisos, notificaciones push, panel de administración y funcionamiento sin señal con sincronización posterior." }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Cómo puedo crear una página web para mi empresa en Costa Rica?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Con Stackbit (StackbitCR) el proceso es simple: 1) Nos escribís por WhatsApp o llenás el formulario en stackbitcr.com/contacto. 2) Nos contás tu empresa y qué querés que haga tu sitio. 3) En menos de 24 horas tenés una propuesta sin costo. 4) Aprobás el diseño y en el plazo acordado tu empresa ya tiene página web profesional en línea." }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Cuánto cuesta hacer una página web en Costa Rica?",
+            "acceptedAnswer": { "@type": "Answer", "text": "No trabajamos con precios de lista porque ningún negocio necesita exactamente lo mismo. El costo depende del tipo de sitio, las funcionalidades que necesités y el plazo. Contanos qué querés lograr por WhatsApp o por el formulario y en menos de 24 horas tenés una cotización a medida, sin costo ni compromiso." }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Y si el diseño no me gusta?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Antes de programar nada te mostramos la propuesta visual, con 2 rondas de revisión incluidas hasta que estés conforme. Después de la entrega tenés 1 ronda de ajustes sin costo durante los primeros 30 días. Nunca vas a recibir un sitio que veas por primera vez el día del lanzamiento." }
+          },
+          {
+            "@type": "Question",
+            "name": "¿En cuánto tiempo entregan una página web en Costa Rica?",
+            "acceptedAnswer": { "@type": "Answer", "text": "El plazo se define al inicio de cada proyecto según su alcance y complejidad. Antes de comenzar te decimos exactamente cuándo estará lista tu web para que puedas planificar. El plazo comienza cuando recibimos tu información (logo, textos, fotos)." }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Hacen páginas web para restaurantes en Costa Rica?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Sí. Diseñamos páginas web para restaurantes en Costa Rica con menú digital, galería de platos, horarios, mapa de ubicación y botón de pedidos por WhatsApp. El cliente ve tu menú, elige y te escribe directo — sin llamadas ni comisiones." }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Hacen páginas web para barberías y salones de belleza en Costa Rica?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Sí. Creamos páginas web para barberías, salones de belleza, spas y estéticas en Costa Rica. Incluyen galería de trabajos, lista de servicios con precios, agenda en línea y contacto por WhatsApp." }
+          },
+          {
+            "@type": "Question",
+            "name": "¿La página web se ve bien en celular?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Sí. Todas las páginas web que desarrollamos en Costa Rica son 100% responsive y mobile-first. Se ven y funcionan perfectamente en celular, tablet y escritorio, y cargan en menos de 2 segundos." }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Qué incluye el mantenimiento mensual de una página web?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Hosting seguro, dominio renovado, certificado SSL activo, copias de seguridad diarias, monitoreo de disponibilidad 24/7, actualizaciones de seguridad y cambios menores de contenido sin costo extra." }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Trabajan con clientes fuera de San José o fuera de Costa Rica?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Sí. Atendemos clientes en todo Costa Rica (San José, Alajuela, Cartago, Heredia, Guanacaste, Puntarenas, Limón) y también en México, Guatemala, El Salvador, Honduras, Nicaragua, Panamá, Colombia, España y Estados Unidos. Cobramos en colones o dólares." }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Usan plantillas de WordPress o diseñan a medida?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Diseñamos 100% a medida desde cero. No usamos plantillas genéricas de WordPress ni Wix. Cada sitio refleja la identidad única de tu negocio y carga más rápido que cualquier plantilla." }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a href="#main" class="skip-link">Saltar al contenido</a>
+
+  <nav class="nav" id="nav" role="navigation" aria-label="Navegación principal">
+    <a href="/" class="nav-logo" aria-label="Stackbit — inicio">
+      <span class="logo-text">Stackbit</span>
+      <span class="logo-dot" aria-hidden="true"></span>
+    </a>
+    <ul class="nav-links" role="list">
+      <li><a href="/software" class="nav-link">Software</a></li>
+      <li><a href="/servicios" class="nav-link">Servicios</a></li>
+      <li><a href="/demos" class="nav-link">Demos</a></li>
+      <li><a href="/contacto" class="nav-link">Contacto</a></li>
+    </ul>
+    <button class="theme-toggle" aria-label="Alternar modo de color">
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" width="18" height="18" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" width="18" height="18" aria-hidden="true"><path d="M21 12.79A9 9 0 1111.21 3a7 7 0 009.79 9.79z"/></svg>
+    </button>
+    <a href="/contacto" class="btn btn-nav">Solicitar proyecto</a>
+    <button class="nav-hamburger" aria-label="Abrir menú" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="mobile-menu" role="dialog" aria-label="Menú de navegación" hidden>
+    <ul role="list">
+      <li><a href="/software">Software</a></li>
+      <li><a href="/servicios">Servicios</a></li>
+      <li><a href="/demos">Demos</a></li>
+      <li><a href="/contacto">Contacto</a></li>
+    </ul>
+    <a href="/contacto" class="btn btn-primary">Solicitar proyecto →</a>
+  </div>
+
+  <main id="main">
+
+    <!-- ════════════ HERO ════════════ -->
+    <section class="hero" id="inicio" aria-label="Bienvenida">
+      <div class="hero-gradient" data-mouse-gradient aria-hidden="true"></div>
+      <div class="hero-orb hero-orb-a" aria-hidden="true"></div>
+      <div class="hero-orb hero-orb-b" aria-hidden="true"></div>
+      <div class="hero-orb hero-orb-c" aria-hidden="true"></div>
+      <div class="hero-noise" aria-hidden="true"></div>
+      <div class="hero-inner">
+        <p class="hero-kicker">Software · Apps · Automatización · Web — Costa Rica</p>
+        <h1 class="hero-title">
+          <span class="hero-line">Software hecho</span><br>
+          <span class="hero-line" style="transition-delay:.16s"><span class="hero-accent">a tu medida</span></span><br>
+          <span class="hero-line" style="transition-delay:.32s">en Costa Rica.</span>
+        </h1>
+        <p class="hero-sub reveal">
+          Desarrollamos <strong style="color:var(--ink);font-weight:700">software a medida</strong>, aplicaciones, automatización con IA y páginas web para empresas en Costa Rica.
+          Construimos la herramienta que tu operación necesita — no la que te toca aguantar.
+        </p>
+        <div class="hero-actions reveal">
+          <a href="/contacto" class="btn btn-primary">
+            Solicitar proyecto <span class="btn-arrow">→</span>
+          </a>
+          <a href="/software" class="btn btn-ghost">
+            Ver software a medida <span class="btn-arrow">→</span>
+          </a>
+        </div>
+      </div>
+      <div class="hero-scroll-hint" aria-hidden="true">
+        <div class="scroll-line"></div>
+      </div>
+    </section>
+
+    <!-- ════════════ SERVICES PREVIEW ════════════ -->
+    <section class="services-preview section-padded" id="servicios">
+      <div class="container">
+        <p class="section-kicker reveal">— Qué hacemos</p>
+        <h2 class="section-title reveal">Software, apps y web<br>para empresas en Costa Rica.</h2>
+        <p class="reveal" style="color:var(--ink-soft);max-width:56ch;margin-bottom:clamp(2rem,4vw,3rem)">Desde el sistema interno que ordena tu operación hasta el sitio que ven tus clientes. Si es tecnología y resuelve un problema real, lo construimos.</p>
+        <div class="services-grid" style="grid-template-columns:repeat(auto-fill,minmax(280px,1fr))">
+
+          <article class="service-card reveal">
+            <div class="service-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <ellipse cx="12" cy="5" rx="9" ry="3"/>
+                <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/>
+                <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/>
+              </svg>
+            </div>
+            <h3>Sistemas de gestión</h3>
+            <p>Inventario, facturación, clientes y órdenes de trabajo en un solo sistema hecho para tu operación.</p>
+            <div class="portfolio-tech" style="margin-top:auto;padding-top:1rem">
+              <span class="tech-badge">Empresas</span>
+              <span class="tech-badge">Pymes</span>
+              <span class="tech-badge">Multisucursal</span>
+            </div>
+          </article>
+
+          <article class="service-card reveal">
+            <div class="service-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="5" y="2" width="14" height="20" rx="2.5"/>
+                <line x1="10.5" y1="18.5" x2="13.5" y2="18.5"/>
+              </svg>
+            </div>
+            <h3>Apps móviles y web apps</h3>
+            <p>Aplicaciones para iOS, Android y navegador con login, roles y panel de administración.</p>
+            <div class="portfolio-tech" style="margin-top:auto;padding-top:1rem">
+              <span class="tech-badge">iOS y Android</span>
+              <span class="tech-badge">Portales de cliente</span>
+            </div>
+          </article>
+
+          <article class="service-card reveal">
+            <div class="service-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="4" y="8" width="16" height="12" rx="2.5"/>
+                <path d="M12 8V4"/><circle cx="12" cy="3" r="1.25"/>
+                <circle cx="9" cy="13.5" r="1.15"/><circle cx="15" cy="13.5" r="1.15"/>
+                <path d="M9.5 17h5"/><path d="M4 12H2"/><path d="M22 12h-2"/>
+              </svg>
+            </div>
+            <h3>Automatización e IA</h3>
+            <p>Bots de WhatsApp, agentes con IA y procesos automáticos que eliminan el trabajo repetitivo.</p>
+            <div class="portfolio-tech" style="margin-top:auto;padding-top:1rem">
+              <span class="tech-badge">Bots</span>
+              <span class="tech-badge">Agentes IA</span>
+              <span class="tech-badge">APIs</span>
+            </div>
+          </article>
+
+          <article class="service-card reveal">
+            <div class="service-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="20" x2="18" y2="10"/>
+                <line x1="12" y1="20" x2="12" y2="4"/>
+                <line x1="6" y1="20" x2="6" y2="14"/>
+                <line x1="3" y1="20" x2="21" y2="20"/>
+              </svg>
+            </div>
+            <h3>Dashboards y POS</h3>
+            <p>Los números de tu empresa en una pantalla, punto de venta e integración entre los sistemas que ya usás.</p>
+            <div class="portfolio-tech" style="margin-top:auto;padding-top:1rem">
+              <span class="tech-badge">Reportes</span>
+              <span class="tech-badge">Integraciones</span>
+              <span class="tech-badge">POS</span>
+            </div>
+          </article>
+
+          <article class="service-card reveal">
+            <div class="service-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M13 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V9z"/>
+                <polyline points="13 2 13 9 20 9"/>
+              </svg>
+            </div>
+            <h3>Páginas web profesionales</h3>
+            <p>El frente que ven tus clientes: landings, sitios corporativos y menús digitales con SEO incluido.</p>
+            <div class="portfolio-tech" style="margin-top:auto;padding-top:1rem">
+              <span class="tech-badge">Landings</span>
+              <span class="tech-badge">Restaurantes</span>
+              <span class="tech-badge">Barberías</span>
+            </div>
+          </article>
+
+          <article class="service-card reveal">
+            <div class="service-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 5v3h-7V8z"/>
+                <circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/>
+              </svg>
+            </div>
+            <h3>Tiendas en línea</h3>
+            <p>Catálogo, carrito y pagos con PayPal o SINPE — o pedidos directos por WhatsApp, sin comisiones.</p>
+            <div class="portfolio-tech" style="margin-top:auto;padding-top:1rem">
+              <span class="tech-badge">E-commerce</span>
+              <span class="tech-badge">Catálogos</span>
+            </div>
+          </article>
+
+        </div>
+        <div class="section-cta reveal" style="display:flex;flex-wrap:wrap;gap:.75rem">
+          <a href="/software" class="btn btn-outline">Ver software a medida →</a>
+          <a href="/servicios" class="btn btn-ghost">Ver planes web →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════ CLIENTES / TRABAJO REAL ════════════ -->
+    <section class="section-padded" id="clientes" aria-label="Proyectos entregados" style="background:var(--bg-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);transition:background .4s,border-color .4s">
+      <div class="container">
+        <p class="section-kicker reveal">— Trabajo real</p>
+        <h2 class="section-title reveal">Proyectos que ya<br>están en línea.</h2>
+        <div class="clientes-grid reveal">
+
+          <a href="https://exploremoscolombiacr.com/" target="_blank" rel="noopener noreferrer" class="cliente-shot" aria-label="Ver el sitio de Exploremos Colombia Costa Rica">
+            <picture>
+              <source type="image/webp"
+                      srcset="assets/img/cliente-exploremos-colombia-800.webp 800w,
+                              assets/img/cliente-exploremos-colombia.webp 1200w"
+                      sizes="(max-width: 900px) 92vw, 640px">
+              <img src="assets/img/cliente-exploremos-colombia.jpg"
+                   alt="Sitio web de Exploremos Colombia Costa Rica, agencia de viajes, desarrollado por Stackbit"
+                   width="1200" height="579" loading="lazy" decoding="async">
+            </picture>
+          </a>
+
+          <div class="cliente-info">
+            <p class="cliente-tag">Agencia de viajes · Costa Rica</p>
+            <h3>Exploremos Colombia</h3>
+            <p>Sitio para una agencia de viajes que arma planes a Colombia, Argentina, México y Guatemala desde Costa Rica. Destinos, paquetes y contacto directo, pensado para que la consulta llegue por WhatsApp sin fricción.</p>
+            <div class="cliente-tech">
+              <span class="tech-badge">Diseño a medida</span>
+              <span class="tech-badge">Mobile-first</span>
+              <span class="tech-badge">SEO</span>
+            </div>
+            <a href="https://exploremoscolombiacr.com/" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Ver el sitio en vivo →</a>
+          </div>
+
+        </div>
+        <p class="reveal" style="margin-top:clamp(2rem,4vw,2.75rem);color:var(--ink-soft);font-size:.9375rem;max-width:62ch">
+          Además tenemos <a href="/demos" style="color:var(--accent);font-weight:600">demos funcionales</a> de restaurante, barbería, tienda en línea, nail studio y landing page — sitios completos que podés navegar y probar antes de decidir.
+          Los proyectos de <a href="/software" style="color:var(--accent);font-weight:600">software a medida</a> son internos de cada empresa, así que no se publican: en el diagnóstico te mostramos casos y pantallas equivalentes.
+        </p>
+      </div>
+    </section>
+
+    <!-- ════════════ PROCESS ════════════ -->
+    <section class="process section-padded" id="proceso">
+      <div class="container">
+        <p class="section-kicker reveal">— Proceso</p>
+        <h2 class="section-title reveal">Del concepto<br>al resultado.</h2>
+        <div class="process-list">
+          <div class="process-step reveal">
+            <span class="process-num">01</span>
+            <div class="process-content">
+              <h3>Diagnóstico</h3>
+              <p>Escuchamos tus objetivos, entendemos cómo trabaja tu empresa hoy y definimos el alcance real del proyecto. Sin costo.</p>
+            </div>
+          </div>
+          <div class="process-step reveal">
+            <span class="process-num">02</span>
+            <div class="process-content">
+              <h3>Propuesta y diseño</h3>
+              <p>Te entregamos por escrito qué incluye y qué no, a qué precio. Ves las pantallas y las corregís antes de que se programe nada.</p>
+            </div>
+          </div>
+          <div class="process-step reveal">
+            <span class="process-num">03</span>
+            <div class="process-content">
+              <h3>Desarrollo</h3>
+              <p>Construimos con código limpio y por entregas: vas usando y probando el sistema o el sitio mientras se arma.</p>
+            </div>
+          </div>
+          <div class="process-step reveal">
+            <span class="process-num">04</span>
+            <div class="process-content">
+              <h3>Puesta en marcha y soporte</h3>
+              <p>Lanzamos, capacitamos a tu equipo y acompañamos el arranque. Después seguimos con mantenimiento y mejoras.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ════════════ PARA TU EMPRESA ════════════ -->
+    <section class="section-padded" id="empresa" aria-label="Páginas web para empresas en Costa Rica" style="background:var(--bg-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);transition:background .4s,border-color .4s">
+      <div class="container">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:clamp(2.5rem,6vw,5rem);align-items:center">
+
+          <div>
+            <p class="section-kicker reveal">— Para tu empresa</p>
+            <h2 class="reveal" style="font-size:clamp(2rem,4.5vw,3.25rem);font-weight:900;letter-spacing:-.04em;line-height:1.05;margin-bottom:1.25rem">
+              El socio tecnológico<br>de tu empresa en<br><span class="hero-accent">Costa Rica.</span>
+            </h2>
+            <p class="reveal" style="color:var(--ink-soft);font-size:1.0625rem;line-height:1.75;max-width:46ch;margin-bottom:2rem">
+              Ya sea que tengas una empresa grande, una pyme o un emprendimiento recién arrancando — construimos lo que tu operación necesita: el sistema que ordena la casa por dentro y la presencia digital que trae clientes por fuera.
+            </p>
+            <ul class="reveal" style="list-style:none;display:flex;flex-direction:column;gap:.85rem;margin-bottom:2rem">
+              <li style="display:flex;align-items:flex-start;gap:.75rem;font-size:.9375rem;color:var(--ink-soft)">
+                <svg viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="18" height="18" style="flex-shrink:0;margin-top:.15rem" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                <span><strong style="color:var(--ink)">100% a medida</strong> — el software se adapta a tu proceso, no al revés</span>
+              </li>
+              <li style="display:flex;align-items:flex-start;gap:.75rem;font-size:.9375rem;color:var(--ink-soft)">
+                <svg viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="18" height="18" style="flex-shrink:0;margin-top:.15rem" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                <span><strong style="color:var(--ink)">El código es tuyo</strong> — sin licencias por usuario ni quedar amarrado</span>
+              </li>
+              <li style="display:flex;align-items:flex-start;gap:.75rem;font-size:.9375rem;color:var(--ink-soft)">
+                <svg viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="18" height="18" style="flex-shrink:0;margin-top:.15rem" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                <span><strong style="color:var(--ink)">Alcance y precio cerrados</strong> — por escrito antes de programar nada</span>
+              </li>
+              <li style="display:flex;align-items:flex-start;gap:.75rem;font-size:.9375rem;color:var(--ink-soft)">
+                <svg viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="18" height="18" style="flex-shrink:0;margin-top:.15rem" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                <span><strong style="color:var(--ink)">Hablás con quien programa</strong> — en español claro, sin jerga técnica</span>
+              </li>
+            </ul>
+            <div class="reveal" style="display:flex;flex-wrap:wrap;gap:.75rem">
+              <a href="/contacto" class="btn btn-primary">Hablemos de mi proyecto <span class="btn-arrow">→</span></a>
+              <a href="/software" class="btn btn-ghost">Ver software →</a>
+            </div>
+          </div>
+
+          <div class="reveal" style="display:grid;grid-template-columns:1fr 1fr;gap:1rem">
+            <div class="service-card" style="padding:1.5rem;text-align:center">
+              <div style="font-size:2rem;margin-bottom:.5rem" aria-hidden="true">🏢</div>
+              <p style="font-weight:700;font-size:.9375rem;letter-spacing:-.02em">Empresas<br>y pymes</p>
+            </div>
+            <div class="service-card" style="padding:1.5rem;text-align:center">
+              <div style="font-size:2rem;margin-bottom:.5rem" aria-hidden="true">🏭</div>
+              <p style="font-weight:700;font-size:.9375rem;letter-spacing:-.02em">Producción<br>y logística</p>
+            </div>
+            <div class="service-card" style="padding:1.5rem;text-align:center">
+              <div style="font-size:2rem;margin-bottom:.5rem" aria-hidden="true">🏥</div>
+              <p style="font-weight:700;font-size:.9375rem;letter-spacing:-.02em">Clínicas<br>y salud</p>
+            </div>
+            <div class="service-card" style="padding:1.5rem;text-align:center">
+              <div style="font-size:2rem;margin-bottom:.5rem" aria-hidden="true">🛒</div>
+              <p style="font-weight:700;font-size:.9375rem;letter-spacing:-.02em">Retail<br>y comercio</p>
+            </div>
+            <div class="service-card" style="padding:1.5rem;text-align:center">
+              <div style="font-size:2rem;margin-bottom:.5rem" aria-hidden="true">🍽️</div>
+              <p style="font-weight:700;font-size:.9375rem;letter-spacing:-.02em">Restaurantes<br>y comercios locales</p>
+            </div>
+            <div class="service-card" style="padding:1.5rem;text-align:center">
+              <div style="font-size:2rem;margin-bottom:.5rem" aria-hidden="true">🚀</div>
+              <p style="font-weight:700;font-size:.9375rem;letter-spacing:-.02em">Startups<br>y emprendedores</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════ FAQ ════════════ -->
+    <section class="section-padded" id="preguntas" aria-label="Preguntas frecuentes sobre páginas web en Costa Rica" style="padding-top:0">
+      <div class="container" style="max-width:780px">
+        <p class="section-kicker reveal">— Preguntas frecuentes</p>
+        <h2 class="section-title reveal">Todo lo que querés<br>saber antes de empezar.</h2>
+        <div class="faq-list" role="list">
+
+          <div class="faq-item reveal" role="listitem">
+            <button class="faq-question" aria-expanded="false">
+              ¿Qué es Stackbit o StackbitCR?
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+            </button>
+            <div class="faq-answer" role="region">
+              <p><strong>Stackbit</strong> (también conocido como <strong>StackbitCR</strong> o Stackbit Costa Rica) es un estudio de software y tecnología con sede en Costa Rica. Desarrollamos <strong>software a medida</strong> para empresas — sistemas de gestión, aplicaciones móviles y web, automatización con inteligencia artificial, dashboards e integraciones — y también páginas web profesionales y tiendas en línea. Nos encontrás en <strong>stackbitcr.com</strong> y por WhatsApp al +506 7284-9920.</p>
+            </div>
+          </div>
+
+          <div class="faq-item reveal" role="listitem">
+            <button class="faq-question" aria-expanded="false">
+              ¿Desarrollan software a medida para empresas?
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+            </button>
+            <div class="faq-answer" role="region">
+              <p>Sí, es nuestra línea principal. Construimos <strong>sistemas de gestión</strong> (inventarios, facturación, clientes, órdenes de trabajo, planillas), <strong>apps móviles y web</strong>, <strong>automatización con IA</strong>, <strong>dashboards de datos</strong>, integraciones y puntos de venta. El sistema se construye alrededor de cómo ya opera tu empresa. Empezamos con un <a href="/software" style="color:var(--accent);font-weight:600">diagnóstico sin costo</a>.</p>
+            </div>
+          </div>
+
+          <div class="faq-item reveal" role="listitem">
+            <button class="faq-question" aria-expanded="false">
+              ¿En qué se diferencia el software a medida de un sistema enlatado?
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+            </button>
+            <div class="faq-answer" role="region">
+              <p>Un sistema enlatado te obliga a cambiar tu forma de trabajar para encajar en el programa. El software a medida hace lo contrario. No pagás módulos que nunca vas a usar, no hay licencias por usuario que suben cada año, las funciones propias de tu negocio sí se pueden hacer — y el <strong>código queda a nombre de tu empresa</strong>.</p>
+            </div>
+          </div>
+
+          <div class="faq-item reveal" role="listitem">
+            <button class="faq-question" aria-expanded="false">
+              ¿Pueden automatizar procesos con inteligencia artificial?
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+            </button>
+            <div class="faq-answer" role="region">
+              <p>Sí, pero solo donde hay un resultado medible. Los casos más comunes: <strong>atender y clasificar consultas de WhatsApp</strong> 24/7, <strong>leer facturas y documentos</strong> para extraer los datos sin digitarlos, <strong>generar reportes</strong> automáticamente y responder preguntas sobre la información interna de la empresa. No metemos IA donde una automatización simple resuelve mejor.</p>
+            </div>
+          </div>
+
+          <div class="faq-item reveal" role="listitem">
+            <button class="faq-question" aria-expanded="false">
+              Tengo una idea tech, ¿la pueden evaluar?
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+            </button>
+            <div class="faq-answer" role="region">
+              <p>Contala. Plataformas, marketplaces, productos digitales, prototipos para levantar inversión, herramientas internas raras — si es software, se puede evaluar. En el diagnóstico te decimos con franqueza si es viable, cuál sería el arranque mínimo y qué nos parece riesgoso.</p>
+            </div>
+          </div>
+
+          <div class="faq-item reveal" role="listitem">
+            <button class="faq-question" aria-expanded="false">
+              ¿Cómo puedo crear una página web para mi empresa en Costa Rica?
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+            </button>
+            <div class="faq-answer" role="region">
+              <p>Es muy sencillo con Stackbit: <strong>1)</strong> Nos escribís por WhatsApp o llenás el formulario de contacto. <strong>2)</strong> Nos contás tu empresa, tus servicios y qué querés que haga tu sitio. <strong>3)</strong> Te enviamos una propuesta sin costo en menos de 24 horas. <strong>4)</strong> Aprobás el diseño y en el plazo acordado tu empresa ya tiene página web profesional en línea.</p>
+            </div>
+          </div>
+
+          <div class="faq-item reveal" role="listitem">
+            <button class="faq-question" aria-expanded="false">
+              ¿Cuánto cuesta hacer una página web en Costa Rica?
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+            </button>
+            <div class="faq-answer" role="region">
+              <p>No manejamos precios de lista, porque ningún negocio necesita exactamente lo mismo. El costo depende del tipo de sitio, de las funcionalidades que necesités y del plazo. Contanos qué querés lograr y en <strong>menos de 24 horas</strong> tenés una cotización a medida, sin costo ni compromiso.</p>
+            </div>
+          </div>
+
+          <div class="faq-item reveal" role="listitem">
+            <button class="faq-question" aria-expanded="false">
+              ¿Y si el diseño no me gusta?
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+            </button>
+            <div class="faq-answer" role="region">
+              <p>Antes de programar nada te mostramos la propuesta visual, con <strong>2 rondas de revisión</strong> incluidas hasta que estés conforme. Después de la entrega tenés <strong>1 ronda de ajustes sin costo durante los primeros 30 días</strong>. Nunca vas a recibir un sitio que veas por primera vez el día del lanzamiento.</p>
+            </div>
+          </div>
+
+          <div class="faq-item reveal" role="listitem">
+            <button class="faq-question" aria-expanded="false">
+              ¿En cuánto tiempo entregan mi página web?
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+            </button>
+            <div class="faq-answer" role="region">
+              <p>El plazo se define al inicio de cada proyecto según su alcance y complejidad. Antes de empezar te decimos exactamente cuándo estará lista tu web. El plazo comienza cuando recibimos tu información (logo, textos, fotos).</p>
+            </div>
+          </div>
+
+          <div class="faq-item reveal" role="listitem">
+            <button class="faq-question" aria-expanded="false">
+              ¿Usan plantillas de WordPress o diseñan a medida?
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+            </button>
+            <div class="faq-answer" role="region">
+              <p>Diseñamos <strong>100% a medida desde cero</strong>. No usamos plantillas genéricas de WordPress ni Wix. Cada sitio refleja la identidad única de tu negocio y carga más rápido que cualquier plantilla.</p>
+            </div>
+          </div>
+
+          <div class="faq-item reveal" role="listitem">
+            <button class="faq-question" aria-expanded="false">
+              ¿Hacen páginas web para restaurantes en Costa Rica?
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+            </button>
+            <div class="faq-answer" role="region">
+              <p>Sí. Diseñamos <strong>páginas web para restaurantes en Costa Rica</strong> con menú digital, galería de platos, horarios, mapa de ubicación y botón de pedidos por WhatsApp. El cliente ve tu menú, elige y te escribe directo — sin llamadas ni comisiones.</p>
+            </div>
+          </div>
+
+          <div class="faq-item reveal" role="listitem">
+            <button class="faq-question" aria-expanded="false">
+              ¿Hacen páginas web para barberías y salones de belleza?
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+            </button>
+            <div class="faq-answer" role="region">
+              <p>Sí. Creamos <strong>páginas web para barberías, salones de belleza, spas y estéticas en Costa Rica</strong>. Incluyen galería de trabajos, lista de servicios con precios, agenda en línea y contacto por WhatsApp.</p>
+            </div>
+          </div>
+
+          <div class="faq-item reveal" role="listitem">
+            <button class="faq-question" aria-expanded="false">
+              ¿La página web se ve bien en celular?
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+            </button>
+            <div class="faq-answer" role="region">
+              <p>Sí. Todas las páginas web que desarrollamos en Costa Rica son <strong>100% responsive y mobile-first</strong>. Se ven y funcionan perfectamente en celular, tablet y escritorio, y cargan en menos de 2 segundos.</p>
+            </div>
+          </div>
+
+          <div class="faq-item reveal" role="listitem">
+            <button class="faq-question" aria-expanded="false">
+              ¿Trabajan con negocios fuera de San José?
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+            </button>
+            <div class="faq-answer" role="region">
+              <p>Sí. Atendemos clientes en <strong>todo Costa Rica</strong> — San José, Alajuela, Cartago, Heredia, Guanacaste, Puntarenas y Limón. También trabajamos con clientes en México, Guatemala, Colombia, España y Estados Unidos. Todo el proceso es remoto y sin complicaciones.</p>
+            </div>
+          </div>
+
+          <div class="faq-item reveal" role="listitem">
+            <button class="faq-question" aria-expanded="false">
+              ¿Qué incluye el mantenimiento mensual?
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+            </button>
+            <div class="faq-answer" role="region">
+              <p>Hosting seguro, dominio renovado, certificado <strong>SSL activo</strong>, copias de seguridad diarias, monitoreo de disponibilidad 24/7, actualizaciones de seguridad y cambios menores de contenido sin costo extra.</p>
+            </div>
+          </div>
+
+        </div>
+        <div class="section-cta reveal" style="display:flex;flex-wrap:wrap;gap:.75rem;justify-content:center">
+          <a href="/software" class="btn btn-outline">Preguntas sobre software →</a>
+          <a href="/servicios" class="btn btn-ghost">Ver planes web →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════ CTA FINAL ════════════ -->
+    <section class="cta-band" aria-label="Llamada a la acción">
+      <div class="cta-band-gradient" aria-hidden="true"></div>
+      <div class="container">
+        <div class="cta-band-inner reveal">
+          <h2>Tu proyecto tech en Costa Rica,<br>a tu medida y sin vueltas.</h2>
+          <p>Contanos qué necesitás — un sistema, una app, una automatización o tu sitio web — y te respondemos en menos de 24 horas. Sin costo ni compromiso.</p>
+          <div class="cta-band-actions">
+            <a href="https://wa.me/50672849920?text=Hola%2C%20quiero%20conversar%20sobre%20un%20proyecto%20para%20mi%20empresa." class="btn btn-primary" target="_blank" rel="noopener noreferrer">
+              Escribir por WhatsApp →
+            </a>
+            <a href="/contacto" class="btn btn-ghost">Llenar el formulario</a>
+          </div>
+          <p style="margin-top:1.5rem;font-size:.875rem;opacity:.75">
+            Atiende <strong>Aarón López</strong> — desarrollador y fundador de Stackbit, desde San José, Costa Rica. Hablás directamente con quien construye tu proyecto.
+          </p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <a href="/" class="nav-logo" aria-label="Stackbit — inicio">
+            <span class="logo-text">Stackbit</span>
+            <span class="logo-dot" aria-hidden="true"></span>
+          </a>
+          <p><a href="/software" style="color:var(--accent)">Software a medida</a>, aplicaciones, automatización y <a href="/servicios" style="color:var(--accent)">páginas web</a> para empresas en Costa Rica.</p>
+        </div>
+        <nav class="footer-nav" aria-label="Páginas">
+          <h4>Páginas</h4>
+          <ul role="list">
+            <li><a href="/">Inicio</a></li>
+            <li><a href="/software">Software</a></li>
+            <li><a href="/servicios">Servicios</a></li>
+            <li><a href="/demos">Demos</a></li>
+            <li><a href="/contacto">Contacto</a></li>
+          </ul>
+        </nav>
+        <div class="footer-contact">
+          <h4>Contacto</h4>
+          <p><a href="mailto:contacto@stackbitcr.com">contacto@stackbitcr.com</a></p>
+          <p><a href="https://wa.me/50672849920" target="_blank" rel="noopener noreferrer">+506 7284-9920</a></p>
+          <p>Costa Rica</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Stackbit. Todos los derechos reservados.</p>
+        <p style="font-size:.8125rem;color:var(--ink-mute)">Diseñado y desarrollado con <span aria-label="amor">♥</span></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WhatsApp flotante -->
+  <a href="https://wa.me/50672849920?text=Hola%2C%20quiero%20conversar%20sobre%20un%20proyecto%20para%20mi%20empresa." class="whatsapp-float" target="_blank" rel="noopener noreferrer"
+     aria-label="Contactar por WhatsApp al +506 7284-9920">
+    <svg viewBox="0 0 24 24" fill="currentColor" width="28" height="28" aria-hidden="true">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+  </a>
+
+</body>
+</html>

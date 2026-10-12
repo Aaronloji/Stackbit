@@ -1,0 +1,24 @@
+{
+  "mockup-web": {
+    "src": "assets/img/mockup-web.jpg",
+    "title": "Hubble SM4 L-30 PC",
+    "creator": "NASA Goddard Space Flight Center",
+    "creator_url": "https://www.flickr.com/photos/35278629@N08",
+    "license": "by",
+    "license_version": "2.0",
+    "license_url": "https://creativecommons.org/licenses/by/2.0/",
+    "foreign_landing_url": "https://www.flickr.com/photos/35278629@N08/6550923759",
+    "source": "flickr"
+  },
+  "hero-tech": {
+    "src": "assets/img/hero-tech.jpg",
+    "title": "Color BOX- Low light photography",
+    "creator": "||-SAM Nasim-||",
+    "creator_url": "https://www.flickr.com/photos/65732636@N06",
+    "license": "by",
+    "license_version": "2.0",
+    "license_url": "https://creativecommons.org/licenses/by/2.0/",
+    "foreign_landing_url": "https://www.flickr.com/photos/65732636@N06/6257833143",
+    "source": "flickr"
+  }
+}

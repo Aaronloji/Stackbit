@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="es-CR">
+<head>
+  <meta charset="UTF-8">
+<!-- ══ ANALÍTICA — Stackbit CR (GA4 + Meta Pixel) ══ -->
+<script>
+/* Google Analytics 4 */
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-312SR4PJLV');
+/* Meta Pixel — stub inmediato, descarga diferida.
+   fbq() existe desde el primer instante y ENCOLA los eventos; el archivo real
+   (fbevents.js + su config, ~755 KB) se descarga recien al primer scroll/clic
+   o 3 s despues de load, lo que pase primero. Al llegar, procesa la cola, asi
+   que no se pierde el PageView ni los eventos de WhatsApp/formulario. */
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[]}(window,document,'script');
+fbq('init','876485647272894');fbq('track','PageView');
+(function(){
+  var pedido=false;
+  var gatillos=['scroll','pointerdown','keydown','touchstart'];
+  function cargarPixel(){
+    if(pedido)return; pedido=true;
+    gatillos.forEach(function(ev){window.removeEventListener(ev,cargarPixel);});
+    var t=document.createElement('script');
+    t.async=!0; t.src='https://connect.facebook.net/en_US/fbevents.js';
+    var s=document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(t,s);
+  }
+  gatillos.forEach(function(ev){window.addEventListener(ev,cargarPixel,{passive:!0});});
+  window.addEventListener('load',function(){setTimeout(cargarPixel,3000);});
+})();
+/* Eventos propios: WhatsApp, teléfono, demos y formularios */
+document.addEventListener('DOMContentLoaded',function(){
+  var ev=function(g,f,p){try{gtag('event',g,p||{});}catch(e){}
+                         try{f&&fbq('track',f,p||{});}catch(e){}};
+  document.addEventListener('click',function(e){
+    var a=e.target&&e.target.closest?e.target.closest('a'):null;
+    if(!a||!a.href)return;
+    var h=a.href;
+    if(h.indexOf('wa.me')>-1||h.indexOf('api.whatsapp')>-1) ev('clic_whatsapp','Contact',{method:'whatsapp'});
+    else if(h.indexOf('tel:')===0) ev('clic_telefono','Contact',{method:'telefono'});
+    else if(h.indexOf('mailto:')===0) ev('clic_correo','Contact',{method:'correo'});
+    else if(/\/demo-/.test(h)) ev('ver_demo',null,{demo:h.split('/').pop()});
+  },true);
+  document.addEventListener('submit',function(e){
+    if(e.target&&e.target.tagName==='FORM') ev('generate_lead','Lead',{});
+  },true);
+});
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-312SR4PJLV"></script>
+<noscript><img height="1" width="1" style="display:none" alt=""
+src="https://www.facebook.com/tr?id=876485647272894&ev=PageView&noscript=1"></noscript>
+<!-- ══ FIN ANALÍTICA ══ -->
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- ══ SEO ══ -->
+  <title>Carta — La Brasa · Parrilla & Cocina Artesanal | Demo Stackbit</title>
+  <meta name="description" content="Carta impresa de La Brasa — Parrilla & Cocina Artesanal en San José, Costa Rica. Demo de página de carta para restaurante diseñada por Stackbit.">
+  <meta name="keywords" content="carta restaurante, menú impreso digital, carta La Brasa, demo carta restaurante Costa Rica">
+  <meta name="author" content="Stackbit">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="geo.region" content="CR-SJ">
+  <meta name="geo.placename" content="San José, Costa Rica">
+
+  <link rel="canonical" href="https://stackbitcr.com/carta-restaurante">
+  <link rel="alternate" hreflang="es-CR" href="https://stackbitcr.com/carta-restaurante">
+  <link rel="alternate" hreflang="es" href="https://stackbitcr.com/carta-restaurante">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Stackbit">
+  <meta property="og:locale" content="es_CR">
+  <meta property="og:title" content="Carta La Brasa · Parrilla & Cocina Artesanal | Demo Stackbit">
+  <meta property="og:description" content="Carta de restaurante en formato impreso elegante. Demo diseñado por Stackbit Costa Rica.">
+  <meta property="og:url" content="https://stackbitcr.com/carta-restaurante">
+  <meta property="og:image" content="https://stackbitcr.com/assets/img/mockup-web.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Carta La Brasa | Demo Stackbit">
+  <meta name="twitter:description" content="Carta de restaurante en formato impreso elegante.">
+  <meta name="twitter:image" content="https://stackbitcr.com/assets/img/mockup-web.jpg">
+
+  <meta name="theme-color" content="#c4914a">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap"></noscript>
+
+  <!-- ══ STRUCTURED DATA ══ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://stackbitcr.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Demos", "item": "https://stackbitcr.com/demos" },
+          { "@type": "ListItem", "position": 3, "name": "Demo Restaurante", "item": "https://stackbitcr.com/demo-restaurante" },
+          { "@type": "ListItem", "position": 4, "name": "Carta", "item": "https://stackbitcr.com/carta-restaurante" }
+        ]
+      }
+    ]
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:      #0a0704;
+      --surface: #100d08;
+      --card:    #181410;
+      --border:  #2a2018;
+      --text:    #f5efe8;
+      --muted:   #8a7a6a;
+      --dim:     #4a3a2a;
+      --gold:    #c4914a;
+      --gold-lt: #e8b872;
+      --fire:    #e84c1e;
+      --green:   #25d366;
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family:'Inter',sans-serif; background:var(--bg); color:var(--text); line-height:1.6; overflow-x:hidden; min-height:100vh; display:flex; flex-direction:column; }
+    a { text-decoration:none; color:inherit; }
+    button { font-family:inherit; cursor:pointer; border:none; background:none; }
+
+    /* ── NAV (igual al demo) ── */
+    .nav {
+      position:sticky;top:0;left:0;right:0;height:66px;
+      display:flex;align-items:center;justify-content:space-between;
+      padding:0 2rem;z-index:300;
+      background:rgba(10,7,4,.92);backdrop-filter:blur(20px);
+      border-bottom:1px solid var(--border);
+    }
+    .nav-left { display:flex;align-items:center;gap:1.25rem; }
+    .back-btn {
+      display:flex;align-items:center;gap:.4rem;padding:.38rem .85rem;
+      background:rgba(255,255,255,.05);border:1px solid var(--border);border-radius:99px;
+      font-size:.78rem;font-weight:500;color:var(--muted);transition:border-color .2s,color .2s;
+    }
+    .back-btn:hover { border-color:var(--gold);color:var(--text); }
+    .nav-brand { font-family:'Playfair Display',serif;font-size:1.35rem;font-weight:600;color:var(--gold-lt); }
+    .nav-right { display:flex;align-items:center;gap:1.5rem; }
+    .nav-link {
+      font-size:.875rem;font-weight:500;color:var(--muted);
+      letter-spacing:.02em;transition:color .2s;position:relative;padding:.25rem 0;
+    }
+    .nav-link::after {
+      content:'';position:absolute;left:0;bottom:-2px;height:1px;width:0;
+      background:var(--gold);transition:width .25s ease;
+    }
+    .nav-link:hover { color:var(--text); }
+    .nav-link:hover::after { width:100%; }
+    .nav-link.active { color:var(--gold-lt); }
+    .nav-link.active::after { width:100%; background:var(--gold-lt); }
+    .nav-cta {
+      display:flex;align-items:center;gap:.5rem;padding:.5rem 1.25rem;
+      background:var(--green);color:#fff;border-radius:6px;font-size:.875rem;font-weight:600;
+      transition:background .2s,transform .15s;
+    }
+    .nav-cta:hover { background:#1db954;transform:translateY(-1px); }
+
+    /* ── PÁGINA ── */
+    .page {
+      flex:1;
+      padding:4rem 1.5rem 5rem;
+      background:
+        radial-gradient(ellipse 70% 50% at 50% 0%, rgba(196,145,74,.07) 0%, transparent 60%),
+        var(--bg);
+    }
+    .page-head { text-align:center;max-width:600px;margin:0 auto 3rem; }
+    .page-eyebrow {
+      display:inline-flex;align-items:center;gap:.65rem;
+      font-size:.72rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:1.25rem;
+    }
+    .page-eyebrow::before,.page-eyebrow::after { content:'';display:block;width:36px;height:1px;background:var(--gold);opacity:.6; }
+    .page-title { font-family:'Playfair Display',serif;font-size:clamp(2.5rem,6vw,4rem);line-height:1;font-weight:700;margin-bottom:1rem; }
+    .page-title em { font-style:italic;color:var(--gold-lt); }
+    .page-sub { font-size:1rem;color:var(--muted);line-height:1.7;max-width:48ch;margin:0 auto; }
+
+    /* ── TARJETA DE CARTA ── */
+    .carta-wrap { max-width:760px;margin:0 auto; }
+    .carta {
+      background:linear-gradient(160deg,#1a1208 0%,#120e06 100%);
+      border:1px solid rgba(196,145,74,.25);
+      border-radius:20px;
+      padding:clamp(2rem,5vw,3rem) clamp(1.5rem,5vw,3.5rem);
+      position:relative;
+      overflow:hidden;
+      box-shadow:0 30px 80px rgba(0,0,0,.5);
+    }
+    .corner { position:absolute;width:40px;height:40px;border-color:rgba(196,145,74,.4);border-style:solid; }
+    .corner.tl { top:20px;left:20px;border-width:1.5px 0 0 1.5px;border-radius:4px 0 0 0; }
+    .corner.tr { top:20px;right:20px;border-width:1.5px 1.5px 0 0;border-radius:0 4px 0 0; }
+    .corner.bl { bottom:20px;left:20px;border-width:0 0 1.5px 1.5px;border-radius:0 0 0 4px; }
+    .corner.br { bottom:20px;right:20px;border-width:0 1.5px 1.5px 0;border-radius:0 0 4px 0; }
+
+    .carta-head { text-align:center;margin-bottom:2.5rem; }
+    .carta-head-eyebrow { font-size:.72rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:.6rem; }
+    .carta-head h2 { font-family:'Playfair Display',serif;font-size:clamp(2.4rem,7vw,3.2rem);font-weight:700;color:var(--gold-lt);line-height:1;letter-spacing:-.02em;margin-bottom:.5rem; }
+    .ornament { display:flex;align-items:center;justify-content:center;gap:.75rem;margin:1rem 0; }
+    .ornament .line { height:1px;width:60px; }
+    .ornament .line.l { background:linear-gradient(90deg,transparent,rgba(196,145,74,.5)); }
+    .ornament .line.r { background:linear-gradient(90deg,rgba(196,145,74,.5),transparent); }
+    .carta-head-loc { font-size:.78rem;color:var(--muted);letter-spacing:.12em;text-transform:uppercase; }
+
+    .cat-block { margin-bottom:2rem; }
+    .cat-head { display:flex;align-items:center;gap:.75rem;margin-bottom:1.25rem; }
+    .cat-head .l { height:1px;flex:1;background:rgba(196,145,74,.2); }
+    .cat-head span { font-size:.72rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--gold); }
+
+    .item-list { display:flex;flex-direction:column;gap:.85rem; }
+    .item { display:flex;align-items:baseline;gap:.5rem;flex-wrap:wrap; }
+    .item-name { font-family:'Playfair Display',serif;font-size:clamp(1rem,2.5vw,1.0625rem);color:var(--text); }
+    .item-pop { font-size:.65rem;color:var(--gold);margin-left:.25rem;vertical-align:middle; }
+    .item-dots { flex:1;border-bottom:1px dotted rgba(196,145,74,.2);margin-bottom:3px;min-width:24px; }
+    .item-price { font-size:.9375rem;font-weight:600;color:var(--gold-lt);white-space:nowrap; }
+    .item-desc { font-size:.8rem;color:var(--muted);line-height:1.5;margin-top:-.4rem;padding-left:.25rem; }
+
+    .carta-foot { text-align:center;border-top:1px solid rgba(196,145,74,.15);padding-top:1.75rem; }
+    .carta-foot p { font-size:.75rem;color:var(--muted);line-height:1.7; }
+
+    /* ── BOTÓN WHATSAPP ── */
+    .wa-row { text-align:center;margin-top:2rem;display:flex;flex-direction:column;align-items:center;gap:1rem; }
+    .btn-wa {
+      display:inline-flex;align-items:center;gap:.6rem;
+      padding:1rem 2.25rem;background:var(--green);color:#fff;
+      border-radius:10px;font-weight:700;font-size:1rem;
+      box-shadow:0 8px 28px rgba(37,211,102,.35);
+      transition:background .2s,transform .15s,box-shadow .2s;
+    }
+    .btn-wa:hover { background:#1db954;transform:translateY(-2px);box-shadow:0 12px 36px rgba(37,211,102,.45); }
+    .btn-print {
+      display:inline-flex;align-items:center;gap:.5rem;
+      padding:.65rem 1.25rem;background:transparent;color:var(--muted);
+      border:1px solid var(--border);border-radius:8px;font-size:.82rem;
+      transition:border-color .2s,color .2s;
+    }
+    .btn-print:hover { border-color:var(--gold);color:var(--text); }
+
+    /* ── FOOTER ── */
+    .footer { background:var(--surface);border-top:1px solid var(--border);padding:2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem; }
+    .footer-brand { font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:600;color:var(--gold-lt); }
+    .footer p { font-size:.8rem;color:var(--dim); }
+    .footer a { color:var(--gold);font-weight:500; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width:760px) { .nav-link{font-size:.78rem;} .nav-right{gap:1rem;} }
+    @media (max-width:600px) {
+      .nav-cta span{display:none;} .nav{padding:0 1rem;} .nav-right{gap:.85rem;}
+      .page{padding:2.5rem 1rem 3.5rem;}
+      .corner{width:28px;height:28px;}
+      .corner.tl,.corner.tr{top:12px;} .corner.bl,.corner.br{bottom:12px;}
+      .corner.tl,.corner.bl{left:12px;} .corner.tr,.corner.br{right:12px;}
+    }
+
+    /* ── PRINT STYLES ── */
+    @media print {
+      .nav,.footer,.wa-row{ display:none !important; }
+      body{ background:#fff !important;color:#000 !important; }
+      .page{ padding:0 !important;background:#fff !important; }
+      .carta{
+        background:#fff !important;color:#000 !important;
+        border:1px solid #c4914a !important;box-shadow:none !important;
+        page-break-inside:avoid;
+      }
+      .carta-head h2,.item-price,.cat-head span,.carta-head-eyebrow,.page-eyebrow{ color:#8a6a2a !important; }
+      .item-name{ color:#000 !important; }
+      .item-desc,.carta-foot p,.carta-head-loc{ color:#555 !important; }
+      .item-dots{ border-bottom-color:#c4914a !important;opacity:.5; }
+      .ornament .line.l,.ornament .line.r,.cat-head .l{ background:#c4914a !important;opacity:.4; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ════ NAV ════ -->
+  <header class="nav">
+    <div class="nav-left">
+      <a href="/demo-restaurante" class="back-btn">
+        <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" width="14" height="14"><path d="M13 5l-5 5 5 5"/></svg>
+        Volver
+      </a>
+      <span class="nav-brand">La Brasa</span>
+    </div>
+    <nav class="nav-right">
+      <a href="demo-restaurante.html#menu" class="nav-link">Menú</a>
+      <a href="/carta-restaurante" class="nav-link active">Carta</a>
+      <a href="https://wa.me/50672849920?text=Hola%20La%20Brasa%2C%20vi%20la%20carta%20y%20quisiera%20hacer%20un%20pedido." target="_blank" rel="noopener" class="nav-cta">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        <span>Pedir</span>
+      </a>
+    </nav>
+  </header>
+
+  <!-- ════ PÁGINA ════ -->
+  <main class="page">
+
+    <header class="page-head">
+      <div class="page-eyebrow">La Brasa</div>
+      <h1 class="page-title">Nuestra <em>carta</em></h1>
+      <p class="page-sub">Cocina artesanal con productos frescos, parrilla a la leña y recetas de la casa. Tomá tu tiempo y elegí lo que querés.</p>
+    </header>
+
+    <div class="carta-wrap">
+
+      <!-- ── TARJETA ── -->
+      <article class="carta" aria-label="Carta impresa de La Brasa">
+        <div class="corner tl"></div><div class="corner tr"></div>
+        <div class="corner bl"></div><div class="corner br"></div>
+
+        <!-- Encabezado -->
+        <div class="carta-head">
+          <p class="carta-head-eyebrow">Parrilla &amp; Cocina Artesanal</p>
+          <h2>La Brasa</h2>
+          <div class="ornament">
+            <div class="line l"></div>
+            <svg viewBox="0 0 24 24" fill="var(--gold)" width="14" height="14" style="opacity:.7"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg>
+            <div class="line r"></div>
+          </div>
+          <p class="carta-head-loc">San José, Costa Rica</p>
+        </div>
+
+        <!-- ENTRADAS -->
+        <section class="cat-block">
+          <div class="cat-head"><div class="l"></div><span>Entradas</span><div class="l"></div></div>
+          <div class="item-list">
+            <div class="item"><span class="item-name">Guacamole Artesanal</span><span class="item-dots"></span><span class="item-price">₡3,500</span></div>
+            <p class="item-desc">Aguacate fresco, tomate, cebolla morada, cilantro, limón y tostadas artesanales</p>
+
+            <div class="item"><span class="item-name">Alitas Ahumadas</span><span class="item-dots"></span><span class="item-price">₡5,900</span></div>
+            <p class="item-desc">8 unidades en salsa BBQ artesanal, dip ranch y celery</p>
+
+            <div class="item"><span class="item-name">Tabla de Quesos</span><span class="item-dots"></span><span class="item-price">₡6,900</span></div>
+            <p class="item-desc">Quesos importados, mermelada de higo, nueces tostadas y crostini</p>
+          </div>
+        </section>
+
+        <!-- CARNES -->
+        <section class="cat-block">
+          <div class="cat-head"><div class="l"></div><span>Carnes &amp; Parrilla</span><div class="l"></div></div>
+          <div class="item-list">
+            <div class="item">
+              <span class="item-name">Churrasco Premium</span>
+              <span class="item-pop">★ Popular</span>
+              <span class="item-dots"></span>
+              <span class="item-price">₡13,900</span>
+            </div>
+            <p class="item-desc">300g lomo fino a la brasa, papas rústicas con romero y ensalada verde</p>
+
+            <div class="item"><span class="item-name">Costillas BBQ</span><span class="item-dots"></span><span class="item-price">₡14,900</span></div>
+            <p class="item-desc">Rack completo ahumado 5 horas, coleslaw cremoso y pan de ajo</p>
+
+            <div class="item"><span class="item-name">Pollo a la Brasa</span><span class="item-dots"></span><span class="item-price">₡7,900</span></div>
+            <p class="item-desc">Medio pollo marinado 24h, chimichurri casero y yuca frita</p>
+          </div>
+        </section>
+
+        <!-- POSTRES -->
+        <section class="cat-block">
+          <div class="cat-head"><div class="l"></div><span>Postres</span><div class="l"></div></div>
+          <div class="item-list">
+            <div class="item">
+              <span class="item-name">Volcán de Chocolate</span>
+              <span class="item-pop">★ Popular</span>
+              <span class="item-dots"></span>
+              <span class="item-price">₡3,900</span>
+            </div>
+            <p class="item-desc">Coulant con centro fundido, helado de vainilla artesanal y coulis de fresa</p>
+
+            <div class="item"><span class="item-name">Tres Leches Premium</span><span class="item-dots"></span><span class="item-price">₡3,500</span></div>
+            <p class="item-desc">Receta tradicional con chantilly, fresas y ron añejo</p>
+          </div>
+        </section>
+
+        <!-- BEBIDAS -->
+        <section class="cat-block" style="margin-bottom:2.5rem">
+          <div class="cat-head"><div class="l"></div><span>Bebidas</span><div class="l"></div></div>
+          <div class="item-list">
+            <div class="item"><span class="item-name">Limonada de la Casa</span><span class="item-dots"></span><span class="item-price">₡2,000</span></div>
+            <div class="item"><span class="item-name">Fresco de Sandía</span><span class="item-dots"></span><span class="item-price">₡1,900</span></div>
+            <div class="item"><span class="item-name">Cerveza Artesanal CR</span><span class="item-dots"></span><span class="item-price">₡3,500</span></div>
+          </div>
+        </section>
+
+        <!-- Pie de carta -->
+        <div class="carta-foot">
+          <div class="ornament" style="margin-bottom:.75rem">
+            <div class="line l" style="width:40px"></div>
+            <svg viewBox="0 0 24 24" fill="var(--gold)" width="12" height="12" style="opacity:.6"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg>
+            <div class="line r" style="width:40px"></div>
+          </div>
+          <p>Los precios incluyen impuestos · Consulte sobre alérgenos<br>Barrio Escalante, San José · +506 7284-9920</p>
+        </div>
+      </article>
+
+      <!-- ── BOTONES ── -->
+      <div class="wa-row">
+        <a href="https://wa.me/50672849920?text=Hola%20La%20Brasa%2C%20vi%20la%20carta%20y%20quisiera%20hacer%20un%20pedido." target="_blank" rel="noopener noreferrer" class="btn-wa">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Hacer pedido por WhatsApp
+        </a>
+        <button type="button" class="btn-print" onclick="window.print()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M6 9V2h12v7M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2M6 14h12v8H6z"/></svg>
+          Imprimir o guardar como PDF
+        </button>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- ════ FOOTER ════ -->
+  <footer class="footer">
+    <span class="footer-brand">La Brasa</span>
+    <p>&copy; 2026 La Brasa. Demo diseñado por <a href="/demos">Stackbit</a></p>
+  </footer>
+
+
+<!-- ══ BARRA STACKBIT — conversión desde la demo ══ -->
+<div class="sb-demobar" id="sbDemobar" role="complementary" aria-label="Esta es una demo de Stackbit">
+  <span class="sb-demobar__txt">Esta es una <strong>demo de Stackbit</strong> — así podría verse tu carta de restaurante.</span>
+  <a class="sb-demobar__cta" href="https://wa.me/50672849920?text=Hola%2C%20vi%20la%20demo%20en%20Stackbit%20y%20quiero%20cotizar%20una%20carta%20digital%20para%20mi%20restaurante." target="_blank" rel="noopener noreferrer">Cotizar la mía →</a>
+  <a class="sb-demobar__cta" href="https://stackbitcr.com/demos" style="background:transparent;color:#fff;border:1px solid rgba(255,255,255,.28)">Ver más demos</a>
+  <button class="sb-demobar__close" type="button" aria-label="Cerrar aviso" onclick="var b=document.getElementById('sbDemobar');b.parentNode.removeChild(b);document.body.style.paddingBottom='';">&times;</button>
+</div>
+<style>
+.sb-demobar{position:fixed;left:0;right:0;bottom:0;z-index:2147483000;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:.5rem .9rem;padding:.7rem 2.4rem .7rem 1rem;background:#0b0b0b;color:#fff;border-top:1px solid rgba(255,255,255,.14);font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;font-size:.875rem;line-height:1.4;text-align:center;box-shadow:0 -8px 30px rgba(0,0,0,.28);box-sizing:border-box}
+.sb-demobar *{box-sizing:border-box}
+.sb-demobar__txt{opacity:.85;color:#fff}
+.sb-demobar__txt strong{color:#fff;font-weight:700}
+.sb-demobar__cta{display:inline-flex;align-items:center;gap:.4rem;background:#fff;color:#0b0b0b;font-weight:700;font-size:.8125rem;padding:.5rem .95rem;border-radius:999px;text-decoration:none;white-space:nowrap;transition:transform .25s ease,opacity .25s ease}
+.sb-demobar__cta:hover{transform:translateY(-1px);opacity:.9}
+.sb-demobar__close{position:absolute;right:.5rem;top:50%;transform:translateY(-50%);background:none;border:0;color:rgba(255,255,255,.5);font-size:1.35rem;line-height:1;cursor:pointer;padding:.2rem .4rem}
+.sb-demobar__close:hover{color:#fff}
+@media (max-width:560px){.sb-demobar{font-size:.8125rem;padding:.6rem 2.2rem .6rem .9rem}}
+</style>
+<script>document.body.style.paddingBottom='72px';</script>
+
+</body>
+</html>

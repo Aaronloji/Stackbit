@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="es-CR">
+<head>
+  <meta charset="UTF-8">
+<!-- ══ ANALÍTICA — Stackbit CR (GA4 + Meta Pixel) ══ -->
+<script>
+/* Google Analytics 4 */
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-312SR4PJLV');
+/* Meta Pixel — stub inmediato, descarga diferida.
+   fbq() existe desde el primer instante y ENCOLA los eventos; el archivo real
+   (fbevents.js + su config, ~755 KB) se descarga recien al primer scroll/clic
+   o 3 s despues de load, lo que pase primero. Al llegar, procesa la cola, asi
+   que no se pierde el PageView ni los eventos de WhatsApp/formulario. */
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[]}(window,document,'script');
+fbq('init','876485647272894');fbq('track','PageView');
+(function(){
+  var pedido=false;
+  var gatillos=['scroll','pointerdown','keydown','touchstart'];
+  function cargarPixel(){
+    if(pedido)return; pedido=true;
+    gatillos.forEach(function(ev){window.removeEventListener(ev,cargarPixel);});
+    var t=document.createElement('script');
+    t.async=!0; t.src='https://connect.facebook.net/en_US/fbevents.js';
+    var s=document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(t,s);
+  }
+  gatillos.forEach(function(ev){window.addEventListener(ev,cargarPixel,{passive:!0});});
+  window.addEventListener('load',function(){setTimeout(cargarPixel,3000);});
+})();
+/* Eventos propios: WhatsApp, teléfono, demos y formularios */
+document.addEventListener('DOMContentLoaded',function(){
+  var ev=function(g,f,p){try{gtag('event',g,p||{});}catch(e){}
+                         try{f&&fbq('track',f,p||{});}catch(e){}};
+  document.addEventListener('click',function(e){
+    var a=e.target&&e.target.closest?e.target.closest('a'):null;
+    if(!a||!a.href)return;
+    var h=a.href;
+    if(h.indexOf('wa.me')>-1||h.indexOf('api.whatsapp')>-1) ev('clic_whatsapp','Contact',{method:'whatsapp'});
+    else if(h.indexOf('tel:')===0) ev('clic_telefono','Contact',{method:'telefono'});
+    else if(h.indexOf('mailto:')===0) ev('clic_correo','Contact',{method:'correo'});
+    else if(/\/demo-/.test(h)) ev('ver_demo',null,{demo:h.split('/').pop()});
+  },true);
+  document.addEventListener('submit',function(e){
+    if(e.target&&e.target.tagName==='FORM') ev('generate_lead','Lead',{});
+  },true);
+});
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-312SR4PJLV"></script>
+<noscript><img height="1" width="1" style="display:none" alt=""
+src="https://www.facebook.com/tr?id=876485647272894&ev=PageView&noscript=1"></noscript>
+<!-- ══ FIN ANALÍTICA ══ -->
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Página no encontrada (404) | Stackbit Costa Rica</title>
+  <meta name="description" content="La página que buscás no existe. Volvé al inicio o explorá nuestros servicios y demos de páginas web profesionales.">
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="https://stackbitcr.com/404">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <meta name="theme-color" content="#080808">
+  <link rel="manifest" href="manifest.webmanifest">
+  <script>(function(){var t=localStorage.getItem("sb-theme")||(window.matchMedia("(prefers-color-scheme:dark)").matches?"dark":"light");document.documentElement.setAttribute("data-theme",t)}())</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
+  <link rel="stylesheet" href="styles.min.css?v=20260921">
+  <style>
+    /* ── Layout ── */
+    .err-page {
+      min-height: 100dvh;
+      display: flex;
+      flex-direction: column;
+    }
+    .err-main {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 7rem 1.5rem 5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* ── Background orbs ── */
+    .err-orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      pointer-events: none;
+      animation: errFloat 8s ease-in-out infinite;
+    }
+    .err-orb-a {
+      width: 520px; height: 520px;
+      top: -120px; left: -160px;
+      background: radial-gradient(circle, rgba(79,143,255,.18) 0%, transparent 70%);
+      animation-delay: 0s;
+    }
+    .err-orb-b {
+      width: 400px; height: 400px;
+      bottom: -80px; right: -100px;
+      background: radial-gradient(circle, rgba(139,92,246,.15) 0%, transparent 70%);
+      animation-delay: -3s;
+    }
+    .err-orb-c {
+      width: 300px; height: 300px;
+      top: 40%; left: 55%;
+      background: radial-gradient(circle, rgba(6,199,232,.1) 0%, transparent 70%);
+      animation-delay: -5s;
+    }
+    @keyframes errFloat {
+      0%, 100% { transform: translateY(0) scale(1); }
+      50%       { transform: translateY(-24px) scale(1.04); }
+    }
+
+    /* ── Inner card ── */
+    .err-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 620px;
+      width: 100%;
+      text-align: center;
+      animation: errFadeUp .6s cubic-bezier(.22,1,.36,1) both;
+    }
+    @keyframes errFadeUp {
+      from { opacity: 0; transform: translateY(28px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── 404 glitch number ── */
+    .err-number {
+      position: relative;
+      display: inline-block;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: clamp(6rem, 20vw, 11rem);
+      font-weight: 900;
+      line-height: 1;
+      letter-spacing: -.06em;
+      background: linear-gradient(135deg, #4f8fff 0%, #8b5cf6 50%, #06c7e8 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 0;
+      user-select: none;
+    }
+    .err-number::before,
+    .err-number::after {
+      content: '404';
+      position: absolute;
+      inset: 0;
+      background: inherit;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: glitch 4s infinite;
+    }
+    .err-number::before {
+      clip-path: polygon(0 30%, 100% 30%, 100% 50%, 0 50%);
+      animation-name: glitchTop;
+      animation-delay: .5s;
+    }
+    .err-number::after {
+      clip-path: polygon(0 60%, 100% 60%, 100% 75%, 0 75%);
+      animation-name: glitchBot;
+      animation-delay: 1.2s;
+    }
+    @keyframes glitchTop {
+      0%, 90%, 100% { transform: translate(0); opacity: 0; }
+      92%            { transform: translate(-4px, -2px); opacity: .7; filter: hue-rotate(90deg); }
+      94%            { transform: translate(4px,  1px); opacity: .7; filter: hue-rotate(-60deg); }
+      96%            { transform: translate(-2px, 0);   opacity: .7; }
+    }
+    @keyframes glitchBot {
+      0%, 85%, 100% { transform: translate(0); opacity: 0; }
+      87%            { transform: translate(3px, 2px);  opacity: .6; filter: hue-rotate(120deg); }
+      89%            { transform: translate(-3px, -1px);opacity: .6; filter: hue-rotate(-40deg); }
+      91%            { transform: translate(1px, 0);    opacity: .6; }
+    }
+
+    /* ── Badge ── */
+    .err-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: .45rem;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: .75rem;
+      font-weight: 500;
+      color: var(--accent, #4f8fff);
+      background: rgba(79,143,255,.1);
+      border: 1px solid rgba(79,143,255,.25);
+      border-radius: 999px;
+      padding: .3rem .85rem;
+      margin-bottom: 1.5rem;
+      letter-spacing: .04em;
+    }
+    .err-badge-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: #4f8fff;
+      animation: pulse 2s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50%       { opacity: .4; transform: scale(.7); }
+    }
+
+    /* ── Text ── */
+    .err-title {
+      font-size: clamp(1.6rem, 4vw, 2.25rem);
+      font-weight: 800;
+      letter-spacing: -.025em;
+      line-height: 1.15;
+      margin: .75rem 0 1rem;
+    }
+    .err-sub {
+      font-size: 1.0625rem;
+      color: var(--ink-soft, #8888a4);
+      line-height: 1.7;
+      max-width: 44ch;
+      margin: 0 auto 2.25rem;
+    }
+
+    /* ── Actions ── */
+    .err-actions {
+      display: flex;
+      justify-content: center;
+      gap: .75rem;
+      flex-wrap: wrap;
+      margin-bottom: 3rem;
+    }
+
+    /* ── Quick links grid ── */
+    .err-divider {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+      color: var(--ink-mute, #555570);
+      font-size: .8125rem;
+    }
+    .err-divider::before,
+    .err-divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: rgba(255,255,255,.07);
+    }
+
+    .err-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: .75rem;
+      text-align: left;
+    }
+    .err-card {
+      display: flex;
+      align-items: flex-start;
+      gap: .85rem;
+      padding: 1.1rem 1.25rem;
+      background: rgba(255,255,255,.025);
+      border: 1px solid rgba(255,255,255,.07);
+      border-radius: 14px;
+      transition: border-color .2s, background .2s, transform .18s;
+      text-decoration: none;
+      color: inherit;
+    }
+    .err-card:hover {
+      border-color: rgba(79,143,255,.4);
+      background: rgba(79,143,255,.06);
+      transform: translateY(-3px);
+    }
+    .err-card-icon {
+      flex-shrink: 0;
+      width: 36px; height: 36px;
+      border-radius: 9px;
+      background: rgba(79,143,255,.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent, #4f8fff);
+      margin-top: .05rem;
+    }
+    .err-card h3 {
+      font-size: .9rem;
+      font-weight: 600;
+      margin-bottom: .2rem;
+      letter-spacing: -.01em;
+    }
+    .err-card p {
+      font-size: .8rem;
+      color: var(--ink-mute, #555570);
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    /* ── Footer minimal ── */
+    .err-footer {
+      padding: 1.25rem 1.5rem;
+      text-align: center;
+      font-size: .8125rem;
+      color: var(--ink-mute, #555570);
+      border-top: 1px solid rgba(255,255,255,.06);
+    }
+    .err-footer a { color: inherit; }
+    .err-footer a:hover { color: var(--accent, #4f8fff); }
+  </style>
+</head>
+<body class="err-page">
+  <a href="#main" class="skip-link">Saltar al contenido</a>
+
+  <!-- ── Nav ── -->
+  <nav class="nav" id="nav" role="navigation" aria-label="Navegación principal">
+    <a href="/" class="nav-logo" aria-label="Stackbit — inicio">
+      <span class="logo-text">Stackbit</span>
+      <span class="logo-dot" aria-hidden="true"></span>
+    </a>
+    <ul class="nav-links" role="list">
+      <li><a href="/software" class="nav-link">Software</a></li>
+      <li><a href="/servicios" class="nav-link">Servicios</a></li>
+      <li><a href="/demos" class="nav-link">Demos</a></li>
+      <li><a href="/contacto" class="nav-link">Contacto</a></li>
+    </ul>
+    <button class="theme-toggle" aria-label="Alternar modo de color">
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" width="18" height="18" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" width="18" height="18" aria-hidden="true"><path d="M21 12.79A9 9 0 1111.21 3a7 7 0 009.79 9.79z"/></svg>
+    </button>
+    <a href="/contacto" class="btn btn-nav">Solicitar proyecto</a>
+    <button class="nav-hamburger" aria-label="Abrir menú" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="mobile-menu" role="dialog" aria-label="Menú de navegación" hidden>
+    <ul role="list">
+      <li><a href="/software">Software</a></li>
+      <li><a href="/servicios">Servicios</a></li>
+      <li><a href="/demos">Demos</a></li>
+      <li><a href="/contacto">Contacto</a></li>
+    </ul>
+    <a href="/contacto" class="btn btn-primary">Solicitar proyecto →</a>
+  </div>
+
+  <!-- ── Main ── -->
+  <main id="main" class="err-main">
+    <div class="err-orb err-orb-a" aria-hidden="true"></div>
+    <div class="err-orb err-orb-b" aria-hidden="true"></div>
+    <div class="err-orb err-orb-c" aria-hidden="true"></div>
+
+    <div class="err-inner">
+
+      <div class="err-badge">
+        <span class="err-badge-dot"></span>
+        error · página no encontrada
+      </div>
+
+      <div class="err-number" aria-label="404">404</div>
+
+      <h1 class="err-title">Ups, esta página<br>no existe.</h1>
+      <p class="err-sub">
+        La URL puede estar mal escrita o la página fue movida.
+        No te preocupés — desde aquí podés encontrar lo que buscás.
+      </p>
+
+      <div class="err-actions">
+        <a href="/" class="btn btn-primary">← Volver al inicio</a>
+        <a href="https://wa.me/50672849920" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">
+          Escribir por WhatsApp
+        </a>
+      </div>
+
+      <div class="err-divider">¿A dónde querías ir?</div>
+
+      <div class="err-grid">
+        <a href="/servicios" class="err-card">
+          <div class="err-card-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          </div>
+          <div>
+            <h3>Servicios</h3>
+            <p>Diseño web, tiendas y mantenimiento.</p>
+          </div>
+        </a>
+        <a href="/demos" class="err-card">
+          <div class="err-card-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><path d="M5 3l14 9-14 9V3z"/></svg>
+          </div>
+          <div>
+            <h3>Demos</h3>
+            <p>Ejemplos reales por tipo de negocio.</p>
+          </div>
+        </a>
+        <a href="/contacto" class="err-card">
+          <div class="err-card-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+          </div>
+          <div>
+            <h3>Contacto</h3>
+            <p>Hablemos de tu proyecto.</p>
+          </div>
+        </a>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- ── Footer ── -->
+  <footer class="err-footer" role="contentinfo">
+    <p>&copy; 2026 Stackbit · <a href="/">stackbitcr.com</a></p>
+  </footer>
+
+  <script src="main.js?v=20260921" defer></script>
+</body>
+</html>
