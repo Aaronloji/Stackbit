@@ -1,14 +1,14 @@
 {
-  "name": "Stackbit — Software y Desarrollo Web Costa Rica",
+  "name": "Stackbit — Custom Software, Web & Automation",
   "short_name": "Stackbit",
-  "description": "Desarrollamos software a medida, aplicaciones, automatización con IA y páginas web para empresas en Costa Rica.",
+  "description": "Remote software studio: custom software, apps, AI automation and websites for businesses of any size, worldwide.",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
   "orientation": "portrait-primary",
   "background_color": "#080808",
   "theme_color": "#080808",
-  "lang": "es-CR",
+  "lang": "en",
   "dir": "ltr",
   "categories": ["business", "productivity", "developer"],
   "icons": [
@@ -25,13 +25,12 @@
       "sizes": "1200x630",
       "type": "image/jpeg",
       "form_factor": "wide",
-      "label": "Stackbit — software y desarrollo web en Costa Rica"
+      "label": "Stackbit — custom software, web and automation"
     }
   ],
   "shortcuts": [
-    { "name": "Software", "short_name": "Software", "url": "/software" },
-    { "name": "Servicios", "short_name": "Servicios", "url": "/servicios" },
-    { "name": "Demos", "short_name": "Demos", "url": "/demos" },
-    { "name": "Contacto", "short_name": "Contacto", "url": "/contacto" }
+    { "name": "Software", "short_name": "Software", "url": "/en/software" },
+    { "name": "Services", "short_name": "Services", "url": "/en/services" },
+    { "name": "Contact", "short_name": "Contact", "url": "/en/contact" }
   ]
 }

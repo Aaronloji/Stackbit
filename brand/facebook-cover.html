@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Portada Facebook — Stackbit</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  /* 1640×624 es el tamaño recomendado por Facebook. El texto va en el centro
+     (~1000px de ancho) porque en celular Facebook recorta los costados. */
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1640px; height: 624px; overflow: hidden; background: #07070a; }
+  .cover {
+    position: relative; width: 1640px; height: 624px; overflow: hidden;
+    font-family: Inter, system-ui, sans-serif; color: #eaeaf2;
+    background:
+      radial-gradient(700px circle at 22% 30%, rgba(79,143,255,.30), transparent 60%),
+      radial-gradient(600px circle at 80% 75%, rgba(139,92,246,.26), transparent 60%),
+      radial-gradient(420px circle at 60% 10%, rgba(6,199,232,.14), transparent 60%),
+      #07070a;
+  }
+  .grid {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
+    background-size: 48px 48px;
+    -webkit-mask-image: radial-gradient(ellipse at center, #000 30%, transparent 75%);
+            mask-image: radial-gradient(ellipse at center, #000 30%, transparent 75%);
+  }
+  .content {
+    position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);
+    width: 1000px; text-align: center;
+  }
+  .logo { display: inline-flex; align-items: center; gap: 12px; font-weight: 900; font-size: 44px; letter-spacing: -.05em; margin-bottom: 26px; }
+  .logo i { width: 13px; height: 13px; border-radius: 50%; background: #4f8fff; box-shadow: 0 0 22px rgba(79,143,255,.8); }
+  .kicker {
+    font-family: 'JetBrains Mono', monospace; font-size: 17px; letter-spacing: .16em; text-transform: uppercase;
+    color: #4f8fff; display: inline-flex; align-items: center; gap: 14px; margin-bottom: 22px;
+  }
+  .kicker::before, .kicker::after { content: ""; width: 34px; height: 1px; background: #4f8fff; }
+  h1 { font-size: 64px; font-weight: 900; letter-spacing: -.045em; line-height: 1.04; margin-bottom: 22px; }
+  .accent {
+    background: linear-gradient(110deg, #4f8fff 0%, #8b5cf6 45%, #06c7e8 100%);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  .sub { font-size: 23px; color: #a4a4bc; margin-bottom: 26px; }
+  .url {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-family: 'JetBrains Mono', monospace; font-size: 18px; color: #eaeaf2;
+    padding: 10px 22px; border-radius: 999px;
+    background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.12);
+  }
+  .url b { color: #34d399; font-weight: 500; }
+  /* Detalles decorativos en los bordes (en celular se recortan sin problema) */
+  .code {
+    position: absolute; right: 70px; top: 120px; width: 300px;
+    font-family: 'JetBrains Mono', monospace; font-size: 14px; line-height: 1.9; color: #6f6f88;
+    padding: 18px 20px; border-radius: 14px;
+    background: rgba(14,14,22,.7); border: 1px solid rgba(255,255,255,.08);
+    transform: rotate(4deg); opacity: .75;
+  }
+  .code .k { color: #8b5cf6; } .code .s { color: #7ee0a1; } .code .c { font-style: italic; }
+  .dots { display: flex; gap: 7px; margin-bottom: 12px; }
+  .dots span { width: 10px; height: 10px; border-radius: 50%; background: #ff5f57; }
+  .dots span:nth-child(2) { background: #febc2e; } .dots span:nth-child(3) { background: #28c840; }
+  .chip {
+    position: absolute; left: 90px; top: 110px;
+    display: inline-flex; align-items: center; gap: 10px;
+    font-size: 16px; font-weight: 700; padding: 11px 18px; border-radius: 999px;
+    background: rgba(24,24,34,.85); border: 1px solid rgba(255,255,255,.12); transform: rotate(-5deg); opacity: .85;
+  }
+  .chip svg { width: 18px; height: 18px; color: #4f8fff; }
+</style>
+</head>
+<body>
+  <div class="cover">
+    <div class="grid"></div>
+
+    <div class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>EN · ES</div>
+
+    <div class="code">
+      <div class="dots"><span></span><span></span><span></span></div>
+      <div class="c">// stackbit.config.ts</div>
+      <div><span class="k">alcance</span>: <span class="s">"por escrito"</span>,</div>
+      <div><span class="k">precio</span>: <span class="s">"cerrado"</span>,</div>
+      <div><span class="k">entrega</span>: <span class="s">"por etapas"</span>,</div>
+    </div>
+
+    <div class="content">
+      <div class="logo">Stackbit<i></i></div><br>
+      <div class="kicker">Estudio de software remoto · Español e inglés</div>
+      <h1>Software a medida, apps,<br><span class="accent">automatización con IA</span> y web.</h1>
+      <p class="sub">Para empresas de cualquier tamaño, en cualquier país.</p>
+      <span class="url"><b>→</b> stackbitcr.com</span>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<!-- ══ ANALÍTICA — GA4 + Meta Pixel + Umami ══ -->
+<script>
+/* Google Analytics 4 */
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-312SR4PJLV');
+/* Meta Pixel — stub inmediato, descarga diferida.
+   fbq() existe desde el primer instante y ENCOLA los eventos; el archivo real
+   se descarga recien al primer scroll/clic o 3 s despues de load. */
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[]}(window,document,'script');
+fbq('init','876485647272894');fbq('track','PageView');
+(function(){
+  var pedido=false;
+  var gatillos=['scroll','pointerdown','keydown','touchstart'];
+  function cargarPixel(){
+    if(pedido)return; pedido=true;
+    gatillos.forEach(function(ev){window.removeEventListener(ev,cargarPixel);});
+    var t=document.createElement('script');
+    t.async=!0; t.src='https://connect.facebook.net/en_US/fbevents.js';
+    var s=document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(t,s);
+  }
+  gatillos.forEach(function(ev){window.addEventListener(ev,cargarPixel,{passive:!0});});
+  window.addEventListener('load',function(){setTimeout(cargarPixel,3000);});
+})();
+/* Eventos propios: un mismo evento va a Umami, GA4 y Meta */
+window.sbTrack=function(nombre,ga,fb,datos){
+  datos=datos||{};
+  try{window.umami&&umami.track(nombre,datos);}catch(e){}
+  try{gtag('event',ga||nombre,datos);}catch(e){}
+  try{fb&&fbq('track',fb,datos);}catch(e){}
+};
+document.addEventListener('click',function(e){
+  var a=e.target&&e.target.closest?e.target.closest('a'):null;
+  if(!a||!a.href)return;
+  var h=a.href;
+  if(h.indexOf('wa.me')>-1) sbTrack('whatsapp_click','clic_whatsapp','Contact',{method:'whatsapp'});
+  else if(h.indexOf('mailto:')===0) sbTrack('contact_click','clic_correo','Contact',{method:'email'});
+  else if(/\/(en\/contact|es\/contacto)\/?(#.*)?$/.test(h)) sbTrack('contact_click','clic_contacto',null,{method:'page'});
+},true);
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-312SR4PJLV"></script>
+<script defer src="https://cloud.umami.is/script.js" data-website-id="f7de3f95-ebd5-48dd-83d2-0b24fda3253b"></script>
+<noscript><img height="1" width="1" style="display:none" alt=""
+src="https://www.facebook.com/tr?id=876485647272894&ev=PageView&noscript=1"></noscript>
+<!-- ══ FIN ANALÍTICA ══ -->
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- ══════════════ SEO ══════════════ -->
+  <title>Custom Software, Web &amp; Automation for Businesses Worldwide | Stackbit</title>
+  <meta name="description" content="Stackbit is a remote software studio. Custom software, apps, AI automation and websites for businesses of any size, worldwide. English and Spanish. Scope and price in writing before we code.">
+  <meta name="author" content="Stackbit">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+
+  <!-- ══════════════ CANONICAL & HREFLANG ══════════════ -->
+  <link rel="canonical" href="https://stackbitcr.com/en/">
+  <link rel="alternate" hreflang="en" href="https://stackbitcr.com/en/">
+  <link rel="alternate" hreflang="es" href="https://stackbitcr.com/es/">
+  <link rel="alternate" hreflang="x-default" href="https://stackbitcr.com/en/">
+
+  <!-- ══════════════ OPEN GRAPH ══════════════ -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Stackbit">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:locale:alternate" content="es_ES">
+  <meta property="og:title" content="Custom Software, Web &amp; Automation for Businesses Worldwide | Stackbit">
+  <meta property="og:description" content="Stackbit is a remote software studio. Custom software, apps, AI automation and websites for businesses of any size, worldwide. English and Spanish. Scope and price in writing before we code.">
+  <meta property="og:url" content="https://stackbitcr.com/en/">
+  <meta property="og:image" content="https://stackbitcr.com/assets/img/hero-tech.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:alt" content="Stackbit — custom software, web and automation">
+
+  <!-- ══════════════ TWITTER CARD ══════════════ -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@StackbitCR">
+  <meta name="twitter:creator" content="@StackbitCR">
+  <meta name="twitter:title" content="Custom Software, Web &amp; Automation for Businesses Worldwide | Stackbit">
+  <meta name="twitter:description" content="Stackbit is a remote software studio. Custom software, apps, AI automation and websites for businesses of any size, worldwide. English and Spanish. Scope and price in writing before we code.">
+  <meta name="twitter:image" content="https://stackbitcr.com/assets/img/hero-tech.jpg">
+  <meta name="twitter:image:alt" content="Stackbit — custom software, web and automation">
+
+  <!-- ══════════════ THEME, ICONS, MANIFEST ══════════════ -->
+  <meta name="theme-color" content="#080808">
+  <meta name="apple-mobile-web-app-title" content="Stackbit">
+  <meta name="application-name" content="Stackbit">
+  <meta name="format-detection" content="telephone=no">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+  <link rel="manifest" href="/manifest.webmanifest">
+
+  <script>(function(){var t=null;try{t=localStorage.getItem("sb-theme")}catch(e){}t=t||(window.matchMedia("(prefers-color-scheme:dark)").matches?"dark":"light");document.documentElement.setAttribute("data-theme",t);try{if(sessionStorage.getItem("sb-pt")){sessionStorage.removeItem("sb-pt");document.documentElement.classList.add("pt-enter")}}catch(e){}}())</script>
+
+  <!-- ══════════════ PERFORMANCE ══════════════ -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
+  <link rel="stylesheet" href="/styles.min.css?v=20261028k">
+
+  <script defer src="/main.js?v=20261028k"></script>
+
+  <!-- ══════════════ STRUCTURED DATA (Schema.org JSON-LD) ══════════════ -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://stackbitcr.com/#organization",
+      "name": "Stackbit",
+      "alternateName": "StackbitCR",
+      "url": "https://stackbitcr.com/en/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://stackbitcr.com/favicon.svg"
+      },
+      "image": "https://stackbitcr.com/assets/img/hero-tech.jpg",
+      "description": "Stackbit is a remote software studio. We build custom software for businesses of any size, anywhere: management systems, mobile and web apps, AI automation, dashboards, integrations, websites and online stores. We work in English and Spanish.",
+      "founder": {
+        "@type": "Person",
+        "name": "Aarón López Jiménez",
+        "jobTitle": "Systems Engineer",
+        "alumniOf": {
+          "@type": "CollegeOrUniversity",
+          "name": "Universidad Fidélitas"
+        },
+        "sameAs": [
+          "https://aaronlopez-dev.higgsfield.app/",
+          "https://www.linkedin.com/in/aaronloji"
+        ]
+      },
+      "areaServed": "Worldwide",
+      "knowsLanguage": [
+        "en",
+        "es"
+      ],
+      "email": "contacto@stackbitcr.com",
+      "contactPoint": [
+        {
+          "@type": "ContactPoint",
+          "contactType": "sales",
+          "email": "contacto@stackbitcr.com",
+          "telephone": "+50672849920",
+          "availableLanguage": [
+            "English",
+            "Spanish"
+          ],
+          "areaServed": "Worldwide"
+        }
+      ],
+      "sameAs": [
+        "https://x.com/StackbitCR",
+        "https://www.instagram.com/stackbitcr/",
+        "https://www.facebook.com/profile.php?id=61593318867486"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://stackbitcr.com/en/#website",
+      "url": "https://stackbitcr.com/en/",
+      "name": "Stackbit",
+      "inLanguage": "en",
+      "publisher": {
+        "@id": "https://stackbitcr.com/#organization"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://stackbitcr.com/en/#webpage",
+      "url": "https://stackbitcr.com/en/",
+      "name": "Custom Software, Web & Automation for Businesses Worldwide | Stackbit",
+      "description": "Stackbit is a remote software studio. Custom software, apps, AI automation and websites for businesses of any size, worldwide. English and Spanish. Scope and price in writing before we code.",
+      "inLanguage": "en",
+      "isPartOf": {
+        "@id": "https://stackbitcr.com/en/#website"
+      },
+      "about": {
+        "@id": "https://stackbitcr.com/#organization"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://stackbitcr.com/en/#faq",
+      "inLanguage": "en",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is Stackbit?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Stackbit is a remote software studio. We build custom software for companies — management systems, mobile and web apps, AI automation, dashboards and integrations — as well as websites and online stores. We work in English and Spanish with companies anywhere in the world."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you work with companies of any size?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. From a business that's just getting started to a large company with several teams. A project can start small and well defined — one automated process, an inventory system, a dashboard with your key numbers — and grow in modules from there."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How is custom software different from off-the-shelf software?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Off-the-shelf software makes you change the way you work to fit the program. Custom software does the opposite. You don't pay for modules you'll never use, there are no per-user licenses that go up every year, the features specific to your business can actually be built — and the code belongs to your company."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can you automate processes with AI?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, where there's a measurable result. Typical uses: answering and routing WhatsApp inquiries 24/7, reading invoices and documents to extract data without manual entry, generating reports automatically and answering questions about your company's internal information. We don't add AI where a simple automation does the job better."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "I have a tech idea. Can you evaluate it?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Tell us about it. Platforms, marketplaces, digital products, prototypes to raise funding, unusual internal tools — if it's software, it can be evaluated. In the diagnosis we tell you honestly whether it's viable, what the smallest useful first version would be and what we see as risky."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How much does a project cost?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We don't use price lists, because no two companies need exactly the same thing. Cost depends on scope, features and timeline. Tell us what you want to achieve and within 24 hours you'll get a tailored quote, free and with no commitment. Scope and price are agreed in writing before any code is written."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do payments work?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We accept PayPal, Stripe or bank transfer. Payment terms are set in writing in the proposal, before work starts."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you work remotely with companies in other countries?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, the whole process is remote: video calls, shared documents and staged deliveries you can test. We communicate in English and Spanish, reply within 24 hours and are available during Americas and Europe business hours."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What if I don't like the design?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Before any code is written you see the visual proposal, with 2 rounds of revisions included. After delivery you get 1 round of adjustments at no cost during the first 30 days. You'll never see your product for the first time on launch day."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How long does a project take?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The timeline is defined at the start of each project based on scope and complexity, and it's written into the proposal. We work in stages, so you start using a first version early instead of waiting months."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you use templates or design from scratch?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We design and build from scratch. No generic WordPress or Wix templates — each project is built around your brand and your process."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What does monthly maintenance include?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Secure hosting, domain renewal, an active SSL certificate, daily backups, uptime monitoring, security updates and small content changes at no extra cost."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "OfferCatalog",
+      "@id": "https://stackbitcr.com/en/services#catalog",
+      "name": "Stackbit — services",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Custom software development",
+            "areaServed": "Worldwide",
+            "provider": {
+              "@id": "https://stackbitcr.com/#organization"
+            }
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Management systems: inventory, invoicing and customers",
+            "areaServed": "Worldwide",
+            "provider": {
+              "@id": "https://stackbitcr.com/#organization"
+            }
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Mobile and web apps",
+            "areaServed": "Worldwide",
+            "provider": {
+              "@id": "https://stackbitcr.com/#organization"
+            }
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Process automation and AI",
+            "areaServed": "Worldwide",
+            "provider": {
+              "@id": "https://stackbitcr.com/#organization"
+            }
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Dashboards, integrations and point of sale (POS)",
+            "areaServed": "Worldwide",
+            "provider": {
+              "@id": "https://stackbitcr.com/#organization"
+            }
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Websites and landing pages",
+            "areaServed": "Worldwide",
+            "provider": {
+              "@id": "https://stackbitcr.com/#organization"
+            }
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Online stores (e-commerce)",
+            "areaServed": "Worldwide",
+            "provider": {
+              "@id": "https://stackbitcr.com/#organization"
+            }
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Maintenance and support",
+            "areaServed": "Worldwide",
+            "provider": {
+              "@id": "https://stackbitcr.com/#organization"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
+  </script>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+  <div class="scroll-progress" aria-hidden="true"></div>
+  <div class="page-curtain" aria-hidden="true">
+    <div class="pc-accent"></div>
+    <div class="pc-panel"><span class="pc-logo">Stackbit<i></i></span></div>
+  </div>
+
+  <nav class="nav" id="nav" aria-label="Main navigation">
+    <a href="/en/" class="nav-logo" aria-label="Stackbit — home">
+      <span class="logo-text">Stackbit</span>
+      <span class="logo-dot" aria-hidden="true"></span>
+    </a>
+    <ul class="nav-links" role="list">
+      <li><a href="/en/software" class="nav-link">Software</a></li>
+      <li><a href="/en/services" class="nav-link">Services</a></li>
+      <li><a href="/en/#about" class="nav-link">About</a></li>
+      <li><a href="/en/contact" class="nav-link">Contact</a></li>
+    </ul>
+    <div class="lang-switch" role="group" aria-label="Language"><a href="/en/" class="lang-link" data-lang="en" hreflang="en" lang="en" aria-current="true">EN</a><span aria-hidden="true">|</span><a href="/es/" class="lang-link" data-lang="es" hreflang="es" lang="es">ES</a></div>
+    <button class="theme-toggle" aria-label="Toggle color mode">
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" width="18" height="18" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" width="18" height="18" aria-hidden="true"><path d="M21 12.79A9 9 0 1111.21 3a7 7 0 009.79 9.79z"/></svg>
+    </button>
+    <a href="/en/contact" class="btn btn-nav">Start a project</a>
+    <button class="nav-hamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="mobile-menu" role="dialog" aria-label="Navigation menu" hidden>
+    <ul role="list">
+      <li><a href="/en/software">Software</a></li>
+      <li><a href="/en/services">Services</a></li>
+      <li><a href="/en/#about">About</a></li>
+      <li><a href="/en/contact">Contact</a></li>
+    </ul>
+    <a href="/en/contact" class="btn btn-primary">Start a project →</a>
+  </div>
+
+  <main id="main">
+
+    <!-- ════════════ HERO ════════════ -->
+    <section class="hero" id="top" aria-label="Introduction">
+      <div class="hero-gradient" data-mouse-gradient aria-hidden="true"></div>
+      <div class="hero-orb hero-orb-a" aria-hidden="true"></div>
+      <div class="hero-orb hero-orb-b" aria-hidden="true"></div>
+      <div class="hero-orb hero-orb-c" aria-hidden="true"></div>
+      <div class="hero-noise" aria-hidden="true"></div>
+      <div class="hero-inner hero-inner--split">
+        <div class="hero-copy">
+        <p class="hero-kicker">Remote software studio · English &amp; Spanish</p>
+        <h1 class="hero-title hero-title--long">
+          <span class="hero-line">Custom software, web</span><br>
+          <span class="hero-line" style="transition-delay:.16s"><span class="hero-accent">and automation</span> for</span><br>
+          <span class="hero-line" style="transition-delay:.32s">businesses of any size, worldwide.</span>
+        </h1>
+        <p class="hero-sub reveal">
+          We work remotely with companies anywhere, communicate in <strong style="color:var(--ink);font-weight:700">English and Spanish</strong>,
+          and put <strong style="color:var(--ink);font-weight:700">scope and price in writing</strong> before writing a single line of code.
+        </p>
+        <div class="hero-actions reveal">
+          <a href="/en/contact" class="btn btn-primary">Start a project <span class="btn-arrow">→</span></a>
+          <a href="/en/software" class="btn btn-ghost">See custom software <span class="btn-arrow">→</span></a>
+        </div>
+        </div>
+      <div class="hero-visual" aria-hidden="true">
+        <div class="code-window">
+          <div class="code-bar"><span></span><span></span><span></span><em>stackbit.config.ts</em></div>
+          <pre class="code-body"><span class="code-line tok-c" style="--i:0">// stackbit.config.ts</span><span class="code-line" style="--i:1"><span class="tok-k">export const</span> <span class="tok-v">project</span> = {</span><span class="code-line" style="--i:2">  client:   <span class="tok-s">"your-company"</span>,</span><span class="code-line" style="--i:3">  scope:    <span class="tok-s">"agreed in writing"</span>,</span><span class="code-line" style="--i:4">  price:    <span class="tok-s">"fixed before coding"</span>,</span><span class="code-line" style="--i:5">  language: [<span class="tok-s">"en"</span>, <span class="tok-s">"es"</span>],</span><span class="code-line" style="--i:6">  delivery: <span class="tok-s">"in stages"</span>,</span><span class="code-line" style="--i:7"><span class="tok-k">};</span></span><span class="code-line tok-ok" style="--i:8">✓ ready to build<span class="code-caret"></span></span></pre>
+        </div>
+        <div class="hero-chip hero-chip-a"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>EN · ES</div>
+        <div class="hero-chip hero-chip-b"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>Scope &amp; price in writing</div>
+      </div>
+      </div>
+      <div class="hero-scroll-hint" aria-hidden="true">
+        <div class="scroll-line"></div>
+      </div>
+    </section>
+
+    <!-- ════════════ SERVICES ════════════ -->
+    <section class="services-preview section-padded" id="services">
+      <div class="container">
+        <p class="section-kicker reveal">— What we build</p>
+        <h2 class="section-title reveal">Software, apps and web<br>for any business.</h2>
+        <p class="reveal" style="color:var(--ink-soft);max-width:56ch;margin-bottom:clamp(2rem,4vw,3rem)">From the internal system that runs your operation to the site your customers see. If it's software and it solves a real problem, we build it.</p>
+        <div class="services-grid" style="grid-template-columns:repeat(auto-fill,minmax(280px,1fr))">
+
+          <article class="service-card reveal">
+            <div class="service-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+            </div>
+            <h3>Management systems</h3>
+            <p>Inventory, invoicing, customers and work orders in one system built around how you operate.</p>
+            <div class="portfolio-tech" style="margin-top:auto;padding-top:1rem">
+              <span class="tech-badge">Inventory</span>
+              <span class="tech-badge">Invoicing</span>
+              <span class="tech-badge">Multi-location</span>
+            </div>
+          </article>
+
+          <article class="service-card reveal">
+            <div class="service-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2.5"/><line x1="10.5" y1="18.5" x2="13.5" y2="18.5"/></svg>
+            </div>
+            <h3>Mobile &amp; web apps</h3>
+            <p>iOS, Android and browser apps with secure login, roles and an admin panel.</p>
+            <div class="portfolio-tech" style="margin-top:auto;padding-top:1rem">
+              <span class="tech-badge">iOS &amp; Android</span>
+              <span class="tech-badge">Bookings</span>
+              <span class="tech-badge">Client portals</span>
+            </div>
+          </article>
+
+          <article class="service-card reveal">
+            <div class="service-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16" height="12" rx="2.5"/><path d="M12 8V4"/><circle cx="12" cy="3" r="1.25"/><circle cx="9" cy="13.5" r="1.15"/><circle cx="15" cy="13.5" r="1.15"/><path d="M9.5 17h5"/><path d="M4 12H2"/><path d="M22 12h-2"/></svg>
+            </div>
+            <h3>Automation &amp; AI</h3>
+            <p>WhatsApp bots, AI agents and automated workflows that remove repetitive work.</p>
+            <div class="portfolio-tech" style="margin-top:auto;padding-top:1rem">
+              <span class="tech-badge">WhatsApp bots</span>
+              <span class="tech-badge">AI agents</span>
+              <span class="tech-badge">APIs</span>
+            </div>
+          </article>
+
+          <article class="service-card reveal">
+            <div class="service-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/><line x1="3" y1="20" x2="21" y2="20"/></svg>
+            </div>
+            <h3>Dashboards &amp; POS</h3>
+            <p>Your numbers on one screen, point of sale, and integrations with the systems you already use.</p>
+            <div class="portfolio-tech" style="margin-top:auto;padding-top:1rem">
+              <span class="tech-badge">Dashboards</span>
+              <span class="tech-badge">Integrations</span>
+              <span class="tech-badge">POS</span>
+            </div>
+          </article>
+
+          <article class="service-card reveal">
+            <div class="service-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+            </div>
+            <h3>Websites</h3>
+            <p>Landing pages and company sites that explain what you do and turn visits into conversations. SEO included.</p>
+            <div class="portfolio-tech" style="margin-top:auto;padding-top:1rem">
+              <span class="tech-badge">Landing pages</span>
+              <span class="tech-badge">Company sites</span>
+              <span class="tech-badge">SEO</span>
+            </div>
+          </article>
+
+          <article class="service-card reveal">
+            <div class="service-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/></svg>
+            </div>
+            <h3>Online stores</h3>
+            <p>Catalog, cart and online payments with PayPal or Stripe — or orders sent straight to WhatsApp.</p>
+            <div class="portfolio-tech" style="margin-top:auto;padding-top:1rem">
+              <span class="tech-badge">E-commerce</span>
+              <span class="tech-badge">Catalogs</span>
+              <span class="tech-badge">Orders</span>
+            </div>
+          </article>
+
+        </div>
+        <div class="section-cta reveal" style="display:flex;flex-wrap:wrap;gap:.75rem">
+          <a href="/en/software" class="btn btn-outline">See custom software →</a>
+          <a href="/en/services" class="btn btn-ghost">See all services →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════ STACK MARQUEE ════════════ -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track"><span>Python</span><span>Flask</span><span>REST APIs</span><span>JWT &amp; RBAC</span><span>JavaScript</span><span>TypeScript</span><span>React</span><span>Material UI</span><span>PostgreSQL</span><span>MySQL</span><span>SQL Server</span><span>Git &amp; GitHub</span><span>Linux</span><span>Windows Server</span><span>Fortinet</span><span>Power BI</span><span>Python</span><span>Flask</span><span>REST APIs</span><span>JWT &amp; RBAC</span><span>JavaScript</span><span>TypeScript</span><span>React</span><span>Material UI</span><span>PostgreSQL</span><span>MySQL</span><span>SQL Server</span><span>Git &amp; GitHub</span><span>Linux</span><span>Windows Server</span><span>Fortinet</span><span>Power BI</span></div>
+    </div>
+
+    <!-- ════════════ BUILDING IN PUBLIC ════════════ -->
+    <section class="section-padded section-alt" id="building-in-public" aria-label="Building in public">
+      <div class="container">
+        <p class="section-kicker reveal">— Building in public</p>
+        <h2 class="section-title reveal">We share the work<br>as we build it.</h2>
+        <p class="reveal" style="color:var(--ink-soft);max-width:58ch;margin-bottom:clamp(2rem,4vw,3rem)">Progress, code and lessons from day-to-day development, posted in the open. Follow along to see how we think and work before you ever get on a call.</p>
+        <div class="bip-grid">
+          <a href="https://x.com/StackbitCR" class="service-card bip-card reveal" target="_blank" rel="noopener noreferrer">
+            <div class="service-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4l16 16M20 4L4 20"/></svg>
+            </div>
+            <h3>@StackbitCR on X</h3>
+            <p>Updates on what we're building, technical notes and the things we learn along the way.</p>
+            <span class="bip-link">Follow on X →</span>
+          </a>
+          <div class="service-card bip-card reveal">
+            <div class="service-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
+            </div>
+            <h3>Free tools</h3>
+            <p>Small, free utilities for businesses. Each one will be listed here as it ships.</p>
+            <span class="bip-soon">Coming soon</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════ PROCESS ════════════ -->
+    <section class="process section-padded" id="process">
+      <div class="container">
+        <p class="section-kicker reveal">— Process</p>
+        <h2 class="section-title reveal">From idea<br>to working software.</h2>
+        <div class="process-list">
+          <div class="process-step reveal">
+            <span class="process-num">01</span>
+            <div class="process-content">
+              <h3>Diagnosis</h3>
+              <p>We listen to your goals, learn how your company works today and define the real scope of the project. Free of charge.</p>
+            </div>
+          </div>
+          <div class="process-step reveal">
+            <span class="process-num">02</span>
+            <div class="process-content">
+              <h3>Proposal &amp; design</h3>
+              <p>You get in writing what's included, what isn't, and the price. You review the screens and request changes before any code is written.</p>
+            </div>
+          </div>
+          <div class="process-step reveal">
+            <span class="process-num">03</span>
+            <div class="process-content">
+              <h3>Development</h3>
+              <p>We build in stages with clean code, so you use and test the system or site while it's being built.</p>
+            </div>
+          </div>
+          <div class="process-step reveal">
+            <span class="process-num">04</span>
+            <div class="process-content">
+              <h3>Launch &amp; support</h3>
+              <p>We launch, train your team and support the rollout. After that, maintenance and improvements.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════ FOR YOUR COMPANY ════════════ -->
+    <section class="section-padded section-alt" id="company" aria-label="For your company">
+      <div class="container">
+        <div class="split-2">
+          <div>
+            <p class="section-kicker reveal">— For your company</p>
+            <h2 class="reveal split-title">For companies of any size:<br><span class="hero-accent">from startups to corporations.</span></h2>
+            <p class="reveal split-lead">
+              Whether you run a large company, a growing team or a business that's just getting started, we build what your operation needs: the system that keeps things in order on the inside and the online presence that brings customers in.
+            </p>
+            <ul class="reveal" style="list-style:none;display:flex;flex-direction:column;gap:.85rem;margin-bottom:2rem">
+              <li style="display:flex;align-items:flex-start;gap:.75rem;font-size:.9375rem;color:var(--ink-soft)">
+                <svg viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="18" height="18" style="flex-shrink:0;margin-top:.15rem" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                <span><strong style="color:var(--ink)">100% custom</strong> — the software adapts to your process, not the other way around</span>
+              </li>
+              <li style="display:flex;align-items:flex-start;gap:.75rem;font-size:.9375rem;color:var(--ink-soft)">
+                <svg viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="18" height="18" style="flex-shrink:0;margin-top:.15rem" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                <span><strong style="color:var(--ink)">The code is yours</strong> — no per-user licenses, no lock-in</span>
+              </li>
+              <li style="display:flex;align-items:flex-start;gap:.75rem;font-size:.9375rem;color:var(--ink-soft)">
+                <svg viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="18" height="18" style="flex-shrink:0;margin-top:.15rem" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                <span><strong style="color:var(--ink)">Scope and price agreed</strong> — in writing, before any code</span>
+              </li>
+              <li style="display:flex;align-items:flex-start;gap:.75rem;font-size:.9375rem;color:var(--ink-soft)">
+                <svg viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="18" height="18" style="flex-shrink:0;margin-top:.15rem" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                <span><strong style="color:var(--ink)">You talk to the developer</strong> — in English or Spanish, without jargon</span>
+              </li>
+            </ul>
+            <div class="reveal" style="display:flex;flex-wrap:wrap;gap:.75rem">
+              <a href="/en/contact" class="btn btn-primary">Let's talk about my project <span class="btn-arrow">→</span></a>
+              <a href="/en/software" class="btn btn-ghost">See software →</a>
+            </div>
+          </div>
+          <div class="reveal sector-grid">
+            <div class="sector-tile">
+              <span class="sector-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg></span>
+              <p>Retail<br>and commerce</p>
+            </div>
+            <div class="sector-tile">
+              <span class="sector-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 5v3h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></span>
+              <p>Logistics<br>and production</p>
+            </div>
+            <div class="sector-tile">
+              <span class="sector-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></span>
+              <p>Healthcare<br>and clinics</p>
+            </div>
+            <div class="sector-tile">
+              <span class="sector-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg></span>
+              <p>Professional<br>services</p>
+            </div>
+            <div class="sector-tile">
+              <span class="sector-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 002-2V2"/><path d="M7 2v20"/><path d="M21 15V2a5 5 0 00-5 5v6c0 1.1.9 2 2 2h3zm0 0v7"/></svg></span>
+              <p>Restaurants<br>and hospitality</p>
+            </div>
+            <div class="sector-tile">
+              <span class="sector-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 00-2.91-.09z"/><path d="M12 15l-3-3a22 22 0 012-3.95A12.88 12.88 0 0122 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 01-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg></span>
+              <p>Startups<br>and new ventures</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════ ABOUT ════════════ -->
+    <section class="section-padded" id="about" aria-label="About">
+      <div class="container">
+        <div class="about-grid">
+          <div class="about-photo reveal">
+            <picture>
+              <source type="image/webp" srcset="/assets/img/aaron.webp">
+              <img src="/assets/img/aaron.jpg" alt="Aarón López Jiménez, founder of Stackbit" width="560" height="560" loading="lazy" decoding="async">
+            </picture>
+          </div>
+          <div>
+            <p class="section-kicker reveal">— About</p>
+            <h2 class="reveal split-title">Who builds<br>your software.</h2>
+            <p class="reveal split-lead">
+              I'm <strong style="color:var(--ink)">Aarón López Jiménez</strong>, founder of Stackbit. I design and write the software myself, so you talk directly with the person building your project — no account managers in between.
+            </p>
+            <p class="reveal split-lead" style="margin-top:-1rem">
+              Systems engineer: Bachelor's degree in Systems Engineering from Universidad Fidélitas (Licenciatura in progress) and Cisco CCNAv7 certifications. Besides software, I run IT infrastructure — servers, networking and security — so what I build is designed to be deployed, secured and maintained.
+            </p>
+            <p class="reveal about-label">Technologies I work with</p>
+            <div class="reveal" style="display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:2rem">
+              <span class="tech-badge">Python</span>
+              <span class="tech-badge">Flask</span>
+              <span class="tech-badge">REST APIs</span>
+              <span class="tech-badge">JWT &amp; RBAC</span>
+              <span class="tech-badge">JavaScript</span>
+              <span class="tech-badge">TypeScript</span>
+              <span class="tech-badge">React</span>
+              <span class="tech-badge">Material UI</span>
+              <span class="tech-badge">PostgreSQL</span>
+              <span class="tech-badge">MySQL</span>
+              <span class="tech-badge">SQL Server</span>
+              <span class="tech-badge">Git &amp; GitHub</span>
+              <span class="tech-badge">Linux</span>
+              <span class="tech-badge">Windows Server</span>
+              <span class="tech-badge">Fortinet</span>
+              <span class="tech-badge">Power BI</span>
+            </div>
+            <div class="reveal" style="display:flex;flex-wrap:wrap;gap:.75rem">
+              <a href="https://aaronlopez-dev.higgsfield.app/" class="btn btn-outline" target="_blank" rel="noopener noreferrer">See my portfolio →</a>
+              <a href="https://www.linkedin.com/in/aaronloji" class="btn btn-ghost" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+              <a href="https://x.com/StackbitCR" class="btn btn-ghost" target="_blank" rel="noopener noreferrer">X · @StackbitCR</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════ FAQ ════════════ -->
+    <section class="section-padded" id="faq" style="padding-top:0">
+      <div class="container" style="max-width:780px">
+        <p class="section-kicker reveal">— FAQ</p>
+        <h2 class="section-title reveal">Questions before<br>getting started.</h2>
+        <div class="faq-list" role="list">
+
+          <div class="faq-item reveal" role="listitem">
+            <button class="faq-question" aria-expanded="false">
+              What is Stackbit?
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+            </button>
+            <div class="faq-answer" role="region">
+              <p><strong>Stackbit</strong> is a remote software studio. We build <strong>custom software</strong> for companies — management systems, mobile and web apps, AI automation, dashboards and integrations — as well as websites and online stores. We work in <strong>English and Spanish</strong> with companies anywhere in the world.</p>
+            </div>
+          </div>
+
+          <div class="faq-item reveal" role="listitem">
+            <button class="faq-question" aria-expanded="false">
+              Do you work with companies of any size?
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+            </button>
+            <div class="faq-answer" role="region">
+              <p>Yes. From a business that's just getting started to a large company with several teams. A project can start small and well defined — one automated process, an inventory system, a dashboard with your key numbers — and grow in modules from there.</p>
+            </div>
+          </div>
+
+          <div class="faq-item reveal" role="listitem">
+            <button class="faq-question" aria-expanded="false">
+              How is custom software different from off-the-shelf software?
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+            </button>
+            <div class="faq-answer" role="region">
+              <p>Off-the-shelf software makes you change the way you work to fit the program. Custom software does the opposite. You don't pay for modules you'll never use, there are no per-user licenses that go up every year, the features specific to your business can actually be built — and <strong>the code belongs to your company</strong>.</p>
+            </div>
+          </div>
+
+          <div class="faq-item reveal" role="listitem">
+            <button class="faq-question" aria-expanded="false">
+              Can you automate processes with AI?
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+            </button>
+            <div class="faq-answer" role="region">
+              <p>Yes, where there's a measurable result. Typical uses: <strong>answering and routing WhatsApp inquiries</strong> 24/7, <strong>reading invoices and documents</strong> to extract data without manual entry, <strong>generating reports</strong> automatically and answering questions about your company's internal information. We don't add AI where a simple automation does the job better.</p>
+            </div>
+          </div>
+
+          <div class="faq-item reveal" role="listitem">
+            <button class="faq-question" aria-expanded="false">
+              I have a tech idea. Can you evaluate it?
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+            </button>
+            <div class="faq-answer" role="region">
+              <p>Tell us about it. Platforms, marketplaces, digital products, prototypes to raise funding, unusual internal tools — if it's software, it can be evaluated. In the diagnosis we tell you honestly whether it's viable, what the smallest useful first version would be and what we see as risky.</p>
+            </div>
+          </div>
+
+          <div class="faq-item reveal" role="listitem">
+            <button class="faq-question" aria-expanded="false">
+              How much does a project cost?
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+            </button>
+            <div class="faq-answer" role="region">
+              <p>We don't use price lists, because no two companies need exactly the same thing. Cost depends on scope, features and timeline. Tell us what you want to achieve and within <strong>24 hours</strong> you'll get a tailored quote, free and with no commitment. Scope and price are agreed in writing before any code is written.</p>
+            </div>
+          </div>
+
+          <div class="faq-item reveal" role="listitem">
+            <button class="faq-question" aria-expanded="false">
+              How do payments work?
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+            </button>
+            <div class="faq-answer" role="region">
+              <p>We accept <strong>PayPal, Stripe or bank transfer</strong>. Payment terms are set in writing in the proposal, before work starts.</p>
+            </div>
+          </div>
+
+          <div class="faq-item reveal" role="listitem">
+            <button class="faq-question" aria-expanded="false">
+              Do you work remotely with companies in other countries?
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+            </button>
+            <div class="faq-answer" role="region">
+              <p>Yes, the whole process is remote: video calls, shared documents and staged deliveries you can test. We communicate in English and Spanish, reply within 24 hours and are available during Americas and Europe business hours.</p>
+            </div>
+          </div>
+
+          <div class="faq-item reveal" role="listitem">
+            <button class="faq-question" aria-expanded="false">
+              What if I don't like the design?
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+            </button>
+            <div class="faq-answer" role="region">
+              <p>Before any code is written you see the visual proposal, with <strong>2 rounds of revisions</strong> included. After delivery you get <strong>1 round of adjustments at no cost during the first 30 days</strong>. You'll never see your product for the first time on launch day.</p>
+            </div>
+          </div>
+
+          <div class="faq-item reveal" role="listitem">
+            <button class="faq-question" aria-expanded="false">
+              How long does a project take?
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+            </button>
+            <div class="faq-answer" role="region">
+              <p>The timeline is defined at the start of each project based on scope and complexity, and it's written into the proposal. We work in stages, so you start using a first version early instead of waiting months.</p>
+            </div>
+          </div>
+
+          <div class="faq-item reveal" role="listitem">
+            <button class="faq-question" aria-expanded="false">
+              Do you use templates or design from scratch?
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+            </button>
+            <div class="faq-answer" role="region">
+              <p>We design and build <strong>from scratch</strong>. No generic WordPress or Wix templates — each project is built around your brand and your process.</p>
+            </div>
+          </div>
+
+          <div class="faq-item reveal" role="listitem">
+            <button class="faq-question" aria-expanded="false">
+              What does monthly maintenance include?
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+            </button>
+            <div class="faq-answer" role="region">
+              <p>Secure hosting, domain renewal, an active <strong>SSL certificate</strong>, daily backups, uptime monitoring, security updates and small content changes at no extra cost.</p>
+            </div>
+          </div>
+
+        </div>
+        <div class="section-cta reveal" style="display:flex;flex-wrap:wrap;gap:.75rem;justify-content:center">
+          <a href="/en/software" class="btn btn-outline">Software questions →</a>
+          <a href="/en/services" class="btn btn-ghost">See all services →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════ CTA ════════════ -->
+    <section class="cta-band" aria-label="CTA">
+      <div class="cta-band-gradient" aria-hidden="true"></div>
+      <div class="container">
+        <div class="cta-band-inner reveal">
+          <h2>Your software project,<br>built to fit.</h2>
+          <p>Tell us what you need — a system, an app, an automation or your website — and we'll reply within 24 hours. Free, no commitment.</p>
+          <div class="cta-band-actions">
+            <a href="/en/contact" class="btn btn-primary">Fill out the form <span class="btn-arrow">→</span></a>
+            <a href="mailto:contacto@stackbitcr.com" class="btn btn-ghost">Email contacto@stackbitcr.com</a>
+          </div>
+          <p style="margin-top:1.5rem;font-size:.875rem;opacity:.8">We reply within 24 hours. Available during Americas and Europe business hours.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <a href="/en/" class="nav-logo" aria-label="Stackbit — home">
+            <span class="logo-text">Stackbit</span>
+            <span class="logo-dot" aria-hidden="true"></span>
+          </a>
+          <p>Custom <a href="/en/software" style="color:var(--accent)">software</a>, apps, automation and <a href="/en/services" style="color:var(--accent)">websites</a> for businesses of any size.</p>
+        </div>
+        <nav class="footer-nav" aria-label="Pages">
+          <h4>Pages</h4>
+          <ul role="list">
+            <li><a href="/en/">Home</a></li>
+            <li><a href="/en/software">Software</a></li>
+            <li><a href="/en/services">Services</a></li>
+            <li><a href="/en/#about">About</a></li>
+            <li><a href="/en/contact">Contact</a></li>
+          </ul>
+        </nav>
+        <div class="footer-contact">
+          <h4>Contact</h4>
+          <p><a href="mailto:contacto@stackbitcr.com">contacto@stackbitcr.com</a></p>
+          <p><a href="https://wa.me/50672849920?text=Hi%2C%20I%27d%20like%20to%20talk%20about%20a%20project%20for%20my%20company." target="_blank" rel="noopener noreferrer">WhatsApp +506 7284 9920</a></p>
+          <p><a href="https://x.com/StackbitCR" target="_blank" rel="noopener noreferrer">X · @StackbitCR</a></p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Stackbit. All rights reserved.</p>
+        <p style="font-size:.8125rem;color:var(--ink-mute)">Based in Costa Rica · Working worldwide</p>
+      </div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/50672849920?text=Hi%2C%20I%27d%20like%20to%20talk%20about%20a%20project%20for%20my%20company." class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor" width="28" height="28" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+
+</body>
+</html>

@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+<!-- ══ ANALÍTICA — GA4 + Meta Pixel + Umami ══ -->
+<script>
+/* Google Analytics 4 */
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-312SR4PJLV');
+/* Meta Pixel — stub inmediato, descarga diferida.
+   fbq() existe desde el primer instante y ENCOLA los eventos; el archivo real
+   se descarga recien al primer scroll/clic o 3 s despues de load. */
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[]}(window,document,'script');
+fbq('init','876485647272894');fbq('track','PageView');
+(function(){
+  var pedido=false;
+  var gatillos=['scroll','pointerdown','keydown','touchstart'];
+  function cargarPixel(){
+    if(pedido)return; pedido=true;
+    gatillos.forEach(function(ev){window.removeEventListener(ev,cargarPixel);});
+    var t=document.createElement('script');
+    t.async=!0; t.src='https://connect.facebook.net/en_US/fbevents.js';
+    var s=document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(t,s);
+  }
+  gatillos.forEach(function(ev){window.addEventListener(ev,cargarPixel,{passive:!0});});
+  window.addEventListener('load',function(){setTimeout(cargarPixel,3000);});
+})();
+/* Eventos propios: un mismo evento va a Umami, GA4 y Meta */
+window.sbTrack=function(nombre,ga,fb,datos){
+  datos=datos||{};
+  try{window.umami&&umami.track(nombre,datos);}catch(e){}
+  try{gtag('event',ga||nombre,datos);}catch(e){}
+  try{fb&&fbq('track',fb,datos);}catch(e){}
+};
+document.addEventListener('click',function(e){
+  var a=e.target&&e.target.closest?e.target.closest('a'):null;
+  if(!a||!a.href)return;
+  var h=a.href;
+  if(h.indexOf('wa.me')>-1) sbTrack('whatsapp_click','clic_whatsapp','Contact',{method:'whatsapp'});
+  else if(h.indexOf('mailto:')===0) sbTrack('contact_click','clic_correo','Contact',{method:'email'});
+  else if(/\/(en\/contact|es\/contacto)\/?(#.*)?$/.test(h)) sbTrack('contact_click','clic_contacto',null,{method:'page'});
+},true);
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-312SR4PJLV"></script>
+<script defer src="https://cloud.umami.is/script.js" data-website-id="f7de3f95-ebd5-48dd-83d2-0b24fda3253b"></script>
+<noscript><img height="1" width="1" style="display:none" alt=""
+src="https://www.facebook.com/tr?id=876485647272894&ev=PageView&noscript=1"></noscript>
+<!-- ══ FIN ANALÍTICA ══ -->
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- ══════════════ SEO ══════════════ -->
+  <title>Desarrollo de Software a Medida para Empresas | Stackbit</title>
+  <meta name="description" content="Sistemas de gestión, apps móviles y web, automatización con IA, dashboards y POS a medida para empresas de cualquier tamaño y país. Diagnóstico sin costo. Alcance y precio por escrito.">
+  <meta name="author" content="Stackbit">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+
+  <!-- ══════════════ CANONICAL & HREFLANG ══════════════ -->
+  <link rel="canonical" href="https://stackbitcr.com/es/software">
+  <link rel="alternate" hreflang="en" href="https://stackbitcr.com/en/software">
+  <link rel="alternate" hreflang="es" href="https://stackbitcr.com/es/software">
+  <link rel="alternate" hreflang="x-default" href="https://stackbitcr.com/en/software">
+
+  <!-- ══════════════ OPEN GRAPH ══════════════ -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Stackbit">
+  <meta property="og:locale" content="es_ES">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta property="og:title" content="Desarrollo de Software a Medida para Empresas | Stackbit">
+  <meta property="og:description" content="Sistemas de gestión, apps móviles y web, automatización con IA, dashboards y POS a medida para empresas de cualquier tamaño y país. Diagnóstico sin costo. Alcance y precio por escrito.">
+  <meta property="og:url" content="https://stackbitcr.com/es/software">
+  <meta property="og:image" content="https://stackbitcr.com/assets/img/hero-tech.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:alt" content="Stackbit — software a medida, web y automatización">
+
+  <!-- ══════════════ TWITTER CARD ══════════════ -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@StackbitCR">
+  <meta name="twitter:creator" content="@StackbitCR">
+  <meta name="twitter:title" content="Desarrollo de Software a Medida para Empresas | Stackbit">
+  <meta name="twitter:description" content="Sistemas de gestión, apps móviles y web, automatización con IA, dashboards y POS a medida para empresas de cualquier tamaño y país. Diagnóstico sin costo. Alcance y precio por escrito.">
+  <meta name="twitter:image" content="https://stackbitcr.com/assets/img/hero-tech.jpg">
+  <meta name="twitter:image:alt" content="Stackbit — software a medida, web y automatización">
+
+  <!-- ══════════════ THEME, ICONS, MANIFEST ══════════════ -->
+  <meta name="theme-color" content="#080808">
+  <meta name="apple-mobile-web-app-title" content="Stackbit">
+  <meta name="application-name" content="Stackbit">
+  <meta name="format-detection" content="telephone=no">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+  <link rel="manifest" href="/manifest.webmanifest">
+
+  <script>(function(){var t=null;try{t=localStorage.getItem("sb-theme")}catch(e){}t=t||(window.matchMedia("(prefers-color-scheme:dark)").matches?"dark":"light");document.documentElement.setAttribute("data-theme",t);try{if(sessionStorage.getItem("sb-pt")){sessionStorage.removeItem("sb-pt");document.documentElement.classList.add("pt-enter")}}catch(e){}}())</script>
+
+  <!-- ══════════════ PERFORMANCE ══════════════ -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
+  <link rel="stylesheet" href="/styles.min.css?v=20261028k">
+
+  <script defer src="/main.js?v=20261028k"></script>
+
+  <!-- ══════════════ STRUCTURED DATA (Schema.org JSON-LD) ══════════════ -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://stackbitcr.com/#organization",
+      "name": "Stackbit",
+      "alternateName": "StackbitCR",
+      "url": "https://stackbitcr.com/en/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://stackbitcr.com/favicon.svg"
+      },
+      "image": "https://stackbitcr.com/assets/img/hero-tech.jpg",
+      "description": "Stackbit es un estudio de software remoto. Desarrollamos software a medida para empresas de cualquier tamaño, en cualquier país: sistemas de gestión, apps móviles y web, automatización con IA, dashboards, integraciones, páginas web y tiendas en línea. Trabajamos en español e inglés.",
+      "founder": {
+        "@type": "Person",
+        "name": "Aarón López Jiménez",
+        "jobTitle": "Systems Engineer",
+        "alumniOf": {
+          "@type": "CollegeOrUniversity",
+          "name": "Universidad Fidélitas"
+        },
+        "sameAs": [
+          "https://aaronlopez-dev.higgsfield.app/",
+          "https://www.linkedin.com/in/aaronloji"
+        ]
+      },
+      "areaServed": "Worldwide",
+      "knowsLanguage": [
+        "en",
+        "es"
+      ],
+      "email": "contacto@stackbitcr.com",
+      "contactPoint": [
+        {
+          "@type": "ContactPoint",
+          "contactType": "sales",
+          "email": "contacto@stackbitcr.com",
+          "telephone": "+50672849920",
+          "availableLanguage": [
+            "English",
+            "Spanish"
+          ],
+          "areaServed": "Worldwide"
+        }
+      ],
+      "sameAs": [
+        "https://x.com/StackbitCR",
+        "https://www.instagram.com/stackbitcr/",
+        "https://www.facebook.com/profile.php?id=61593318867486"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://stackbitcr.com/es/#website",
+      "url": "https://stackbitcr.com/es/",
+      "name": "Stackbit",
+      "inLanguage": "es",
+      "publisher": {
+        "@id": "https://stackbitcr.com/#organization"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://stackbitcr.com/es/software#webpage",
+      "url": "https://stackbitcr.com/es/software",
+      "name": "Desarrollo de Software a Medida para Empresas | Stackbit",
+      "description": "Sistemas de gestión, apps móviles y web, automatización con IA, dashboards y POS a medida para empresas de cualquier tamaño y país. Diagnóstico sin costo. Alcance y precio por escrito.",
+      "inLanguage": "es",
+      "isPartOf": {
+        "@id": "https://stackbitcr.com/es/#website"
+      },
+      "about": {
+        "@id": "https://stackbitcr.com/#organization"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://stackbitcr.com/es/software#faq",
+      "inLanguage": "es",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Qué es el software a medida y en qué se diferencia de un sistema enlatado?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Un sistema enlatado te obliga a cambiar tu forma de trabajar para encajar en el programa. El software a medida se construye alrededor de cómo ya opera tu empresa. No pagas módulos que nunca vas a usar, no hay licencias por usuario que suben cada año y las funciones que solo tu negocio necesita sí se pueden hacer."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cuánto cuesta desarrollar software a medida?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Depende del alcance: cuántos procesos cubre, cuántos tipos de usuario tiene y con qué sistemas debe integrarse. Por eso el primer paso es un diagnóstico sin costo donde entendemos tu operación y te entregamos una propuesta con alcance y precio cerrados antes de escribir una línea de código."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cuánto tarda un proyecto de software?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Trabajamos por entregas. Pronto ya estás usando una primera versión con lo esencial y de ahí seguimos sumando módulos. El plazo total se define en la propuesta según el alcance."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Se puede conectar con los sistemas que ya uso?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí. Integramos con sistemas de facturación y contabilidad, pasarelas de pago, plataformas de e-commerce, hojas de cálculo, WhatsApp y cualquier servicio que tenga API. Si un sistema no tiene API, buscamos una vía alterna: importación de archivos o sincronización programada."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿De quién es el software cuando termina el proyecto?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Tuyo. El sistema y su código quedan a nombre de tu empresa, documentados y en tus propias cuentas. No dependes de nosotros para seguir usando lo que pagaste."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué pasa si mi empresa crece o cambia el proceso?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Para eso se construye a medida. El sistema se diseña para crecer: se agregan usuarios, sucursales, módulos o reportes nuevos sin rehacerlo. Puedes contratar soporte y evolución mensual o pedir mejoras puntuales cuando las necesites."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Dónde ayuda de verdad la inteligencia artificial?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Solo donde hay un resultado medible. Usos típicos: atender y clasificar consultas de WhatsApp 24/7, leer facturas y documentos para sacar los datos sin digitarlos, generar reportes automáticamente y responder preguntas sobre la información interna de la empresa. No usamos IA donde una automatización simple resuelve mejor."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Mi empresa es demasiado pequeña, o demasiado grande, para esto?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ninguna de las dos. Un proyecto puede empezar pequeño y bien delimitado — automatizar un proceso, ordenar el inventario, un panel con los números clave — y crecer desde ahí. En organizaciones grandes trabajamos por módulos que conviven con los sistemas que ya tienen."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Y si mi idea no es exactamente ninguna de estas?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Cuéntanosla igual. Plataformas, marketplaces, productos digitales, prototipos para levantar inversión, herramientas internas poco comunes: si es software, se puede evaluar. En el diagnóstico te decimos con franqueza si es viable, cuál sería el arranque mínimo y qué nos parece riesgoso."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Trabajan con empresas de otros países?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí. Todo el proceso es remoto y en español o inglés. Respondemos en menos de 24 horas y estamos disponibles en horario de América y Europa. Pagos por PayPal, Stripe o transferencia."
+          }
+        }
+      ]
+    }
+  ]
+}
+  </script>
+</head>
+<body>
+  <a href="#main" class="skip-link">Saltar al contenido</a>
+  <div class="scroll-progress" aria-hidden="true"></div>
+  <div class="page-curtain" aria-hidden="true">
+    <div class="pc-accent"></div>
+    <div class="pc-panel"><span class="pc-logo">Stackbit<i></i></span></div>
+  </div>
+
+  <nav class="nav" id="nav" aria-label="Navegación principal">
+    <a href="/es/" class="nav-logo" aria-label="Stackbit — inicio">
+      <span class="logo-text">Stackbit</span>
+      <span class="logo-dot" aria-hidden="true"></span>
+    </a>
+    <ul class="nav-links" role="list">
+      <li><a href="/es/software" class="nav-link">Software</a></li>
+      <li><a href="/es/servicios" class="nav-link">Servicios</a></li>
+      <li><a href="/es/#about" class="nav-link">Quién soy</a></li>
+      <li><a href="/es/contacto" class="nav-link">Contacto</a></li>
+    </ul>
+    <div class="lang-switch" role="group" aria-label="Idioma"><a href="/en/software" class="lang-link" data-lang="en" hreflang="en" lang="en">EN</a><span aria-hidden="true">|</span><a href="/es/software" class="lang-link" data-lang="es" hreflang="es" lang="es" aria-current="true">ES</a></div>
+    <button class="theme-toggle" aria-label="Alternar modo de color">
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" width="18" height="18" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" width="18" height="18" aria-hidden="true"><path d="M21 12.79A9 9 0 1111.21 3a7 7 0 009.79 9.79z"/></svg>
+    </button>
+    <a href="/es/contacto" class="btn btn-nav">Solicitar proyecto</a>
+    <button class="nav-hamburger" aria-label="Abrir menú" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="mobile-menu" role="dialog" aria-label="Menú de navegación" hidden>
+    <ul role="list">
+      <li><a href="/es/software">Software</a></li>
+      <li><a href="/es/servicios">Servicios</a></li>
+      <li><a href="/es/#about">Quién soy</a></li>
+      <li><a href="/es/contacto">Contacto</a></li>
+    </ul>
+    <a href="/es/contacto" class="btn btn-primary">Solicitar proyecto →</a>
+  </div>
+
+  <main id="main">
+
+    <!-- ════════════ PAGE HERO ════════════ -->
+    <section class="page-hero section-padded" aria-label="Software a medida">
+      <div class="page-hero-bg" aria-hidden="true"></div>
+      <div class="container">
+        <div class="page-hero-content">
+          <p class="section-kicker reveal">— Software y tecnología</p>
+          <h1 class="reveal">Software a la medida<br>de tu empresa.</h1>
+          <p class="reveal" style="font-size:1.125rem;color:var(--ink-soft);max-width:52ch;line-height:1.7">
+            Sistemas de gestión, aplicaciones, automatización con IA y paneles de datos para empresas de cualquier tamaño, en cualquier país.
+            Construimos la herramienta que tu operación necesita, no la que te toca aguantar.
+          </p>
+          <p class="reveal hero-note">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" width="15" height="15" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            Diagnóstico sin costo · Alcance y precio por escrito antes de programar
+          </p>
+          <div class="reveal" style="display:flex;flex-wrap:wrap;gap:.75rem;margin-top:2rem">
+            <a href="/es/contacto" class="btn btn-primary">Agendar diagnóstico <span class="btn-arrow">→</span></a>
+            <a href="#que-construimos" class="btn btn-ghost">Ver qué construimos →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════ QUÉ CONSTRUIMOS ════════════ -->
+    <section class="section-padded" id="que-construimos" style="padding-top:0">
+      <div class="container">
+        <p class="section-kicker reveal">— Qué construimos</p>
+        <h2 class="section-title section-title--lead reveal">Cuatro frentes,<br>un mismo objetivo.</h2>
+        <p class="reveal" style="color:var(--ink-soft);max-width:56ch;font-size:1rem;line-height:1.65;margin-bottom:clamp(2rem,4vw,3rem)">
+          Que tu empresa deje de perder horas en trabajo manual y empiece a decidir con información real.
+        </p>
+        <div class="services-grid" style="grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.5rem">
+
+          <article class="service-card service-card-full reveal">
+            <div class="service-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+            </div>
+            <h3>Sistemas de gestión</h3>
+            <p>Un solo lugar donde vive la operación: qué hay en bodega, quién debe, qué se facturó y en qué va cada trabajo.</p>
+            <div style="margin:1rem 0 .75rem">
+              <span style="font-family:var(--mono);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-mute)">Resuelve</span>
+              <div style="display:flex;flex-wrap:wrap;gap:.35rem;margin-top:.5rem">
+                <span class="tech-badge">Inventarios</span>
+                <span class="tech-badge">Facturación</span>
+                <span class="tech-badge">Clientes y CRM</span>
+                <span class="tech-badge">Órdenes de trabajo</span>
+                <span class="tech-badge">Planillas</span>
+              </div>
+            </div>
+            <p class="service-detail">Usuarios con roles y permisos · Historial de movimientos · Reportes exportables · Multisucursal · Acceso desde el celular</p>
+            <div class="plan-actions">
+              <a href="/es/contacto" class="plan-quote">Consultar sobre esto →</a>
+            </div>
+          </article>
+
+          <article class="service-card service-card-full reveal">
+            <div class="service-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2.5"/><line x1="10.5" y1="18.5" x2="13.5" y2="18.5"/></svg>
+            </div>
+            <h3>Apps móviles y web apps</h3>
+            <p>Aplicaciones que tu equipo o tus clientes usan todos los días, en el celular o en el navegador.</p>
+            <div style="margin:1rem 0 .75rem">
+              <span style="font-family:var(--mono);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-mute)">Resuelve</span>
+              <div style="display:flex;flex-wrap:wrap;gap:.35rem;margin-top:.5rem">
+                <span class="tech-badge">Apps iOS y Android</span>
+                <span class="tech-badge">Portales de cliente</span>
+                <span class="tech-badge">App para personal de campo</span>
+                <span class="tech-badge">Reservas y citas</span>
+              </div>
+            </div>
+            <p class="service-detail">Login seguro · Roles y permisos · Funciona sin conexión y sincroniza después · Notificaciones push · Panel de administración</p>
+            <div class="plan-actions">
+              <a href="/es/contacto" class="plan-quote">Consultar sobre esto →</a>
+            </div>
+          </article>
+
+          <article class="service-card service-card-full reveal">
+            <div class="service-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16" height="12" rx="2.5"/><path d="M12 8V4"/><circle cx="12" cy="3" r="1.25"/><circle cx="9" cy="13.5" r="1.15"/><circle cx="15" cy="13.5" r="1.15"/><path d="M9.5 17h5"/><path d="M4 12H2"/><path d="M22 12h-2"/></svg>
+            </div>
+            <h3>Automatización e IA</h3>
+            <p>Todo el trabajo repetitivo que hoy alguien hace a mano: copiar datos, responder lo mismo, armar el reporte del lunes.</p>
+            <div style="margin:1rem 0 .75rem">
+              <span style="font-family:var(--mono);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-mute)">Resuelve</span>
+              <div style="display:flex;flex-wrap:wrap;gap:.35rem;margin-top:.5rem">
+                <span class="tech-badge">Bots de WhatsApp</span>
+                <span class="tech-badge">Agentes con IA</span>
+                <span class="tech-badge">Lectura de facturas</span>
+                <span class="tech-badge">Reportes automáticos</span>
+                <span class="tech-badge">Conexión de APIs</span>
+              </div>
+            </div>
+            <p class="service-detail">Atención y clasificación de consultas 24/7 · Extracción de datos de documentos · Respuestas sobre tu propia información interna · Acciones disparadas en otros sistemas</p>
+            <div class="plan-actions">
+              <a href="/es/contacto" class="plan-quote">Consultar sobre esto →</a>
+            </div>
+          </article>
+
+          <article class="service-card service-card-full reveal">
+            <div class="service-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/><line x1="3" y1="20" x2="21" y2="20"/></svg>
+            </div>
+            <h3>Dashboards, integraciones y POS</h3>
+            <p>Los números de tu empresa en una sola pantalla, y los sistemas que ya usas hablando entre ellos.</p>
+            <div style="margin:1rem 0 .75rem">
+              <span style="font-family:var(--mono);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-mute)">Resuelve</span>
+              <div style="display:flex;flex-wrap:wrap;gap:.35rem;margin-top:.5rem">
+                <span class="tech-badge">Paneles de datos</span>
+                <span class="tech-badge">Sistemas de facturación</span>
+                <span class="tech-badge">Sistemas contables</span>
+                <span class="tech-badge">Punto de venta</span>
+                <span class="tech-badge">E-commerce</span>
+              </div>
+            </div>
+            <p class="service-detail">Indicadores en tiempo real · Alertas cuando algo se sale de rango · Sincronización entre plataformas · Control de caja e inventario en el POS</p>
+            <div class="plan-actions">
+              <a href="/es/contacto" class="plan-quote">Consultar sobre esto →</a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════ SEÑALES ════════════ -->
+    <section class="section-padded section-alt" id="senales" aria-label="Cuándo conviene software a medida">
+      <div class="container">
+        <div class="split-2">
+          <div>
+            <p class="section-kicker reveal">— ¿Es tu caso?</p>
+            <h2 class="reveal split-title">Señales de que ya<br>necesitas <span class="hero-accent">software propio.</span></h2>
+            <p class="reveal split-lead">
+              Casi nadie llega diciendo «quiero un sistema». Llegan con alguna de estas frases, y ahí es donde el software a medida se paga solo.
+            </p>
+            <ul class="reveal" style="list-style:none;display:flex;flex-direction:column;gap:.85rem;margin-bottom:2rem">
+              <li style="display:flex;align-items:flex-start;gap:.75rem;font-size:.9375rem;color:var(--ink-soft)">
+                <svg viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="18" height="18" style="flex-shrink:0;margin-top:.15rem" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Toda la operación vive en <strong style="color:var(--ink)">hojas de Excel</strong> que solo una persona entiende</span>
+              </li>
+              <li style="display:flex;align-items:flex-start;gap:.75rem;font-size:.9375rem;color:var(--ink-soft)">
+                <svg viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="18" height="18" style="flex-shrink:0;margin-top:.15rem" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Alguien <strong style="color:var(--ink)">copia los mismos datos</strong> de un sistema a otro todos los días</span>
+              </li>
+              <li style="display:flex;align-items:flex-start;gap:.75rem;font-size:.9375rem;color:var(--ink-soft)">
+                <svg viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="18" height="18" style="flex-shrink:0;margin-top:.15rem" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Pagas un sistema enlatado del que <strong style="color:var(--ink)">usas el 20%</strong> y aun así no hace lo que necesitas</span>
+              </li>
+              <li style="display:flex;align-items:flex-start;gap:.75rem;font-size:.9375rem;color:var(--ink-soft)">
+                <svg viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="18" height="18" style="flex-shrink:0;margin-top:.15rem" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Para saber <strong style="color:var(--ink)">cómo va el mes</strong> hay que pedirle el reporte a tres personas</span>
+              </li>
+              <li style="display:flex;align-items:flex-start;gap:.75rem;font-size:.9375rem;color:var(--ink-soft)">
+                <svg viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="18" height="18" style="flex-shrink:0;margin-top:.15rem" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Las consultas de WhatsApp se <strong style="color:var(--ink)">pierden o se contestan tarde</strong></span>
+              </li>
+              <li style="display:flex;align-items:flex-start;gap:.75rem;font-size:.9375rem;color:var(--ink-soft)">
+                <svg viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="18" height="18" style="flex-shrink:0;margin-top:.15rem" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>La empresa creció y el proceso que servía para 5 personas <strong style="color:var(--ink)">ya no aguanta 30</strong></span>
+              </li>
+            </ul>
+            <div class="reveal" style="display:flex;flex-wrap:wrap;gap:.75rem">
+              <a href="/es/contacto" class="btn btn-primary">Cuéntanos tu caso <span class="btn-arrow">→</span></a>
+              <a href="#proceso" class="btn btn-ghost">Ver el proceso →</a>
+            </div>
+          </div>
+          <div class="reveal sector-grid">
+            <div class="sector-tile">
+              <span class="sector-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20a2 2 0 002 2h16a2 2 0 002-2V8l-7 5V8l-7 5V4a2 2 0 00-2-2H4a2 2 0 00-2 2z"/><path d="M17 18h1M12 18h1M7 18h1"/></svg></span>
+              <p>Producción<br>y manufactura</p>
+            </div>
+            <div class="sector-tile">
+              <span class="sector-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 5v3h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></span>
+              <p>Distribución<br>y logística</p>
+            </div>
+            <div class="sector-tile">
+              <span class="sector-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></span>
+              <p>Salud<br>y clínicas</p>
+            </div>
+            <div class="sector-tile">
+              <span class="sector-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 18a1 1 0 001 1h18a1 1 0 001-1v-2a1 1 0 00-1-1H3a1 1 0 00-1 1v2z"/><path d="M10 10V5a1 1 0 011-1h2a1 1 0 011 1v5"/><path d="M4 15v-3a6 6 0 016-6M14 6a6 6 0 016 6v3"/></svg></span>
+              <p>Construcción<br>y servicios de campo</p>
+            </div>
+            <div class="sector-tile">
+              <span class="sector-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg></span>
+              <p>Retail<br>y comercio</p>
+            </div>
+            <div class="sector-tile">
+              <span class="sector-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="16" y1="14" x2="16" y2="18"/><path d="M16 10h.01M12 10h.01M8 10h.01M12 14h.01M8 14h.01M12 18h.01M8 18h.01"/></svg></span>
+              <p>Contabilidad<br>y despachos</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════ PROCESO ════════════ -->
+    <section class="process section-padded" id="proceso">
+      <div class="container">
+        <p class="section-kicker reveal">— Proceso</p>
+        <h2 class="section-title reveal">Sin sorpresas,<br>por entregas.</h2>
+        <p class="reveal" style="color:var(--ink-soft);max-width:56ch;font-size:1rem;line-height:1.65;margin-bottom:clamp(2.25rem,4vw,3rem)">
+          No desaparecemos seis meses para volver con un sistema que no era lo que imaginabas. Ves y usas el software mientras se construye.
+        </p>
+        <div class="process-list">
+          <div class="process-step reveal">
+            <span class="process-num">01</span>
+            <div class="process-content">
+              <h3>Diagnóstico</h3>
+              <p>Escuchamos tus objetivos, entendemos cómo trabaja tu empresa hoy y definimos el alcance real del proyecto. Sin costo.</p>
+            </div>
+          </div>
+          <div class="process-step reveal">
+            <span class="process-num">02</span>
+            <div class="process-content">
+              <h3>Propuesta y diseño</h3>
+              <p>Te entregamos por escrito qué incluye y qué no, y a qué precio. Revisas las pantallas y pides cambios antes de que se programe nada.</p>
+            </div>
+          </div>
+          <div class="process-step reveal">
+            <span class="process-num">03</span>
+            <div class="process-content">
+              <h3>Desarrollo</h3>
+              <p>Construimos por entregas y con código limpio: vas usando y probando el sistema o el sitio mientras se construye.</p>
+            </div>
+          </div>
+          <div class="process-step reveal">
+            <span class="process-num">04</span>
+            <div class="process-content">
+              <h3>Puesta en marcha y soporte</h3>
+              <p>Lanzamos, capacitamos a tu equipo y acompañamos el arranque. Después seguimos con mantenimiento y mejoras.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════ CÓMO TRABAJAMOS ════════════ -->
+    <section class="section-padded" id="como-trabajamos" aria-label="Cómo trabajamos" style="padding-top:0">
+      <div class="container">
+        <div style="margin-bottom:clamp(2rem,4vw,3rem)">
+          <p class="section-kicker reveal">— Reglas del juego</p>
+          <h2 class="reveal sub-title">Cómo trabajamos.</h2>
+          <p class="reveal" style="color:var(--ink-soft);max-width:56ch;font-size:1rem;line-height:1.65">Las cuatro cosas que en desarrollo de software suelen salir mal, y cómo las dejamos claras desde el inicio.</p>
+        </div>
+        <div class="mini-grid">
+          <div class="service-card reveal" style="padding:1.25rem 1.5rem">
+            <div style="display:flex;align-items:center;gap:.75rem;margin-bottom:.65rem">
+              <div class="mini-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="16" height="16" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              </div>
+              <strong style="font-size:.9375rem;font-weight:700;letter-spacing:-.015em">El código es tuyo</strong>
+            </div>
+            <p style="font-size:.8125rem;color:var(--ink-mute);line-height:1.65">El sistema queda a nombre de tu empresa, documentado y en tus propias cuentas. No dependes de nosotros para seguir usándolo.</p>
+          </div>
+
+          <div class="service-card reveal" style="padding:1.25rem 1.5rem">
+            <div style="display:flex;align-items:center;gap:.75rem;margin-bottom:.65rem">
+              <div class="mini-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="16" height="16" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+              </div>
+              <strong style="font-size:.9375rem;font-weight:700;letter-spacing:-.015em">Precio y alcance cerrados</strong>
+            </div>
+            <p style="font-size:.8125rem;color:var(--ink-mute);line-height:1.65">Antes de programar acordamos por escrito qué incluye y qué no. Si aparece algo nuevo en el camino se cotiza aparte, no se descubre en la factura.</p>
+          </div>
+
+          <div class="service-card reveal" style="padding:1.25rem 1.5rem">
+            <div style="display:flex;align-items:center;gap:.75rem;margin-bottom:.65rem">
+              <div class="mini-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="16" height="16" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              </div>
+              <strong style="font-size:.9375rem;font-weight:700;letter-spacing:-.015em">Entregas que ya sirven</strong>
+            </div>
+            <p style="font-size:.8125rem;color:var(--ink-mute);line-height:1.65">Pronto estás usando una primera versión con lo esencial. No esperas meses para saber si funcionaba o no.</p>
+          </div>
+
+          <div class="service-card reveal" style="padding:1.25rem 1.5rem">
+            <div style="display:flex;align-items:center;gap:.75rem;margin-bottom:.65rem">
+              <div class="mini-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="16" height="16" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              </div>
+              <strong style="font-size:.9375rem;font-weight:700;letter-spacing:-.015em">Hablas con quien programa</strong>
+            </div>
+            <p style="font-size:.8125rem;color:var(--ink-mute);line-height:1.65">Sin intermediarios que traducen mal lo que pediste. Explicaciones claras en español o inglés, sin jerga innecesaria.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════ TECNOLOGÍA ════════════ -->
+    <section class="section-padded" id="stack" aria-label="Tecnología" style="padding-top:0">
+      <div class="container">
+        <div style="margin-bottom:clamp(2.25rem,4vw,3rem)">
+          <p class="section-kicker reveal">— Tecnología</p>
+          <h2 class="reveal sub-title">Herramientas probadas,<br>sin experimentos.</h2>
+          <p class="reveal" style="color:var(--ink-soft);max-width:56ch;font-size:1rem;line-height:1.65">Usamos tecnología madura y con comunidad grande, para que cualquier desarrollador pueda mantener tu sistema en el futuro. Elegimos según el problema, no según la moda.</p>
+        </div>
+        <div class="reveal" style="display:flex;flex-wrap:wrap;gap:.5rem">
+          <span class="tech-badge">Python</span>
+          <span class="tech-badge">Flask</span>
+          <span class="tech-badge">REST APIs</span>
+          <span class="tech-badge">JWT &amp; RBAC</span>
+          <span class="tech-badge">JavaScript</span>
+          <span class="tech-badge">TypeScript</span>
+          <span class="tech-badge">React</span>
+          <span class="tech-badge">Material UI</span>
+          <span class="tech-badge">PostgreSQL</span>
+          <span class="tech-badge">MySQL</span>
+          <span class="tech-badge">SQL Server</span>
+          <span class="tech-badge">Git &amp; GitHub</span>
+          <span class="tech-badge">Linux</span>
+          <span class="tech-badge">Windows Server</span>
+          <span class="tech-badge">Fortinet</span>
+          <span class="tech-badge">Power BI</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════ WEB ════════════ -->
+    <section class="section-padded" aria-label="Diseño y desarrollo web" style="padding-top:0">
+      <div class="container">
+        <div class="service-card reveal" style="padding:clamp(2rem,4vw,2.75rem)">
+          <p class="section-kicker">— Y por supuesto</p>
+          <h2 style="font-size:clamp(1.5rem,3.5vw,2.25rem);font-weight:900;letter-spacing:-.035em;line-height:1.1;margin-bottom:max(.5em,1.25rem)">También hacemos tu presencia web.</h2>
+          <p style="color:var(--ink-soft);font-size:1rem;line-height:1.7;max-width:58ch;margin-bottom:1.5rem">
+            Páginas web, landings y tiendas en línea: el frente que ven tus clientes.
+            Lo construye el mismo equipo que hace tus sistemas, así que todo se conecta.
+          </p>
+          <div style="display:flex;flex-wrap:wrap;gap:.75rem">
+            <a href="/es/servicios" class="btn btn-outline">Ver servicios web →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════ FAQ ════════════ -->
+    <section class="section-padded" id="faq" style="padding-top:0">
+      <div class="container" style="max-width:780px">
+        <p class="section-kicker reveal">— Preguntas frecuentes</p>
+        <h2 class="section-title reveal">Lo que toda empresa<br>pregunta primero.</h2>
+        <div class="faq-list" role="list">
+
+          <div class="faq-item reveal" role="listitem">
+            <button class="faq-question" aria-expanded="false">
+              ¿Qué es el software a medida y en qué se diferencia de un sistema enlatado?
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+            </button>
+            <div class="faq-answer" role="region">
+              <p>Un sistema enlatado te obliga a cambiar tu forma de trabajar para encajar en el programa. El <strong>software a medida</strong> se construye alrededor de cómo ya opera tu empresa. No pagas módulos que nunca vas a usar, no hay licencias por usuario que suben cada año y las funciones que solo tu negocio necesita sí se pueden hacer.</p>
+            </div>
+          </div>
+
+          <div class="faq-item reveal" role="listitem">
+            <button class="faq-question" aria-expanded="false">
+              ¿Cuánto cuesta desarrollar software a medida?
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+            </button>
+            <div class="faq-answer" role="region">
+              <p>Depende del alcance: cuántos procesos cubre, cuántos tipos de usuario tiene y con qué sistemas debe integrarse. Por eso el primer paso es un <strong>diagnóstico sin costo</strong> donde entendemos tu operación y te entregamos una propuesta con <strong>alcance y precio cerrados</strong> antes de escribir una línea de código.</p>
+            </div>
+          </div>
+
+          <div class="faq-item reveal" role="listitem">
+            <button class="faq-question" aria-expanded="false">
+              ¿Cuánto tarda un proyecto de software?
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+            </button>
+            <div class="faq-answer" role="region">
+              <p>Trabajamos por entregas. Pronto ya estás usando una primera versión con lo esencial y de ahí seguimos sumando módulos. El plazo total se define en la propuesta según el alcance.</p>
+            </div>
+          </div>
+
+          <div class="faq-item reveal" role="listitem">
+            <button class="faq-question" aria-expanded="false">
+              ¿Se puede conectar con los sistemas que ya uso?
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+            </button>
+            <div class="faq-answer" role="region">
+              <p>Sí. Integramos con sistemas de facturación y contabilidad, pasarelas de pago, plataformas de e-commerce, hojas de cálculo, WhatsApp y cualquier servicio que tenga API. Si un sistema no tiene API, buscamos una vía alterna: importación de archivos o sincronización programada.</p>
+            </div>
+          </div>
+
+          <div class="faq-item reveal" role="listitem">
+            <button class="faq-question" aria-expanded="false">
+              ¿De quién es el software cuando termina el proyecto?
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+            </button>
+            <div class="faq-answer" role="region">
+              <p><strong>Tuyo.</strong> El sistema y su código quedan a nombre de tu empresa, documentados y en tus propias cuentas. No dependes de nosotros para seguir usando lo que pagaste.</p>
+            </div>
+          </div>
+
+          <div class="faq-item reveal" role="listitem">
+            <button class="faq-question" aria-expanded="false">
+              ¿Qué pasa si mi empresa crece o cambia el proceso?
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+            </button>
+            <div class="faq-answer" role="region">
+              <p>Para eso se construye a medida. El sistema se diseña para crecer: se agregan usuarios, sucursales, módulos o reportes nuevos sin rehacerlo. Puedes contratar <strong>soporte y evolución mensual</strong> o pedir mejoras puntuales cuando las necesites.</p>
+            </div>
+          </div>
+
+          <div class="faq-item reveal" role="listitem">
+            <button class="faq-question" aria-expanded="false">
+              ¿Dónde ayuda de verdad la inteligencia artificial?
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+            </button>
+            <div class="faq-answer" role="region">
+              <p>Solo donde hay un resultado medible. Usos típicos: <strong>atender y clasificar consultas de WhatsApp</strong> 24/7, <strong>leer facturas y documentos</strong> para sacar los datos sin digitarlos, <strong>generar reportes</strong> automáticamente y responder preguntas sobre la información interna de la empresa. No usamos IA donde una automatización simple resuelve mejor.</p>
+            </div>
+          </div>
+
+          <div class="faq-item reveal" role="listitem">
+            <button class="faq-question" aria-expanded="false">
+              ¿Mi empresa es demasiado pequeña, o demasiado grande, para esto?
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+            </button>
+            <div class="faq-answer" role="region">
+              <p>Ninguna de las dos. Un proyecto puede empezar pequeño y bien delimitado — automatizar un proceso, ordenar el inventario, un panel con los números clave — y crecer desde ahí. En organizaciones grandes trabajamos por módulos que conviven con los sistemas que ya tienen.</p>
+            </div>
+          </div>
+
+          <div class="faq-item reveal" role="listitem">
+            <button class="faq-question" aria-expanded="false">
+              ¿Y si mi idea no es exactamente ninguna de estas?
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+            </button>
+            <div class="faq-answer" role="region">
+              <p>Cuéntanosla igual. Plataformas, marketplaces, productos digitales, prototipos para levantar inversión, herramientas internas poco comunes: si es software, se puede evaluar. En el diagnóstico te decimos con franqueza si es viable, cuál sería el arranque mínimo y qué nos parece riesgoso.</p>
+            </div>
+          </div>
+
+          <div class="faq-item reveal" role="listitem">
+            <button class="faq-question" aria-expanded="false">
+              ¿Trabajan con empresas de otros países?
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+            </button>
+            <div class="faq-answer" role="region">
+              <p>Sí. Todo el proceso es remoto y en español o inglés. Respondemos en menos de 24 horas y estamos disponibles en horario de América y Europa. Pagos por PayPal, Stripe o transferencia.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════ CTA ════════════ -->
+    <section class="cta-band" aria-label="CTA">
+      <div class="cta-band-gradient" aria-hidden="true"></div>
+      <div class="container">
+        <div class="cta-band-inner reveal">
+          <h2>Cuéntanos qué proceso<br>te está costando dinero.</h2>
+          <p>Una conversación de 30 minutos alcanza para saber si vale la pena construir algo. Diagnóstico sin costo ni compromiso.</p>
+          <div class="cta-band-actions">
+            <a href="/es/contacto" class="btn btn-primary">Agendar diagnóstico <span class="btn-arrow">→</span></a>
+            <a href="mailto:contacto@stackbitcr.com" class="btn btn-ghost">Escribir a contacto@stackbitcr.com</a>
+          </div>
+          <p style="margin-top:1.5rem;font-size:.875rem;opacity:.8">Respondemos en menos de 24 horas. Disponibles en horario de América y Europa.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <a href="/es/" class="nav-logo" aria-label="Stackbit — inicio">
+            <span class="logo-text">Stackbit</span>
+            <span class="logo-dot" aria-hidden="true"></span>
+          </a>
+          <p><a href="/es/software" style="color:var(--accent)">Software a medida</a>, aplicaciones, automatización y <a href="/es/servicios" style="color:var(--accent)">páginas web</a> para empresas de cualquier tamaño.</p>
+        </div>
+        <nav class="footer-nav" aria-label="Páginas">
+          <h4>Páginas</h4>
+          <ul role="list">
+            <li><a href="/es/">Inicio</a></li>
+            <li><a href="/es/software">Software</a></li>
+            <li><a href="/es/servicios">Servicios</a></li>
+            <li><a href="/es/#about">Quién soy</a></li>
+            <li><a href="/es/contacto">Contacto</a></li>
+          </ul>
+        </nav>
+        <div class="footer-contact">
+          <h4>Contacto</h4>
+          <p><a href="mailto:contacto@stackbitcr.com">contacto@stackbitcr.com</a></p>
+          <p><a href="https://wa.me/50672849920?text=Hola%2C%20quiero%20conversar%20sobre%20un%20proyecto%20para%20mi%20empresa." target="_blank" rel="noopener noreferrer">WhatsApp +506 7284 9920</a></p>
+          <p><a href="https://x.com/StackbitCR" target="_blank" rel="noopener noreferrer">X · @StackbitCR</a></p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Stackbit. Todos los derechos reservados.</p>
+        <p style="font-size:.8125rem;color:var(--ink-mute)">Con base en Costa Rica · Trabajo remoto en todo el mundo</p>
+      </div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/50672849920?text=Hola%2C%20quiero%20conversar%20sobre%20un%20proyecto%20para%20mi%20empresa." class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Escribir por WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor" width="28" height="28" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+
+</body>
+</html>

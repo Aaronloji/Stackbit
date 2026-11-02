@@ -23,10 +23,10 @@
     onScroll();
 
     // Mark active link
-    var currentPath = location.pathname.split("/").pop() || "index.html";
+    var currentPath = location.pathname.replace(/\.html$/, "").replace(/\/$/, "");
     $$(".nav-link").forEach(function(a) {
-      var href = a.getAttribute("href") || "";
-      if (href === currentPath || (currentPath === "" && href === "index.html")) {
+      var href = (a.getAttribute("href") || "").replace(/\/$/, "");
+      if (href === currentPath) {
         a.setAttribute("aria-current", "page");
       }
     });
@@ -123,38 +123,6 @@
     }, 6000);
   }
 
-  /* ── Count-up numbers ────────────────────────────────── */
-  function initCountUp() {
-    var counters = $$("[data-count]");
-    if (!counters.length) return;
-
-    var io = new IntersectionObserver(function(entries) {
-      entries.forEach(function(e) {
-        if (!e.isIntersecting) return;
-        io.unobserve(e.target);
-        var el     = e.target;
-        var target = parseInt(el.getAttribute("data-count"), 10);
-        var start  = 0;
-        var dur    = reduced ? 0 : 1200;
-        var startTime;
-
-        if (dur === 0) { el.textContent = target; return; }
-
-        function tick(now) {
-          if (!startTime) startTime = now;
-          var progress = Math.min((now - startTime) / dur, 1);
-          var eased    = 1 - Math.pow(1 - progress, 3);
-          el.textContent = Math.round(eased * target);
-          if (progress < 1) requestAnimationFrame(tick);
-          else el.textContent = target;
-        }
-        requestAnimationFrame(tick);
-      });
-    }, { threshold: 0.4 });
-
-    counters.forEach(function(el) { io.observe(el); });
-  }
-
   /* ── FAQ Accordion ───────────────────────────────────── */
   function initFaq() {
     var items = $$(".faq-item");
@@ -168,14 +136,22 @@
       btn.addEventListener("click", function() {
         var isOpen = item.classList.contains("is-open");
         // Close all
-        items.forEach(function(i) { i.classList.remove("is-open"); });
-        // Open this unless it was already open
-        if (!isOpen) item.classList.add("is-open");
+        items.forEach(function(i) {
+          i.classList.remove("is-open");
+          var b = $(".faq-question", i), a = $(".faq-answer", i);
+          if (b) b.setAttribute("aria-expanded", "false");
+          if (a) a.style.maxHeight = "";
+        });
+        // Open this unless it was already open (altura real: las respuestas largas no se cortan)
+        if (!isOpen) {
+          item.classList.add("is-open");
+          btn.setAttribute("aria-expanded", "true");
+          answer.style.maxHeight = answer.scrollHeight + "px";
+        }
       });
     });
   }
 
-  /* ── Contact Form (Formspree AJAX) ───────────────────── */
   /* ── Theme Toggle ────────────────────────────────────── */
   function initThemeToggle() {
     var btn = $(".theme-toggle");
@@ -187,42 +163,112 @@
     });
   }
 
+  /* ── Language switch: recordar la elección para "/" ──── */
+  function initLangSwitch() {
+    $$(".lang-link").forEach(function(a) {
+      a.addEventListener("click", function() {
+        try { localStorage.setItem("sb-lang", a.getAttribute("data-lang")); } catch(e) {}
+      });
+    });
+  }
+
   /* ── Group Stagger (per-section, resets delay counter) ── */
   function initGroupStagger() {
-    var groups = [
-      ".services-grid",
-      ".process-list",
-      ".portfolio-grid",
-      ".plans-grid",
-      ".extras-grid",
-      ".demos-grid"
-    ];
-    groups.forEach(function(sel) {
-      var container = $(sel);
-      if (!container) return;
+    $$(".services-grid, .process-list, .mini-grid, .bip-grid").forEach(function(container) {
       $$(".reveal", container).forEach(function(el, i) {
         el.style.transitionDelay = (i * 95) + "ms";
       });
     });
   }
 
-  /* ── Portfolio hover (cursor glow on cards) ──────────── */
-  function initPortfolioGlow() {
+  /* ── Scroll: barra de progreso y línea del proceso ───── */
+  function initScrollEffects() {
+    var bar   = $(".scroll-progress");
+    var lists = $$(".process-list");
+    if (!bar && !lists.length) return;
+    var ticking = false;
+
+    function update() {
+      ticking = false;
+      var doc = document.documentElement;
+      var max = doc.scrollHeight - window.innerHeight;
+      if (bar) bar.style.setProperty("--p", max > 0 ? (window.scrollY / max).toFixed(4) : 0);
+
+      var mark = window.innerHeight * 0.6;
+      lists.forEach(function(list) {
+        var r = list.getBoundingClientRect();
+        var p = Math.min(Math.max((mark - r.top) / r.height, 0), 1);
+        list.style.setProperty("--pp", p.toFixed(4));
+        $$(".process-step", list).forEach(function(step) {
+          step.classList.toggle("is-active", step.getBoundingClientRect().top + 40 < mark);
+        });
+      });
+    }
+    window.addEventListener("scroll", function() {
+      if (!ticking) { ticking = true; requestAnimationFrame(update); }
+    }, { passive: true });
+    window.addEventListener("resize", update, { passive: true });
+    update();
+  }
+
+  /* ── Tarjetas: foco de luz + inclinación 3D ──────────── */
+  function initCardEffects() {
     if (!fineHover) return;
-    $$(".portfolio-card").forEach(function(card) {
-      // Skip placeholder cards that have no image section
-      if (!card.querySelector(".portfolio-img")) return;
+    $$(".service-card, .sector-tile").forEach(function(card) {
       card.addEventListener("mousemove", function(e) {
-        var rect = card.getBoundingClientRect();
-        var x = ((e.clientX - rect.left) / rect.width  * 100).toFixed(1);
-        var y = ((e.clientY - rect.top)  / rect.height * 100).toFixed(1);
-        // Use CSS variables so it adapts to dark/light mode automatically
-        card.style.background =
-          "radial-gradient(circle at " + x + "% " + y + "%, var(--accent-glow) 0%, var(--bg-card) 65%)";
+        var r = card.getBoundingClientRect();
+        var x = e.clientX - r.left, y = e.clientY - r.top;
+        card.style.setProperty("--sx", x + "px");
+        card.style.setProperty("--sy", y + "px");
+        if (reduced || !card.classList.contains("service-card")) return;
+        card.classList.add("is-tilting");
+        card.style.setProperty("--ry", ((x / r.width - 0.5) * 6).toFixed(2) + "deg");
+        card.style.setProperty("--rx", ((0.5 - y / r.height) * 6).toFixed(2) + "deg");
       });
       card.addEventListener("mouseleave", function() {
-        card.style.background = "";
+        card.classList.remove("is-tilting");
+        card.style.setProperty("--sx", "-500px");
+        card.style.setProperty("--sy", "-500px");
       });
+    });
+  }
+
+  /* ── Botones magnéticos (hero y CTA) ─────────────────── */
+  function initMagnetic() {
+    if (!fineHover || reduced) return;
+    $$(".hero-actions .btn, .cta-band-actions .btn, .btn-nav").forEach(function(btn) {
+      btn.addEventListener("mousemove", function(e) {
+        var r = btn.getBoundingClientRect();
+        var x = (e.clientX - r.left - r.width / 2) * 0.18;
+        var y = (e.clientY - r.top - r.height / 2) * 0.28;
+        btn.style.transform = "translate(" + x.toFixed(1) + "px," + y.toFixed(1) + "px)";
+      });
+      btn.addEventListener("mouseleave", function() { btn.style.transform = ""; });
+    });
+  }
+
+  /* ── Transición entre páginas (cortina) ──────────────── */
+  function initPageTransitions() {
+    var curtain = $(".page-curtain");
+    if (!curtain || reduced) return;
+
+    document.addEventListener("click", function(e) {
+      if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+      var a = e.target.closest ? e.target.closest("a") : null;
+      if (!a || !a.href || a.target === "_blank" || a.hasAttribute("download")) return;
+      var url = new URL(a.href, location.href);
+      if (url.origin !== location.origin) return;
+      // Ancla dentro de la misma página: scroll normal, sin cortina
+      if (url.pathname === location.pathname && url.search === location.search && url.hash) return;
+      e.preventDefault();
+      try { sessionStorage.setItem("sb-pt", "1"); } catch(err) {}
+      curtain.classList.add("is-leaving");
+      setTimeout(function() { location.href = url.href; }, 560);
+    });
+
+    // Al volver con "atrás" el navegador puede restaurar la página con la cortina cerrada
+    window.addEventListener("pageshow", function(e) {
+      if (e.persisted) curtain.classList.remove("is-leaving");
     });
   }
 
@@ -230,12 +276,15 @@
   function boot() {
     safe(initThemeToggle,    "initThemeToggle");
     safe(initNav,            "initNav");
+    safe(initLangSwitch,     "initLangSwitch");
     safe(initMouseGradient,  "initMouseGradient");
     safe(initReveals,        "initReveals");
     safe(initGroupStagger,   "initGroupStagger");
-    safe(initCountUp,        "initCountUp");
     safe(initFaq,            "initFaq");
-    safe(initPortfolioGlow,  "initPortfolioGlow");
+    safe(initScrollEffects,  "initScrollEffects");
+    safe(initCardEffects,    "initCardEffects");
+    safe(initMagnetic,       "initMagnetic");
+    safe(initPageTransitions, "initPageTransitions");
     document.documentElement.classList.add("is-ready");
   }
 

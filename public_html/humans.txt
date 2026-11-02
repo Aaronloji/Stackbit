@@ -1,17 +1,20 @@
 /* TEAM */
-  Founder & Lead Developer: Aarón López Jiménez
+  Founder & Developer: Aarón López Jiménez
   Contact: contacto@stackbitcr.com
-  WhatsApp: +506 7284-9920
-  From: San José, Costa Rica
+  X: @StackbitCR
+  Location: Costa Rica · Working worldwide
 
 /* SITE */
-  Last update: 2026-09-21
-  Language: Spanish (es-CR)
+  Last update: 2026-10-27
+  Languages: English (/en/), Spanish (/es/)
   Doctype: HTML5
   Standards: HTML5, CSS3, ES2020, Schema.org, OpenGraph
 
 /* TECHNOLOGY */
-  HTML5 · CSS3 · TypeScript · React · Node.js · Python · PostgreSQL · GSAP · Firebase · PayPal · EmailJS
+  HTML5 · CSS3 · JavaScript · EmailJS · Umami
 
-/* THANKS */
-  To every client who trusted us with their software and digital presence.
+/* CREDITS */
+  Social preview image (assets/img/hero-tech.jpg):
+  "Color BOX- Low light photography" by ||-SAM Nasim-||
+  https://www.flickr.com/photos/65732636@N06/6257833143
+  License: CC BY 2.0 — https://creativecommons.org/licenses/by/2.0/

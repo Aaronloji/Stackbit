@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<!-- ══ ANALÍTICA — GA4 + Meta Pixel + Umami ══ -->
+<script>
+/* Google Analytics 4 */
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-312SR4PJLV');
+/* Meta Pixel — stub inmediato, descarga diferida.
+   fbq() existe desde el primer instante y ENCOLA los eventos; el archivo real
+   se descarga recien al primer scroll/clic o 3 s despues de load. */
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[]}(window,document,'script');
+fbq('init','876485647272894');fbq('track','PageView');
+(function(){
+  var pedido=false;
+  var gatillos=['scroll','pointerdown','keydown','touchstart'];
+  function cargarPixel(){
+    if(pedido)return; pedido=true;
+    gatillos.forEach(function(ev){window.removeEventListener(ev,cargarPixel);});
+    var t=document.createElement('script');
+    t.async=!0; t.src='https://connect.facebook.net/en_US/fbevents.js';
+    var s=document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(t,s);
+  }
+  gatillos.forEach(function(ev){window.addEventListener(ev,cargarPixel,{passive:!0});});
+  window.addEventListener('load',function(){setTimeout(cargarPixel,3000);});
+})();
+/* Eventos propios: un mismo evento va a Umami, GA4 y Meta */
+window.sbTrack=function(nombre,ga,fb,datos){
+  datos=datos||{};
+  try{window.umami&&umami.track(nombre,datos);}catch(e){}
+  try{gtag('event',ga||nombre,datos);}catch(e){}
+  try{fb&&fbq('track',fb,datos);}catch(e){}
+};
+document.addEventListener('click',function(e){
+  var a=e.target&&e.target.closest?e.target.closest('a'):null;
+  if(!a||!a.href)return;
+  var h=a.href;
+  if(h.indexOf('wa.me')>-1) sbTrack('whatsapp_click','clic_whatsapp','Contact',{method:'whatsapp'});
+  else if(h.indexOf('mailto:')===0) sbTrack('contact_click','clic_correo','Contact',{method:'email'});
+  else if(/\/(en\/contact|es\/contacto)\/?(#.*)?$/.test(h)) sbTrack('contact_click','clic_contacto',null,{method:'page'});
+},true);
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-312SR4PJLV"></script>
+<script defer src="https://cloud.umami.is/script.js" data-website-id="f7de3f95-ebd5-48dd-83d2-0b24fda3253b"></script>
+<noscript><img height="1" width="1" style="display:none" alt=""
+src="https://www.facebook.com/tr?id=876485647272894&ev=PageView&noscript=1"></noscript>
+<!-- ══ FIN ANALÍTICA ══ -->
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- ══════════════ SEO ══════════════ -->
+  <title>Contact Stackbit — Start Your Software or Web Project</title>
+  <meta name="description" content="Tell us about your custom software, app, automation or website project. We reply within 24 hours with a free, no-commitment proposal. English and Spanish.">
+  <meta name="author" content="Stackbit">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+
+  <!-- ══════════════ CANONICAL & HREFLANG ══════════════ -->
+  <link rel="canonical" href="https://stackbitcr.com/en/contact">
+  <link rel="alternate" hreflang="en" href="https://stackbitcr.com/en/contact">
+  <link rel="alternate" hreflang="es" href="https://stackbitcr.com/es/contacto">
+  <link rel="alternate" hreflang="x-default" href="https://stackbitcr.com/en/contact">
+
+  <!-- ══════════════ OPEN GRAPH ══════════════ -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Stackbit">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:locale:alternate" content="es_ES">
+  <meta property="og:title" content="Contact Stackbit — Start Your Software or Web Project">
+  <meta property="og:description" content="Tell us about your custom software, app, automation or website project. We reply within 24 hours with a free, no-commitment proposal. English and Spanish.">
+  <meta property="og:url" content="https://stackbitcr.com/en/contact">
+  <meta property="og:image" content="https://stackbitcr.com/assets/img/hero-tech.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:alt" content="Stackbit — custom software, web and automation">
+
+  <!-- ══════════════ TWITTER CARD ══════════════ -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@StackbitCR">
+  <meta name="twitter:creator" content="@StackbitCR">
+  <meta name="twitter:title" content="Contact Stackbit — Start Your Software or Web Project">
+  <meta name="twitter:description" content="Tell us about your custom software, app, automation or website project. We reply within 24 hours with a free, no-commitment proposal. English and Spanish.">
+  <meta name="twitter:image" content="https://stackbitcr.com/assets/img/hero-tech.jpg">
+  <meta name="twitter:image:alt" content="Stackbit — custom software, web and automation">
+
+  <!-- ══════════════ THEME, ICONS, MANIFEST ══════════════ -->
+  <meta name="theme-color" content="#080808">
+  <meta name="apple-mobile-web-app-title" content="Stackbit">
+  <meta name="application-name" content="Stackbit">
+  <meta name="format-detection" content="telephone=no">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+  <link rel="manifest" href="/manifest.webmanifest">
+
+  <script>(function(){var t=null;try{t=localStorage.getItem("sb-theme")}catch(e){}t=t||(window.matchMedia("(prefers-color-scheme:dark)").matches?"dark":"light");document.documentElement.setAttribute("data-theme",t);try{if(sessionStorage.getItem("sb-pt")){sessionStorage.removeItem("sb-pt");document.documentElement.classList.add("pt-enter")}}catch(e){}}())</script>
+
+  <!-- ══════════════ PERFORMANCE ══════════════ -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
+  <link rel="stylesheet" href="/styles.min.css?v=20261028k">
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script defer src="/main.js?v=20261028k"></script>
+
+  <!-- ══════════════ STRUCTURED DATA (Schema.org JSON-LD) ══════════════ -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://stackbitcr.com/#organization",
+      "name": "Stackbit",
+      "alternateName": "StackbitCR",
+      "url": "https://stackbitcr.com/en/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://stackbitcr.com/favicon.svg"
+      },
+      "image": "https://stackbitcr.com/assets/img/hero-tech.jpg",
+      "description": "Stackbit is a remote software studio. We build custom software for businesses of any size, anywhere: management systems, mobile and web apps, AI automation, dashboards, integrations, websites and online stores. We work in English and Spanish.",
+      "founder": {
+        "@type": "Person",
+        "name": "Aarón López Jiménez",
+        "jobTitle": "Systems Engineer",
+        "alumniOf": {
+          "@type": "CollegeOrUniversity",
+          "name": "Universidad Fidélitas"
+        },
+        "sameAs": [
+          "https://aaronlopez-dev.higgsfield.app/",
+          "https://www.linkedin.com/in/aaronloji"
+        ]
+      },
+      "areaServed": "Worldwide",
+      "knowsLanguage": [
+        "en",
+        "es"
+      ],
+      "email": "contacto@stackbitcr.com",
+      "contactPoint": [
+        {
+          "@type": "ContactPoint",
+          "contactType": "sales",
+          "email": "contacto@stackbitcr.com",
+          "telephone": "+50672849920",
+          "availableLanguage": [
+            "English",
+            "Spanish"
+          ],
+          "areaServed": "Worldwide"
+        }
+      ],
+      "sameAs": [
+        "https://x.com/StackbitCR",
+        "https://www.instagram.com/stackbitcr/",
+        "https://www.facebook.com/profile.php?id=61593318867486"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://stackbitcr.com/en/#website",
+      "url": "https://stackbitcr.com/en/",
+      "name": "Stackbit",
+      "inLanguage": "en",
+      "publisher": {
+        "@id": "https://stackbitcr.com/#organization"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://stackbitcr.com/en/contact#webpage",
+      "url": "https://stackbitcr.com/en/contact",
+      "name": "Contact Stackbit — Start Your Software or Web Project",
+      "description": "Tell us about your custom software, app, automation or website project. We reply within 24 hours with a free, no-commitment proposal. English and Spanish.",
+      "inLanguage": "en",
+      "isPartOf": {
+        "@id": "https://stackbitcr.com/en/#website"
+      },
+      "about": {
+        "@id": "https://stackbitcr.com/#organization"
+      }
+    }
+  ]
+}
+  </script>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+  <div class="scroll-progress" aria-hidden="true"></div>
+  <div class="page-curtain" aria-hidden="true">
+    <div class="pc-accent"></div>
+    <div class="pc-panel"><span class="pc-logo">Stackbit<i></i></span></div>
+  </div>
+
+  <nav class="nav" id="nav" aria-label="Main navigation">
+    <a href="/en/" class="nav-logo" aria-label="Stackbit — home">
+      <span class="logo-text">Stackbit</span>
+      <span class="logo-dot" aria-hidden="true"></span>
+    </a>
+    <ul class="nav-links" role="list">
+      <li><a href="/en/software" class="nav-link">Software</a></li>
+      <li><a href="/en/services" class="nav-link">Services</a></li>
+      <li><a href="/en/#about" class="nav-link">About</a></li>
+      <li><a href="/en/contact" class="nav-link">Contact</a></li>
+    </ul>
+    <div class="lang-switch" role="group" aria-label="Language"><a href="/en/contact" class="lang-link" data-lang="en" hreflang="en" lang="en" aria-current="true">EN</a><span aria-hidden="true">|</span><a href="/es/contacto" class="lang-link" data-lang="es" hreflang="es" lang="es">ES</a></div>
+    <button class="theme-toggle" aria-label="Toggle color mode">
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" width="18" height="18" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" width="18" height="18" aria-hidden="true"><path d="M21 12.79A9 9 0 1111.21 3a7 7 0 009.79 9.79z"/></svg>
+    </button>
+    <a href="/en/contact" class="btn btn-nav">Start a project</a>
+    <button class="nav-hamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="mobile-menu" role="dialog" aria-label="Navigation menu" hidden>
+    <ul role="list">
+      <li><a href="/en/software">Software</a></li>
+      <li><a href="/en/services">Services</a></li>
+      <li><a href="/en/#about">About</a></li>
+      <li><a href="/en/contact">Contact</a></li>
+    </ul>
+    <a href="/en/contact" class="btn btn-primary">Start a project →</a>
+  </div>
+
+  <main id="main">
+
+    <section class="section-padded" style="padding-top:clamp(7rem,14vw,10rem)" aria-label="Contact form">
+      <div class="container">
+        <div class="contact-layout">
+
+          <div class="contact-intro">
+            <p class="section-kicker reveal">— Let's talk</p>
+            <h1 class="reveal contact-title">Tell us about<br>your project.</h1>
+            <p class="reveal" style="color:var(--ink-soft);margin-bottom:2.5rem;font-size:1.0625rem;max-width:40ch;line-height:1.65">
+              We reply within 24 hours with a free, no-commitment proposal.
+            </p>
+
+          </div>
+
+          <div class="contact-details">
+            <a href="mailto:contacto@stackbitcr.com" class="contact-detail reveal" style="text-decoration:none;display:flex">
+              <div class="contact-detail-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              </div>
+              <div class="contact-detail-text">
+                <strong>Email</strong>
+                <span>contacto@stackbitcr.com</span>
+              </div>
+            </a>
+
+            <div class="contact-detail reveal" style="display:flex">
+              <div class="contact-detail-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              </div>
+              <div class="contact-detail-text">
+                <strong>Availability</strong>
+                <span>We reply within 24 hours. Available during Americas and Europe business hours.</span>
+              </div>
+            </div>
+
+            <div class="contact-detail reveal" style="display:flex">
+              <div class="contact-detail-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+              </div>
+              <div class="contact-detail-text">
+                <strong>Remote, worldwide</strong>
+                <span>English and Spanish</span>
+              </div>
+            </div>
+
+            <a href="https://wa.me/50672849920?text=Hi%2C%20I%27d%20like%20to%20talk%20about%20a%20project%20for%20my%20company." class="contact-detail reveal" target="_blank" rel="noopener noreferrer" style="text-decoration:none;display:flex">
+              <div class="contact-detail-icon" aria-hidden="true" style="color:#25d366">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              </div>
+              <div class="contact-detail-text">
+                <strong>WhatsApp (optional)</strong>
+                <span>+506 7284 9920</span>
+              </div>
+            </a>
+          </div>
+
+          <div class="contact-form-col reveal">
+            <div class="contact-form-wrap">
+              <form class="contact-form" id="contactForm" novalidate>
+                <input type="hidden" name="fecha" id="fechaInput">
+                <input type="hidden" name="idioma" value="en">
+
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="nombre" class="required">Full name</label>
+                    <input id="nombre" name="nombre" type="text" class="form-input" placeholder="Jane Smith" required autocomplete="name">
+                  </div>
+                  <div class="form-group">
+                    <label for="empresa">Company</label>
+                    <input id="empresa" name="empresa" type="text" class="form-input" placeholder="Your company" autocomplete="organization">
+                  </div>
+                </div>
+
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="email" class="required">Email</label>
+                    <input id="email" name="email" type="email" class="form-input" placeholder="jane@company.com" required autocomplete="email">
+                  </div>
+                  <div class="form-group">
+                    <label for="telefono">Phone / WhatsApp (optional)</label>
+                    <input id="telefono" name="telefono" type="tel" class="form-input" placeholder="+1 555 000 0000" autocomplete="tel">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="servicio">Project type</label>
+                  <select id="servicio" name="servicio" class="form-input">
+                    <option value="" disabled selected>Select a project type…</option>
+                    <optgroup label="Software &amp; technology">
+                      <option value="Custom software / management system">Custom software / management system</option>
+                      <option value="Mobile or web app">Mobile or web app</option>
+                      <option value="Process automation or AI">Process automation or AI</option>
+                      <option value="Dashboard, integration or POS">Dashboard, integration or POS</option>
+                      <option value="Another tech idea">Another tech idea</option>
+                    </optgroup>
+                    <optgroup label="Web &amp; e-commerce">
+                      <option value="Website / landing page">Website / landing page</option>
+                      <option value="Online store">Online store</option>
+                    </optgroup>
+                    <optgroup label="Other">
+                      <option value="Maintenance or support for something existing">Maintenance or support for something existing</option>
+                      <option value="Not sure yet">Not sure yet</option>
+                    </optgroup>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label for="proyecto" class="required">Project description</label>
+                  <textarea id="proyecto" name="proyecto" class="form-textarea" placeholder="What does your company do, which process is costing you time or money, what should the system or site do, and any important details…" required rows="5"></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary form-submit" id="submitBtn">
+                  <span id="btnText">Send message</span>
+                  <span class="btn-arrow" id="btnArrow">→</span>
+                  <svg id="btnSpinner" style="display:none;animation:spin .8s linear infinite" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="16" height="16"><path d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke-opacity=".25"/><path d="M21 12a9 9 0 00-9-9" stroke-linecap="round"/></svg>
+                </button>
+                <style>@keyframes spin{to{transform:rotate(360deg)}}</style>
+              </form>
+
+              <div class="form-success" id="formSuccess" role="status" aria-live="polite" style="display:none">
+                <div class="form-success-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <h3>Message sent!</h3>
+                <p>Thanks for writing. We'll reply within 24 hours with a tailored proposal.</p>
+                <a href="/en/" class="btn btn-outline" style="margin-top:1.5rem">Back to home</a>
+              </div>
+
+              <div id="formError" class="form-error" role="alert" style="display:none">There was an error sending your message. Please try again or email us at <a href="mailto:contacto@stackbitcr.com" style="color:#ef4444;font-weight:600;text-decoration:underline">contacto@stackbitcr.com</a>.</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <a href="/en/" class="nav-logo" aria-label="Stackbit — home">
+            <span class="logo-text">Stackbit</span>
+            <span class="logo-dot" aria-hidden="true"></span>
+          </a>
+          <p>Custom <a href="/en/software" style="color:var(--accent)">software</a>, apps, automation and <a href="/en/services" style="color:var(--accent)">websites</a> for businesses of any size.</p>
+        </div>
+        <nav class="footer-nav" aria-label="Pages">
+          <h4>Pages</h4>
+          <ul role="list">
+            <li><a href="/en/">Home</a></li>
+            <li><a href="/en/software">Software</a></li>
+            <li><a href="/en/services">Services</a></li>
+            <li><a href="/en/#about">About</a></li>
+            <li><a href="/en/contact">Contact</a></li>
+          </ul>
+        </nav>
+        <div class="footer-contact">
+          <h4>Contact</h4>
+          <p><a href="mailto:contacto@stackbitcr.com">contacto@stackbitcr.com</a></p>
+          <p><a href="https://wa.me/50672849920?text=Hi%2C%20I%27d%20like%20to%20talk%20about%20a%20project%20for%20my%20company." target="_blank" rel="noopener noreferrer">WhatsApp +506 7284 9920</a></p>
+          <p><a href="https://x.com/StackbitCR" target="_blank" rel="noopener noreferrer">X · @StackbitCR</a></p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Stackbit. All rights reserved.</p>
+        <p style="font-size:.8125rem;color:var(--ink-mute)">Based in Costa Rica · Working worldwide</p>
+      </div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/50672849920?text=Hi%2C%20I%27d%20like%20to%20talk%20about%20a%20project%20for%20my%20company." class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor" width="28" height="28" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+
+  <!-- ══ EmailJS ══ -->
+  <script>
+    var EJ_PUBLIC_KEY   = 'IeA_8tVJ3KETd1Z1r';
+    var EJ_SERVICE_ID   = 'service_6yjjr6p';
+    var EJ_TEMPLATE_ID  = 'template_uowck4s';
+
+    emailjs.init({ publicKey: EJ_PUBLIC_KEY });
+
+    document.addEventListener('DOMContentLoaded', function () {
+      var form       = document.getElementById('contactForm');
+      var submitBtn  = document.getElementById('submitBtn');
+      var btnText    = document.getElementById('btnText');
+      var btnArrow   = document.getElementById('btnArrow');
+      var btnSpinner = document.getElementById('btnSpinner');
+      var successDiv = document.getElementById('formSuccess');
+      var errorDiv   = document.getElementById('formError');
+
+      document.getElementById('fechaInput').value = new Date().toLocaleDateString('en-US', {
+        weekday: 'long', year: 'numeric', month: 'long', day: 'numeric',
+        hour: '2-digit', minute: '2-digit', timeZoneName: 'short'
+      });
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        errorDiv.style.display = 'none';
+        if (!form.checkValidity()) { form.reportValidity(); return; }
+
+        submitBtn.disabled = true;
+        btnText.textContent = 'Sending…';
+        btnArrow.style.display = 'none';
+        btnSpinner.style.display = 'inline-block';
+
+        emailjs.sendForm(EJ_SERVICE_ID, EJ_TEMPLATE_ID, form)
+          .then(function () {
+            sbTrack('form_submit', 'generate_lead', 'Lead', { lang: 'en' });
+            form.style.display = 'none';
+            successDiv.style.display = 'block';
+          })
+          .catch(function (err) {
+            console.error('EmailJS error:', err);
+            submitBtn.disabled = false;
+            btnText.textContent = 'Send message';
+            btnArrow.style.display = 'inline-block';
+            btnSpinner.style.display = 'none';
+            errorDiv.style.display = 'block';
+          });
+      });
+    });
+  </script>
+
+</body>
+</html>

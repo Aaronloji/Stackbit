@@ -122,14 +122,23 @@
 <IfModule mod_rewrite.c>
   RewriteEngine On
 
-  RewriteRule ^paginas-web-restaurantes/?$      /servicios [R=301,L,NE]
-  RewriteRule ^paginas-web-barberias/?$         /servicios [R=301,L,NE]
-  RewriteRule ^tiendas-en-linea-costa-rica/?$   /servicios [R=301,L,NE]
-  RewriteRule ^mantenimiento-web-costa-rica/?$  /servicios [R=301,L,NE]
-  RewriteRule ^seo-costa-rica/?$                /servicios [R=301,L,NE]
-  RewriteRule ^portafolio/?$                    /demos     [R=301,L,NE]
-  RewriteRule ^blog/?$                          /           [R=301,L,NE]
-  RewriteRule ^blog/.*$                         /           [R=301,L,NE]
+  RewriteRule ^paginas-web-restaurantes/?$      /es/servicios [R=301,L,NE]
+  RewriteRule ^paginas-web-barberias/?$         /es/servicios [R=301,L,NE]
+  RewriteRule ^tiendas-en-linea-costa-rica/?$   /es/servicios [R=301,L,NE]
+  RewriteRule ^mantenimiento-web-costa-rica/?$  /es/servicios [R=301,L,NE]
+  RewriteRule ^seo-costa-rica/?$                /es/servicios [R=301,L,NE]
+  RewriteRule ^blog(/.*)?$                      /             [R=301,L,NE]
+
+  # Octubre 2026: el sitio pasa a /en/ y /es/. Las páginas viejas (en español)
+  # van a su equivalente en /es/; demos, propuestas y portafolio se eliminaron.
+  RewriteRule ^software(\.html)?/?$                           /es/software  [R=301,L,NE]
+  RewriteRule ^servicios(\.html)?/?$                          /es/servicios [R=301,L,NE]
+  RewriteRule ^contacto(\.html)?/?$                           /es/contacto  [R=301,L,NE]
+  RewriteRule ^(demos|portafolio)(\.html)?/?$                 /es/          [R=301,L,NE]
+  RewriteRule ^(demo-[a-z-]+|carta-restaurante)(\.html)?/?$   /es/servicios [R=301,L,NE]
+  RewriteRule ^(demo-dental|demo-vedex)(/.*)?$                /es/servicios [R=301,L,NE]
+  RewriteRule ^propuestas(/.*)?$                              /es/          [R=301,L,NE]
+  RewriteRule ^mail\.php$                                     /es/contacto  [R=301,L,NE]
 </IfModule>
 
 # ----- Pretty URLs (sin .html visible) -----
